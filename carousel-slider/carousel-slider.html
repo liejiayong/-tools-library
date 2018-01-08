@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>carousel-slider template page</title>
+    <link rel="stylesheet" href="carousel-slider.css">
+</head>
+<body>
+<!-- template slider 1 -->
+<div class="g-carousel h-carousel">
+    <ul class="g-carousel-content h-carousel-content">
+        <li class="g-carousel-item s-carousel-item "><img
+                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/1.jpg" alt=""></li>
+        <li class="g-carousel-item s-carousel-item"><img
+                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/2.jpg" alt=""></li>
+        <li class="g-carousel-item s-carousel-item"><img
+                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/3.jpg" alt=""></li>
+        <li class="g-carousel-item s-carousel-item"><img
+                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/4.jpg" alt=""></li>
+        <li class="g-carousel-item s-carousel-item"><img
+                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/5.jpg" alt=""></li>
+        <li class="g-carousel-item s-carousel-item"><img
+                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/6.jpg" alt=""></li>
+        <li class="g-carousel-item s-carousel-item"><img
+                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/7.jpg" alt=""></li>
+    </ul>
+    <div class="g-dots h-dots">
+        <span class="g-dot s-dot"></span>
+    </div>
+    <div class="g-arrow s-arrow-pre h-arrow-pre"> < </div>
+    <div class="g-arrow s-arrow-next h-arrow-next"> > </div>
+</div>
+<!-- template slider 1 end -->
+
+<script src="carousel-slider.js"></script>
+<script>
+    let container = document.querySelector('.h-carousel');
+    let opts = {
+        loop: true,
+        interval: 3500,
+        slidesPreView: 3
+    }
+    new CarouselSlider(container, opts)
+</script>
+</body>
+</html>

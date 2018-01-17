@@ -1,0 +1,28 @@
+body {
+  height: 100%; }
+
+#container {
+  position: relative;
+  height: 100%; }
+  #container .content {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    #container .content .box {
+      padding: 5px;
+      float: left;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box; }
+      #container .content .box .box-img {
+        padding: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 5px #ccc;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px; }
+        #container .content .box .box-img img {
+          width: 200px;
+          height: auto; }
+
+/*# sourceMappingURL=style.css.map */

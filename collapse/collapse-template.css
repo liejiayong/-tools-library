@@ -1,0 +1,67 @@
+.collapse-container {
+  padding: 1%;
+  width: 100%;
+  font-weight: 300;
+}
+.collapse-container .headline {
+  margin: 0 0 20px;
+  text-indent: 5px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.collapse-container .collapse-content {
+  overflow: hidden;
+}
+.collapse-container .collapse-content .collapse-item {
+  position: relative;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid #999;
+}
+.collapse-container .collapse-content .collapse-item .collapse-item-title {
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+.collapse-container .collapse-content .collapse-item .collapse-item-title > * {
+  height: 40px;
+  line-height: 40px;
+}
+.collapse-container .collapse-content .collapse-item .collapse-item-title:after {
+  content: ">";
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: right;
+  font-size: 0.85rem;
+  font-weight: 300;
+}
+.collapse-container .collapse-content .collapse-item .collapse-item-title .title {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+.collapse-container .collapse-content .collapse-item .collapse-item-content {
+  display: none;
+  margin: 15px 0.2%;
+  transform-origin: top;
+  transition: width, height, opacity 0.3s;
+}
+.collapse-container .collapse-content .collapse-item .collapse-item-content .title {
+  margin: 15px 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+.collapse-container .collapse-content .collapse-item .collapse-item-content p {
+  margin: 15px 0;
+  font-size: 0.85rem;
+}

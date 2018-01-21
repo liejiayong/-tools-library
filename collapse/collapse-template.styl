@@ -1,0 +1,58 @@
+$width-height = 40px
+
+.collapse-container
+  padding: 1%
+  width: 100%
+  font-weight: 300
+  .headline
+    margin: 0 0 20px
+    text-indent: 5px
+    font-size: 18px
+    font-weight: 400
+  .collapse-content
+    overflow: hidden
+    .collapse-item
+      position: relative
+      margin: 0
+      -webkit-box-sizing: border-box
+      -moz-box-sizing: border-box
+      box-sizing: border-box
+      border-bottom: 1px solid #999
+      .collapse-item-title
+        position: relative
+        height: $width-height
+        line-height: $width-height
+        font-size: .85rem
+        font-weight: 400
+        cursor: pointer
+        & > *
+          height: $width-height
+          line-height: $width-height
+        &:after
+          content: ">"
+          position: absolute
+          display: inline-block
+          top: 0
+          right: 0
+          width: $width-height
+          height: $width-height
+          line-height: $width-height
+          text-align: right
+          font-size: .85rem
+          font-weight: 300
+        .title
+          margin: 0
+          font-size: inherit
+          font-weight: inherit
+      .collapse-item-content
+        display: none
+        margin: 15px 0.2%
+        transform-origin: top
+        transition: width,height,opacity .3s
+        .title
+          margin: 15px 0
+          font-size: .85rem
+          font-weight: 400
+        p
+          margin: 15px 0
+          font-size: .85rem

@@ -1,6 +1,7 @@
 /**
  * @name: js 原生轮播图
  * @description: 轮播图实现的功能有：可配置参数、鼠标经过悬停、移动端端鼠标滑动下一张、pc端鼠标滑动下一张、自动播放、图片自适应图片大小、图片自适应屏幕切换等，是一个轻量、使用、强大的轮播图插件
+ * @version: 0.3
  * @author: 家永(809206619@qq.com | liejystephen@gmail.com)
  * @update: 2017-12-30 00:02
  */
@@ -39,7 +40,7 @@ class CarouselSlider {
 
     play(index) {
         let width = -this._getMoveOffset(index);
-        this.sliderContainer.style.cssText = `transform:translate3d(${width}px,0,0);transition:.5s all`;
+        this.sliderContainer.style.cssText = `transform:translate3d(${width}px,0,0);transition:.5s all;user-select:none`;
     }
 
     event() {
@@ -67,7 +68,6 @@ class CarouselSlider {
 
         this.container.addEventListener('click', function (e) {
             e = e || window.event;
-            e.preventDefault();
             let target = e.target || e.srcElement;
             if (target === PreBtn) {
                 lastView();
@@ -116,7 +116,6 @@ class CarouselSlider {
         this.container.addEventListener('touchstart', function (e) {
             clearTimeout(that.timer);
             e = e || window.event;
-            e.preventDefault();
             isTouchEnd = true;
 
             let {targetTouches} = e;
@@ -133,7 +132,6 @@ class CarouselSlider {
 
         this.container.addEventListener('touchend', function (e) {
             e = e || window.event;
-            e.preventDefault();
             isTouchEnd = false;
             touchState.diff = touchState.x2 - touchState.x1;
             if (Math.abs(touchState.diff) > 80 && !isTouchEnd) {
@@ -148,7 +146,7 @@ class CarouselSlider {
         });
 
         window.addEventListener('resize', function () {
-            console.log('222')
+            console.log('window changed!')
             that._initSliderWidth();
             that._initElement();
         });
@@ -192,16 +190,63 @@ class CarouselSlider {
             dotsContainerCls: '.h-dots',
             arrowPreCls: '.h-arrow-pre',
             arrowNextCls: '.h-arrow-next',
-            fullWidth: true
+            fullWidth: false,
+            breakPoints: {
+                900: {
+                    slidesPreView: 3
+                },
+                600: {
+                    slidesPreView: 2
+                }
+            }
         }
 
         /* initial */
         this.options = Object.assign({}, defaultOpts, opts);
         this.sliderContainer = this.container.querySelector(this.options['sliderContainerCls']);
         this.sliderItem = this.container.querySelectorAll(this.options['sliderItemCls']);
-        this.containerWidth = this.container.offsetWidth;
         this.sliderItemWidth = this.sliderItem.offsetWidth;
         this.slidesPreView = this.options['slidesPreView'];
+    }
+
+    /**
+     *  序列化BreakPoints对象，以breakpoint像素从大到小排列
+     * @param breakPoints 传入breakpoints对象
+     * @returns {Array} 返回breakpoint像素从大到小排列的数组信息
+     * @private
+     */
+    _normalizeBreakPoints(breakPoints) {
+        if (typeof breakPoints === 'object' && typeof breakPoints !== 'function' && !(breakPoints instanceof Array)) {
+            let origin = [];
+            for (let key in breakPoints) {
+                origin.push([
+                    parseInt(key),
+                    breakPoints[key]['slidesPreView']
+                ])
+            }
+            origin.sort(function (a, b) {
+                return a < b;
+            })
+            return origin;
+        } else {
+            console.error(JSON.stringify(breakPoints), 'is not a Object')
+        }
+    }
+
+    _getSlidesPreView(breakPoints) {
+        let winClientWidth = document.documentElement.clientWidth,
+            slidesPreView = this.options['slidesPreView'];
+
+        breakPoints = this._normalizeBreakPoints(breakPoints);
+        breakPoints.forEach((val) => {
+            if (winClientWidth > val[0]) {
+                return slidesPreView
+            } else {
+                slidesPreView = val[1]
+            }
+        })
+        //都不符合条件返回最后一个像素对应的sliderItem数
+        return slidesPreView;
     }
 
     _initSliderWidth() {
@@ -210,14 +255,16 @@ class CarouselSlider {
         } else if (this.slidesPreView && typeof this.slidesPreView === 'number') {
             let contentWidth, //sliderContainer 的宽度
                 sliderItemWidth, //sliderContainer item 的宽度
+                breakPoints = this.options['breakPoints'],
                 slidesPreView = this.slidesPreView;
+            if (this.options['breakPoints']) slidesPreView = this._getSlidesPreView(breakPoints)
             if (this.options['fullWidth']) {
                 contentWidth = document.documentElement.clientWidth;
             } else {
-                contentWidth = this.containerWidth;
+                contentWidth = this.container.offsetWidth;
             }
             sliderItemWidth = contentWidth / slidesPreView | 0;
-            let cssText = `width:${sliderItemWidth}px;flex:0 0 ${sliderItemWidth}px`;
+            let cssText = `;width:${sliderItemWidth}px;max-width:${sliderItemWidth}px;flex:0 0 ${sliderItemWidth}px`;
             this.sliderItemWidth = sliderItemWidth;
             this.sliderItem.forEach((item) => {
                 item.style.cssText = cssText;

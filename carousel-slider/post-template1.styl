@@ -1,0 +1,220 @@
+.text-left
+  text-align: left
+
+.text-center
+  text-align: center
+
+.text-right
+  text-align: right
+
+.text-uppercase
+  text-transform: uppercase
+
+.text-lowercase
+  text-transform: lowercase
+
+.text-capitalize
+  text-transform: capitalize
+
+ul
+  margin: 0
+  padding: 0
+  list-style-type: none
+
+a
+  text-decoration: none
+
+s-height($height)
+  height: $height
+  line-height: $height
+
+line-clamp()
+  display: -webkit-box
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis
+
+@keyframes shake{
+  0%{
+    transform: translate3d(-100%,0,0)
+  }
+  100%{
+    transform: translate3d(100%,0,0)
+  }
+}
+
+
+$color-theme = rgba(89 182, 81, 1)
+$color-bg = rgba(255, 255, 255, 0.85)
+$color-text = #232323
+$color-text-grey = rgb(153, 153, 153)
+$width-gutter = 1vw
+
+$width-mask = 66%
+$width-mask-gutter = ((100% - $width-mask) / 2)
+
+$row = 4
+$row-pad = 3
+$row-mobile = 2
+
+$width-content = floor((100% / $row) - $width-gutter)
+$width-content-pad = floor((100% / $row-pad) - $width-gutter)
+$width-content-mobile = floor((100% / $row-mobile) - $width-gutter)
+
+.g-flex
+  display: -ms-flexbox
+  display: -moz-box
+  display: -webkit-box
+  display: flex
+
+.g-recent-post
+  position: relative
+  overflow: hidden
+  height: 100%
+  .g-recent-post-headline
+    margin: 20px 0
+    padding: 0
+    font-size: 20px
+  .g-translate
+    @media (min-width:700px)
+      &:before
+        position: absolute;
+        top: -15px;
+        left: 0;
+        width: 12%;
+        height: 104%;
+        content: '';
+        background-color: #ccc;
+      &:after
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        width: 12%;
+        height: 104%;
+        content: '';
+        background-color: #ccc;
+        z-index: -1
+    .g-recent-post-item
+      position: relative
+      margin: 0 auto
+      background-color: #fff
+      mix-blend-mode: overlay
+      &:after
+        display: block;
+        position: absolute;
+        top: -15px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 15px;
+        background-color: #fff;
+        content: '';
+        z-index:1
+      &.g-flex
+        flex-wrap: nowrap
+        justify-content: flex-start
+        .g-flex-item
+          flex: 0 0 $width-content
+          width: $width-content
+          @media (max-width: 900px)
+            flex: 0 0 $width-content-pad
+            width: $width-content-pad
+            max-width: $width-content-pad
+          @media (max-width: 600px)
+            flex: 0 0 $width-content-mobile
+            width: $width-content-mobile
+            max-width: $width-content-mobile
+          &.g-post-content
+            position: relative
+            padding: 0 $width-gutter
+            background-color: $color-bg
+            -webkit-box-sizing: border-box
+            -moz-box-sizing: border-box
+            box-sizing: border-box
+            &:before
+              display: block;
+              position: absolute;
+              top: -15px;
+              left: 12%;
+              right: 12%;
+              width: 76%;
+              height: 15px;
+              background-color: #555;
+              content: '';
+              z-index: 2
+            .link
+              display: block
+            .g-post-image
+              position: relative
+              width: 100%
+              height: 100%
+              z-index: 100
+
+              img
+                width: 100%
+                max-width: 100%
+                min-height: 250px
+            .g-mask
+              position: absolute
+              left: $width-mask-gutter
+              right: $width-mask-gutter
+              bottom: ($width-mask-gutter - 4%)
+              width: $width-mask
+              height: 180px
+              overflow: hidden
+              z-index: 110
+              -webkit-box-sizing: border-box
+              -moz-box-sizing: border-box
+              box-sizing: border-box
+              background-color: $color-bg
+              .g-post-data
+                s-height(60px)
+                font-size: 16px
+                color: $color-theme
+              .g-post-title
+                margin: 0
+                padding: 0 5%
+                height: 80px
+                font-size: 16px
+                .post-title
+                  color: #000
+                  line-clamp()
+              .g-read-more-btn
+                display: block
+                width: 99%
+                border: 0
+                s-height(38px)
+                font-size: 14px
+                color: #fff
+                background-color: $color-theme
+                -webkit-box-shadow: 2px 2px 8px #51ad4a
+                -moz-box-shadow: 2px 2px 8px #51ad4a
+                box-shadow: 2px 2px 8px #51ad4a
+                -webkit-box-sizing: border-box
+                -moz-box-sizing: border-box
+                box-sizing: border-box
+                transition: box-shadow,opacity  .3s
+                &:hover
+                  opacity: 0.85
+                  -webkit-box-shadow: none
+                  -moz-box-shadow: none
+                  box-shadow: none
+                  transition: box-shadow,opacity  .3s
+  .g-arrow
+    position: absolute
+    display: inline-block
+    top: 50%
+    right: 10%
+    width: 50px
+    height: 50px
+    line-height: 50px
+    z-index: 1000
+    text-align: center
+    font-size: 1.7rem
+    color: #000
+    cursor: pointer
+    &.s-arrow-pre
+      left: 11%
+    &.s-arrow-next
+      left: 86%

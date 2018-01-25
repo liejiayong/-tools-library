@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0, minimum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>modal template page</title>
+</head>
+<body>
+
+<link rel="stylesheet" href="modal-template.css">
+
+<!-- modal template page 1  -->
+
+<button class="model-pop" data-toggle="modal" data-target="#video" role="button">
+   POP
+</button>
+
+<div id="video" class="dialog-container fade in" tabindex="-1" role="dialog">
+    <div class="dialog-header" role="document">
+        <div class="title text-uppercase">BONJANVYE CAREERS</div>
+        <a type="button" class="close" data-dismiss="modal">x</a>
+    </div>
+    <div class="dialog-inner" role="document">
+        <div class="dialog-content">
+            <div class="columns-content">
+                <div class="column-item">
+                    <h3 class="title">AMERICA</h3>
+                    <a class="link" href="">MÉXICO</a>
+                    <a class="link" href="">CANADA</a>
+                </div>
+                <div class="column-item">
+                    <h3 class="title">EUROPE</h3>
+                    <a class="link" href="">BELGIUM</a>
+                    <a class="link" href="">RUSSIA</a>
+                </div>
+                <div class="column-item">
+                    <h3 class="title">ASIA - PACIFIC</h3>
+                    <a class="link" href="">JAPAN</a>
+                </div>
+                <div class="column-item">
+                    <h3 class="title">MIDDLE EAST</h3>
+                    <a class="link" href="">DUBAI</a>
+                </div>
+            </div>
+        </div>
+        <div class="dialog-footer">
+            <!--<button type="button" class="close" data-dismiss="modal"></button>-->
+        </div>
+    </div>
+</div>
+<div class="modal-mask"></div>
+
+<!-- modal template page 1 end -->
+
+
+<script src="js/modal.min.js"></script>
+<script>
+    const container = document.querySelector('.dialog-container')
+    const m = new Modal(container, {
+        maskCls: '.modal-mask',
+        closeCls: '.close',
+        modalPopCls: '.model-pop',
+        breakPoint: '600',
+        modelWidth: '670px',
+        modelHeight: '520px',
+        deviceClientWidth: document.documentElement.clientWidth || body.clientWidth,
+        containerStyle: ''
+    })
+</script>
+
+</body>
+</html>

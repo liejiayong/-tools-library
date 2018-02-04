@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas-offcanvas</title>
+    <style>
+        canvas#offcanvas {
+            position: absolute;
+            right: 0px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<canvas id="shop-image" style="border:1px solid #ccc;background: #000">你的浏览器不支持canvas</canvas>
+<canvas id="offcanvas" style=""></canvas>
+<input id="range-rangeScale" type="range" min="0.5" max="3.0" step="0.01" style="display: block;width: 80%"/>
+
+<script type="text/javascript">
+    window.onload = function () {
+        var canvas = document.querySelector('#shop-image');
+        var offcanvas = document.querySelector('#offcanvas');
+        var range = document.querySelector('#range-rangeScale');
+
+        var rangeScale = 1;
+        var scale = 1;
+        var point = null;
+        var isDown = false;
+
+        var context = canvas.getContext('2d');
+        var offcontext = offcanvas.getContext('2d');
+
+        canvas.width = 600;
+        canvas.height = 700;
+        var image = new Image();
+        image.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTOxFsG_RcwsoBuLpnEg-xA9VJZjTI4IXdRqgzB2aHQ43ApTo2hA';
+        function windowToCanvas(x, y) {
+            var bbox = canvas.getBoundingClientRect();
+            return {x: x - bbox.left, y: y - bbox.top};
+        }
+
+        image.onload = function () {
+            offcanvas.width = image.width;
+            offcanvas.height = image.height;
+            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+            offcontext.drawImage(image, 0, 0, offcanvas.width, offcanvas.height);
+            scale = offcanvas.width / canvas.width;
+            rangeScaleImage(rangeScale);
+            range.onmousemove = function () {
+                rangeScale = range.value;
+                rangeScaleImage(rangeScale);
+            }
+        }
+
+        canvas.onmousedown = function (e) {
+            e.preventDefault();
+            isDown = true;
+            point = windowToCanvas(e.clientX, e.clientY);
+            drawCanvasoffcanvas(true, point);
+//            console.log(point.x+":"+point.y)
+        }
+        canvas.onmousemove = function (e) {
+            e.preventDefault();
+            point = windowToCanvas(e.clientX, e.clientY);
+            if (isDown) {
+                drawCanvasoffcanvas(true, point);
+            }
+        }
+        canvas.onmouseup = function (e) {
+            e.preventDefault();
+            isDown = false;
+            drawCanvasoffcanvas(false, point);
+        }
+        canvas.onmouseout = function (e) {
+            e.preventDefault();
+            isDown = false;
+            drawCanvasoffcanvas(false, point);
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        }
+
+
+
+
+        function drawCanvasoffcanvas(isShow, point) {
+
+            if (isShow) {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.drawImage(image, 0, 0, canvas.width, canvas.height);
+                drawoffcanvas(point);
+            }
+        }
+
+        function drawoffcanvas(point) {
+            var r = 200;
+            var imageLg_cx = point.x * scale;
+            var imageLg_cy = point.y * scale;
+            var sx = imageLg_cx - r;
+            var sy = imageLg_cy - r;
+            var dx = point.x - r;
+            var dy = point.y - r;
+            context.save();
+            context.strokeStyle = '#fff';
+            context.lineWidth = 5;
+            context.beginPath();
+            context.arc(point.x, point.y, r, 0, 2 * Math.PI, false);
+            context.stroke();
+            context.clip();
+            context.drawImage(offcanvas , sx , sy , 2 * r , 2 * r , dx , dy , 2 * r , 2 * r);
+            context.restore();
+        }
+
+        function rangeScaleImage(rangeScale) {
+            var imageWidth = canvas.width * rangeScale;
+            var imageHeight = canvas.height * rangeScale;
+            var x = canvas.width / 2 - imageWidth / 2;
+            var y = canvas.height / 2 - imageHeight / 2;
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(image, x, y, imageWidth, imageHeight);
+
+        }
+
+
+    }
+</script>
+</body>
+</html>

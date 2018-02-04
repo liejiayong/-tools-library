@@ -1,0 +1,15 @@
+{
+  "dependencies": {},
+  "name": "jslint-regular",
+  "version": "1.0.0",
+  "description": "eslint configuration file",
+  "main": "app.js",
+  "devDependencies": {
+    "eslint": "^4.16.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "liejy",
+  "license": "MIT"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "frame-animation",
+  "version": "0.0.1",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  }
+}

@@ -1,0 +1,61 @@
+$width-btn-icon = 24px
+$width-emoji-panel = 390px
+$height-emoji-panel = 175px
+$width-padding = 3px
+
+.emoji-package-container
+  position: relative
+  z-index: 1000
+  .emoji-btn-container
+    padding: $width-padding
+    width: 100%
+    overflow: auto
+    font-size: 0
+    .emoji-btn
+      display: inline-block
+      width: $width-btn-icon
+      height: $width-btn-icon
+      line-height: $width-btn-icon
+      font-size: 14px
+      font-weight: normal
+      text-indent: 40px
+      background-image: url('../images/smile.svg')
+      background-size: $width-btn-icon  $width-btn-icon
+      background-repeat: no-repeat
+      outline: none
+  .emoji-panal
+    display: none
+    padding: 0
+    margin: $width-padding
+    border: 1px #ccc solid
+    width: $width-emoji-panel
+    .loading
+      text-align: center
+      font-size: 16px
+    .emoji-list
+      padding: 0
+      margin: 0
+      width: $width-emoji-panel
+      height: $height-emoji-panel
+      -webkit-box-sizing: border-box
+      -moz-box-sizing: border-box
+      box-sizing: border-box
+      overflow: auto
+      cursor: pointer
+      .emoji-item
+        display: inline-block
+        margin: 0
+        padding: 0
+        list-style-type: none
+        width: $width-btn-icon
+        height: $width-btn-icon
+        line-height: $width-btn-icon
+        text-align: center
+        border: 1px #fff solid
+        &:hover
+          border-color: #0b97c4
+        &
+          .icon
+            max-width: 100%
+
+

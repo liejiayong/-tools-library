@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>proload cartoon</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>proload image</title>
+    <link rel="stylesheet" href="asset/style/proload-image.css">
+</head>
+<body>
+
+<div class="image-container">
+    <div class="image-content">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518150652242&di=2c7805e55a14c7fc8108aff9bc2c4cbe&imgtype=0&src=http%3A%2F%2Fatt.bbs.duowan.com%2Fforum%2F201506%2F26%2F0804567ojkwevgfxlz2tjt.jpg"
+             alt="" class="image image-hook">
+    </div>
+    <div class="btn-container btn-hook">
+        <a class="btn btn-hook" data-arrow="pre">上一张</a>
+        <a class="btn btn-hook" data-arrow="next">下一张</a>
+    </div>
+    <div class="loading loading-hook">
+        <span class="percent-hook">0</span>%加载中，请稍后...
+    </div>
+</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="asset/js/jQuery.proload.js"></script>
+<script>
+    (function ($) {
+        $(function () {
+            const imgList = [
+                'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518150652242&di=d588d95fb1bd3492a8d58b526d145bd6&imgtype=0&src=http%3A%2F%2Fimg.dwstatic.com%2Fwow%2F1710%2F370781903085%2F1506826874780.jpg',
+                'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518150652242&di=ea3fe3bc2946c7779f563734ee241b46&imgtype=0&src=http%3A%2F%2Fatt.bbs.duowan.com%2Fforum%2F201307%2F17%2F135951vadffno6xnn1n7gw.jpg',
+                'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518150652241&di=a59344c89c8e72ede16fecbc9836880c&imgtype=0&src=http%3A%2F%2Fs1.dwstatic.com%2Fgroup1%2FM00%2F7D%2FA7%2F33bb7d8f0d5411a90a2b2eda69dc791c.jpg',
+                'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518150652239&di=27a91c67136b6aef43fdcbb5528fa946&imgtype=0&src=http%3A%2F%2Fimg5.178.com%2Fwow%2F201608%2F266188810355%2F266188985142.jpg',
+                'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518150652240&di=0e9525b06d267d566be4092a5ecdb5b3&imgtype=0&src=http%3A%2F%2Fi.17173cdn.com%2F2fhnvk%2FYWxqaGBf%2Fcms3%2FdPSbQXblrjzlzAE.jpg',
+                'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3160572500,67680143&fm=27&gp=0.jpg'
+            ];
+            let len = imgList.length,
+                count = 0;
+            $.proload(imgList, {
+                each: function (count) {
+                    let percent = (count + 1) / len * 100 | 0;
+                    $('.percent-hook').text(percent);
+                },
+                all: function () {
+                    $('.loading-hook').hide();
+                }
+            })
+            $('.btn-hook').on('click', '.btn-hook', function () {
+                let current = $(this);
+                if ('pre' === current.attr('data-arrow')) {
+                    count = Math.max(0, --count);
+                } else {
+                    count = Math.min(++count, len - 1);
+                }
+                $('.image-hook').attr('src', imgList[count]);
+            })
+            $('.image-hook').attr('src', imgList[count]);
+        });
+    }(jQuery));
+</script>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,62 @@
+.emoji-package-container {
+  position: relative;
+  z-index: 1000;
+}
+.emoji-package-container .emoji-btn-container {
+  padding: 3px;
+  width: 100%;
+  overflow: auto;
+  font-size: 0;
+}
+.emoji-package-container .emoji-btn-container .emoji-btn {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: normal;
+  text-indent: 40px;
+  background-image: url("../images/smile.svg");
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  outline: none;
+}
+.emoji-package-container .emoji-panal {
+  display: none;
+  padding: 0;
+  margin: 3px;
+  border: 1px #ccc solid;
+  width: 390px;
+}
+.emoji-package-container .emoji-panal .loading {
+  text-align: center;
+  font-size: 16px;
+}
+.emoji-package-container .emoji-panal .emoji-list {
+  padding: 0;
+  margin: 0;
+  width: 390px;
+  height: 175px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: auto;
+  cursor: pointer;
+}
+.emoji-package-container .emoji-panal .emoji-list .emoji-item {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border: 1px #fff solid;
+}
+.emoji-package-container .emoji-panal .emoji-list .emoji-item:hover {
+  border-color: #0b97c4;
+}
+.emoji-package-container .emoji-panal .emoji-list .emoji-item .icon {
+  max-width: 100%;
+}

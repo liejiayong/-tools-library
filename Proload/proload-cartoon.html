@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>proload cartoon</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>proload image</title>
+    <link rel="stylesheet" href="asset/style/proload-image.css">
+</head>
+<body>
+
+<div class="image-container">
+    <div class="image-content">
+        <img src="http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/01.png?b5808524"
+             alt="" class="image image-hook">
+    </div>
+    <div class="btn-container btn-hook">
+        <a class="btn btn-hook" data-arrow="pre">上一张</a>
+        <a class="btn btn-hook" data-arrow="next">下一张</a>
+    </div>
+</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="asset/js/jQuery.proload.js"></script>
+<script>
+    (function ($) {
+        $(function () {
+            const imgList = [
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/01.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/02.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/03.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/04.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/05.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/06.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/07.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/08.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/09.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/10.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/11.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/12.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/13.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/14.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/15.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/16.png?b5808524',
+                'http://pic04.ishuhui.com/cartoon/book-1/1/894-10464/17.png?b5808524'
+            ];
+            let len = imgList.length,
+                count = 0;
+            $.proload(imgList, {
+                order: 'order',
+            })
+            $('.btn-hook').on('click', '.btn-hook', function () {
+                let current = $(this);
+                if ('pre' === current.attr('data-arrow')) {
+                    count = Math.max(0, --count);
+                } else {
+                    count = Math.min(++count, len - 1);
+                }
+                $('.image-hook').attr('src', imgList[count]);
+            })
+            $('.image-hook').attr('src', imgList[count]);
+        });
+    }(jQuery));
+</script>
+</body>
+</html>
+</body>
+</html>

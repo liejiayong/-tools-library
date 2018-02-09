@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>proload icon</title>
+    <link rel="stylesheet" href="asset/style/proload-icon.css">
+</head>
+<body>
+
+<div class="emoji-package-container">
+    <div class="emoji-btn-container">
+        <a href="javascript:;" class="emoji-btn emoji-hook" data-emoji="qq"></a>
+    </div>
+    <div class="emoji-panal emoji-panel-hook">
+        <div class="loading">表情加载中，请稍后...</div>
+    </div>
+
+</div>
+
+<div class="editor">
+
+</div>
+<!--li.emoji-item>img[src="asset/icon/qq/$.gif"].qq-hook.icon-->
+
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script src="asset/js/jQuery.proload.js"></script>
+<script>
+    (function ($) {
+        $(function () {
+            const qqLen = 132,
+                qqPath = 'asset/icon/qq/',
+                qqExt = 'gif';
+            const panel = $('.emoji-panel-hook');
+            let imageList = getIconList(qqLen, qqPath, qqExt);
+            $('.emoji-hook').on('click', function (e) {
+                e = e || window.event;
+                e.stopPropagation();
+                panel.toggle();
+                const pre = '<li class="emoji-item"><img src="';
+                const next = '" alt="" class="qq-hook icon"></li>';
+
+                $.proload(imageList, {
+                    all: function () {
+                        panel.html(' ');
+                        let html = '<ul class="emoji-list">';
+                        html += getIconHTML(imageList, pre, next);
+                        html += '</ul>';
+                        panel.html(html);
+                    }
+                });
+            });
+            $('html body').on('click', function (e) {
+                console.log('html body', e)
+                panel.hide();
+            });
+
+            $('.emoji-panel-hook').on('click', 'img.icon', function (e) {
+                console.log('.emoji-list-hook', e)
+                e = e || window.event;
+                e.stopPropagation();
+
+                let tar = e.target || window.srcElement;
+                $(tar).clone().appendTo('.editor')
+            });
+
+            function getIconHTML(imageList, preFixer, nextFixer) {
+                if (imageList.length <= 0) return
+                const len = imageList.length - 1;
+                let ret = '';
+                for (let i = 0; i <= len; i++) {
+                    ret += preFixer + imageList[i] + nextFixer;
+                }
+                return ret;
+            }
+
+            function getIconList(count, path, ext) {
+                if (!count) return;
+                let ret = [];
+                for (let i = 1; i <= count; i++) {
+                    ret.push(
+                        path + i + '.' + ext
+                    );
+                }
+                return ret;
+            }
+        });
+    }(jQuery));
+</script>
+</body>
+</html>

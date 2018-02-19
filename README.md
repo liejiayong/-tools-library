@@ -8,6 +8,8 @@ store the js  tools library
 
 --^……^*
 
++ proload --- 一个轻量的基于jQuery的图片预加载插件
+
 ## 2017年新增插件
 
 + 

@@ -1,16 +1,17 @@
 # -tools-library
 
-store the js  tools library
+A store with js  tools library and plugins
 
 # 插件库记录
 
-## 2018年新增插件
+## 2018年春节后新增插件、工具库
 
 --^……^*
 
 + proload --- 一个轻量的基于jQuery的图片预加载插件
++ common --- 汇集常用工具函数
 
-## 2017年新增插件
+## 2017年新增插件、工具库
 
 + 
 + modal --- 一个轻便、功能强大、可自定义配置的模态框插件
@@ -24,6 +25,6 @@ store the js  tools library
 + waterFall ---瀑布流插件
 + 数组去重函数
 + magnifying --- 放大镜功能
-+ DOM-function --- dom工具函数
++ DOM-function --- dom工具函数（已删除）
 + animation-tool --- 动画requertAnimationFram的folyfill
 + cookie --- cookie工具函数

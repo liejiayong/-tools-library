@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <title>easySlide template page</title>
+        <link rel="stylesheet" href="carousel-slider.css">
+</head>
+
+<body>
+        <!-- template slider 1 -->
+        <div class="g-carousel h-slide">
+                <ul class="g-carousel-content h-slide-content">
+                        <li class="g-carousel-item s-carousel-item h-slide-item">
+                                <img src="images/1.jpg" alt="">
+                        </li>
+                        <li class="g-carousel-item s-carousel-item h-slide-item">
+                                <img src="images/2.jpg" alt="">
+                        </li>
+                        <li class="g-carousel-item s-carousel-item h-slide-item">
+                                <img src="images/3.jpg" alt="">
+                        </li>
+                        <li class="g-carousel-item s-carousel-item h-slide-item">
+                                <img src="images/4.jpg" alt="">
+                        </li>
+                        <li class="g-carousel-item s-carousel-item h-slide-item">
+                                <img src="images/5.jpg" alt="">
+                        </li>
+                        <li class="g-carousel-item s-carousel-item h-slide-item">
+                                <img src="images/6.jpg" alt="">
+                        </li>
+                        <li class="g-carousel-item s-carousel-item h-slide-item">
+                                <img src="images/7.jpg" alt="">
+                        </li>
+                </ul>
+                <div class="g-dots h-dots">
+                        <span class="g-dot s-dot"></span>
+                </div>
+                <div class="g-arrow s-arrow-pre h-arrow-pre"> &lt; </div>
+                <div class="g-arrow s-arrow-next h-arrow-next"> &gt; </div>
+        </div>
+        <!-- template slider 1 end -->
+        <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+        <script src="js/jQuery.easySlide.js"></script>
+        <script>
+                let opts = {
+                        contentCls: ".h-slide-content",
+                        slideItemCls: ".h-slide-item",
+                        arrowCls: {
+                                preCls: "h-arrow-pre",
+                                nextCls: "h-arrow-next"
+                        },
+                        animation: "fade"
+                }
+                $.EasySlide($('.h-slide'), opts);
+
+        </script>
+</body>
+
+</html>

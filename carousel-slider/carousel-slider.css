@@ -17,8 +17,8 @@ ul {
   width: 100%;
 }
 .g-carousel .g-carousel-content .g-carousel-item {
-  flex: 0 0 80%;
-  width: 80%;
+  flex: 0 0 100%;
+  width: 100%;
 }
 .g-carousel .g-carousel-content .g-carousel-item.s-carousel-item {
   margin: 0 auto;

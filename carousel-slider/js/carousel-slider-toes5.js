@@ -4,278 +4,385 @@
  * @author: 家永(809206619@qq.com | liejystephen@gmail.com)
  * @update: 2017-12-30 00:02
  */
-
-'use strict';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var CarouselSlider = function () {
-    function CarouselSlider(container, options) {
-        _classCallCheck(this, CarouselSlider);
-
-        this.carousel = this;
-        this.container = container;
-        this.options = {};
-        this.index = 1;
-        this.timer = null;
-        this._init(options);
+"use strict";
+var _typeof =
+    "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
+      ? function(c) {
+          return typeof c;
+        }
+      : function(c) {
+          return c &&
+          "function" == typeof Symbol &&
+          c.constructor === Symbol &&
+          c !== Symbol.prototype
+            ? "symbol"
+            : typeof c;
+        },
+  _createClass = (function() {
+    function c(d, f) {
+      for (var h, g = 0; g < f.length; g++)
+        (h = f[g]),
+          (h.enumerable = h.enumerable || !1),
+          (h.configurable = !0),
+          "value" in h && (h.writable = !0),
+          Object.defineProperty(d, h.key, h);
     }
-
-    /**
-     *  判断是否开启自动滑动
-     */
-
-
-    _createClass(CarouselSlider, [{
-        key: 'isLoop',
+    return function(d, f, g) {
+      return f && c(d.prototype, f), g && c(d, g), d;
+    };
+  })();
+function _classCallCheck(c, d) {
+  if (!(c instanceof d))
+    throw new TypeError("Cannot call a class as a function");
+}
+var CarouselSlider = (function() {
+  function c(d, f) {
+    _classCallCheck(this, c),
+      (this.carousel = this),
+      (this.container = d),
+      (this.options = {}),
+      (this.index = 1),
+      (this.timer = null),
+      this._init(f);
+  }
+  return (
+    _createClass(c, [
+      {
+        key: "isLoop",
         value: function isLoop() {
-            if (this.options['loop']) {
-                //计算最后一块滑块的索引值
-                var _loop = function _loop(that) {
-                    that.timer = setTimeout(function () {
-                        that.index = that.index < moveView ? that.index + 1 : 1;
-                        that.play(that.index);
-                        _loop(that);
-                    }, that.options['interval']);
-                };
-
-                var len = this.sliderItem.length;
-                var preView = this.slidesPreView;
-                var moveView = len - preView + 1;
-
-                _loop(this);
-            }
+          if (this.options.loop) {
+            var h = function(j) {
+                j.timer = setTimeout(function() {
+                  (j.index = j.index < d - f + 1 ? j.index + 1 : 1),
+                    j.play(j.index),
+                    h(j);
+                }, j.options.interval);
+              },
+              d = this.sliderItem.length,
+              f = this.slidesPreView;
+            h(this);
+          }
         }
-    }, {
-        key: 'play',
-        value: function play(index) {
-            var width = -this._getMoveOffset(index);
-            this.sliderContainer.style.cssText = 'transform:translate3d(' + width + 'px,0,0);transition:.5s all';
+      },
+      {
+        key: "play",
+        value: function play(d) {
+          var f = -this._getMoveOffset(d);
+          this.sliderContainer.style.cssText =
+            "transform:translate3d(" +
+            f +
+            "px,0,0);transition:.5s all;user-select:none";
         }
-    }, {
-        key: 'event',
+      },
+      {
+        key: "event",
         value: function event() {
-            var that = this;
-
-            var isMouseUp = false,
-                isTouchEnd = false,
-                mouseState = {
-                    x1: 0,
-                    x2: 0,
-                    diff: 0
-                },
-                touchState = {
-                    x1: 0,
-                    x2: 0,
-                    diff: 0
-                };
-
-            var PreBtn = this.container.querySelector(this.options['arrowPreCls']),
-                nextBtn = this.container.querySelector(this.options['arrowNextCls']);
-
-            var len = this.sliderItem.length,
-                preView = this.slidesPreView,
-                moveView = len - preView + 1; //计算最后一块滑块的索引值
-
-            this.container.addEventListener('click', function (e) {
-                e = e || window.event;
-                e.preventDefault();
-                var target = e.target || e.srcElement;
-                if (target === PreBtn) {
-                    lastView();
-                } else if (target === nextBtn) {
-                    nextView();
-                }
-            }, true);
-
-            this.container.addEventListener('mouseover', function () {
-                clearTimeout(that.timer);
-            });
-
-            this.container.addEventListener('mouseout', function () {
-                that.isLoop();
-            });
-
-            this.container.addEventListener('mousedown', function (e) {
-                e = e || window.event;
-                e.preventDefault();
-                isMouseUp = true;
-                mouseState.x1 = e.pageX;
-            });
-
-            this.container.addEventListener('mousemove', function (e) {
-                e = e || window.event;
-                e.preventDefault();
-                mouseState.x2 = e.pageX;
-                mouseState.diff = mouseState.x2 - mouseState.x1;
-            });
-
-            this.container.addEventListener('mouseup', function (e) {
-                e = e || window.event;
-                e.preventDefault();
-                isMouseUp = false;
-                mouseState.x2 = e.pageX;
-                mouseState.diff = mouseState.x2 - mouseState.x1;
-                if (Math.abs(mouseState.diff) > 80 && !isMouseUp) {
-                    if (arrowChecker(mouseState.x2, mouseState.x1)) {
-                        nextView();
-                    } else {
-                        lastView();
-                    }
-                }
-            });
-
-            this.container.addEventListener('touchstart', function (e) {
-                clearTimeout(that.timer);
-                e = e || window.event;
-                e.preventDefault();
-                isTouchEnd = true;
-
-                var _e = e,
-                    targetTouches = _e.targetTouches;
-
-                touchState.x1 = targetTouches[0]['pageX'];
-            });
-
-            this.container.addEventListener('touchmove', function (e) {
-                e = e || window.event;
-                e.preventDefault();
-
-                var _e2 = e,
-                    targetTouches = _e2.targetTouches;
-
-                touchState.x2 = targetTouches[0]['pageX'];
-            });
-
-            this.container.addEventListener('touchend', function (e) {
-                e = e || window.event;
-                e.preventDefault();
-                isTouchEnd = false;
-                touchState.diff = touchState.x2 - touchState.x1;
-                if (Math.abs(touchState.diff) > 80 && !isTouchEnd) {
-                    if (arrowChecker(touchState.x2, touchState.x1)) {
-                        nextView();
-                    } else {
-                        lastView();
-                    }
-                }
-
-                that.isLoop();
-            });
-
-            window.addEventListener('resize', function () {
-                console.log('222');
-                that._initSliderWidth();
-                that._initElement();
-            });
-
-            function arrowChecker(x1, x2) {
-                return x2 > x1 ? true : false;
-            }
-
-            function nextView() {
-                that.index = that.index < moveView ? ++that.index : 1;
-                that.play(that.index);
-            }
-
-            function lastView() {
-                that.index = Math.max(--that.index, 1);
-                if (that.index === 1) {
-                    that.index = moveView;
-                }
-                that.play(that.index);
-            }
+          function d(s, t) {
+            return !!(t > s);
+          }
+          function f() {
+            (h.index = h.index < p ? ++h.index : 1), h.play(h.index);
+          }
+          function g() {
+            (h.index = Math.max(--h.index, 1)),
+              1 === h.index && (h.index = p),
+              h.play(h.index);
+          }
+          var h = this,
+            j = !1,
+            k = !1,
+            l = { x1: 0, x2: 0, diff: 0 },
+            m = { x1: 0, x2: 0, diff: 0 },
+            n = this.sliderItem.length,
+            o = this.slidesPreView,
+            p = n - o + 1;
+          if (
+            this.container.querySelector(this.options.arrowPreCls) &&
+            this.container.querySelector(this.options.arrowNextCls)
+          ) {
+            var q = this.container.querySelector(this.options.arrowPreCls),
+              r = this.container.querySelector(this.options.arrowNextCls);
+            this.container.addEventListener(
+              "click",
+              function(s) {
+                s = s || window.event;
+                var t = s.target || s.srcElement;
+                t === q ? g() : t === r && f(), h._dotActive(h.index);
+              },
+              !0
+            );
+          }
+          this.container.addEventListener("mouseover", function() {
+            clearTimeout(h.timer);
+          }),
+            this.container.addEventListener("mouseout", function() {
+              h.isLoop();
+            }),
+            this.container.addEventListener("mousedown", function(s) {
+              (s = s || window.event),
+                s.preventDefault(),
+                (j = !0),
+                (l.x1 = s.pageX);
+            }),
+            this.container.addEventListener("mousemove", function(s) {
+              (s = s || window.event),
+                s.preventDefault(),
+                (l.x2 = s.pageX),
+                (l.diff = l.x2 - l.x1);
+            }),
+            this.container.addEventListener("mouseup", function(s) {
+              (s = s || window.event),
+                s.preventDefault(),
+                (j = !1),
+                (l.x2 = s.pageX),
+                (l.diff = l.x2 - l.x1),
+                80 < Math.abs(l.diff) && !j && (d(l.x2, l.x1) ? f() : g()),
+                h._dotActive(h.index);
+            }),
+            this.container.addEventListener("touchstart", function(s) {
+              clearTimeout(h.timer), (s = s || window.event), (k = !0);
+              var _e = s,
+                t = _e.targetTouches;
+              m.x1 = t[0].pageX;
+            }),
+            this.container.addEventListener("touchmove", function(s) {
+              (s = s || window.event), s.preventDefault();
+              var _e2 = s,
+                t = _e2.targetTouches;
+              m.x2 = t[0].pageX;
+            }),
+            this.container.addEventListener("touchend", function(s) {
+              (s = s || window.event),
+                (k = !1),
+                (m.diff = m.x2 - m.x1),
+                80 < Math.abs(m.diff) && !k && (d(m.x2, m.x1) ? f() : g()),
+                h._dotActive(h.index),
+                h.isLoop();
+            }),
+            window.addEventListener("resize", function() {
+              console.log("window changed!"),
+                h._initSliderWidth(),
+                h._initElement();
+            }),
+            this._dotEvent(),
+            this.unloadEvent();
         }
-
-        /**
-         * 返回下一个滑块要移动的距离
-         * @param index 当前下一个滑块索引值
-         * @returns {number}
-         * @private
-         */
-
-    }, {
-        key: '_getMoveOffset',
-        value: function _getMoveOffset(index) {
-            return this.sliderItemWidth * (index - 1);
+      },
+      {
+        key: "unloadEvent",
+        value: function unloadEvent() {
+          var d = this;
+          window.addEventListener("unload", function() {
+            clearTimeout(d.timer);
+          });
         }
-    }, {
-        key: '_initData',
-        value: function _initData(opts) {
-            var defaultOpts = {
-                loop: true,
-                interval: 3400,
-                slidesPreView: 3,
-                moveCount: 1,
-                sliderContainerCls: '.h-carousel-content',
-                sliderItemCls: '.g-carousel-item',
-                dotsContainerCls: '.h-dots',
-                arrowPreCls: '.h-arrow-pre',
-                arrowNextCls: '.h-arrow-next',
-                fullWidth: true
-
-                /* initial */
-            };this.options = Object.assign({}, defaultOpts, opts);
-            this.sliderContainer = this.container.querySelector(this.options['sliderContainerCls']);
-            this.sliderItem = this.container.querySelectorAll(this.options['sliderItemCls']);
-            this.containerWidth = this.container.offsetWidth;
-            this.sliderItemWidth = this.sliderItem.offsetWidth;
-            this.slidesPreView = this.options['slidesPreView'];
-        }
-    }, {
-        key: '_initSliderWidth',
-        value: function _initSliderWidth() {
-            if (this.slidesPreView && this.slidesPreView === 'auto') {
-                return;
-            } else if (this.slidesPreView && typeof this.slidesPreView === 'number') {
-                var contentWidth = void 0,
-                    //sliderContainer 的宽度
-                    sliderItemWidth = void 0,
-                    //sliderContainer item 的宽度
-                    slidesPreView = this.slidesPreView;
-                if (this.options['fullWidth']) {
-                    contentWidth = document.documentElement.clientWidth;
-                } else {
-                    contentWidth = this.containerWidth;
-                }
-                sliderItemWidth = contentWidth / slidesPreView | 0;
-                var cssText = 'width:' + sliderItemWidth + 'px;flex:0 0 ' + sliderItemWidth + 'px';
-                this.sliderItemWidth = sliderItemWidth;
-                this.sliderItem.forEach(function (item) {
-                    item.style.cssText = cssText;
+      },
+      {
+        key: "_dotEvent",
+        value: function _dotEvent() {
+          var k = this;
+          if (
+            this.container.querySelector(this.options.dotsCls) ||
+            this.container.querySelectorAll(this.options.dotCls)[0]
+          ) {
+            var d = this.container.querySelector(this.options.dotsCls),
+              f = this.options.dotActiveCls,
+              g = this.container.querySelectorAll(this.options.dotCls),
+              h = this.container.querySelectorAll(this.options.sliderItemCls),
+              j = h.length;
+            d.addEventListener("click", function(l) {
+              l = l || window.event;
+              var m = l.target || l.srcElement;
+              g.length !== j &&
+                (console.warn(
+                  "\u8F6E\u64AD\u56FE\u7684\u5706\u70B9\u9009\u62E9\u5668\u914D\u7F6E\u9519\u8BEF"
+                ),
+                (k.index > j || 1 >= k.index) && (k.index = 1)),
+                g.forEach(function(n, o) {
+                  n === m
+                    ? (k.addClass(n, f), (k.index = o + 1), k.play(k.index))
+                    : k.removeClass(n, f);
                 });
-            }
+            });
+          }
         }
-    }, {
-        key: '_initElement',
+      },
+      {
+        key: "_getMoveOffset",
+        value: function _getMoveOffset(d) {
+          return this.sliderItemWidth * (d - 1);
+        }
+      },
+      {
+        key: "_initData",
+        value: function _initData(d) {
+          (this.options = Object.assign(
+            {},
+            {
+              loop: !0,
+              interval: 3400,
+              slidesPreView: 3,
+              moveCount: 1,
+              sliderContainerCls: ".h-carousel-content",
+              sliderItemCls: ".h-carousel-item",
+              dotsContainerCls: ".h-dots",
+              arrowPreCls: ".h-arrow-pre",
+              arrowNextCls: ".h-arrow-next",
+              dotsCls: ".h-dots",
+              dotCls: ".h-dot",
+              dotActiveCls: "active",
+              fullWidth: !1,
+              breakPoints: {
+                900: { slidesPreView: 3 },
+                600: { slidesPreView: 2 }
+              }
+            },
+            d
+          )),
+            (this.sliderContainer = this.container.querySelector(
+              this.options.sliderContainerCls
+            )),
+            (this.sliderItem = this.container.querySelectorAll(
+              this.options.sliderItemCls
+            )),
+            (this.sliderItemWidth = this.sliderItem.offsetWidth),
+            (this.slidesPreView = this.options.slidesPreView);
+        }
+      },
+      {
+        key: "_normalizeBreakPoints",
+        value: function _normalizeBreakPoints(d) {
+          if (
+            "object" === ("undefined" == typeof d ? "undefined" : _typeof(d)) &&
+            "function" != typeof d &&
+            !(d instanceof Array)
+          ) {
+            var f = [];
+            for (var g in d) f.push([parseInt(g), d[g].slidesPreView]);
+            return (
+              f.sort(function(h, j) {
+                return h < j;
+              }),
+              f
+            );
+          }
+          console.error(JSON.stringify(d), "is not a Object");
+        }
+      },
+      {
+        key: "_getSlidesPreView",
+        value: function _getSlidesPreView(d) {
+          var f = document.documentElement.clientWidth,
+            g = this.options.slidesPreView;
+          return (
+            (d = this._normalizeBreakPoints(d)),
+            d.forEach(function(h) {
+              return f > h[0] ? g : void (g = h[1]);
+            }),
+            g
+          );
+        }
+      },
+      {
+        key: "_initSliderWidth",
+        value: function _initSliderWidth() {
+          if (
+            !(this.slidesPreView && "auto" === this.slidesPreView) &&
+            this.slidesPreView &&
+            "number" == typeof this.slidesPreView
+          ) {
+            var d,
+              f,
+              g = this.options.breakPoints,
+              h = this.slidesPreView;
+            this.options.breakPoints &&
+              !this.options.fullWidth &&
+              (h = this._getSlidesPreView(g)),
+              (d = this.options.fullWidth
+                ? document.documentElement.clientWidth
+                : this.container.offsetWidth),
+              (f = 1 | (d / h));
+            var j =
+              ";width:" + f + "px;max-width:" + f + "px;flex:0 0 " + f + "px";
+            (this.sliderItemWidth = f),
+              this.sliderItem.forEach(function(k) {
+                k.style.cssText = j;
+              });
+          }
+        }
+      },
+      {
+        key: "_initArrow",
+        value: function _initArrow() {
+          if (
+            this.container.querySelector(this.options.arrowPreCls) ||
+            this.container.querySelector(this.options.arrowNextCls)
+          ) {
+            var d = this.container.querySelector(this.options.arrowPreCls),
+              f = this.container.querySelector(this.options.arrowNextCls),
+              g = document.documentElement.clientWidth;
+            this.DEVICE_PIXEL > g
+              ? ((d.style.display = "none"), (f.style.display = "none"))
+              : ((d.style.display = "block"), (f.style.display = "block"));
+          }
+        }
+      },
+      {
+        key: "_initElement",
         value: function _initElement() {
-            var preBtn = this.container.querySelector(this.options['arrowPreCls']),
-                nextBtn = this.container.querySelector(this.options['arrowNextCls']);
-
-            var deviceWidth = document.documentElement.clientWidth;
-            //屏幕分辨率低于1024，隐藏arrow
-            if (this.DEVICE_PIXEL > deviceWidth) {
-                preBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-            } else {
-                preBtn.style.display = 'block';
-                nextBtn.style.display = 'block';
-            }
+          this._initArrow();
         }
-    }, {
-        key: '_init',
-        value: function _init(opts) {
-            this._initData(opts);
-            this._initSliderWidth();
-            this._initElement();
-            this.isLoop();
+      },
+      {
+        key: "_init",
+        value: function _init(d) {
+          this._initData(d),
+            this._initSliderWidth(),
+            this._initElement(),
+            this.isLoop(),
             this.event();
         }
-    }]);
-
-    return CarouselSlider;
-}();
-
+      },
+      {
+        key: "_dotActive",
+        value: function _dotActive(d) {
+          var h = this;
+          if (this.container.querySelectorAll(this.options.dotCls)) {
+            var f = this.container.querySelectorAll(this.options.dotCls),
+              g = this.options.dotActiveCls;
+            f.forEach(function(j, k) {
+              k + 1 === d ? h.addClass(j, g) : h.removeClass(j, g);
+            });
+          }
+        }
+      },
+      {
+        key: "hasClass",
+        value: function hasClass(d, f) {
+          var g = new RegExp("(^|\\s)" + f + "(\\s|$)");
+          return g.test(d.className);
+        }
+      },
+      {
+        key: "addClass",
+        value: function addClass(d, f) {
+          if (!this.hasClass(d, f)) {
+            var g = d.className.split(" ");
+            g.push(f), (d.className = g.join(" "));
+          }
+        }
+      },
+      {
+        key: "removeClass",
+        value: function removeClass(d, f) {
+          if (this.hasClass(d, f)) {
+            var g = new RegExp("(^|\\s)" + f + "(\\s|$)");
+            d.className = d.className.replace(g, "");
+          }
+        }
+      }
+    ]),
+    c
+  );
+})();
 CarouselSlider.prototype.DEVICE_PIXEL = 1024;

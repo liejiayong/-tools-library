@@ -7,53 +7,70 @@
     <link rel="stylesheet" href="carousel-slider.css">
 </head>
 <body>
+<script>
+    // window.addEventListener("beforeunload", function(event) {
+    //     console.log('beforeunload')
+    // })
+    // window.addEventListener("beforeunload", function(event) {
+    //     console.log('unload')
+    //     event.returnValue = "unload..dd.";
+    // })
+</script>
 <!-- template slider 1 -->
 <div class="g-carousel h-carousel">
     <ul class="g-carousel-content h-carousel-content">
-        <li class="g-carousel-item s-carousel-item ">
+        <li class="g-carousel-item s-carousel-item h-carousel-item">
             <img class="banner-image"
-                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/1.jpg" alt="">
+                src="images/1.jpg" alt="">
         </li>
-        <li class="g-carousel-item s-carousel-item">
+        <li class="g-carousel-item s-carousel-item h-carousel-item">
             <img class="banner-image"
-                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/2.jpg" alt="">
+                src="images/2.jpg" alt="">
         </li>
-        <li class="g-carousel-item s-carousel-item">
+        <li class="g-carousel-item s-carousel-item h-carousel-item">
             <img class="banner-image"
-                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/3.jpg" alt="">
+                src="images/3.jpg" alt="">
         </li>
-        <li class="g-carousel-item s-carousel-item">
+        <li class="g-carousel-item s-carousel-item h-carousel-item">
             <img class="banner-image"
-                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/4.jpg" alt="">
+                src="images/4.jpg" alt="">
         </li>
-        <li class="g-carousel-item s-carousel-item">
+        <li class="g-carousel-item s-carousel-item h-carousel-item">
             <img class="banner-image"
-                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/5.jpg" alt="">
+                src="images/5.jpg" alt="">
         </li>
-        <li class="g-carousel-item s-carousel-item">
+        <li class="g-carousel-item s-carousel-item h-carousel-item">
             <img class="banner-image"
-                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/6.jpg" alt="">
+                src="images/6.jpg" alt="">
         </li>
-        <li class="g-carousel-item s-carousel-item">
+        <li class="g-carousel-item s-carousel-item h-carousel-item">
             <img class="banner-image"
-                src="http://localhost:63342/pintreel-work-code/Tools-template/carousel-slider/images/7.jpg" alt="">
+                src="images/7.jpg" alt="">
         </li>
     </ul>
     <div class="g-dots h-dots">
-        <span class="g-dot s-dot"></span>
+        <span class="g-dot s-dot h-dot active"></span>
+        <span class="g-dot s-dot h-dot"></span>
+        <span class="g-dot s-dot h-dot"></span>
+        <span class="g-dot s-dot h-dot"></span>
+        <span class="g-dot s-dot h-dot"></span>
+        <span class="g-dot s-dot h-dot"></span>
+        <span class="g-dot s-dot h-dot"></span>
     </div>
     <div class="g-arrow s-arrow-pre h-arrow-pre"> < </div>
     <div class="g-arrow s-arrow-next h-arrow-next"> > </div>
 </div>
 <!-- template slider 1 end -->
 
+<!-- <script src="js/carousel-slider.js"></script> -->
 <script src="js/carousel-slider.min.js"></script>
 <script>
     let container = document.querySelector('.h-carousel');
     let opts = {
         loop: true,
         interval: 3500,
-        slidesPreView: 1
+        slidesPreView: 1,
+        fullWidth: true
     }
     new CarouselSlider(container, opts)
 

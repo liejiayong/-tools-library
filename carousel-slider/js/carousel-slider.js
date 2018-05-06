@@ -58,23 +58,26 @@ class CarouselSlider {
                 x2: 0,
                 diff: 0
             };
-
-        let PreBtn = this.container.querySelector(this.options['arrowPreCls']),
-            nextBtn = this.container.querySelector(this.options['arrowNextCls']);
-
+            
         let len = this.sliderItem.length,
             preView = this.slidesPreView,
             moveView = len - preView + 1; //计算最后一块滑块的索引值
+        
+        if (this.container.querySelector(this.options['arrowPreCls']) && this.container.querySelector(this.options['arrowNextCls'])) {
+            const PreBtn = this.container.querySelector(this.options['arrowPreCls']),
+                nextBtn = this.container.querySelector(this.options['arrowNextCls']);
 
-        this.container.addEventListener('click', function (e) {
-            e = e || window.event;
-            let target = e.target || e.srcElement;
-            if (target === PreBtn) {
-                lastView();
-            } else if (target === nextBtn) {
-                nextView();
-            }
-        }, true);
+            this.container.addEventListener('click', function (e) {
+                e = e || window.event;
+                let target = e.target || e.srcElement;
+                if (target === PreBtn) {
+                    lastView();
+                } else if (target === nextBtn) {
+                    nextView();
+                }
+                that._dotActive(that.index)
+            }, true);
+        }
 
         this.container.addEventListener('mouseover', function () {
             clearTimeout(that.timer);
@@ -111,6 +114,7 @@ class CarouselSlider {
                     lastView();
                 }
             }
+            that._dotActive(that.index)
         });
 
         this.container.addEventListener('touchstart', function (e) {
@@ -141,7 +145,7 @@ class CarouselSlider {
                     lastView();
                 }
             }
-
+            that._dotActive(that.index)
             that.isLoop();
         });
 
@@ -151,8 +155,11 @@ class CarouselSlider {
             that._initElement();
         });
 
+        this._dotEvent();
+        this.unloadEvent();
+
         function arrowChecker(x1, x2) {
-            return x2 > x1 ? true : false
+            return x2 > x1 ? true : false;
         }
 
         function nextView() {
@@ -167,6 +174,47 @@ class CarouselSlider {
             }
             that.play(that.index);
         }
+    }
+
+    unloadEvent() {
+        window.addEventListener('unload', (e) => {
+            clearTimeout(this.timer);
+        })
+    }
+
+    /**
+     * 下标点事件
+     */
+    _dotEvent() {
+        if (!this.container.querySelector(this.options['dotsCls']) && !this.container.querySelectorAll(this.options['dotCls'])[0]) return;
+        const dots = this.container.querySelector(this.options['dotsCls']);
+        const active = this.options['dotActiveCls'];
+        const dotList = this.container.querySelectorAll(this.options['dotCls']);
+        const slideList = this.container.querySelectorAll(this.options['sliderItemCls']);
+        const len = slideList.length;
+        dots.addEventListener('click', (e) => {
+            e = e || window.event;
+            let target = e.target || e.srcElement;
+
+            // 判断圆点选择器
+            if (dotList.length !== len) {
+                console.warn('轮播图的圆点选择器配置错误');
+                if (this.index > len || this.index <= 1) {
+                    this.index = 1;
+                }
+            }
+
+            dotList.forEach((item, index) => {
+                if (item === target) {
+                    this.addClass(item, active);
+                    this.index = index + 1;
+                    this.play(this.index);
+                } else {
+                    this.removeClass(item, active);
+                }
+            })
+        })
+
     }
 
     /**
@@ -186,10 +234,13 @@ class CarouselSlider {
             slidesPreView: 3,
             moveCount: 1,
             sliderContainerCls: '.h-carousel-content',
-            sliderItemCls: '.g-carousel-item',
+            sliderItemCls: '.h-carousel-item',
             dotsContainerCls: '.h-dots',
             arrowPreCls: '.h-arrow-pre',
             arrowNextCls: '.h-arrow-next',
+            dotsCls: '.h-dots',
+            dotCls: '.h-dot',
+            dotActiveCls: 'active',
             fullWidth: false,
             breakPoints: {
                 900: {
@@ -257,13 +308,13 @@ class CarouselSlider {
                 sliderItemWidth, //sliderContainer item 的宽度
                 breakPoints = this.options['breakPoints'],
                 slidesPreView = this.slidesPreView;
-            if (this.options['breakPoints']) slidesPreView = this._getSlidesPreView(breakPoints)
+            if (this.options['breakPoints'] && !this.options['fullWidth']) slidesPreView = this._getSlidesPreView(breakPoints)
             if (this.options['fullWidth']) {
                 contentWidth = document.documentElement.clientWidth;
             } else {
                 contentWidth = this.container.offsetWidth;
             }
-            sliderItemWidth = contentWidth / slidesPreView | 0;
+            sliderItemWidth = contentWidth / slidesPreView | 1;
             let cssText = `;width:${sliderItemWidth}px;max-width:${sliderItemWidth}px;flex:0 0 ${sliderItemWidth}px`;
             this.sliderItemWidth = sliderItemWidth;
             this.sliderItem.forEach((item) => {
@@ -272,10 +323,10 @@ class CarouselSlider {
         }
     }
 
-    _initElement() {
-        let preBtn = this.container.querySelector(this.options['arrowPreCls']),
+    _initArrow() {
+        if (!this.container.querySelector(this.options['arrowPreCls']) && !this.container.querySelector(this.options['arrowNextCls'])) return
+        const preBtn = this.container.querySelector(this.options['arrowPreCls']),
             nextBtn = this.container.querySelector(this.options['arrowNextCls']);
-
         let deviceWidth = document.documentElement.clientWidth;
         //屏幕分辨率低于1024，隐藏arrow
         if (this.DEVICE_PIXEL > deviceWidth) {
@@ -287,6 +338,10 @@ class CarouselSlider {
         }
     }
 
+    _initElement() {
+        this._initArrow()
+    }
+
     _init(opts) {
         this._initData(opts)
         this._initSliderWidth();
@@ -294,7 +349,43 @@ class CarouselSlider {
         this.isLoop();
         this.event();
     }
+    _dotActive(currIndex) {
+        if (!this.container.querySelectorAll(this.options['dotCls'])) {
+            return;
+        }
+        const dots = this.container.querySelectorAll(this.options['dotCls']);
+        const activeCls = this.options['dotActiveCls'];
+        dots.forEach((v, i) => {
+            let ii = i + 1;
+            if (ii === currIndex) {
+                this.addClass(v, activeCls);
+            } else {
+                this.removeClass(v, activeCls);
+            }
+        })
+    }
 
+    hasClass(el, cls) {
+        let reg = new RegExp(`(^|\\s)${cls}(\\s|$)`);
+        return reg.test(el.className);
+    }
+
+    addClass(el, cls) {
+        if (this.hasClass(el, cls)) {
+            return;
+        }
+        let newCls = el.className.split(' ');
+        newCls.push(cls);
+        el.className = newCls.join(' ');
+    }
+
+    removeClass(el, cls) {
+        if (!this.hasClass(el, cls)) {
+            return;
+        }
+        let reg = new RegExp(`(^|\\s)${cls}(\\s|$)`);
+        el.className = el.className.replace(reg, '');
+    }
 }
 
 CarouselSlider.prototype.DEVICE_PIXEL = 1024;

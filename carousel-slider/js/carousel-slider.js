@@ -30,6 +30,7 @@ class CarouselSlider {
                 that.timer = setTimeout(function () {
                     that.index = that.index < moveView ? that.index + 1 : 1;
                     that.play(that.index);
+                    that._dotActive(that.index)
                     loop(that);
                 }, that.options['interval']);
             }

@@ -4,6 +4,7 @@
  * @author: 家永(809206619@qq.com | liejystephen@gmail.com)
  * @update: 2017-12-30 00:02
  */
+
 "use strict";
 var _typeof =
     "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
@@ -55,6 +56,7 @@ var CarouselSlider = (function() {
                 j.timer = setTimeout(function() {
                   (j.index = j.index < d - f + 1 ? j.index + 1 : 1),
                     j.play(j.index),
+                    j._dotActive(j.index),
                     h(j);
                 }, j.options.interval);
               },
@@ -386,3 +388,4 @@ var CarouselSlider = (function() {
   );
 })();
 CarouselSlider.prototype.DEVICE_PIXEL = 1024;
+

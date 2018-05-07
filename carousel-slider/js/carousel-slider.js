@@ -1,9 +1,9 @@
 /**
  * @name: js 原生轮播图
  * @description: 轮播图实现的功能有：可配置参数、鼠标经过悬停、移动端端鼠标滑动下一张、pc端鼠标滑动下一张、自动播放、图片自适应图片大小、图片自适应屏幕切换等，是一个轻量、使用、强大的轮播图插件
- * @version: 0.3
+ * @version: 0.5
  * @author: 家永(809206619@qq.com | liejystephen@gmail.com)
- * @update: 2017-12-30 00:02
+ * @update: 2018-5-5
  */
 
 class CarouselSlider {
@@ -160,7 +160,7 @@ class CarouselSlider {
         this.unloadEvent();
 
         function arrowChecker(x1, x2) {
-            return x2 > x1 ? true : false;
+            return x2 > x1;
         }
 
         function nextView() {
@@ -169,8 +169,8 @@ class CarouselSlider {
         }
 
         function lastView() {
-            that.index = Math.max(--that.index, 1);
-            if (that.index === 1) {
+            that.index = --that.index;
+            if (that.index < 1) {
                 that.index = moveView;
             }
             that.play(that.index);

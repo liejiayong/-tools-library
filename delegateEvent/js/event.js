@@ -35,7 +35,7 @@ function eventDelegate(parentCls, targetCls, events, callback) {
         while (target !== currentTarget) {
             if (target.matches(targetCls)) {
                 let tri = target;
-                callback.call(tri, Array.prototype.slice.call(arguments));
+                callback.call(tri, Array.prototype.slice.call(arguments)[0]);
             }
             target = target.parentNode;
         }
@@ -43,9 +43,8 @@ function eventDelegate(parentCls, targetCls, events, callback) {
 
     // 判断传进事件长度，🌧一则遍历
     const eventsLen = events.split(',').length;
-    console.log(eventsLen)
     if (eventsLen && eventsLen === 1) {
-        document.querySelector(parentCls).addEventListener(events, targetHandle);
+        parentCls.substr(0,1) === '#' ? document.getElementById(parentCls).addEventListener(events, targetHandle) : document.querySelector(parentCls).addEventListener(events, targetHandle);
         return
     } else if (eventsLen > 1) {
         const eList = events.split(',').forEach(function (evt) {

@@ -94,3 +94,16 @@ function throttle_es5(fn, threshhold = 160) {
     }
   }
 }
+
+/**
+ * 获取字符串长度
+ * 采用扩展运算符可以识别四个字符的Unicode字符，
+ * 因此使用扩展运算符结构字符串为数组，能返回实际的字符长度
+ * 注：凡是涉及到操作四个字节的 Unicode 字符的函数，最好都用扩展运算符改写。
+ * 
+ * @param {*} str 
+ * @returns {Number} 
+ */
+export function length(str) {
+  return [...str].length
+}

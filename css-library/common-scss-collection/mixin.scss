@@ -1,0 +1,27 @@
+@mixin table-border($config:1px solid #e3ca92){
+  table{
+    thead tr{
+      td{
+          height: 45px;
+          border-left: $config;
+          border-top: $config;
+          &:last-of-type{
+              border-right: $config;
+          }
+      }
+  }
+  tbody tr{
+      &:last-of-type td{
+          border-bottom: $config;
+      }
+      td{
+          height: 45px;
+          border-left: $config;
+          border-top: $config;
+          &:last-of-type{
+              border-right: $config;
+          }
+      }
+  }
+  }
+}

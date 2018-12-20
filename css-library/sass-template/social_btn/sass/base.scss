@@ -1,0 +1,15 @@
+@import "compass/reset-legacy";
+@import "compass/css3";
+@import "compass/typography";
+
+$mainSize: 100px;
+$itemWidth: $mainSize*1.6;
+$btnSize: $mainSize*0.6;
+
+$length: 10;
+$degSpacing: 30deg;
+$baseDeg: -(90 + $degSpacing*($length - 1)*0.5);
+
+$delaySpacing: 0.1s;
+
+

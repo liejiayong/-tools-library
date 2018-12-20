@@ -1,0 +1,79 @@
+@import "base";
+@import "global";
+
+.main_bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: #67ffa3;
+  .container {
+    position: relative;
+    top: 50%;
+    width: $mainSize;
+    height: $mainSize;
+    margin: -$mainSize auto 0;
+    @extend %circleBtn;
+
+    //btn list
+    .btn_list {
+      position: relative;
+      top: ($mainSize - $btnSize)*0.5;
+      left: $mainSize*0.5;
+      .item {
+        position: absolute;
+        width: $btnSize;
+        height: $btnSize;
+        @include transform-origin(0, 50%);
+        .inner_btn_box {
+          position: relative;
+          left: $btnSize*-0.5;
+          width: $btnSize;
+          height: $btnSize;
+          @include transition(all .5s ease-in-out);
+        }
+        .inner_btn {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          @extend %circleBtn;
+        }
+      }
+
+      //args set
+      @for $i from 1 through $length {
+        $itemDeg: $degSpacing*($i - 1);
+        .item:nth-of-type(#{$i}) {
+          @include transform(rotate($baseDeg + $itemDeg));
+          .inner_btn_box {
+            @include transition-delay($delaySpacing*($i - 1));
+          }
+          .inner_btn {
+            background: hsl(ceil(360/$length)*($i - 1), 50%, 50%) url('../images/social_#{$i}.svg') center/60% no-repeat;
+            @include transform(rotate(-($baseDeg + $itemDeg)));
+          }
+        }
+      }
+    }
+
+    //label
+    .label_btn {
+      position: relative;
+      z-index: 10;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgb(255, 130, 68) url("../images/social.svg") center/60% no-repeat;
+      @extend %circleBtn;
+    }
+  }
+
+  //active
+  input[name="btn_control"]:checked + .container {
+    .inner_btn_box {
+      left: $itemWidth;
+    }
+  }
+}

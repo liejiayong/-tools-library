@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../../bootstrap-3.3.7/dist/css/bootstrap.min.css">
+</head>
+<body>
+<style>
+    .flex-item select {
+        width: 100%;
+        height: 60px;
+        background-color: #F0DFCD;
+        padding: 10px 20px;
+        border: navajowhite;
+    }
+    .flex-item select:nth-of-type(1){
+        border-right:1px solid #f8f8f8
+    }
+    .selector-narbar.flex {
+        margin-bottom: 20px;
+    }
+    .selector-container div img {
+        width: 100%;
+    }
+    span.title {
+        color: #a57107;
+        margin: 0 20px;
+    }
+    .btn.btnAssemble {
+        display: flex;
+        text-align: center;
+        margin: 0 auto;
+        justify-content: center;
+        background: #f8f8f8!important;
+        border: none!important;
+    }
+    .btn.btnAssemble a {
+        margin: 0 5px;
+        border: 1px solid #ccc;
+        color: #fff;
+        background: #f7c148;
+        cursor: pointer;
+    }
+    .btn.btnAssemble a:hover,.btn.btnAssemble a:focus,.btn.btnAssemble a:active {
+        background: #c70e0e;
+    }
+</style>
+
+<div class="conainter">
+    <div class="selector-narbar flex">
+        <div class="flex-item  col-sm-6 col-xs-6">
+            <div class="row">
+                <select name="province" id="selector-province">
+                    <option value="sf">省份</option>
+                </select></div>
+        </div>
+        <div class="flex-item  col-sm-6 col-xs-6">
+            <div class="row">
+                <select name="city" id="selector-city">
+                    <option value="sq">市区</option>
+                </select></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="selector-container">
+        <div class="selector-content">
+            <div class="selector-image col-sm-3 col-xs-12">
+                <img src="http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg" alt="">
+            </div>
+            <div class="slsector-section col-sm-9 col-xs-12">
+                <p><span class="title">分店地区：</span> 安徽-蚌埠</p>
+                <p><span class="title">店面名称：</span> 全屋定制门店</p>
+                <p><span class="title">详细地址：</span> 你猜</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="selector-content">
+            <div class="selector-image col-sm-3 col-xs-12">
+                <img src="http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg" alt="">
+            </div>
+            <div class="slsector-section col-sm-9 col-xs-12">
+                <p><span class="title">分店地区：</span> 安徽-蚌埠</p>
+                <p><span class="title">店面名称：</span> 全屋定制门店</p>
+                <p><span class="title">详细地址：</span> 你猜</p>
+
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <div class="btn btnAssemble">
+            <a id="btn-first" class="btn cursor">首页</a>
+            <a id="btn-pre" class="btn cursor">上一页</a>
+            <a id="btn-next" class="btn cursor">下一页</a>
+            <a id="btn-end" class="btn cursor">末页</a>
+    </div>
+</div>
+
+
+<script>
+
+    var info = {
+        "province_name": [
+            {
+                "name": "广东省",
+                "city_name": [
+                    {
+                        "name": "肇庆市",
+                        "agentArea": [
+                            {
+                                "agent_name": "肇庆红棉花经销商",
+                                "agent_manager": "黎少良",
+                                "agent_tel": "4001630388",
+                                "agent_address": "东省肇庆市黄岗镇下黄冈二村委会",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "韶关市",
+                        "agentArea": [
+                            {
+                                "agent_name": "韶关红棉花经销商",
+                                "agent_manager": "涂总",
+                                "agent_tel": "4001630388",
+                                "agent_address": "广东省韶关市武江区长者公寓旁",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "河源市",
+                        "agentArea": [
+                            {
+                                "agent_name": "河源红棉花经销商",
+                                "agent_manager": "韦中英",
+                                "agent_tel": "4001630388",
+                                "agent_address": "广东省河源市",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "清远英德",
+                        "agentArea": [
+                            {
+                                "agent_name": "英德红棉花经销商",
+                                "agent_manager": "张赞兵",
+                                "agent_tel": "4001630388",
+                                "agent_address": "广东省清远英德市城南下街南华技校旁盈洋",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "清远市",
+                        "agentArea": [
+                            {
+                                "agent_name": "清远红棉花经销商",
+                                "agent_manager": "向勇强",
+                                "agent_tel": "4001630388",
+                                "agent_address": "广东省清远市清城区桥北路御景湖畔侧居美家居",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "东莞市",
+                        "agentArea": [
+                            {
+                                "agent_name": "东莞红棉花经销商",
+                                "agent_manager": "贺总",
+                                "agent_tel": "4001630388",
+                                "agent_address": "广东省东莞市南城区红星美凯龙",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "惠州市",
+                        "agentArea": [
+                            {
+                                "agent_name": "惠州红棉花经销商",
+                                "agent_manager": "杨崇平",
+                                "agent_tel": "4001630388",
+                                "agent_address": "广东省惠州市惠城区万隆建材市场",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "潮汕地区",
+                        "agentArea": [
+                            {
+                                "agent_name": "汕头红棉花经销商",
+                                "agent_manager": "张匡成",
+                                "agent_tel": "4001630388",
+                                "agent_address": "广东省汕头市龙湖区鸥下码头旁",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "湛江市",
+                        "agentArea": [
+                            {
+                                "agent_name": "湛江红棉花经销商",
+                                "agent_manager": "蔡总",
+                                "agent_tel": "4001630388",
+                                "agent_address": "广东省湛江市海天路机电汽配市场A栋11号",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                ]
+            },
+            {
+                "name": "广西省",
+                "city_name": [
+                    {
+                        "name": "柳州市",
+                        "agentArea": [
+                            {
+                                "agent_name": "广西柳州红棉花经销商",
+                                "agent_manager": "杨老板",
+                                "agent_tel": "4001630388",
+                                "agent_address": "广西省柳州市燎原建材市场F2区7-10号",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                ]
+            },
+            {
+                "name": "江西省",
+                "city_name": [
+                    {
+                        "name": "吉安市",
+                        "agentArea": [
+                            {
+                                "agent_name": "江西吉安红棉花经销商",
+                                "agent_manager": "刘益元",
+                                "agent_tel": "4001630388",
+                                "agent_address": "江西省吉安市青原区河东经济开发区华声路",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "河北省",
+                "city_name": [
+                    {
+                        "name": "唐山市",
+                        "agentArea": [
+                            {
+                                "agent_name": "河北唐山红棉花经销商",
+                                "agent_manager": "孙总",
+                                "agent_tel": "4001630388",
+                                "agent_address": "地址：河北唐山丰南区唐南建材城26-1-2",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "保定市",
+                        "agentArea": [
+                            {
+                                "agent_name": "河北保定红棉花经销商",
+                                "agent_manager": "张卫东",
+                                "agent_tel": "4001630388",
+                                "agent_address": "河北省易金西路22号",
+                                "agent_image": "http://www.ebery.com.cn/upfile/2017/06/20170630141836_507.jpg"
+                            }
+                        ]
+                    },
+                ]
+            }
+        ]
+    };
+
+    (function switchSelector(info) {
+        var selProvince = document.querySelector('#selector-province');
+        var selCity = document.querySelector('#selector-city');
+        var selectorContainer = document.querySelector('.selector-container');
+        var btnAssembles = document.querySelector(".btnAssemble");
+
+        var provinceSign = 'province_name';
+        var citySign = 'city_name';
+        var agentSign = 'agentArea';
+        var provinceName = 'province_name'
+        var cityName = 'city_name'
+        var sq = 'sq'
+        var provinceInfo = info
+        var cityInfo = info[provinceName]
+
+        selProvince.addEventListener('change', selProvinceEvent)
+
+        function selProvinceEvent(e) {
+            var that = this
+            var currProvinceSelector = that.options[selProvince.selectedIndex]
+            var currProvinceVal = currProvinceSelector.value
+
+            cityInfo.forEach(function (province, index, arr) {
+                var currProvinceName = province.name;
+                var eachList = [];//每一个省对应的数据
+                var eachCityList = [] //每一个城市对饮的数据
+                var currselectedCity = '' //在省表遍历中，将要被选中的城市
+
+                if (currProvinceVal === currProvinceName) {
+
+                    var currIndex = (function () {
+                        if (currProvinceVal === currProvinceName) {
+                            return index;
+                        }
+                    })();
+
+                    /**
+                     * each province
+                     * */
+//                    console.log("province", province)
+
+
+                    clearInnerHTML(selectorContainer)
+                    eachList = getEachLevelDetailInfo(province)
+                    choosePagination(btnAssembles, eachList, selectorContainer);
+//                    eachList.forEach(function (eachProvince) {
+//                        createItemContent(selectorContainer, eachProvince);
+//
+//                    })
+
+                    /**
+                     * add current city ,append to the object
+                     * */
+
+                    if (arr[currIndex][cityName] !== 'undefined') {
+                        var currCity = arr[currIndex][cityName]
+                        removeOption(selCity)
+
+                        currCity.forEach(function (city, index, arr) {
+                            createOption(selCity, city.name)
+//                            console.log(city,index,arr)
+
+                        })
+
+                        /**
+                         * add listener to the citySelector
+                         *
+                         * */
+
+                        selCity.addEventListener('change', function () {
+                            var thatCity = this
+                            var onChangeSelectedCity = thatCity.options[thatCity.selectedIndex];
+                            var onChangeSelectedCityVal = onChangeSelectedCity.value;
+                            var currCityName = '';//在历遍当前数据中获取城市名称
+                            var currIndex;//获取所点击城市的索引
+
+
+                            eachList.forEach(function (eachCity, index, arr) {
+                                currCityName = currCity[index]["name"]
+                                currIndex = (function () {
+                                    if (currCityName === onChangeSelectedCityVal) {
+                                        return index
+                                    }
+                                })();
+
+                                if (currCityName === onChangeSelectedCityVal) {
+
+                                    clearInnerHTML(selectorContainer);
+                                    createItemContent(selectorContainer, arr[currIndex]);
+
+                                }
+                            })
+                        })
+                    }
+
+                }
+            })
+        };
+
+        /**
+         *  document onloaded init the data
+         * */
+
+        function initData(provinceName, info, btnAssembles) {
+            var sf = 'sf'
+            var allList = [];//返回所有将展示的数据
+            var showContent = [];//返回将展示的数据
+
+            Object.keys(provinceInfo).forEach(function (provinceVal) {
+                if (provinceName === provinceVal) {
+                    var provinceList = info[provinceName]
+                    provinceList.forEach(function (val) {
+                        hideOption(selProvince, sf)
+                        createOption(selProvince, val.name)
+                    })
+                }
+            });
+
+            allList = getCurrDetailInfo(info)[0];
+//            console.log(allList)
+
+            choosePagination(btnAssembles, allList, selectorContainer);
+
+        }
+
+        initData(provinceName, info, btnAssembles);
+
+        /**
+         * show the current content
+         * @param selectorContainer the main conatiner of the parent
+         * @param currList the list will be show
+         * */
+
+        function showCurrentPaginationContent(selectorContainer, currList) {
+            clearInnerHTML(selectorContainer);
+            currList.forEach(function (val, index, arr) {
+//                console.log(val)
+                createItemContent(selectorContainer, val);
+            })
+        }
+
+        /**
+         * 在页面上回返当前页面的数据
+         * @param selectorContainer the main conatiner of the parent
+         * @param clickSelector 所点击的按钮
+         * @param info 获取页面展示的数据
+         * */
+
+        function choosePagination(clickSelector, info, selectorContainer) {
+            var infoLen = info.length;//获取当前页码数据的长度
+            var eachShowLen = 6;//设置每一页显示的长度
+            var btnCount = 1;//计数当前上一页下一页的第几页
+            var theEndCount = Math.ceil(infoLen / eachShowLen);//末页按钮的页数
+            var showContent;//返回将展示的数据
+            var clickShowContent = [];//返回将展示的数据
+            var residusNum = infoLen % eachShowLen;//获取当前总页数余数
+            var residusBeforeCount = theEndCount - 1;//获取当前总页数余数的前一个计数
+            var sliceToNum = eachShowLen - 1;//设置 通过slice（）获取的末下标
+            var sliceFromNum = 0;//设置 通过slice（）获取的始下标
+
+            showContent = getCurrentList(info, sliceFromNum, sliceToNum)
+            showCurrentPaginationContent(selectorContainer, showContent)
+
+            clickSelector.addEventListener('click', function (e) {
+                var event = e || window.event;
+                var target = event.Target || event.srcElement;
+                var currObjectText = target.innerHTML;//当前按钮文本
+
+                /**
+                 *  judge which btn  was clicked
+                 *  and return the current page number
+                 *
+                 * */
+                if (target) {
+                    if ("首页" === currObjectText) {
+                        btnCount = 1;
+//                        console.log("首页", btnCount)
+                    } else if ("末页" === currObjectText) {
+                        btnCount = theEndCount;
+
+//                        console.log("末页", btnCount)
+                    } else if ("上一页" === currObjectText) {
+                        btnCount = Math.max(1, --btnCount);
+                        event.preventDefault();
+//                        console.log("上一页", btnCount)
+                    } else if ("下一页" === currObjectText) {
+                        btnCount = Math.min(++btnCount, theEndCount);
+                        event.preventDefault();
+//                        console.log("下一页", btnCount, theEndCount)
+                    }
+                }
+
+                clickShowContent = getCurrentClickList(info, sliceFromNum, sliceToNum, eachShowLen, btnCount, theEndCount, residusBeforeCount, residusNum)
+                showCurrentPaginationContent(selectorContainer, clickShowContent)
+            })
+
+
+        }
+
+        /**
+         * 获取页面加载时默认的当前页面显示内容  type Array
+         * @param info //获取当前页码数据
+         * @param sliceToNum  设置 通过slice（）获取的末下标
+         * @param sliceFromNum  设置 通过slice（）获取的始下标
+         * */
+
+        function getCurrentList(info, sliceFromNum, sliceToNum) {
+            return info.slice(sliceFromNum, sliceToNum);
+        }
+
+        /**
+         * 获取页面加载时默认的当前页面显示内容  type Array
+         * @param info //获取当前页码数据
+         * @param sliceToNum  设置 通过slice（）获取的末下标
+         * @param sliceFromNum  设置 通过slice（）获取的始下标
+         * @param eachShowLen 设置每一页显示的长度
+         * @param btnCount 计数当前上一页下一页的第几页
+         * @param theEndCount 末页按钮的页数
+         * @param residusBeforeCount 获取当前总页数余数的前一个计数
+         * @param residusNum 获取当前总页数余数
+         * */
+
+        function getCurrentClickList(info, sliceFromNum, sliceToNum, eachShowLen, btnCount, theEndCount, residusBeforeCount, residusNum) {
+            /**
+             * judge the btnCount, if the last ,return residusBeforeCount
+             * */
+            sliceFromNum = eachShowLen * (btnCount - 1)
+
+            if (btnCount < theEndCount) {
+                sliceToNum = btnCount * eachShowLen - 1;
+            }
+            else if (btnCount == theEndCount) {
+                sliceToNum = residusBeforeCount * eachShowLen + residusNum;
+            }
+//                console.log("sss",sliceFromNum,sliceToNum)
+
+            return info.slice(sliceFromNum, sliceToNum)
+//                console.log("showContent", showContent)
+        }
+
+        /**
+         * 获取当前各成绩数据，并以数据
+         *
+         * */
+        function getCurrDetailInfo(des) {
+//            console.log(des)
+            var agentAllInfo = [];
+            var eachArr = [];
+            var middle = [];
+
+            if (des[provinceSign] !== 'undefined') {
+                var currPro = des[provinceSign];
+//                console.log(currPro)
+                var currProLen = currPro.length;
+
+                for (var i = 0; i < currProLen; i++) {
+//                    console.log(currPro[i])
+                    eachArr = getEachLevelDetailInfo(currPro[i], citySign)
+                    middle = middle.concat(eachArr);
+                }
+                agentAllInfo.push(middle)
+
+            }
+//            console.log("agentAllInfo",agentAllInfo)
+            return agentAllInfo
+        }
+
+        /**
+         * 获取每个层级的数据
+         * @param eachInfo 每个省、市的数据
+         * */
+
+        function getEachLevelDetailInfo(eachInfo) {
+//            console.log("getEachLevelDetailInfo", eachInfo)
+//            console.log(eachInfo instanceof Array)
+            var eachInfoLen;
+            var AllList = [];
+            var agentInfo = {
+                agentArea: '',
+                agentName: '',
+                agentAddress: '',
+                agentTel: '',
+                agentManager: '',
+                agentImage: ''
+            };
+
+
+            if (eachInfo instanceof Object) {
+                var eachInfoToArr = Object.keys(eachInfo);
+                eachInfoLen = eachInfoToArr.length;
+
+//                console.log("eachInfoToArr",eachInfoToArr)
+
+                if (citySign === eachInfoToArr[eachInfoLen - 1]) {
+                    agentInfo.agentArea += eachInfo["name"]
+
+                    var cityList = eachInfo[citySign];
+                    var cityLen = cityList.length;
+                    var resetAgent = '';
+                    var count = -1;
+//                    console.log("cityList",cityList,cityLen)
+
+                    while (count < cityLen - 1) {
+                        count++;
+                        var currCity = cityList[count];
+                        var currAgent = currCity["agentArea"][0];
+                        agentInfo.agentArea += "--";
+                        agentInfo.agentArea += currCity['name']
+                        agentInfo.agentAddress = currAgent["agent_address"]
+                        agentInfo.agentImage = currAgent["agent_image"]
+                        agentInfo.agentTel = currAgent["agent_tel"]
+                        agentInfo.agentManager = currAgent["agent_manager"]
+                        agentInfo.agentName = currAgent["agent_name"]
+
+                        AllList.push(agentInfo)
+                        resetAgent = agentInfo.agentArea.substr(0, agentInfo.agentArea.indexOf("-"));
+                        agentInfo = {
+                            agentArea: resetAgent,
+                            agentName: '',
+                            agentAddress: '',
+                            agentTel: '',
+                            agentManager: '',
+                            agentImage: ''
+                        };
+//                        console.log("count", AllList)
+                    }
+
+
+                }
+
+            }
+
+            return AllList
+        }
+
+        /**
+         * create each item
+         * @param parentObj the object the child append to
+         * @param options  each item content
+         */
+
+        function createItemContent(parentObj, options) {
+
+            var attrOptions = {
+                contentClassName: "selector-content",
+                contentItemLeftBootstrapClassName: "col-sm-3 col-xs-12",
+                contentItemRightBootstrapClassName: "col-sm-9 col-xs-12",
+                contentItemClearFixClassName: "clearfix",
+                contentItemTitle: 'title'
+            }
+
+            var attrContentOptions = extend({}, options);
+            var contentBox = createsElement("div")
+            var contentItemLeftBox = createsElement("div")
+            var contentItemRightBox = createsElement("div")
+            var contentItemImage = createsElement("img")
+            var contentItemClearfix = createsElement("div")
+            var contentItemAreaP = createsElement("p")
+            var contentItemStoreP = createsElement("p")
+            var contentItemAddressP = createsElement("p")
+            var contentItemContactP = createsElement("p")
+            var contentItemPhoneP = createsElement("p")
+            var contentItemAreaTitle = createsElement("span")
+            var contentItemStoreTitle = createsElement("span")
+            var contentItemAddressTitle = createsElement("span")
+            var contentItemContactTitle = createsElement("span")
+            var contentItemPhoneTitle = createsElement("span")
+
+            contentBox.className = attrOptions.contentClassName
+            contentItemLeftBox.className = attrOptions.contentItemLeftBootstrapClassName
+            contentItemRightBox.className = attrOptions.contentItemRightBootstrapClassName
+            contentItemClearfix.className = attrOptions.contentItemClearFixClassName
+
+            contentItemAreaTitle.className = attrOptions.contentItemTitle
+            contentItemStoreTitle.className = attrOptions.contentItemTitle
+            contentItemAddressTitle.className = attrOptions.contentItemTitle
+            contentItemContactTitle.className = attrOptions.contentItemTitle
+            contentItemPhoneTitle.className = attrOptions.contentItemTitle
+
+
+            contentItemAreaP.appendChild(contentItemAreaTitle)
+            contentItemStoreP.appendChild(contentItemStoreTitle)
+            contentItemAddressP.appendChild(contentItemAddressTitle)
+            contentItemContactP.appendChild(contentItemContactTitle)
+            contentItemPhoneP.appendChild(contentItemPhoneTitle)
+
+            contentItemRightBox.appendChild(contentItemAreaP)
+            contentItemRightBox.appendChild(contentItemStoreP)
+            contentItemRightBox.appendChild(contentItemAddressP)
+            contentItemRightBox.appendChild(contentItemContactP)
+            contentItemRightBox.appendChild(contentItemPhoneP)
+
+            contentItemLeftBox.appendChild(contentItemImage)
+
+            contentBox.appendChild(contentItemLeftBox)
+            contentBox.appendChild(contentItemRightBox)
+            contentBox.appendChild(contentItemClearfix)
+
+            contentBox.style.cssText = "padding: 20px 10px 0 20px;margin:15px 0;border:1px solid rgb(239, 219, 219);box-shadow: rgb(204, 204, 204) 0 0 5px;background-color: #fffcf9;border-radius:8px;"
+
+            contentItemAreaTitle.innerHTML = "分店地区:"
+            contentItemStoreTitle.innerHTML = "店面名称:"
+            contentItemAddressTitle.innerHTML = "详细地址:"
+            contentItemContactTitle.innerHTML = "地区负责人:"
+            contentItemPhoneTitle.innerHTML = "联系电话:"
+
+            contentItemAreaP.innerHTML += attrContentOptions.agentArea
+            contentItemStoreP.innerHTML += attrContentOptions.agentName
+            contentItemContactP.innerHTML += attrContentOptions.agentManager
+            contentItemPhoneP.innerHTML += attrContentOptions.agentTel
+            contentItemAddressP.innerHTML += attrContentOptions.agentAddress
+            contentItemImage.setAttribute("src", attrContentOptions.agentImage)
+
+            parentObj.appendChild(contentBox)
+        }
+
+        /**
+         *创建新元素
+         * @param ele
+         * @returns {Element}
+         */
+
+        function createsElement(ele) {
+            return document.createElement(ele)
+        }
+
+        /**
+         * copy
+         * @param obj
+         * @param obj1
+         * @returns {*}
+         */
+        function extend(obj, obj1) {
+            for (var k in obj1) {
+                obj[k] = obj1[k]
+            }
+            return obj
+        }
+
+        function objToArr(obj) {
+            var arr = [];
+            for (var key in obj) {
+                arr.push(obj[key])
+            }
+            return arr;
+        }
+
+        /**
+         *  移除selec option 的数据
+         * @param parentObj
+         */
+        function removeOption(parentObj) {
+            parentObj.innerHTML = '';
+        }
+
+        /**
+         * 隐藏当前指定selec option 的数据
+         * @param parentObj
+         * @param removeObjVal
+         */
+        function hideOption(parentObj, removeObjVal) {
+            var list = parentObj.children
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].value === removeObjVal) {
+                    list[i].style.cssText = "display:none"
+                }
+            }
+        }
+
+        /**
+         * 清除当前页面数据
+         * @param parentObj
+         */
+        function clearInnerHTML(selector) {
+            selector.innerHTML = '';
+        }
+
+        /**
+         * 创建select option
+         * @param parentObj
+         * @param val
+         */
+        function createOption(parentObj, val) {
+            var opt = document.createElement('option')
+            opt.value = val
+            opt.innerText = val
+            parentObj.appendChild(opt)
+        }
+    })(info);
+
+
+</script>
+</body>
+</html>

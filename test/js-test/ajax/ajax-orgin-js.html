@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>orgin-js</title>
+</head>
+<body>
+<div class="form-container">
+    <table>
+        <tr>
+            <td><label for="user">user:</label></td>
+            <td><input type="text" maxlength="12" id="user" name="user" placeholder="your name"/></td>
+        </tr>
+        <tr>
+            <td><label for="password">password:</label></td>
+            <td><input type="password" id="password" name="password" placeholder="your password"/></td>
+        </tr>
+        <tr>
+            <td>
+                <input id="send" type="submit" value="send"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    window.onload = function () {
+        init();
+    }
+    function init() {
+        createXHR();
+        getDate();
+        xhr.open("GET", 'login.php?name=user&password=pwd', true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded;charset=UTF-8");
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText)
+            }
+        }
+    }
+    function getDate() {
+        var user = document.querySelector("name");
+        var pwd = document.querySelector("password");
+    }
+    function createXHR() {
+        var xhr = false;
+        try {
+            xhr = new ActiveXObject("Msxml2.XMLHTTP");//ie5以上
+        } catch (e) {
+            try {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (E) {
+                xhr = false;
+            }
+        }
+        if (!xhr && typeof XMLHttpRequest != "undefined") {
+            xhr = new XHLHttpRequest();
+        }
+        return xhr;
+    }
+
+</script>
+</body>
+</html>

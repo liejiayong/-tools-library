@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-responseText-tab</title>
+    <meta http-equiv="CONTENT-TYPE" content="text/html"/>
+</head>
+<body>
+<script>
+        function requestText(url,id) {
+            var xhr = false;
+            try {
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (e) {
+                try {
+                    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (E) {
+                    xhr = false;
+                }
+            }
+            if (!xhr && typeof XMLHttpRequest != "undefined") {
+                xhr = new XMLHttpRequest();
+            }
+            var show = document.querySelector(id);
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = updatePage;
+            xhr.send(null);
+            function updatePage() {
+//            if (xhr.readyState == 0) {
+//                console.log("请求未初始化")
+//            }
+//            if (xhr.readyState == 1) {
+//                console.log("请求已建立，尚未发送")
+//            }
+//            if (xhr.readyState == 2) {
+//                console.log("请求已发送，正在处理")
+//            }
+//            if (xhr.readyState == 3) {
+//                console.log("请求正在处理中")
+//            }
+                if (xhr.readyState == 4) {
+                    console.log("响应完成");
+                    if (xhr.status == 200) {
+                        console.log(show)
+                        show.innerHTML = xhr.responseText;
+                    }
+                }else{
+                    console.log("state is false ");
+                }
+            }
+        }
+
+
+</script>
+<style>
+    #tab .menu {
+        display: inline-block;
+        padding: 20px
+    }
+</style>
+<div id="tab" onload="requestText('http://localhost/jquery---test/ajax/content1.html','#tabShow');">
+    <a href="" class="menu" onclick="requestText('http://localhost/jquery---test/ajax/content2.html','#tabShow');return false;">Java</a>
+    <a href="" class="menu" onclick="requestText('http://localhost/jquery---test/ajax/content3.html','#tabShow');">PHP</a>
+    <a class="menu" onclick="requestText()">AJAX</a>
+    <a class="menu" onclick="requestText()">JavaScript</a>
+</div>
+<div id="tabShow">1</div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+{
+  "keys": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\config\\config.default.js",
+  "session": {
+    "maxAge": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+    "csrf": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "multipart": {
+    "mode": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "view": {
+    "root": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-view\\config\\config.default.js",
+    "mapping": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "env": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "name": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "version": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "description": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "main": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "dev": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "test": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+    },
+    "author": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "license": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "egg-bin": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "strict": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "depth": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "env": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "level": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "logging": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "port": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\node_modules\\egg\\config\\config.default.js"
+}

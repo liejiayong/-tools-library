@@ -1,0 +1,27 @@
+body,html{margin: 0;padding:0;}
+.reset{
+  display: inline-block;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  -moz-border-radius: 6px;
+       border-radius: 6px;
+       cursor: pointer;
+}
+.jycanvas{
+  display: inline-block;
+  position: relative;
+}
+.canvas {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  cursor: crosshair;
+  border: 3px solid #ccc;
+}
+.rubberband{
+  display: none;
+  position: absolute;
+  border: 3px solid blue;
+  cursor: crosshair;
+}

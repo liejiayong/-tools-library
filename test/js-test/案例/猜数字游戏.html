@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>猜数字游戏</title>
+</head>
+
+<body>
+  <style>
+    .refresh {
+      position: fixed;
+      bottom: 100px;
+      right: 100px;
+    }
+
+    .show {
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      background: #000000;
+      font-size: 60px;
+      color: #fff;
+      text-align: center;
+      bottom: 50px;
+      right: 250px;
+    }
+  </style>
+  <div id="app"></div>
+  <div class="show"></div>
+  <!-- built files will be auto injected -->
+
+  <script>
+    window.onload = function () {
+      var app = document.querySelector("#app");
+      var nineDigital = 0;
+      var show = document.querySelector(".show");
+
+      nineDigital = getNine();
+      show.addEventListener("click", function () {
+        this.innerHTML = nineDigital;
+      });
+
+      reF();
+
+      function getNine() {
+        var num = Math.floor((Math.random() * 100).toFixed(2));
+        return num;
+      }
+
+
+      function reF() {
+        for (var i = 1; i < 99; i++) {
+          var boxP = document.createElement("div");
+          boxP.style.cssText = `float:left;`;
+          app.append(boxP);
+          var box = document.createElement("div");
+          var color = 999999;
+          var base = 555;
+          var backgroundColor = color - base * i;
+          box.style.cssText = `background:#${backgroundColor};width:120px;height:100px`;
+          boxP.appendChild(box);
+          var title = document.createElement('div');
+          title.innerHTML = i;
+          title.style.cssText = `text-align:center;width:100px;height:60px;line-height:60px`;
+          box.append(title);
+
+          var rand = randomDigital();
+          var nine = nineDigital;
+          if (i % 9 !== 0) {
+            var notNine = document.createElement("div");
+            notNine.innerHTML = rand;
+            notNine.style.cssText = `text-align:center;width:100px;height:30px;line-height:30px`;
+            box.append(notNine);
+          } else {
+            var Nine = document.createElement("div");
+            Nine.innerHTML = nine;
+            Nine.style.cssText = `text-align:center;width:100px;height:30px;line-height:30px`;
+            box.append(Nine);
+          }
+
+
+        }
+      }
+
+      function randomDigital() {
+        var randDigital = Math.random() * 100;
+        return Math.floor(randDigital.toFixed(2));
+      }
+
+
+    }
+  </script>
+
+</body>
+
+</html>

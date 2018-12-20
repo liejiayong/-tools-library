@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>mobile input</title>
+</head>
+
+<body>
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-size: 0.24rem;
+    }
+
+    .jy-main-wrapper {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      height: .8rem;
+      background-color: #000;
+    }
+
+    section {
+      position: absolute;
+      top: .8rem;
+      bottom: 1rem;
+    }
+    section div{
+      position: relative;
+      width: 100vw;
+      height: 1000vh;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+      background-color: #f1f1f1;
+    }
+
+    .jyinput {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 1rem;
+    }
+
+    .jyinput input {
+      padding: 0;
+      margin: 0;
+      width: inherit;
+      height: inherit;
+    }
+  </style>
+  <div class="jy-main-wrapper">
+    <header>header</header>
+    <section id="jycontent">
+      <div>section</div>
+    </section>
+    <div class="jyinput">
+      <input id="inputHook" type="text" onfocus="onFocus" onblur="onBlur">
+    </div>
+  </div>
+  <script>
+    function initRem() {
+      var deviceWidth = document.documentElement.clientWidth;
+      if (deviceWidth > 750) deviceWidth = 750;
+      document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+    }
+    initRem();
+
+    // 输入框获得焦点事件
+    function onFocus() {
+      var inputBox = setTimeout(function () {
+        // 设置body的高度为可视高度+302
+        // 302为原生键盘的高度
+        document.getElementsByTagName('body')[0].style.height = (window.innerHeight + 302) + 'px';
+        document.body.scrollTop = 302;
+      }, 300)
+    }
+    // 输入框失去焦点事件
+    function onBlur() {
+      // 设置body恢复原来的高度
+      document.getElementsByTagName('body')[0].style.height = window.innerHeight + 'px';
+      setTimeout(inputBox);
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,OAAO;EACL,OAAO,EAAE,WAAW;EACpB,OAAO,EAAE,WAAW;EACpB,OAAO,EAAE,IAAI;;AAEf,OAAO;EACL,aAAa,EAAC,IAAI;EAClB,mBAAmB,EAAE,IAAI;EACtB,gBAAgB,EAAE,IAAI;EACrB,eAAe,EAAE,IAAI;EACjB,WAAW,EAAE,IAAI;;AAE3B,qdAAqd",
+"sources": ["webstrom-autoprefixer-configurate-test.scss"],
+"names": [],
+"file": "webstrom-autoprefixer-configurate-test.css"
+}

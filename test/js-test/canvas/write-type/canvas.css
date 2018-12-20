@@ -1,0 +1,57 @@
+#canvas{
+	margin:0 auto;
+	border:1px #ccc solid;
+	display:block;
+}
+
+.btn {
+    background: #f1f1f1;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 2vh;
+}
+.btn:hover{
+	border:5px solid violet;
+}
+#btn-blue {
+    background-color: blue;
+}
+#btn-green{
+	background-color: green;
+}
+#btn-blanchedalmond{
+	background-color: blanchedalmond;
+}
+#btn-red{
+	background-color: red;
+}
+#btn-grey{
+	background-color: grey;
+}
+#btn-yellow{
+	background-color:yellow;
+}
+.btn-selected {
+    border: 5px solid #f0f;
+}
+.btn-clear {
+    width: 2vw;
+    background: #f1f1f1;
+    height: 1vh;
+    line-height: 1vh;
+    padding: 1vw;
+    border: 1px solid #f9f9f9;
+    float: right;
+    margin-top: 2vh;
+}
+
+.btn-clear:hover {
+    opacity: 0.6;
+}
+
+.bg {
+    width: 800px;
+    height: 900px;
+    margin: 0 auto;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsencryptjs</title>
+</head>
+
+<body>
+    <script src="./jsencrypt.js"></script>
+    <script>
+        const pubkey = `
+    -----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5A/TPEmOQYgT2po11qvjeBUPE
+dqUEz1Z7MeHH7KI2p74pYK8RsvYngy1cH/wnMXmsf+Wb3tmlqNGa7atW8wlpSfXX
+QV9bFECPEVRnESo8xtN7ZAlJFcdRvBVgfVwC3m9HWpVvKnd9NREXIcg5NHh57q7u
+lsGCZJ2VOJm9EIgFEwIDAQAB
+-----END PUBLIC KEY-----
+    `;
+        const privkey = `
+        -----BEGIN RSA PRIVATE KEY-----
+MIICXQIBAAKBgQC5A/TPEmOQYgT2po11qvjeBUPEdqUEz1Z7MeHH7KI2p74pYK8R
+svYngy1cH/wnMXmsf+Wb3tmlqNGa7atW8wlpSfXXQV9bFECPEVRnESo8xtN7ZAlJ
+FcdRvBVgfVwC3m9HWpVvKnd9NREXIcg5NHh57q7ulsGCZJ2VOJm9EIgFEwIDAQAB
+AoGBALcfBVVXHBiyC7udSfInET+e8l4oGFjUZwJ0csaQnlV+XadSvLTF7wFYwrKm
+LcsVGxrzU+2c+ssOdrfjeW0MDEjrbd1xtmayP8Kh2/Pg+9jZqj188tTlLwzUW6iz
+KDEpiG5P1f1cbKY+R/BHQIKt7vcd2QMNVctxSkjl1uSvU/ERAkEA7uCuAJsVgmui
+NjDscoXyj+QRFWqDnUNCZqSqjYw7/BC36xYg/Xolw/bqg9aTgua96fv9k9hExOBY
+eNV3mj63bwJBAMZG7J5/vc3bkVwOS3A5E8j4hwCIFDylbKQ8chdulC3wwDLaSRdE
+evUfhAmMev1cc4QiVaXzGKPcS9ko8Gdz2p0CQAftfvjYLMOSTOTdhMtcNKuf1w1N
+5qZOeCKt7lcaQ1dfOqtbpaaj6iLxy+CqO2UJwV3FlinU8JtUEruX4gtFb5MCQGgb
+l2RFuHhdgH5wdwXOwme0rtYFnXKWfWvi3RkWk7FnhtNssBIKf/EzAhYtb+qWX4US
+rhv7f4WSRzUX/NqlBzUCQQCfDpC5/DZ/7RMKbDj7inW2G/3T56jzCdicIAgN0erZ
+jcbB7+8VQLjcw5LFYPwgjjz5v6Amw42VY+dBUNWVEH9C
+-----END RSA PRIVATE KEY-----
+        `;
+
+        const crypt = new JSEncrypt();
+        crypt.setPublicKey(pubkey)
+        var encr = crypt.encrypt('123')
+        console.log('加密:', encr)
+
+        const decrypts = new JSEncrypt();
+        decrypts.setPrivateKey(privkey)
+        var decrypt = decrypts.decrypt(encr)
+        console.log('解密:', decrypt)
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <label for="user">name:</label>
+    <input id="user" type="text"/>
+    <label for="pwd">password:</label>
+    <input id="pwd" type="password" maxlength="12"/>
+    <input id='send' type='submit'/>
+    <div id="show"></div>
+</div>
+<script src="../jquery---test/jquery-3.1.1.js"></script>
+<script>
+    (function ($) {
+        $(function () {
+            var user = $('#user').val();
+            var pwd = $('#pwd').val();
+            var sendBtn = $('#send');
+            var show = $('#show');
+
+            sendBtn.on({
+                click: function () {
+                    window.open("content1.html", "name1", "width=100,height=200,toolbar=no,scrollbars=no,menubar=no,screenX=100,screenY=100");
+                    var datas = {'user': user, 'password': pwd};
+                    var url = 'ajaxdemo.php';
+                    $.ajax({
+                        type: 'post',
+                        data: datas,
+                        url: url,
+                        success: function (data) {
+                            alert(user + pwd);
+                            show.html(data);
+                        }
+                    });
+                }
+            });
+
+        })
+
+    })(jQuery)
+</script>
+</body>
+</html>

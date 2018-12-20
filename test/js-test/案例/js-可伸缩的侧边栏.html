@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <style>
+    .custom_hidden {
+      display: none;
+    }
+
+    div#single-product-category-sider {
+      width: 200px;
+      border: 1px #ccc solid;
+      box-sizing: content-box;
+      box-shadow: 6px 4px 9px rgba(204, 204, 204, 0.37);
+    }
+
+    @media (max-width: 500px) {
+      div#single-product-category-sider {
+        display: none;
+      }
+    }
+
+    div#single-product-category-sider ul.hierarchy {
+      margin: 0px;
+      padding: 0px 10px;
+    }
+
+    div#single-product-category-sider h3.cat-title {
+      background: linear-gradient(#03acec, #1496d4, #03acec);
+      background: -moz-linear-gradient(#03acec, #1496d4, #03acec);
+      background: -o-linear-gradient(#03acec, #1496d4, #03acec);
+      background: -webkit-linear-gradient(#03acec, #1496d4, #03acec);
+      /*background: -webkit-gradient(linear, 0 0, 0 bottom, from(#1496d4), to(#03acec));*/
+      padding: 10px;
+      margin: 0px 0px 12px 0px;
+      color: #fff;
+    }
+
+    div#single-product-category-sider ul.hierarchy li {
+      list-style-type: none;
+      margin: 5px 0px 10px 0px;
+    }
+
+    ul.custom_hidden li {
+      position: relative;
+      top: 0px;
+      left: 0;
+    }
+
+    ul.custom_hidden {
+      padding: 0px 10px;
+    }
+
+    div#single-product-category-sider ul.hierarchy li a {
+      color: #000;
+      text-decoration: none;
+    }
+  </style>
+
+  <div id="single-product-category-sider" class="custom-box">
+    <h3 class="cat-title">POS System:</h3>
+    <ul class="hierarchy">
+      <li>
+        <a href="#">All in one POS system: touch screen or not</a>
+      </li>
+      <li>
+        <a href="#">Touch screen POS system</a>
+      </li>
+      <li>
+        <a href="#">POS terminal: touch screen</a>
+      </li>
+    </ul>
+
+    <h3 class="cat-title">Thermal Printer: </h3>
+    <ul class="hierarchy">
+      <li class="hierarchy">
+        <a href="#">Thermal receipt printer</a>
+        <ul class="custom_hidden">
+          <li>
+            <a href="#">58mm receipt printer: Bluetooth/ USB, Desktop or pocket</a>
+          </li>
+          <li>
+            <a href="#">80mm receipt printer: USB/ Parallel/ Serial/ Parallel, Desktop or pocket</a>
+          </li>
+        </ul>
+      </li>
+      <span></span>
+      <li class="hierarchy">
+        <a href="#">Thermal label printer</a>
+        <ul class="custom_hidden">
+          <li>
+            <a href="#">58mm label printer: Bluetooth/ USB, Desktop or pocket</a>
+          </li>
+          <li>
+            <a href="#">80mm label printer: USB/ Parallel/ Serial/ Parallel, Desktop or pocket</a>
+          </li>
+        </ul>
+      </li>
+      <span></span>
+      <li>
+        <a href="#">Dot Matrix printer: 76mm receipt printern</a>
+      </li>
+    </ul>
+
+    <h3 class="cat-title">Bar code Scanner: </h3>
+    <ul class="hierarchy">
+      <li class="hierarchy">
+        <a href="#">Wired bar code scanner</a>
+        <ul class="custom_hidden">
+          <li>
+            <a href="#">1D code scanner, 2D code scanner and Omini directional scanner</a>
+          </li>
+          <li>
+            <a href="#">Waterproof or not</a>
+          </li>
+        </ul>
+      </li>
+      <span></span>
+      <li class="hierarchy">
+        <a href="#">Thermal label printer</a>
+        <ul class="custom_hidden">
+          <li>
+            <a href="#">1D code scanner, 2D code scanner</a>
+          </li>
+          <li>
+            <a href="#">Waterproof or not</a>
+          </li>
+        </ul>
+      </li>
+      <span></span>
+      <li>
+        <a href="#">Data collector: Wireless</a>
+      </li>
+      <li>
+        <a href="#">Document scanner: WIFI or not</a>
+      </li>
+    </ul>
+
+    <h3 class="cat-title">Card Reader:</h3>
+    <ul class="hierarchy">
+      <li class="hierarchy">
+        <a href="#">IC card reader</a>
+        <ul class="custom_hidden">
+          <li>
+            <a href="#">Keyboard or not</a>
+          </li>
+          <li>
+            <a href="#">RFID or not</a>
+          </li>
+        </ul>
+      </li>
+      <span></span>
+      <li>
+        <a href="#">ID card reader: With keyboard</a>
+      </li>
+      <li class="hierarchy">
+        <a href="#">Magnetic card reader</a>
+        <ul class="custom_hidden">
+          <li>
+            <a href="#">Keyboard or not</a>
+          </li>
+          <li>
+            <a href="#">With cover or not</a>
+          </li>
+        </ul>
+      </li>
+      <span></span>
+    </ul>
+
+  </div>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+    jQuery(document).ready(function () {
+      var hierarchyEffect = function () {
+        var ulList = null;
+        var liList = null;
+
+        function init() {
+          ulList = jQuery("ul.custom_hidden");
+          liList = jQuery("li.hierarchy");
+
+          addEvent();
+        }
+
+        function addEvent() {
+          liList.bind('click', function () {
+            return false;
+          });
+          liList.click(function () {
+            var that = jQuery(this);
+            that.find(ulList
+            ).toggle(100)
+
+          });
+
+
+        }
+
+        return init();
+
+      }
+      hierarchyEffect();
+    });
+  </script>
+
+</body>
+
+</html>

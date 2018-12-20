@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-request-xml</title>
+    <script>
+        window.onload= init;
+        function init() {
+
+            var user = document.querySelector("#user");
+            var pwd = document.getElementById("pwd");
+            var butt = document.querySelector("#send");
+            var show = document.querySelector(".show");
+            butt.onclick = function (event) {
+                var xml = false;
+                try{
+                    xml = new ActiveXObject("Msxml2.XMLHTTP");
+                }catch (e){
+                    try{
+                        xml = new ActiveXObject("Microsoft.XMLHTTP");
+                    }catch(otherMicrosoft){
+                        xml = false;
+                    }
+                }
+                if(!xml && typeof XMLHttpRequest != 'undefined'){
+                    xml = new XMLHttpRequest();
+                }
+                var sendString = "<profile>"+"<user>"+decodeURI(user)+"</user>"+"<pwd>"+decodeURI(pwd)+"</pwd>"+"</profile>";
+                xml.open("post","login.php",true);
+                xml.setRequestHeader("Content-type","text/xml");
+                xml.send(sendString);
+                xml.onreadystatechange = function () {
+                    if(xml.readyState == 4){
+                        if(xml.status){
+                            show.innerHTML = xml.responseText;
+                        }
+                    }
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="info">
+    <label for="user">name:</label>
+    <input type="text" id="user" name="user" placeholder="your name">
+    <label for="pwd">name:</label>
+    <input type="text" id="pwd"  name="pwd" placeholder="your password">
+    <input type="button" value="send" id="send"/>
+</div>
+
+<div class="show">
+
+</div>
+</body>
+</html>

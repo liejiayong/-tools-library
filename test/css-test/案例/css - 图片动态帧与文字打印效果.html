@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css - 图片动态帧与文字打印效果</title>
+</head>
+
+<body>
+  <style>
+    .walk {
+      width: 125px;
+      height: 150px;
+      background: url(http://lsly1989.qiniudn.com/xxxasddbgfbwalk.jpg) left;
+      -webkit-animation: anima 1s steps(16) infinite;
+    }
+
+    @-webkit-keyframes anima {
+      from {
+        background-position: 2000px 0;
+      }
+      to {
+        background-position: 0px 0;
+      }
+    }
+
+    .typing {
+      width: 250px;
+      white-space: nowrap;
+      overflow: hidden;
+      -webkit-animation: type 3s steps(50, end) infinite;
+      animation: type 3s steps(50, end) infinite;
+    }
+
+
+    @-webkit-keyframes type {
+      from {
+        width: 0;
+      }
+    }
+
+    @keyframes type {
+      from {
+        width: 0;
+      }
+    }
+  </style>
+  <div class="walk">man</div>
+  <div class="typing">womende she he we hw</div>
+
+</body>
+
+</html>

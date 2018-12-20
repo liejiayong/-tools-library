@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-file-upload</title>
+</head>
+<body>
+<input id="upload" type="file" multiple="multiple" accept="image/png"/>
+<input type="submit" id="send" value="send"/>
+<script type="text/javascript">
+    window.onload = function () {
+        var upload = document.querySelector("#upload").files;
+        var send = document.querySelector("#send");
+        upload.onchange = function () {
+            var formData = new FormData();
+            for (var i, file; file = upload[i]; i++) {
+                formData.append(file.name, file);
+            }
+            send.onclick = function () {
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open("POST", "upload.php", true);
+                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            alert("upload success!");
+                        }
+                    }
+                }
+                xhr.send(formData);
+                console.log(upload);
+            }
+            console.log(formData);
+        }
+
+
+    }
+
+</script>
+
+</body>
+</html>

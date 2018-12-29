@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>collision</title>
+    <style>
+      canvas {
+        background-color: #ccc;
+      }
+    </style>
+    <script src="object-collision.js"></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      var canvas = document.querySelector('#canvas');
+      canvas.width = 400;
+      canvas.height = 400;
+
+      var ctx = canvas.getContext('2d');
+
+      function rectCollision(rect1, rect2) {
+        var is = false;
+        if (rect1.x < rect2.x + rect2.width && rect1.x + rect1.width > rect2.x && rect1.y < rect2.y + rect2.height && rect1.y + rect1.height > rect2.y) {
+          is = true;
+        }
+        return is;
+      }
+    </script>
+  </body>
+</html>

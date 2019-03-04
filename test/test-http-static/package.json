@@ -1,0 +1,26 @@
+{
+  "name": "test-http-static",
+  "version": "1.0.0",
+  "description": "Example code to show selecting cameras with JavaScript",
+  "main": "app.js",
+  "scripts": {
+    "start": "serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liejiayong/mediadevices-camera-selection.git"
+  },
+  "keywords": [
+    "webrtc",
+    "node http"
+  ],
+  "author": "liejiayong <809206619@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/liejiayong/mediadevices-camera-selection/issues"
+  },
+  "homepage": "",
+  "devDependencies": {
+    "serve": "^10.1.2"
+  }
+}

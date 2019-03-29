@@ -4,12 +4,23 @@ A store with js  tools library and plugins
 
 # 插件库记录
 
+## 2019年春节后新增插件、工具库
+
+ヾ(◍°∇°◍)ﾉﾞ
+
++ http --- 全面分析前端的网络请求方式与封装
++ docs --- 整合docs文档
+
 ## 2018年春节后新增插件、工具库
 
 --^……^*
 
 + proload --- 一个轻量的基于jQuery的图片预加载插件
-+ common --- 汇集常用工具函数
++ utils --- 汇集常用工具函数
++ test library --- 各种学习测试demo
++ rem adapter --- 移动端rem解决方案
++ h5-keyboard-compatibility --- h5虚拟键盘兼容解决方案
++ generator-css-sprite --- 合成雪碧图与生产css自动化解决方案
 
 ## 2017年新增插件、工具库
 

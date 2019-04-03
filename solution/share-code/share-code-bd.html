@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>share code by bd</title>
+  </head>
+  <body>
+    <div class="bd_selectShare">滑我划水</div>
+
+    <!-- 
+      bdsharebuttonbox下面的图标按钮可以自定义样式
+     -->
+    <!-- share html -->
+    <div class="bdsharebuttonbox" data-tag="share_1">
+      <a class="bds_weixin" data-cmd="weixin"></a>
+      <a class="bds_tsina" data-cmd="tsina"></a>
+      <a class="bds_qzone" data-cmd="qzone" href="#"></a>
+      <a class="bds_sqq" data-cmd="sqq"></a>
+      <a class="bds_more" data-cmd="more">更多</a>
+      <a class="bds_count" data-cmd="count"></a>
+    </div>
+    <script>
+      // share js
+      window._bd_share_config = {
+        // 通用设置将作用于所有分享类型，可将通用设置放于此处，如分享内容、分享url等。
+        common: {
+          bdText: '', // 分享的内容
+          bdDesc: '', // 分享的摘要
+          bdUrl: '', // 分享的Url地址
+          bdPic: '', // 分享的图片
+          bdSign: '', // 是否进行回流统计:'on': 默认值，使用正常方式挂载回流签名（#[数字签名]）;'off': 关闭数字签名，不统计回流量;'normal': 使用&符号连接数字签名，不破坏原始url中的#锚点
+          bdMini: 1, // 下拉浮层中分享按钮的列数:1｜2｜3
+          bdMiniList: ['weixin', 'tsina', 'qzone', 'sqq'], // 自定义下拉浮层中的分享按钮类型和排列顺序：详见分享媒体id对应表
+          onBeforeClick: function(cmd, config) {}, // 在用户点击分享按钮时执行代码，更改配置。cmd为分享目标id，config为当前设置，返回值为更新后的设置。
+          onAfterClick: function(cmd) {}, // 在用户点击分享按钮后执行代码，cmd为分享目标id。可用于统计等。
+          bdPopupOffsetLeft: 1, // 下拉浮层的y偏移量: 正｜负数
+          bdPopupOffsetTop: 1 // 下拉浮层的y偏移量: 正｜负数
+        },
+        // 分享按钮设置的值为数组或对象，值为数组时可对多个分享按钮应用不同的设置。
+        share: [
+          {
+            tag: 'share_1', // 表示该配置只会应用于data-tag值一致的分享按钮。如果不设置tag，该配置将应用于所有分享按钮。
+            bdSize: 32, // 分享按钮的尺寸
+            bdCustomStyle: '' // 自定义样式，引入样式文件(样式文件地址)
+          }
+        ],
+        // 浮窗分享设置的值为数组或对象，值为数组时可在页面显示多个分享浮窗。
+        slide: [
+          {
+            bdImg: '8', // 分享浮窗图标的颜色:0｜1｜2｜3｜4｜5｜6｜7｜8
+            bdPos: 'right', // 分享浮窗的位置:left｜right
+            bdTop: 100 // 分享浮窗与可是区域顶部的距离(px)
+          },
+          {
+            bdImg: 0,
+            bdPos: 'left',
+            bdTop: 100
+          }
+        ],
+        // 图片分享设置的值为数组或对象，值为数组时可对图片应用不同的设置。
+        image: [
+          {
+            tag: 'share_1', // 表示该配置只会应用于data-tag值一致的图片。如果不设置tag，该配置将应用于所有图片。
+            viewType: 'list', // 图片分享按钮样式:list｜collection
+            viewPos: 'top', // 图片分享展示层的位置:	top｜bottom
+            viewColor: 'black', // 图片分享展示层的背景颜色:black｜white
+            viewSize: '16', // 图片分享展示层的图标大小:16｜24｜32
+            viewList: ['weixin', 'tsina', 'qzone', 'sqq'] // 自定义展示层中的分享按钮类型和排列顺序。详见分享媒体id对应表
+          }
+        ],
+        // 此处放置划词分享设置
+        selectShare: [
+          {
+            bdSelectMiniList: ['weixin', 'tsina', 'qzone', 'sqq'], // 自定义弹出浮层中的分享按钮类型和排列顺序。详见分享媒体id对应表
+            bdContainerClass: 'bd_selectShare' // 自定义划词分享的激活区域
+          }
+        ]
+      };
+      with (document) (0)[((getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5))]; // 809206619account
+      // with (document) (0)[((getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion=' + ~(-new Date() / 36e5))]; // cndcommonaccount
+    </script>
+
+    <!-- 检测分享代码版本 -->
+    <script>
+      javascript: b = window.bdShare || window._bd_share_main;
+      alert(b ? '\u5F53\u524D\u9875\u9762\u7684\u5206\u4EAB\u4EE3\u7801\u7248\u672C\u4E3A\uFF1A' + (b.version || '1.0') : '\u5F53\u524D\u9875\u9762\u6CA1\u6709\u5B89\u88C5\u5206\u4EAB\u4EE3\u7801\u3002');
+    </script>
+
+    <div>
+      <h1>
+        分享媒体id对应表
+      </h1>
+      <table id="toIdList" class="detail_id_list">
+        <tbody>
+          <tr>
+            <th class="partner-col1">名称</th>
+            <th class="partner-col2">ID</th>
+          </tr>
+          <tr>
+            <td class="partner-col1">印象笔记</td>
+            <td class="partner-col2">evernotecn</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">网易热</td>
+            <td class="partner-col2">h163</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">一键分享</td>
+            <td class="partner-col2">mshare</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">QQ空间</td>
+            <td class="partner-col2">qzone</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">新浪微博</td>
+            <td class="partner-col2">tsina</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">人人网</td>
+            <td class="partner-col2">renren</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">腾讯微博</td>
+            <td class="partner-col2">tqq</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">百度相册</td>
+            <td class="partner-col2">bdxc</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">开心网</td>
+            <td class="partner-col2">kaixin001</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">腾讯朋友</td>
+            <td class="partner-col2">tqf</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">百度贴吧</td>
+            <td class="partner-col2">tieba</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">豆瓣网</td>
+            <td class="partner-col2">douban</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">百度新首页</td>
+            <td class="partner-col2">bdhome</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">QQ好友</td>
+            <td class="partner-col2">sqq</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">和讯微博</td>
+            <td class="partner-col2">thx</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">百度云收藏</td>
+            <td class="partner-col2">bdysc</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">美丽说</td>
+            <td class="partner-col2">meilishuo</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">蘑菇街</td>
+            <td class="partner-col2">mogujie</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">点点网</td>
+            <td class="partner-col2">diandian</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">花瓣</td>
+            <td class="partner-col2">huaban</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">堆糖</td>
+            <td class="partner-col2">duitang</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">和讯</td>
+            <td class="partner-col2">hx</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">飞信</td>
+            <td class="partner-col2">fx</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">有道云笔记</td>
+            <td class="partner-col2">youdao</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">麦库记事</td>
+            <td class="partner-col2">sdo</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">轻笔记</td>
+            <td class="partner-col2">qingbiji</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">人民微博</td>
+            <td class="partner-col2">people</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">新华微博</td>
+            <td class="partner-col2">xinhua</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">邮件分享</td>
+            <td class="partner-col2">mail</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">我的搜狐</td>
+            <td class="partner-col2">isohu</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">摇篮空间</td>
+            <td class="partner-col2">yaolan</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">若邻网</td>
+            <td class="partner-col2">wealink</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">天涯社区</td>
+            <td class="partner-col2">ty</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">Facebook</td>
+            <td class="partner-col2">fbook</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">Twitter</td>
+            <td class="partner-col2">twi</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">linkedin</td>
+            <td class="partner-col2">linkedin</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">复制网址</td>
+            <td class="partner-col2">copy</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">打印</td>
+            <td class="partner-col2">print</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">百度中心</td>
+            <td class="partner-col2">ibaidu</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">微信</td>
+            <td class="partner-col2">weixin</td>
+          </tr>
+          <tr>
+            <td class="partner-col1">股吧</td>
+            <td class="partner-col2">iguba</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

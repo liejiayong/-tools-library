@@ -1,0 +1,11 @@
+{
+  "name": "python-grammer-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "python test.py"
+  },
+  "author": "liejiayong (809206619@qq.com)",
+  "license": "ISC"
+}

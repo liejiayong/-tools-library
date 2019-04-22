@@ -118,6 +118,6 @@ export function length(str) {
  */
 function getQueryString(name) {
   var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
-  var r = window.location.search.substr(1).match(reg);
-  return null != c ? unescape(c[2]) : null
+  var c = window.location.search.substr(1).match(reg);
+  return null != c ? decodeURIComponent(c[2]) : null
 }

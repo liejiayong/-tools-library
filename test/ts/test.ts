@@ -44,7 +44,7 @@ myFavoriteNumber = 7
 interface Person {
     name: string,
     phone: number,
-    readonly email: string, // 只读属性
+    readonly email: string, // 只读属性,只在初始化时赋值
     age?: number,  // 可选属性，使用?:
     [propName: string]: any  // 任意属性
 }

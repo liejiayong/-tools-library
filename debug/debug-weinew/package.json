@@ -1,0 +1,15 @@
+{
+  "name": "debug-weinew",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "weinre --httpPort 8888 --boundHost -all-"
+  },
+  "git": "",
+  "author": "liejiayong(809206619@qq.com)",
+  "license": "ISC",
+  "dependencies": {
+    "weinre": "^2.0.0-pre-I0Z7U9OV"
+  }
+}

@@ -107,7 +107,7 @@ function throttle_es5(fn, threshhold = 160) {
  * @param {*} str
  * @returns {Number}
  */
-export function length(str) {
+export function strlen(str) {
   return [...str].length;
 }
 

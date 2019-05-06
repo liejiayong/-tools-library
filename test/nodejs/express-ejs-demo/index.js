@@ -1,13 +1,15 @@
-var path = require('path');
-var express = require('express');
-var session = require('express-session')
-var MongoStore = require('connect-mongo')(session)
-var flash = require('connect-flash')
-var config = require('config-lite')(__dirname)
-var routes = require('./routes');
-var pkg = require('./package')
+const path = require('path');
+const express = require('express');
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const flash = require('connect-flash')
+const config = require('config-lite')(__dirname)
+const winston = require('winston')
+const expressWinston = require('express-winston')
+const routes = require('./routes');
+const pkg = require('./package')
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -53,20 +55,47 @@ app.use(function (req, res, next) {
   next()
 })
 
-// route
+// 正常请求的日志
+app.use(expressWinston.logger({
+  transports: [
+    new (winston.transports.Console)({
+      json: true,
+      colorize: true
+    }),
+    new winston.transports.File({
+      filename: 'logs/success.log'
+    })
+  ]
+}))
+
+// 路由
 routes(app)
 
-app.use(function(err, req, res, next) {
-  console.log(err)
+// 错误请求的日志
+app.use(expressWinston.errorLogger({
+  transports: [
+    new winston.transports.Console({
+      json: true,
+      colorize: true
+    }),
+    new winston.transports.File({
+      filename: 'logs/error.log'
+    })
+  ]
+}))
+
+app.use(function (err, req, res, next) {
+  console.error(err)
   req.flash('error', err.message)
   res.redirect('/posts')
 })
 
+// 可以实现：直接启动 index.js 则会监听端口启动程序，如果 index.js 被 require 了，则导出 app，通常用于测试。
 if (module.parent) {
   // 被require, 则导出app
   module.exports = app
 } else {
-  app.listen(config.port, function() {
+  app.listen(config.port, function () {
     console.log(`${pkg.name} listening on port ${config.port}`)
   })
 }

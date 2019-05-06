@@ -11,7 +11,12 @@ module.exports = function (app) {
   app.use('/posts', require('./posts'));
   app.use('/comments', require('./comments'));
   app.use('/user', require('./user'));
-
+  // 404 page
+  app.use(function (req, res) {
+    if (!res.headersSent) {
+      res.status(404).render('404')
+    }
+  })
   // // 注册
   // app.get('/reg', function (req, res) {
   //   res.render('reg', { title: '注册' })

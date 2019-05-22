@@ -1,0 +1,16 @@
+2018-11-15 15:22:21,844 INFO 9472 [egg:logger] init all loggers with options: {"dir":"E:\\tanwan-file\\test-docs\\nodejs\\egg-handbyhand\\logs\\egg-handbyhand","encoding":"utf8","env":"local","level":"INFO","consoleLevel":"INFO","disableConsoleAfterReady":false,"outputJSON":false,"buffer":true,"appLogName":"egg-handbyhand-web.log","coreLogName":"egg-web.log","agentLogName":"egg-agent.log","errorLogName":"common-error.log","coreLogger":{"consoleLevel":"WARN"},"allowDebugAtProd":false,"type":"application"}
+2018-11-15 15:22:21,890 INFO 9472 [egg-schedule]: register schedule E:\tanwan-file\test-docs\nodejs\egg-handbyhand\node_modules\egg-logrotator\app\schedule\clean_log.js
+2018-11-15 15:22:21,890 INFO 9472 [egg-schedule]: register schedule E:\tanwan-file\test-docs\nodejs\egg-handbyhand\node_modules\egg-logrotator\app\schedule\rotate_by_file.js
+2018-11-15 15:22:21,890 INFO 9472 [egg-multipart] stream mode enable
+2018-11-15 15:22:22,033 INFO 9472 [egg-static] starting static serve /public/ -> E:\tanwan-file\test-docs\nodejs\egg-handbyhand\app\public
+2018-11-15 15:22:22,040 INFO 9472 [egg-security] use csrf middleware
+2018-11-15 15:22:22,042 INFO 9472 [egg-security] use methodnoallow middleware
+2018-11-15 15:22:22,043 INFO 9472 [egg-security] use noopen middleware
+2018-11-15 15:22:22,046 INFO 9472 [egg-security] use nosniff middleware
+2018-11-15 15:22:22,047 INFO 9472 [egg-security] use xssProtection middleware
+2018-11-15 15:22:22,048 INFO 9472 [egg-security] use xframe middleware
+2018-11-15 15:22:22,049 INFO 9472 [egg-security] use dta middleware
+2018-11-15 15:22:22,049 INFO 9472 [egg-security] compose 7 middlewares into one security middleware
+2018-11-15 15:22:22,059 INFO 9472 [egg:core] dump config after load, 5ms
+2018-11-15 15:22:22,071 INFO 9472 [egg-watcher:application] watcher start success
+2018-11-15 15:22:22,078 INFO 9472 [egg:core] dump config after ready, 5ms

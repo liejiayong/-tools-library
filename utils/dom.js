@@ -55,3 +55,41 @@ export function getStyle(ele, style) {
     }
     return ret;
 }
+
+/**
+ * input元素选择兼容性处理
+ * @param {*} id 可以为dom id 或class
+ * @param {*} startPos 
+ * @param {*} endPos 
+ * @param {*} preSymbol 
+ * @param {*} endSymbol 
+ * @param {*} direction 
+ */
+function inputSelection(id, startPos, endPos, preSymbol, endSymbol, direction) {
+    var $el = document.querySelector(id), val = $el.value;
+  
+    if (!$el.tagName === 'INPUT') return console.trace(':::the function is used to be input Element');
+  
+    $el.addEventListener('focus', function (e) {
+      setTimeout(function () {
+        sele($el)
+      });
+    });
+  
+    $el.addEventListener('click', function (e) {
+      setTimeout(function () {
+        sele($el)
+      });
+    });
+  
+    function sele($el) {
+      if ($el.setSelectionRange) {
+        startPos = startPos || 0;
+        endPos = endPos || $el.value.length;
+        direction = direction || 'forward';
+        $el.setSelectionRange(startPos, endPos, direction);
+      } else {
+        console.trace(':::setSelectionRange不兼容该方法');
+      }
+    }
+  }

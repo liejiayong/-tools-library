@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-const checkLogin = require('../middlewares/check').checkLogin
+const { checkLogin } = require('../middlewares/check')
 
 
 router.post('/', checkLogin, function (req, res, next) {

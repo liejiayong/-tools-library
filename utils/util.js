@@ -34,7 +34,7 @@ export function shuffle(arr) {
  */
 export function debounce(fn, delay) {
   let timer = null;
-  return function(...args) {
+  return function (...args) {
     if (timer) clearTimeout(timer);
     timer = setTimeout(() => {
       fn.apply(this, args);
@@ -44,11 +44,11 @@ export function debounce(fn, delay) {
 
 function debounce_es5(fn, delay) {
   var timer = null;
-  return function() {
+  return function () {
     var context = this,
       arg = arguments;
     if (timer) clearTimeout(timer);
-    timer = setTimeout(function() {
+    timer = setTimeout(function () {
       fn.apply(context, arg);
     }, delay);
   };
@@ -65,7 +65,7 @@ function debounce_es5(fn, delay) {
 export function throttle(fn, threshhold = 160) {
   var timer = null;
   var start = Date.now();
-  return function(...args) {
+  return function (...args) {
     var curr = Data.now();
     if (timer) clearTimeout(timer);
     if (curr - start >= threshhold) {
@@ -82,7 +82,7 @@ export function throttle(fn, threshhold = 160) {
 function throttle_es5(fn, threshhold = 160) {
   var timer = null;
   var start = Data.now();
-  return function() {
+  return function () {
     var context = this,
       arg = arguments,
       curr = Data.now();
@@ -91,7 +91,7 @@ function throttle_es5(fn, threshhold = 160) {
       fn.apply(context, arg);
       start = curr;
     } else {
-      timer = setTimeout(function() {
+      timer = setTimeout(function () {
         fn.apply(context, arg);
       }, threshhold);
     }
@@ -121,3 +121,4 @@ function getQueryString(name) {
   var c = window.location.search.substr(1).match(reg);
   return null != c ? decodeURIComponent(c[2]) : null
 }
+

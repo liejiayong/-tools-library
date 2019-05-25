@@ -110,3 +110,4 @@ console.log(Days[1] === "Mon"); // true
 console.log(Days[2] === "Tue"); // true
 console.log(Days[6] === "Sat"); // true
 // 类
+//# sourceMappingURL=test.js.map

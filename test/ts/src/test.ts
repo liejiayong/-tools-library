@@ -1,19 +1,19 @@
 // 原始类型
 // boolean
-let isDone: boolean = false
-let isBoolean: Boolean = new Boolean(1)
+// let isDone: boolean = false
+// let isBoolean: Boolean = new Boolean(1)
 
 // number
-let decLiteral: number = 6
-let hexLiteral: number = 0xf00d
-let octalLiteral: number = 0o744
-let binaryLiteral: number = 0b1010
+// let decLiteral: number = 6
+// let hexLiteral: number = 0xf00d
+// let octalLiteral: number = 0o744
+// let binaryLiteral: number = 0b1010
 
 // string
-let myName: string = 'Tom'
+// let myName: string = 'Tom'
 
 // 空值void
-let unusable: void = undefined
+// let unusable: void = undefined
 
 // any
 let myFavorite: any = 'seven'
@@ -89,7 +89,7 @@ function getLength(something: string | number): number{
 }
 
 // 声明文件：引入第三方库时，对其进行引用声明
-declare var jQuery: (string) => any
+// declare var jQuery: (string) => any
 
 // 内置对象
 // ECMAScript 的内置对象Boolean、Error、Date、RegExp 等

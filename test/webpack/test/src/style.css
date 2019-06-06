@@ -1,7 +1,7 @@
 .color-red {
   color: red;
 }
-@font-face {
+/* @font-face {
   font-family: 'hunzi';
   src: url('./asset/fonts/hunzi.ttf');
   src: url('./asset/fonts/hunzi.eot?#font-spider') format('embedded-opentype'), url('./asset/fonts/hunzi.woff') format('woff'), url('./asset/fonts/hunzi.ttf') format('truetype'), url('./asset/fonts/hunzi.svg') format('svg');
@@ -10,4 +10,4 @@
 }
 .ff-hunzi {
   font-family: 'hunzi';
-}
+} */

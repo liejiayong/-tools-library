@@ -1,7 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   // 简单单文件
   // entry: './src/index.js',
   // output: {
@@ -15,7 +17,11 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+  },
+  optimization: {
+    usedExports: true
   },
   module: {
     rules: [
@@ -43,5 +49,23 @@ module.exports = {
         use: ['xml-loader']
       }
     ]
-  }
+  },
+  devtool: 'inline-source-map', // 为了更容易地追踪 error 和 warning，JavaScript 提供了 source map 功能，可以将编译后的代码映射回原始源代码。
+  // webpack 提供几种可选方式，帮助你在代码发生变化后自动编译代码：
+  // webpack watch mode(webpack 观察模式)
+  // webpack-dev-server
+  // webpack-dev-middleware
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+    hot: true, // 热加载
+    open: true // 启动后打开浏览器,可设置默认浏览器open: 'Google Chrome'
+  },
+  plugins: [
+    new CleanWebpackPlugin(), // 每次打包前清除前包
+    new HtmlWebpackPlugin({
+      title: 'webpack test'
+    })
+  ]
 }

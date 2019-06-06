@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>animate</title>
+    <style>
+      .he {
+        width: 100%;
+        height: 5000px;
+        background: linear-gradient(#ccc, #0095cc, #fcb53f, #000000);
+      }
+
+      .cl {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="he"></div>
+    <button class="cl">scroll To</button>
+    <select name="docoment" id="change-dom">
+      <option value="body">body</option>
+      <option value="html">html</option>
+      <option value="body,html">body,html</option>
+    </select>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(function() {
+        var cl = $('.cl');
+        var he = $('.he');
+        var arr = [500, 1500, 2500, 3500, 4500],
+          count = 0;
+        cl.on('click', function() {
+          count = Math.min(++count, arr.length) < arr.length ? count : 0;
+          // $("body,html").animate({scrollTop: arr[count]}, 500);
+          scrollToP(arr[count], 5000);
+        });
+      });
+
+      (function() {
+        var lastTime = 0;
+        var vendors = ['webkit', 'moz', 'ms', 'o'];
+        for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+          window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+          window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+        }
+        if (!window.requestAnimationFrame) {
+          window.requestAnimationFrame = function(callback) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function() {
+              return callback(currTime + timeToCall);
+            }, timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+          };
+        }
+        if (!window.cancelAnimationFrame) {
+          window.cancelAnimationFrame = function(id) {
+            clearTimeout(id);
+          };
+        }
+      })();
+
+      function scrollToP(top, duration) {
+        var fresh = 16;
+        var time = duration / fresh;
+        var eachMove = top / time;
+        var y = 0;
+        var handler = null;
+        move();
+        function move() {
+          if (y >= top) {
+            return cancelAnimationFrame(handler);
+          }
+
+          handler = requestAnimationFrame(function() {
+            y += eachMove;
+            console.log(y, window.scrollTo);
+            window.scrollTo(0, y);
+            move();
+          });
+        }
+      }
+    </script>
+  </body>
+</html>

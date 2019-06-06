@@ -22,7 +22,7 @@
     }
 })();
 
-function scrollTo (top, duration) {
+function scrollToElement (top, duration) {
     var fresh = 16;
     var time = duration / fresh;
     var eachMove = top / time;
@@ -36,7 +36,7 @@ function scrollTo (top, duration) {
 
         handler = requestAnimationFrame(function () {
             y += eachMove
-            console.log(y)
+            // console.log(y)
             window.scrollTo(0, y)
             move()
         })

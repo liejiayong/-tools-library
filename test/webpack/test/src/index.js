@@ -1,8 +1,14 @@
 import _ from 'lodash';
+import { cube } from './math.js';
 import './style.css';
-import iconMatch from './asset/images/matchstick.jpg';
-import noteXml from './asset/xml/note.xml';
-import printMe from './print.js';
+// import iconMatch from './asset/images/matchstick.jpg';
+// import noteXml from './asset/xml/note.xml';
+// import printMe from './print.js';
+
+
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Looks like we are in development mode!');
+}
 
 function component() {
   let element = document.createElement('div');
@@ -12,7 +18,7 @@ function component() {
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
   element.classList.add('color-red', 'ff-hunzi')
 
-  btn.innerHTML = '点击这里，然后查看 console！';
+  btn.innerHTML = '点击这里，然后查看 console！' + cube(5);
   btn.onclick = printMe;
   element.appendChild(btn);
 

@@ -1,34 +1,46 @@
 /**
- * baseType
+ * boolean type
+ * 在 TypeScript 中，boolean 是 JavaScript 中的基本类型，而 Boolean 是 JavaScript 中的构造函数。
  */
-
-//  boolean type
 let isDone: boolean = false
+let isboolean: boolean = Boolean(1)
+// 注意，使用构造函数 Boolean 创造的对象不是布尔值：
 let isBoolean: Boolean = new Boolean(1)
 
-// number type
+/**
+ * number type
+ * JavaScript 默认是十进制表示法，es6语法编译后其他进制会转化为十进制表示
+ */
 let decLiteral: number = 6
 let hexLiteral: number = 0xf00d
-let octalLiteral: number = 0o744
+// ES6 中的二进制表示法
 let binaryLiteral: number = 0b1010
+// ES6 中的八进制表示法
+let octalLiteral: number = 0o744
+let notANumber: number = NaN
+let infinityNumber: number = Infinity
 
-// string type
+/**
+ * string type
+ */
 let username: string = `Gene`
 let sentence: string = `Hello, my name is ${username}.
 I'll be ${decLiteral + 1} years old next month.`
 
-// Array type,两种方式：type[] 和 Array<type>
+/**
+ * Array type,两种方式：type[] 和 Array<type>
+ */
 let list1: number[] = [1, 2, 3]
 let list2: Array<number> = [1, 2, 3]
-let a: number[] = [1, 2, 3, 4];
+let a: number[] = [1, 2, 3, 4]
 // ReadonlyArray只读数组，可使用as改变结果
-let ro: ReadonlyArray<number> = a;
+let ro: ReadonlyArray<number> = a
 // ro[0] = 12; // error!
 // ro.push(5); // error!
 // ro.length = 100; // error!
 // a = ro; // error!
 // 上面代码的最后一行，可以看到就算把整个ReadonlyArray赋值到一个普通数组也是不可以的。 但是你可以用类型断言重写：
-a = ro as number[];
+a = ro as number[]
 
 // Tuple元祖:表示一个已知元素数量和类型的数组，各元素的类型不必相同
 let tuple1: [string, number]
@@ -59,7 +71,11 @@ let anyTest: any = 4
 anyTest = true
 anyTest = Object
 
-// void:没有任何类型，与any相反，如用在function中
+/**
+ * void:没有任何类型，与any相反
+ * 如用在function中,表示没有任何返回值的函数
+ * 只能将它赋值为 undefined 和 null
+ */
 function voidFun(): void {
   anyTest = Array
 }
@@ -67,9 +83,12 @@ function voidFun(): void {
 let unusable: void = undefined
 unusable = null
 
-// Null 和 Undefined.和 void相似
-// 默认情况下null和undefined是所有类型的子类型。 就是说你可以把 null和undefined赋值给number类型的变量。
-// 然而，当你指定了--strictNullChecks标记，null和undefined只能赋值给void和它们各自。
+/**
+ * Null 和 Undefined.和 void相似
+ * 但undefined 类型的变量只能被赋值为 undefined，null 类型的变量只能被赋值为 null
+ * 默认情况下null和undefined是所有类型的子类型。 就是说你可以把 null和undefined赋值给number类型的变量。
+ * 然而，当你指定了--strictNullChecks标记，null和undefined只能赋值给void和它们各自。
+ */
 let u: undefined = undefined
 let n: null = null
 
@@ -107,4 +126,3 @@ let strLength: number = (<string>someValue).length
 let strAsLength: number = (someValue as string).length
 // 两种形式是等价的。 至于使用哪个大多数情况下是凭个人喜好；
 // 然而，当你在TypeScript里使用JSX时，只有 as语法断言是被允许的。
-

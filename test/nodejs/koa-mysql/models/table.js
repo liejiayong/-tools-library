@@ -7,6 +7,7 @@ const users = `create table if not exists users(
     pass VARCHAR(100) NOT NULL COMMENT '密码',
     avator VARCHAR(100) NOT NULL COMMENT '头像',
     moment VARCHAR(100) NOT NULL COMMENT '注册时间',
+    isdel 
     PRIMARY KEY ( id )
    );`
 
@@ -37,7 +38,7 @@ const comments = `create table if not exists comment(
    );`
 
 module.exports = {
-  users,
-  posts,
-  comments
+    users,
+    posts,
+    comments
 }

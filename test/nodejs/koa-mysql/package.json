@@ -1,7 +1,7 @@
 {
   "name": "koa-mysql",
   "version": "1.0.0",
-  "description": "koa for mysqlq",
+  "description": "koa for mysql",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
     "md5": "^2.2.1",
     "mysql": "^2.17.1"
   }

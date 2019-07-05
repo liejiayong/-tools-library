@@ -1,16 +1,30 @@
-// 接口：定义一个结构类型模型作为类型定义
-// 绕开这些检查非常简单。 最简便的方法是使用类型断言：
+/**
+ * 接口：定义一个结构类型模型作为类型定义
+ * 用途：使用接口（Interfaces）来定义对象的类型
+ * 绕开这些检查非常简单。 最简便的方法是使用类型断言
+ */
+// 用于对「对象的形状（Shape）」进行描述，需要根据数据约束
 // 普通对象
 interface Point {
-  readonly x: number // 只读属性，只能在定义是修改属性值
-  y: number
+  readonly x: number // 只读属性，约束只能在定义是赋值属性值，后不能做修改
+  y: number // 正常为必选属性
   width: number
   height?: number // 可选属性
-  [propName: string]: any // 输入不存在属性时，可跳过额外属性检查（与断言相比，为最佳方式）
+  // 允许任意属性: 在输入接口上不存在属性时，可跳过额外属性检查（与断言相比，为最佳方式）。
+  // 需要注意的是，一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集，
+  // 也就是 任意属性 的类型 要是其他确定属性的超集或相同
+  // 本案例中， 任意属性只能是 any 或 number
+  [propName: string]: number
 }
 
 function getPoint(point: Point): Object {
-  return {}
+  return {
+    x: 1, // 初始赋值， 若再修改则编译时报错
+    y: 2,
+    width: 100,
+    height: 100, // 可选属性可不写
+    flag: 100 // 定义任意属性时添加
+  }
 }
 
 // 函数类型：一个只有参数列表和返回值类型的函数定义
@@ -36,3 +50,5 @@ interface StringArray {
 let myArray: StringArray;
 myArray = ["Bob", "Fred"];
 let myStr: string = myArray[0];
+
+// 用于对类的一部分行为进行抽象

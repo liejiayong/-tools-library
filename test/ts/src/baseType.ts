@@ -27,21 +27,6 @@ let username: string = `Gene`
 let sentence: string = `Hello, my name is ${username}.
 I'll be ${decLiteral + 1} years old next month.`
 
-/**
- * Array type,两种方式：type[] 和 Array<type>
- */
-let list1: number[] = [1, 2, 3]
-let list2: Array<number> = [1, 2, 3]
-let a: number[] = [1, 2, 3, 4]
-// ReadonlyArray只读数组，可使用as改变结果
-let ro: ReadonlyArray<number> = a
-// ro[0] = 12; // error!
-// ro.push(5); // error!
-// ro.length = 100; // error!
-// a = ro; // error!
-// 上面代码的最后一行，可以看到就算把整个ReadonlyArray赋值到一个普通数组也是不可以的。 但是你可以用类型断言重写：
-a = ro as number[]
-
 // Tuple元祖:表示一个已知元素数量和类型的数组，各元素的类型不必相同
 let tuple1: [string, number]
 tuple1 = ['ljy', 18] // success
@@ -66,10 +51,18 @@ enum pcSys {
 let win10: pcSys = pcSys.window
 console.log('pcSys:', pcSys, win10)
 
-// any任意类型，一般用于用户输入和第三方代码库
+/**
+ * any任意类型，表示允许赋值为任意类型，包括属性和方法。
+ * 一般用于用户输入和第三方代码库，
+ * 或者未声明类型的变量
+ */
 let anyTest: any = 4
 anyTest = true
 anyTest = Object
+
+let noDecribe // 等价于let something: any
+noDecribe = 'seven'
+noDecribe = 7
 
 /**
  * void:没有任何类型，与any相反
@@ -79,14 +72,14 @@ anyTest = Object
 function voidFun(): void {
   anyTest = Array
 }
-// 或者用在一个值只能为 null 或undefined
+// 或者用在一个值只能为 null 或 undefined
 let unusable: void = undefined
 unusable = null
 
 /**
  * Null 和 Undefined.和 void相似
  * 但undefined 类型的变量只能被赋值为 undefined，null 类型的变量只能被赋值为 null
- * 默认情况下null和undefined是所有类型的子类型。 就是说你可以把 null和undefined赋值给number类型的变量。
+ * 默认情况下null和undefined是所有类型的子类型。 就是说你可以把 null和undefined赋值给number等类型类型的变量。
  * 然而，当你指定了--strictNullChecks标记，null和undefined只能赋值给void和它们各自。
  */
 let u: undefined = undefined

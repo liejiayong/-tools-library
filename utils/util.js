@@ -178,3 +178,66 @@ var mobileBrowser = {
 var isMobile = function () {
   return !!navigator.userAgent.match(/AppleWebKit.*Mobile.*/)
 }
+
+/**
+ * 判断微信浏览器
+ */
+export const isWechat = () => navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
+
+/**
+ * 验证手机格式
+ * @param {*} tel 
+ */
+export const isTel = (tel) => /(^[1][3,4,5,6,7,8,9][0-9]{9}$)|(^[2,8,6][0-9]{7}$)|(^[2,3,5,6,9][0-9]{7}$)/.test(tel)
+
+/**
+ * 验证身份证号码
+ * @param {*} idcard 
+ */
+export const isIdcard = (idcard) => /^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$|^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/.test(idcard)
+
+/**
+ * 获取url query的指定参数
+ * @param {*} name
+ * @returns {String}
+ */
+export function getQueryString(name) {
+  var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
+  var c = window.location.search.substr(1).match(reg)
+  return null != c ? decodeURIComponent(c[2]) : null
+}
+
+/**
+* 将url对象转化为一维string
+* @param {*} data 
+*/
+export function getStringify(data) {
+  let url = ''
+  for (var k in data) {
+    let value = data[k] !== undefined ? data[k] : ''
+    url += `&${k}=${encodeURIComponent(value)}`
+  }
+  return url ? url.substring(1) : ''
+}
+
+/**
+ * 显示文件大小标识
+ * @param {*} val 
+ */
+export const sizeSym = (val) => {
+  let ret = ''
+  if (val < 1048576) {
+      ret = (val / 1024) + 'KB'
+  } else if (val < 1073741820) {
+      ret = (val / 1048576) + 'MB'
+  } else {
+      ret = (val / 1073741820) + 'GB'
+  }
+  return ret
+}
+
+/**
+ * 是否base64，不太严谨版本
+ * @param {*} url 
+ */
+export const isBase64 = url => /^data:image\/([\w+]+);base64,([\s\S]+)/.test(url)

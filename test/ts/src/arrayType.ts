@@ -1,12 +1,12 @@
 /**
  * Array type,两种方式：
- * - 「类型 + 方括号」表示法: 
+ * - 「类型 + 方括号」表示法:
  *  - <type>[]
  *  - (<type> | <type>)[]
  * - 数组泛型: Array<type>
  */
 let list1: number[] = [1, 2, 3]
-let list3: (string|number)[] = [1, 2, '3']
+let list3: (string | number)[] = [1, 2, '3']
 let list2: Array<number> = [1, 2, 3]
 
 // any 在数组中的应用
@@ -14,7 +14,7 @@ let anyArray: any[] = ['liejy', 1, { website: 'http://www.twicetech.com' }]
 
 // 用接口表示数组
 interface NumberArray {
-  [index: number]:number
+  [index: number]: number
 }
 let numberArray: NumberArray = [1, 1, 2, 3, 5]
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="robots" content="follow" />
+    <meta name="author" content="liejy" />
+    <meta name="copyright" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>html2canvas template</title>
+  </head>
+  <body>
+    <div class="" id="resultPage">xxx</div>
+
+    <script src="./html2canvas..min-v1.0.0.js"></script>
+    <img src="" alt="" id="saveImg">
+    <script>
+      // 生成图片
+      function createImg() {
+        var targetDom = $('#resultPage'); // 需要拍摄的页面
+        html2canvas(document.querySelector('#resultPage'), {
+          logging: true,
+          useCORS: true,
+          // allowTaint: true,
+          // tainTest: true,
+          width: targetDom.width(),
+          height: targetDom.height()
+        }).then(function(canvas) {
+          url = canvas.toDataURL('image/png', 1.0);
+          $('#saveImg').attr('src', url);
+        });
+      }
+    </script>
+  </body>
+</html>

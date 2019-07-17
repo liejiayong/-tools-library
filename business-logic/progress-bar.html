@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="robots" content="follow" />
+    <meta name="author" content="liejy" />
+    <meta name="copyright" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>progress bar template</title>
+  </head>
+  <body>
+    <style>
+      .jy-progress_h5 {
+        position: relative;
+        margin: 0 auto;
+        width: 3.56rem;
+        height: 0.46rem;
+        text-align: center;
+      }
+      .jy-progress_h5 .jy-progressbg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3.56rem;
+        height: 0.46rem;
+        background-color: #d7a008;
+        -moz-border-radius: 0.46rem;
+        border-radius: 0.46rem;
+        z-index: 1;
+      }
+      .jy-progress_h5 .jy-progressbord {
+        position: absolute;
+        top: 0.04rem;
+        left: 50%;
+        width: 3.56rem;
+        height: 0.46rem;
+        border: 0.03rem solid #4c27c1;
+        transform: translateX(-50%);
+        background-color: #0084ab;
+        -moz-border-radius: 0.46rem;
+        border-radius: 0.46rem;
+        z-index: 0;
+      }
+      .jy-progress_h5 .progressing {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 3.56rem;
+        height: 0.43rem;
+        background-color: #ffdb0d;
+        -moz-border-radius: 0.46rem;
+        border-radius: 0.46rem;
+        background-image: -webkit-linear-gradient(135deg, #d7a008 25%, transparent 0, transparent 50%, #d7a008 0, #d7a008 75%, transparent 0, transparent);
+        background-image: -moz-linear-gradient(135deg, #d7a008 25%, transparent 0, transparent 50%, #d7a008 0, #d7a008 75%, transparent 0, transparent);
+        background-image: -o-linear-gradient(135deg, #d7a008 25%, transparent 0, transparent 50%, #d7a008 0, #d7a008 75%, transparent 0, transparent);
+        background-image: linear-gradient(-45deg, #d7a008 25%, transparent 0, transparent 50%, #d7a008 0, #d7a008 75%, transparent 0, transparent);
+        -webkit-background-size: 0.8rem 0.8rem;
+        -moz-background-size: 0.8rem 0.8rem;
+        background-size: 0.8rem 0.8rem;
+        -webkit-animation: reverse progress-bar-stripes-h5 0.4s linear infinite, animate-positive 2s;
+        -moz-animation: reverse progress-bar-stripes-h5 0.4s linear infinite, animate-positive 2s;
+        animation: reverse progress-bar-stripes-h5 0.4s linear infinite, animate-positive 2s;
+        -webkit-transform: translate(0);
+        -moz-transform: translate(0);
+        -ms-transform: translate(0);
+        -o-transform: translate(0);
+        transform: translate(0);
+        z-index: 2;
+      }
+      .jy-progress_h5 .progressing.active {
+        -webkit-transform: translate(100%, 0);
+        -moz-transform: translate(100%, 0);
+        -ms-transform: translate(100%, 0);
+        -o-transform: translate(100%, 0);
+        transform: translate(100%, 0);
+      }
+      .jy-progress_h5 .progress-rate {
+        position: absolute;
+        right: 0.1rem;
+        top: 0;
+        height: 0.46rem;
+        line-height: 0.46rem;
+        letter-spacing: 0.05rem;
+        font-size: 0.26rem;
+        color: #fff;
+        z-index: 3;
+      }
+      @-webkit-keyframes progress-bar-stripes-h5 {
+        from {
+          background-position: 0.8rem 0;
+        }
+        to {
+          background-position: 0 0;
+        }
+      }
+      @-moz-keyframes progress-bar-stripes-h5 {
+        from {
+          background-position: 0.8rem 0;
+        }
+        to {
+          background-position: 0 0;
+        }
+      }
+      @keyframes progress-bar-stripes-h5 {
+        from {
+          background-position: 0.8rem 0;
+        }
+        to {
+          background-position: 0 0;
+        }
+      }
+    </style>
+    <div>
+      <div class="jy-progress_h5">
+        <div class="jy-progressbord"></div>
+        <div class="jy-progressbg"></div>
+        <div class="progressing active" id="progressing"></div>
+        <div class="progress-rate"><span id="percentTxt">0</span>%</div>
+      </div>
+
+      <style>
+        .jy-progress_pc {
+          position: relative;
+          margin: 0 auto;
+          width: 400px;
+          height: 46px;
+          text-align: center;
+        }
+        .jy-progress_pc .jy-progressbg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 400px;
+          height: 46px;
+          background-color: #d7a008;
+          -moz-border-radius: 46px;
+          border-radius: 46px;
+          z-index: 1;
+        }
+        .jy-progress_pc .jy-progressbord {
+          position: absolute;
+          top: 5px;
+          left: 50%;
+          width: 400px;
+          height: 46px;
+          border: 0.03rem solid #4c27c1;
+          transform: translateX(-50%);
+          background-color: #0084ab;
+          -moz-border-radius: 46px;
+          border-radius: 46px;
+          z-index: 0;
+        }
+        .jy-progress_pc .progressing {
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 400px;
+          height: 46px;
+          background-color: #ffdb0d;
+          -moz-border-radius: 46px;
+          border-radius: 46px;
+          background-image: -webkit-linear-gradient(135deg, #d7a008 25%, transparent 0, transparent 50%, #d7a008 0, #d7a008 75%, transparent 0, transparent);
+          background-image: -moz-linear-gradient(135deg, #d7a008 25%, transparent 0, transparent 50%, #d7a008 0, #d7a008 75%, transparent 0, transparent);
+          background-image: -o-linear-gradient(135deg, #d7a008 25%, transparent 0, transparent 50%, #d7a008 0, #d7a008 75%, transparent 0, transparent);
+          background-image: linear-gradient(-45deg, #d7a008 25%, transparent 0, transparent 50%, #d7a008 0, #d7a008 75%, transparent 0, transparent);
+          -webkit-background-size: 80px 80px;
+          -moz-background-size: 80px 80px;
+          background-size: 80px 80px;
+          -webkit-animation: reverse progress-bar-stripes-pc 0.4s linear infinite, animate-positive 2s;
+          -moz-animation: reverse progress-bar-stripes-pc 0.4s linear infinite, animate-positive 2s;
+          animation: reverse progress-bar-stripes-pc 0.4s linear infinite, animate-positive 2s;
+          -webkit-transform: translate(0);
+          -moz-transform: translate(0);
+          -ms-transform: translate(0);
+          -o-transform: translate(0);
+          transform: translate(0);
+          z-index: 2;
+        }
+        .jy-progress_pc .progressing.active {
+          -webkit-transform: translate(100%, 0);
+          -moz-transform: translate(100%, 0);
+          -ms-transform: translate(100%, 0);
+          -o-transform: translate(100%, 0);
+          transform: translate(100%, 0);
+        }
+        .jy-progress_pc .progress-rate {
+          position: absolute;
+          right: 10px;
+          top: 0;
+          height: 46px;
+          line-height: 46px;
+          letter-spacing: 5px;
+          font-size: 26px;
+          color: #fff;
+          z-index: 3;
+        }
+        @-webkit-keyframes progress-bar-stripes-pc {
+          from {
+            background-position: 80px 0;
+          }
+          to {
+            background-position: 0 0;
+          }
+        }
+        @-moz-keyframes progress-bar-stripes-pc {
+          from {
+            background-position: 80px 0;
+          }
+          to {
+            background-position: 0 0;
+          }
+        }
+        @keyframes progress-bar-stripes-pc {
+          from {
+            background-position: 80px 0;
+          }
+          to {
+            background-position: 0 0;
+          }
+        }
+      </style>
+      <div class="jy-progress_pc">
+        <div class="jy-progressbord"></div>
+        <div class="jy-progressbg"></div>
+        <div class="progressing active" id="progressing"></div>
+        <div class="progress-rate"><span id="percentTxt">0</span>%</div>
+      </div>
+    </div>
+
+    <script>
+      function refreshRem() {
+        var deviceWidth = document.documentElement.clientWidth;
+        if (deviceWidth > 750) deviceWidth = 750;
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+      }
+      ['DOMContentLoaded', 'resize'].forEach(function(event) {
+        window.addEventListener(event, refreshRem);
+      });
+    </script>
+  </body>
+</html>

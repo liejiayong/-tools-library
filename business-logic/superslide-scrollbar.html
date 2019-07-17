@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="robots" content="follow" />
+    <meta name="author" content="liejy" />
+    <meta name="copyright" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>pc template</title>
+  </head>
+  <body>
+    <style>
+      a {
+        text-decoration: none;
+        border: 0px;
+        color: #b89e80;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      .jy-btn {
+        display: inline-block;
+        cursor: pointer;
+        z-index: 100;
+      }
+      .warp {
+        background: url('./img/bg-wrap.png') no-repeat;
+        width: 596px;
+        min-height: 373px;
+        position: relative;
+        /*height:473px; padding-top: 59px;*/
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .bn {
+        float: left;
+        width: 276px;
+      }
+      .bimg {
+        width: 276px;
+        height: 178px;
+        overflow: hidden;
+      }
+      .cl:after {
+        content: '.';
+        clear: both;
+        display: block;
+        height: 0;
+        visibility: hidden;
+        font-size: 0;
+      }
+      .cl {
+        zoom: 1;
+      }
+      .bd .server_list .scroll_box .list ul li,
+      .btn-arrow-lt,
+      .btn-arrow-rt,
+      .jy-play ul li,
+      .btn-reg,
+      .tit-reg,
+      .btn-login,
+      .t,
+      .jy-new-list li::before,
+      .login-tit,
+      .jy-group-form input,
+      .jy-group-form label,
+      .jy-checkbox {
+        background: url(./img/icon.png) no-repeat;
+        overflow: hidden;
+        text-indent: -99999px;
+        font-size: 0;
+      }
+      .jy-server {
+        padding: 0 5px 0 12px;
+      }
+      .jy-server .title {
+        height: 34px;
+        line-height: 34px;
+        border-bottom: 1px solid #241c18;
+      }
+      .jy-play p {
+        margin-top: 10px;
+        line-height: 18px;
+        color: #988978;
+      }
+      .jy-play ul {
+        margin-top: 2px;
+        font-size: 0;
+      }
+      .jy-play ul li {
+        margin-right: 10px;
+        display: inline-block;
+        width: 131px;
+        height: 35px;
+        cursor: pointer;
+        font-size: 12px;
+        text-indent: 12px;
+        line-height: 35px;
+        text-align: center;
+        background-position: 0 -246px;
+        color: #e3c096;
+      }
+      .jy-play ul li:hover {
+        background-position: -140px -246px;
+        color: #fff;
+      }
+      .jy-server-list .hd {
+        position: relative;
+        margin-top: 20px;
+        overflow: hidden;
+        width: 583px;
+        height: 28px;
+        z-index: 1;
+      }
+      .jy-server-list .hd .tempWrap {
+        margin-left: 25px;
+      }
+      .jy-server-list .hd .jy-btn {
+        width: 21px;
+        height: 26px;
+        z-index: 100;
+      }
+      .jy-server-list .btn-arrow-lt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-position: -351px -39px;
+      }
+      .jy-server-list .btn-arrow-rt {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-position: -381px -39px;
+      }
+      .jy-server-list .hd ul {
+        /* position:absolute */
+        position: relative;
+        padding: 0 25px;
+      }
+      .jy-server-list .hd ul li {
+        float: left;
+        margin-left: 3px;
+        display: inline;
+        position: relative;
+        cursor: pointer;
+      }
+      .jy-server-list .hd ul li .jy-btn {
+        width: 84px;
+        height: 25px;
+        text-align: center;
+        line-height: 25px;
+        background: url('./img/bg-server-s.png') no-repeat center/84px auto;
+      }
+      .jy-server-list .hd ul li:hover .jy-btn,
+      .jy-server-list .hd ul li.on .jy-btn {
+        color: #ffab49;
+      }
+      .scroll_box {
+        width: 582px;
+        height: 120px;
+        overflow: auto;
+      }
+      /*定义滚动条的高宽*/
+      ::-webkit-scrollbar {
+        width: 17px;
+        height: 17px;
+      }
+      /*CSS的坐标系，左上角为(0,0),往右往下为增加，往上往左为减少*/
+      /*显示滚动条上方的渐增按钮*/
+      ::-webkit-scrollbar-button:start:decrement,
+/*显示滚动条上方的渐减按钮*/
+::-webkit-scrollbar-button:end:increment {
+        display: block;
+      }
+      /*隐藏滚动条上方的渐增按钮*/
+      ::-webkit-scrollbar-button:vertical:start:increment,
+      ::-webkit-scrollbar-button:vertical:end:decrement {
+        display: none;
+      }
+      /* 定义滚动条渐增按扭的样式 */
+      ::-webkit-scrollbar-button:end:increment {
+        background-image: url(./img/scroll_cntrl_dwn.png);
+      }
+      /* 定义滚动条渐减按扭的样式 */
+      ::-webkit-scrollbar-button:start:decrement {
+        background-image: url(./img/scroll_cntrl_up.png);
+      }
+      /* 垂直滚动条的第三层轨道的上段 */
+      ::-webkit-scrollbar-track-piece:vertical:start {
+        background-image: url(./img/scroll_gutter_mid.png);
+        background-repeat: repeat-y;
+      }
+      /* 垂直滚动条的第三层轨道的下段 */
+      ::-webkit-scrollbar-track-piece:vertical:end {
+        background-image: url(./img/scroll_gutter_mid.png);
+        background-repeat: repeat-y;
+        background-position: bottom left, 0 0;
+      }
+      /* 垂直滚动条的滑动块 */
+      ::-webkit-scrollbar-thumb:vertical {
+        height: 36px;
+        -webkit-border-image: url(./img/scroll_thumb.png) 0 stretch stretch;
+        border-width: 0;
+      }
+      .jy-server-list .bd {
+        margin-top: 8px;
+      }
+      .jy-server-list .bd .server_list .scroll_box .list ul li {
+        margin: 0 10px 6px 0;
+        float: left;
+        width: 131px;
+        height: 35px;
+        font-size: 12px;
+        text-indent: 12px;
+        line-height: 35px;
+        text-align: center;
+        background-position: 0 -246px;
+        color: #e3c096;
+        cursor: pointer;
+      }
+      .jy-server-list .bd .server_list .scroll_box .list ul li:hover {
+        background-position: -140px -246px;
+        color: #fff;
+      }
+      .jy-server-list .bd .server_list .scroll_box .list ul li:hover a {
+        color: inherit;
+      }
+    </style>
+
+    <div class="warp">
+      <div class="jy-server">
+        <div class="title">亲爱的 <span class="color-orange">阿阿斯顿</span> 欢迎您！ &nbsp;&nbsp; <a class="color-orange text-decoration" href="#">注销</a></div>
+        <div class="jy-play">
+          <p>我玩过的：</p>
+          <ul class="lh-1">
+            <li>公测999服</li>
+            <li>公测999服</li>
+            <li>公测999服</li>
+          </ul>
+        </div>
+        <div class="jy-play">
+          <p>推荐区服：</p>
+          <ul class="lh-1">
+            <li>公测999服</li>
+            <li>公测999服</li>
+          </ul>
+        </div>
+        <div id="serverTab" class="jy-server-list">
+          <div class="hd">
+            <ul id="jy-choose" class="cl jy-choose-wrap">
+              <li><a href="javascript:;" class="jy-btn">351-400服</a></li>
+              <li><a href="javascript:;" class="jy-btn">301-350服</a></li>
+              <li><a href="javascript:;" class="jy-btn">251-300服</a></li>
+              <li><a href="javascript:;" class="jy-btn">201-250服</a></li>
+              <li><a href="javascript:;" class="jy-btn">151-200服</a></li>
+              <li><a href="javascript:;" class="jy-btn">101-150服</a></li>
+              <li><a href="javascript:;" class="jy-btn">51-100服</a></li>
+              <li><a href="javascript:;" class="jy-btn">1-50服</a></li>
+            </ul>
+            <a id="jpre" href="javascript:;" title="上一个" class="jy-btn btn-arrow-lt"></a>
+            <a id="jnext" href="javascript:;" title="下一个" class="jy-btn btn-arrow-rt"></a>
+          </div>
+
+          <div class="bd">
+            <div class="server_list">
+              <!-- 351-400服 -->
+              <div class="scroll_box">
+                <div class="list">
+                  <ul class="cl">
+                    <li><a href="#" class="red">400</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 351-400服 end -->
+              <!-- 251-300服 -->
+              <div class="scroll_box">
+                <div class="list">
+                  <ul class="cl">
+                    <li><a href="#" class="red">350</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 251-300服 end -->
+              <!-- 301-350服服 -->
+              <div class="scroll_box">
+                <div class="list">
+                  <ul class="cl">
+                    <li><a href="#" class="red">300</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 301-350服服 end -->
+              <!-- 200-250服 -->
+              <div class="scroll_box">
+                <div class="list">
+                  <ul class="cl">
+                    <li><a href="#" class="red">250</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 200-250服 end -->
+              <!-- 151-200服 -->
+              <div class="scroll_box">
+                <div class="list">
+                  <ul class="cl">
+                    <li><a href="#" class="red">200</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 151-200服 end -->
+              <!-- 101-150服 -->
+              <div class="scroll_box">
+                <div class="list">
+                  <ul class="cl">
+                    <li><a href="#" class="red">150</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 101-150服 end -->
+              <!-- 51-100服 -->
+              <div class="scroll_box">
+                <div class="list">
+                  <ul class="cl">
+                    <li><a href="#" class="red">100</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 51-100服 end -->
+              <!-- 1-50服 -->
+              <div class="scroll_box">
+                <div class="list">
+                  <ul class="cl">
+                    <li><a href="#" class="red">50</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                    <li><a href="#" class="red">公测9999服</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 1-50服 end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./jquery-1.11.2.min.js"></script>
+    <script src="./jquery.SuperSlide.2.1.1.js"></script>
+    <script>
+      $('#serverTab').slide({
+        titCell: '.hd li',
+        mainCell: '.server_list',
+        autoPlay: false,
+        delayTime: 100
+      });
+      //  使用superslide菜单切换
+      $('#serverTab').slide({
+        targetCell: 'none',
+        titCell: 'none',
+        mainCell: '.hd ul',
+        prevCell: '#jpre',
+        nextCell: '#jnext',
+        effect: 'left',
+        vis: 6,
+        scroll: 6,
+        delayTime: 0,
+        autoPage: true,
+        pnLoop: false
+      });
+    </script>
+  </body>
+</html>

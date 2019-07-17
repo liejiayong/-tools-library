@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="robots" content="follow" />
+    <meta name="author" content="liejy" />
+    <meta name="copyright" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>superslide ads template</title>
+  </head>
+  <body>
+    <style>
+      .ad {
+        width: 460px;
+        height: 40px;
+        overflow: hidden;
+        color: #fffad5;
+      }
+      .ads ul {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .ads ul li {
+        float: left;
+        width: 240px;
+        height: 40px;
+        line-height: 40px;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    </style>
+    <div class="ads">
+      <ul id="annList1">
+        <li>恭喜XXXXX玩家获得：0.5元红包</li>
+        <li>恭喜XXXXX玩家获得：0.5元红包</li>
+        <li>恭喜XXXXX玩家获得：0.5元红包</li>
+        <li>恭喜XXXXX玩家获得：0.5元红包</li>
+        <li>恭喜XXXXX玩家获得：0.5元红包</li>
+        <li>恭喜XXXXX玩家获得：0.5元红包</li>
+        <li>恭喜XXXXX玩家获得：0.5元红包</li>
+        <li>恭喜XXXXX玩家获得：0.5元红包</li>
+        <li>恭喜XXXXX玩家获得：0.5元红包</li>
+      </ul>
+    </div>
+    <script src="./jquery-1.11.2.min.js"></script>
+    <script src="./jquery.SuperSlide.2.1.1.js"></script>
+    <script>
+      function runAds(winning) {
+        var timer = null,
+          num = 0,
+          gw = winning.width(),
+          ann = winning.children().clone();
+        winning.append(ann).width(gw * 2);
+        function leftScroll() {
+          timer = setInterval(function() {
+            num <= -gw ? (num = 0) : (num -= 2);
+            winning.css({ left: num });
+          }, 30);
+        }
+        leftScroll();
+        winning.hover(
+          function() {
+            clearInterval(timer);
+          },
+          function() {
+            leftScroll();
+          }
+        );
+      }
+      runAds($('#annList1'));
+    </script>
+
+    <style>
+      .page-egg .jy-ads .getlist {
+        /* display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:5;
+        overflow:hidden;
+        -o-text-overflow:ellipsis;
+        text-overflow:ellipsis; */
+        margin: 0 auto;
+        width: 3.1rem;
+        font-size: 0.24rem;
+        height: 2.2rem;
+        overflow: hidden;
+      }
+      .page-egg .jy-ads .getlist li {
+        margin-bottom: 0.2rem;
+        white-space: nowrap;
+        width: 3.1rem;
+        height: 0.3rem;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    </style>
+    <div class="getlist adsslide">
+      <div class="bd">
+        <ul>
+          <li>恭喜XXXX获得元旦幸运礼包xdssfsf</li>
+          <li>恭喜XXXX获得元旦幸运礼包</li>
+          <li>恭喜XXXX获得元旦幸运礼包</li>
+          <li>恭喜XXXX获得元旦幸运礼包</li>
+          <li>恭喜XXXX获得元旦幸运礼包</li>
+          <li>恭喜XXXX获得元旦幸运礼包</li>
+          <li>恭喜XXXX获得元旦幸运礼包</li>
+          <li>恭喜XXXX获得元旦幸运礼包</li>
+          <li>恭喜XXXX获得元旦幸运礼包</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      jQuery('.adsslide').slide({ mainCell: '.bd ul', autoPlay: true, effect: 'topMarquee', vis: 5, interTime: 50 });
+    </script>
+  </body>
+</html>

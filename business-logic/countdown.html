@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="robots" content="follow" />
+    <meta name="author" content="liejy" />
+    <meta name="copyright" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>countdown template</title>
+  </head>
+  <body>
+    <style>
+      .jy-countdowner {
+        position: absolute;
+        top: 419px;
+        left: 462px;
+        width: 256px;
+      }
+      .jy-countdowner ul {
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+      }
+      .jy-countdowner ul li {
+        float: left;
+        margin-right: 25px;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 24px;
+        color: #fcf2bb;
+      }
+      .jy-countdowner ul li:last-of-type {
+        margin-right: 0;
+      }
+    </style>
+    <div class="jy-countdowner">
+      <ul>
+        <li id="day">00</li>
+        <li id="hour">00</li>
+        <li id="minute">00</li>
+        <li id="seconds">00</li>
+      </ul>
+    </div>
+    <script src="./jquery-1.11.2.min.js"></script>
+    <script>
+      //倒计时
+      var starttime = new Date(2019, 11, 25, 12, 00, 00), //设置倒计时日期
+        $day = $('#day'),
+        $hour = $('#hour'),
+        $minute = $('#minute'),
+        $seconds = $('#seconds');
+      function checkTime(i) {
+        return i < 10 ? '0' + i : i + '';
+      }
+      function timing() {
+        var nowtime = new Date();
+        var time = starttime - nowtime;
+
+        if (time <= 0) return clearInterval(timer);
+        var day = parseInt(time / 1000 / 60 / 60 / 24);
+        var hour = parseInt((time / 1000 / 60 / 60) % 24);
+        var minute = parseInt((time / 1000 / 60) % 60);
+        var seconds = parseInt((time / 1000) % 60);
+        (day = checkTime(day)), (hour = checkTime(hour)), (minute = checkTime(minute)), (seconds = checkTime(seconds));
+        $day.html(day);
+        $hour.html(hour);
+        $minute.html(minute);
+        $seconds.html(seconds);
+      }
+      timing();
+      var timer = setInterval(function() {
+        timing();
+      }, 1000);
+    </script>
+  </body>
+</html>

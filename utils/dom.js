@@ -57,6 +57,40 @@ export function getStyle(ele, style) {
 }
 
 /**
+ * 添加css前缀
+ * @param {*} style 
+ */
+function preStyle(style) {
+  var el = document.createElement('div');
+
+  var vendor = (function() {
+    var transformName = {
+      webkit: 'webkitTransform',
+      Moz: 'MozTransform',
+      O: 'OTransform',
+      ms: 'msTransform',
+      standard: 'transform'
+    };
+    for (var key in transformName) {
+      if (el[key] !== 'undefined') {
+        return key;
+      }
+    }
+    return false;
+  })();
+
+  if (vendor === false) {
+    return false;
+  }
+
+  if (vendor === 'standard') {
+    return style;
+  }
+
+  return vendor + style.charAt(0).toUpperCase() + style.substr(1);
+}
+
+/**
  * input元素选择兼容性处理
  * @param {*} id 可以为dom id 或class
  * @param {*} startPos 

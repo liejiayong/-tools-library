@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="robots" content="follow" />
+    <meta name="author" content="liejy" />
+    <meta name="copyright" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>mouse move template</title>
+  </head>
+  <body>
+    <div id="floating">move</div>
+    <script src="./jquery-1.11.2.min.js"></script>
+    <script>
+      mouseFlow('#floating')
+
+      function mouseFlow(el) {
+        // 动画
+        var mouseInfo = {
+          preX: 0,
+          preY: 0,
+          nextX: 0,
+          nextY: 0
+        };
+        var currX = 0,
+          currY = 0;
+        // 闪电移动动画
+        var translate = preStyle('translate');
+        $('body,html').mousemove(
+          throttle(function(e) {
+            mouseInfo.nextX = e.clientX;
+            mouseInfo.nextY = e.clientY;
+            currX = mouseInfo.nextX - mouseInfo.preX;
+            currX = currX > 0 ? 10 : -10;
+            currY = mouseInfo.nextY - mouseInfo.preY;
+            currY = currY > 0 ? 10 : -10;
+            thunderMove(currX, currY);
+            mouseInfo.preX = e.clientX;
+            mouseInfo.preY = e.clientY;
+          }, 100)
+        );
+        // thunder move
+        function thunderMove(x, y) {
+          var translate = 'translate(' + x + 'px, ' + y + 'px)';
+          $(el).css({ transform: translate });
+        }
+        function throttle(fn, threshhold) {
+          var timer = null;
+          var start = Date.now();
+          return function() {
+            var context = this,
+              arg = arguments,
+              curr = Date.now();
+            if (timer) clearTimeout(timer);
+            if (curr - start >= threshhold) {
+              fn.apply(context, arg);
+              start = curr;
+            } else {
+              timer = setTimeout(function() {
+                fn.apply(context, arg);
+              }, threshhold);
+            }
+          };
+        }
+        function preStyle(style) {
+          var el = document.createElement('div');
+
+          var vendor = (function() {
+            var transformName = {
+              webkit: 'webkitTransform',
+              Moz: 'MozTransform',
+              O: 'OTransform',
+              ms: 'msTransform',
+              standard: 'transform'
+            };
+            for (var key in transformName) {
+              if (el[key] !== 'undefined') {
+                return key;
+              }
+            }
+            return false;
+          })();
+
+          if (vendor === false) {
+            return false;
+          }
+
+          if (vendor === 'standard') {
+            return style;
+          }
+
+          return vendor + style.charAt(0).toUpperCase() + style.substr(1);
+        }
+      }
+    </script>
+  </body>
+</html>

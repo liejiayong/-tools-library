@@ -1,0 +1,65 @@
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.g-carousel {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.g-carousel .g-carousel-content {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.g-carousel .g-carousel-content .g-carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
+}
+.g-carousel .g-carousel-content .g-carousel-item.s-carousel-item {
+  margin: 0 auto;
+  text-align: center;
+}
+.g-carousel .g-carousel-content .g-carousel-item.s-carousel-item img {
+  width: 100%;
+  max-width: 100%;
+}
+.g-carousel .g-arrow {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.7rem;
+  background-color: rgba(0,0,0,0.26);
+  color: #fff;
+}
+.g-carousel .g-arrow.s-arrow-pre {
+  left: 0;
+}
+.g-carousel .g-arrow.s-arrow-next {
+  right: 0;
+}
+.g-carousel .g-dots{
+  position: absolute;
+  left: 340px;
+  bottom: 40px;
+  font-size: 0;
+}
+.g-carousel .g-dots .g-dot{
+  display: inline-block;
+  margin-right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+.g-carousel .g-dots .g-dot.active{
+  background-color: #fff;
+}

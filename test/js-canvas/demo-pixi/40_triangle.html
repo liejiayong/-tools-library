@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="pixiJs">
+<meta name="description" content="pixiJs">
+<title>pixiJs</title>
+</head>
+<body>
+<script src="https://d157l7jdn8e5sf.cloudfront.net/release/pixi.js"></script>
+<script>
+// please switch to `next` version to see this demo
+
+var app = new PIXI.Application(800, 600);
+document.body.appendChild(app.view);
+
+var geometry = new PIXI.Geometry()
+.addAttribute('aVertexPosition', [-100, -50, 100, -50, 0, 100])
+
+var shader = new PIXI.Shader.from(`
+
+    precision mediump float;
+    attribute vec2 aVertexPosition;
+
+    uniform mat3 translationMatrix;
+    uniform mat3 projectionMatrix;
+
+    void main() {
+        gl_Position = vec4((projectionMatrix * translationMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);
+    }`,
+
+    `precision mediump float;
+
+    void main() {
+        gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    }
+
+`)
+
+var triangle = new PIXI.Mesh(geometry, shader);
+
+triangle.position.set(400, 300);
+
+app.stage.addChild(triangle);
+
+app.ticker.add(function(delta) {
+    triangle.rotation += 0.01;
+});
+
+
+</script>
+</body>
+</html>

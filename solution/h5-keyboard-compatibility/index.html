@@ -20,6 +20,7 @@
     </style>
   </head>
   <body>
+    <a href="https://efe.baidu.com/blog/mobile-fixed-layout/">link</a>
     <div class="tc">
       <p>Welcome to keyboard!</p>
       <p>分割线</p>
@@ -39,7 +40,7 @@
       <p>分割线</p>
       <p>分割线</p>
       <p>分割线</p>
-      <input id="input" type="number" />
+      <input id="input11" type="number" />
       <p>分割线</p>
       <p>分割线</p>
       <p>分割线</p>
@@ -61,7 +62,9 @@
       
       var $input = document.getElementById('input');
       // ios and android 统一弹出处理
-      $input.addEventListener('focus', function() {});
+      $input.addEventListener('focus', function() {
+        $(this).scrollIntoView()
+      });
 
       // ios and android 兼容收起处理
       inputBlur();

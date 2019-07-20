@@ -157,7 +157,7 @@ function IEVersion() {
 // 获取移动终端浏览器版本信息
 var mobileBrowser = {
   versions: function () {
-    var u = navigator.userAgent;
+    var u = navigator.userAgent, dpr = window.devicePixelRatio, sw = window.screen.width, sh = window.screen.height;
     return {//移动终端浏览器版本信息
       trident: u.indexOf('Trident') > -1, //IE内核
       presto: u.indexOf('Presto') > -1, //opera内核
@@ -168,10 +168,23 @@ var mobileBrowser = {
       android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
       iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
       iPad: u.indexOf('iPad') > -1, //是否iPad
-      webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+      webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+      iphoneXS: /iphone/gi.test(u) && ((dpr == 3 && sw == 375 && sh == 812) // iPhone X、iPhone XS
+        || (dpr == 3 && sw == 414 && sh == 896) // iPhone XS Max
+        || (dpr == 2 && sw == 414 && sh == 896)) // iPhone XR
     };
   }(),
   language: (navigator.browserLanguage || navigator.language).toLowerCase()
+}
+
+/**
+ * 判断iphoneX series
+ */
+var isIphoneXS = function () {
+  var u = navigator.userAgent, dpr = window.devicePixelRatio, sw = window.screen.width, sh = window.screen.height;
+  return /iphone/gi.test(u) && ((dpr == 3 && sw == 375 && sh == 812)
+    || (dpr == 3 && sw == 414 && sh == 896)
+    || (dpr == 2 && sw == 414 && sh == 896))
 }
 
 // 判断是否移动端
@@ -227,11 +240,11 @@ export function getStringify(data) {
 export const sizeSym = (val) => {
   let ret = ''
   if (val < 1048576) {
-      ret = (val / 1024) + 'KB'
+    ret = (val / 1024) + 'KB'
   } else if (val < 1073741820) {
-      ret = (val / 1048576) + 'MB'
+    ret = (val / 1048576) + 'MB'
   } else {
-      ret = (val / 1073741820) + 'GB'
+    ret = (val / 1073741820) + 'GB'
   }
   return ret
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>H5(移动端)前端使用input type=file 上传图片，调用相机和相册</h1>
+    <input class="addPicInput" type="file" ref="uploadFile" @change="fileChange" accept="image/*" multiple />
+
+    <script>
+      /**
+     input 有 captrure属性，取值：camera：相机；camcorder：摄像；microphone：录音
+     
+     实际上ios 与 android 的测试表现
+
+     1. 安卓： 
+    【微信】：  有capture，调相机；         无capture，相册相机一起调
+    【QQ】：    有captrue，相册相机一起调； 无capture，调相册
+    【浏览器】：有capture，调相机；         无capture，相册相机一起调
+
+    2. IOS
+    【微信】：  有capture，调相机；  无capture，相册相机一起调
+    【QQ】：    有capture，调相机；  无capture，相册相机一起调
+    【浏览器】：有capture，调相机；  无capture，相册相机一起调
+
+    因此在实际开发中，主要判断QQ端的状态即可
+     **/
+
+      if (isAndroid && type === 'qq') {
+        this.$refs.uploadFile.setAttribute('capture', 'camera');
+      }
+    </script>
+  </body>
+</html>

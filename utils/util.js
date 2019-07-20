@@ -171,10 +171,35 @@ var mobileBrowser = {
       webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
       iphoneXS: /iphone/gi.test(u) && ((dpr == 3 && sw == 375 && sh == 812) // iPhone X、iPhone XS
         || (dpr == 3 && sw == 414 && sh == 896) // iPhone XS Max
-        || (dpr == 2 && sw == 414 && sh == 896)) // iPhone XR
+        || (dpr == 2 && sw == 414 && sh == 896)), // iPhone XR
+      weixin: u.toLowerCase().indexOf('micromessenger') > -1,
+      qq: ua.match(/QQ/i) == "qq", // QQ
+      weiBo: ua.match(/WeiBo/i) == "weibo", // 微博
+      Safari: u.indexOf('Safari') > -1,
+      QQbrw: u.indexOf('MQQBrowser') > -1, // QQ浏览器
+      webview: !(u.match(/Chrome\/([\d.]+)/) || u.match(/CriOS\/([\d.]+)/)) && u.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
+      ucweb: function () {
+        try {
+          return parseFloat(u.match(/ucweb\d+\.\d+/gi).toString().match(/\d+\.\d+/).toString()) >= 8.2
+        } catch (e) {
+          if (u.indexOf('UC') > -1) {
+            return true;
+          }
+          return false;
+        }
+      }(),
+      Symbian: u.indexOf('Symbian') > -1,
+      ucSB: u.indexOf('Firofox/1.') > -1
     };
   }(),
   language: (navigator.browserLanguage || navigator.language).toLowerCase()
+}
+
+/**
+ * 判断是在qq内置浏览器还是qq浏览器
+ */
+var isQQ = function () {
+  return browser.versions.qq && !browser.versions.QQbrw
 }
 
 /**

@@ -1,0 +1,16 @@
+{
+  "name": "debug-spy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "spy-debugger –p 8888"
+  },
+  "git": "",
+  "private": true,
+  "author": "liejiayong(809206619@qq.com)",
+  "license": "ISC",
+  "dependencies": {
+    "spy-debugger": "^3.8.4"
+  }
+}

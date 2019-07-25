@@ -1,0 +1,16 @@
+{
+  "name": "js-upload-preview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "liejiayong",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.37.0",
+    "webpack-cli": "^3.3.6"
+  }
+}

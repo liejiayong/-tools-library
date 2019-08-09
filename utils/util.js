@@ -111,15 +111,58 @@ export function strlen(str) {
   return [...str].length;
 }
 
+function trim(str) {
+  return str.replace(/^\s+|\s+$/g, '');
+}
+
 /**
  * 获取url query的指定参数
- * @param {*} name 
- * @returns {String}
+ * 用于bom环境下
+ * @param {String} key
+ *  @param {String} type only support hash | search * @returns {String}
  */
-function getQueryString(name) {
-  var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
-  var c = window.location.search.substr(1).match(reg);
-  return null != c ? decodeURIComponent(c[2]) : null
+export function getQueryString(key, type = 'search') {
+  const regExp = new RegExp(`[?&#]{1}${key}=(.*?)([&/#]|$)`)
+  const value = window.location[type].match(regExp)
+  return value && decodeURIComponent(value[1])
+}
+
+function getQueryString(key, type) {
+  type = type ? type : 'search'
+  const regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)')
+  const value = window.location[type].match(regExp)
+  return value && decodeURIComponent(value[1])
+}
+
+/**
+ * 设置url query参数
+ * 用于bom环境下
+ * @param {Object} map key-value object
+ * @param {String} type only support hash | search
+ */
+export function setQueryString(map, type = 'search') {
+  let query = window.location[type]
+
+  for (const key in map) {
+    const val = map[key]
+
+    if (getQueryString(key, type)) {
+      const regExp = new RegExp(`(.*)([#&?]${key}=)(.*?)($|&.*)`)
+      const match = query.match(regExp)
+
+      if (val === '') {
+        match.splice(2, 2)
+      } else {
+        match[3] = val
+      }
+      match.shift()
+      query = match.join('')
+    } else {
+      query = query.length ? `${query}&${key}=${val}` : `${key}=${val}`
+    }
+  }
+
+  window.location[type] = query
 }
 
 /**
@@ -173,7 +216,12 @@ var mobileBrowser = {
         || (dpr == 3 && sw == 414 && sh == 896) // iPhone XS Max
         || (dpr == 2 && sw == 414 && sh == 896)), // iPhone XR
       weixin: u.toLowerCase().indexOf('micromessenger') > -1,
-      qq: ua.match(/QQ/i) == "qq", // QQ
+      qq:function () {
+        const u = navigator.userAgent
+        let match = u.match(/QQ\//i)
+        match = match ? match[0] : false
+        return match == 'QQ/'
+      },
       weiBo: ua.match(/WeiBo/i) == "weibo", // 微博
       Safari: u.indexOf('Safari') > -1,
       QQbrw: u.indexOf('MQQBrowser') > -1, // QQ浏览器
@@ -198,8 +246,12 @@ var mobileBrowser = {
 /**
  * 判断是在qq内置浏览器还是qq浏览器
  */
-var isQQ = function () {
-  return browser.versions.qq && !browser.versions.QQbrw
+// 匹配QQ与TIM
+export const isQQ = () => {
+  const u = navigator.userAgent
+  let match = u.match(/QQ\//i)
+  match = match ? match[0] : false
+  return match == 'QQ/'
 }
 
 /**

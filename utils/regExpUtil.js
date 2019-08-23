@@ -86,4 +86,11 @@ const regExpUitl = {
   isWechat: () => navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1,
   // 验证手机格式
   isTel: (tel) => /(^[1][2,3,4,5,6,7,8,9][0-9]{9}$)|(^[2,8,6][0-9]{7}$)|(^[2,3,5,6,9][0-9]{7}$)/.test(tel),
+  // 匹配QQ与TIM
+  isQQ = () => {
+    const u = navigator.userAgent
+    let match = u.match(/QQ\//i)
+    match = match ? match[0] : false
+    return match == 'QQ/'
+  }
 }

@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "智能助手",
+  "description": "·-·智能助手工具，帮助你轻松上网",
+  "version": "0.0.1",
+  "homepage_url": "http://www.baidu.com/",
+  "icons": {
+    "16": "image/icon-16.png",
+    "48": "image/icon-48.png",
+    "128": "image/icon-128.png"
+ },
+  "browser_action": {
+    "default_icon": "image/logo.png",
+    "default_title": "Smart boy",
+    "default_popup": "view/index.html"
+  },
+  "page_action": {
+    "default_icon": "image/icon-48.png",
+    "default_title": "My page",
+    "default_popup": "view/page.html"
+  },
+  "theme": {},
+  "app": {},
+  "content_security_policy": "",
+  "file_browser_handlers": [],
+  "options_page": "",
+  "intents": {},
+  "nacl_modules": [],
+  "offline_enabled": true,
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "requirements": {},
+  "web_accessible_resources": [] 
+}

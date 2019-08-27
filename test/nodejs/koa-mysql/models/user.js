@@ -1,9 +1,7 @@
-// 用户
-exports.user = `create table if not exists users(
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL COMMENT '用户名',
-    pass VARCHAR(100) NOT NULL COMMENT '密码',
-    avator VARCHAR(100) NOT NULL COMMENT '头像',
-    moment VARCHAR(100) NOT NULL COMMENT '注册时间',
-    PRIMARY KEY ( id )
-   );`
+const { query } = require('../lib/mysql')
+
+// 通过名字查找用户
+exports.findDataByName = name => {
+    let _sql = `select * from users where name="${name}";`
+    return query(_sql)
+}

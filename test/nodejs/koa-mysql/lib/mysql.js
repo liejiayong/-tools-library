@@ -1,6 +1,6 @@
 const mysql = require('mysql')
 const { database } = require('../config/default')
-const model = require('../models')
+const model = require('../models/table/index')
 
 // 创建连接池
 const pool = mysql.createPool({

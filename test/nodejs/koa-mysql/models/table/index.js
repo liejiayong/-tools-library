@@ -1,4 +1,4 @@
-const { user } = require('../models/user')
+const { user } = require('./user')
 
 module.exports = function (createTable) {
     // 用户中心

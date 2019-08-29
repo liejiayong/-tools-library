@@ -36,7 +36,7 @@ exports.postSignup = async ctx => {
             }
             else {
                 let base64Data = avator.replace(/^data:image\/\w+;base64,/, ''),
-                    dataBuffer = new Buffer(base64Data, 'base64'),
+                    dataBuffer = new Buffer.from(base64Data, 'base64'),
                     avatarName = Number(Math.random().toString().substr(3)).toString(36) + Date.now(),
                     upload = await new Promise((reslove, reject) => {
                         fs.writeFile(`./cachefile/${avatarName}.jpg`, dataBuffer, err => {

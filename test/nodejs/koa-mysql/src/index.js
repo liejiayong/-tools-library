@@ -5,11 +5,6 @@ const bodyParser = require('koa-bodyparser')
 // const koaStatic = require('koa-static')
 const staticCache = require('koa-static-cache')
 const router = require('./router')
-// const koaWebpack = require('./lib/koawebpack')
-const webpack = require('webpack')
-const webpackDevMiddleware = require('koa-webpack-dev-middleware')
-const webpackHotMiddleware = require('koa-webpack-hot-middleware')
-const config = require('../webpack.config')
 const { HTTP_SERVER_PORT } = require('./config/default')
 const staticPath = '/cachefile'
 
@@ -26,29 +21,12 @@ app.use(bodyParser({ formLimit: '1mb' }))
 router(app)
 
 // 热更新
-// koaWebpack(app)
-// const compiler = webpack(config)
-// app.use(webpackDevMiddleware(compiler, {
-//     noInfo: true
-//     // watchOptions: {
-//     //     ignored: /node_modules/,
-//     // },
-//     // reload: true,
-//     // publicPath: config.output.publicPath,
-//     // stats: {
-//     //     colors: true
-//     // }
-// }))
-// app.use(webpackHotMiddleware(compiler))
+// 新方法一：koa-webpack
+const koaWebpack = require('./lib/koawebpack')
+koaWebpack(app)
+// 方法二：koa-webpack-dev-middleware + koa-webpack-hot-middleware
+// const koawebpackMiddleware = require('./lib/koawebpackMiddleware')
+// koawebpackMiddleware(app)
 
 http.createServer(app.callback()).listen(HTTP_SERVER_PORT)
 console.log(`http server listening on port ${HTTP_SERVER_PORT}`)
-
-const compiler = webpack(config)
-
-const wdm = webpackDevMiddleware(compiler, {
-    noInfo: true,
-    //publicPath: config.output.publicPath
-})
-app.use(wdm)
-app.use(webpackHotMiddleware(compiler))

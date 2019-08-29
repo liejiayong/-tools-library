@@ -20,13 +20,5 @@ app.use(bodyParser({ formLimit: '1mb' }))
 // 路由
 router(app)
 
-// 热更新
-// 新方法一：koa-webpack
-const koaWebpack = require('./lib/koawebpack')
-koaWebpack(app)
-// 方法二：koa-webpack-dev-middleware + koa-webpack-hot-middleware
-// const koawebpackMiddleware = require('./lib/koawebpackMiddleware')
-// koawebpackMiddleware(app)
-
 http.createServer(app.callback()).listen(HTTP_SERVER_PORT)
 console.log(`http server listening on port ${HTTP_SERVER_PORT}`)

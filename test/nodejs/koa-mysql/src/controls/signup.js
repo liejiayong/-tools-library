@@ -1,5 +1,6 @@
 const moment = require('moment')
 const fs = require('fs')
+const path = require('path')
 const { findDataByName, registerUser } = require('../models/user')
 
 exports.postSignup = async ctx => {
@@ -39,6 +40,10 @@ exports.postSignup = async ctx => {
                     dataBuffer = new Buffer.from(base64Data, 'base64'),
                     avatarName = Number(Math.random().toString().substr(3)).toString(36) + Date.now(),
                     upload = await new Promise((reslove, reject) => {
+                        const dirpath = path.join(__dirname, '../../cachefile')
+                        if (!fs.existsSync(dirpath)) {
+                            fs.mkdirSync(dirpath)
+                        }
                         fs.writeFile(`./cachefile/${avatarName}.jpg`, dataBuffer, err => {
                             if (err) {
                                 reject(false)

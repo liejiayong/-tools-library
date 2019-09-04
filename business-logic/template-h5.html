@@ -164,7 +164,7 @@
 
     <script>
       // 定义初始化
-      var imgBaseUrl = ''
+      var imgBaseUrl = '';
       var subject = {
         initial: function() {
           this.proload();
@@ -210,10 +210,7 @@
         proload: function() {
           var loader = new ImagesLoader();
 
-          loader.loadImages(
-            [],
-            imgBaseUrl
-          );
+          loader.loadImages([], imgBaseUrl);
           loader.complete(function() {
             // $('#loadpage').fadeOut(500);
             // $('#pSwiper').fadeIn();
@@ -228,27 +225,25 @@
         },
         // 字体适配
         font: function() {
-          var docEl = document.documentElement;
+          var docEl = document.documentElement || document.body;
           var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
           var reCalc = function() {
             var clientWidth = docEl.clientWidth;
-            if (!clientWidth) return;
             window.baseFontSize = 100 * (clientWidth / 750);
             docEl.style.fontSize = window.baseFontSize + 'px';
             // 屏幕提示
-            var w = document.body.clientWidth;
-            var h = document.body.clientHeight;
+            var w = docEl.clientWidth;
+            var h = docEl.clientHeight;
             if (h > w) {
-              $('#orientLayer').fadeOut();
+              $('#orientLayer').hide();
             } else {
-              $('#orientLayer').fadeIn();
+              $('#orientLayer').show();
             }
           };
           if (!document.addEventListener) return;
           reCalc();
-          ['DOMContentLoaded', resizeEvt].forEach(function(event) {
-            document.addEventListener(event, reCalc, false);
-          })
+          window.addEventListener(resizeEvt, reCalc, false);
+          document.addEventListener('DOMContentLoaded', reCalc, false);
         }
       };
       subject.initial();

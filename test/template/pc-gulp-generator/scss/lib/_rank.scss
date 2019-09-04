@@ -1,0 +1,27 @@
+
+.jy-rule{
+  $fs-h: 14px;
+  $fs-b: 12px;
+  $color-txt-head: #ffe0b4;
+  $color-txt-body: #f2ce8b;
+  .rule-head,.rule-body{
+    font-size: 0;
+    line-height: 1;
+    .rule-cell{
+      display: inline-block;
+      text-align: center;
+    }
+  }
+  .rule-head{
+    color: $color-txt-head;
+    .rule-cell{
+      font-size: $fs-h;
+    }
+  }
+  .rule-body{
+    color: $color-txt-body;
+    .rule-cell{
+      font-size: $fs-b;
+    }
+  }
+}

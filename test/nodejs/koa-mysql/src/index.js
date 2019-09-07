@@ -1,6 +1,7 @@
 const http = require('http')
 const path = require('path')
 const Koa = require('koa')
+const session = require('koa-session')
 const bodyParser = require('koa-bodyparser')
 // const koaStatic = require('koa-static')
 const staticCache = require('koa-static-cache')
@@ -17,8 +18,32 @@ app.use(staticCache(path.join(__dirname, staticPath), { dynamic: true }, { maxAg
 // 配置服务器路由请求
 app.use(bodyParser({ formLimit: '1mb' }))
 
+// session
+app.keys = ['some secret hurr']
+const SESSION_CONFIG = {
+    key: 'koa:sess' /** (string) cookie key (default is koa:sess) */,
+    /** (number || 'session') maxAge in ms (default is 1 days) */
+    /** 'session' will result in a cookie that expires when session/browser is closed */
+    /** Warning: If a session cookie is stolen, this cookie will never expire */
+    maxAge: 86400000,
+    autoCommit: true /** (boolean) automatically commit headers (default true) */,
+    overwrite: true /** (boolean) can overwrite or not (default true) */,
+    httpOnly: true /** (boolean) httpOnly or not (default true) */,
+    signed: true /** (boolean) signed or not (default true) */,
+    rolling: false /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */,
+    renew: false /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*/
+}
+app.use(session(SESSION_CONFIG, app))
+
 // 路由
 router(app)
 
-http.createServer(app.callback()).listen(HTTP_SERVER_PORT)
+// 创建服务
+const server = http.createServer(app.callback())
+
+// socket.io
+require('./lib/socketIO')(server)
+
+// 监听端口
+server.listen(HTTP_SERVER_PORT)
 console.log(`http server listening on port ${HTTP_SERVER_PORT}`)

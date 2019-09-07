@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>socket.io-client</title>
+    </head>
+    <body>
+        <script src="/socket.io"></script>
+        <script>
+            var socket = io('http://localhost:3888');
+            socket.on('tess', function(msg) {
+                console.log('a user connected', msg);
+                socket.emit('test', 'liejiayong');
+            });
+            socket.on('getest', function() {
+                console.log('getest');
+            });
+        </script>
+    </body>
+</html>

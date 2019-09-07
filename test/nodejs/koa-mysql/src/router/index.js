@@ -4,4 +4,6 @@ module.exports = function (app) {
         ctx.body = 'hello world'
     }).routes())
     app.use(require('./signup').routes())
+    // 登录
+    app.use(require('./signin').routes())
 }

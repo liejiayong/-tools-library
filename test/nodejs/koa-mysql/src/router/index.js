@@ -6,4 +6,6 @@ module.exports = function (app) {
     app.use(require('./signup').routes())
     // 登录
     app.use(require('./signin').routes())
+    // 用户中心
+    app.use(require('./user').routes())
 }

@@ -1,12 +1,13 @@
 const http = require('http')
 const path = require('path')
 const Koa = require('koa')
-const session = require('koa-session')
 const bodyParser = require('koa-bodyparser')
 // const koaStatic = require('koa-static')
 const staticCache = require('koa-static-cache')
+const session = require('koa-session-minimal')
+const MysqlStore = require('koa-mysql-session')
 const router = require('./router')
-const { HTTP_SERVER_PORT } = require('./config/default')
+const { HTTP_SERVER_PORT, database } = require('./config/default')
 const staticPath = '/cachefile'
 
 const app = new Koa()
@@ -19,21 +20,17 @@ app.use(staticCache(path.join(__dirname, staticPath), { dynamic: true }, { maxAg
 app.use(bodyParser({ formLimit: '1mb' }))
 
 // session
-app.keys = ['some secret hurr']
-const SESSION_CONFIG = {
-    key: 'koa:sess' /** (string) cookie key (default is koa:sess) */,
-    /** (number || 'session') maxAge in ms (default is 1 days) */
-    /** 'session' will result in a cookie that expires when session/browser is closed */
-    /** Warning: If a session cookie is stolen, this cookie will never expire */
-    maxAge: 86400000,
-    autoCommit: true /** (boolean) automatically commit headers (default true) */,
-    overwrite: true /** (boolean) can overwrite or not (default true) */,
-    httpOnly: true /** (boolean) httpOnly or not (default true) */,
-    signed: true /** (boolean) signed or not (default true) */,
-    rolling: false /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */,
-    renew: false /** (boolean) renew session when session is nearly expired, so we can always keep user logged in. (default is false)*/
-}
-app.use(session(SESSION_CONFIG, app))
+app.use(
+    session({
+        key: 'USER_SID',
+        store: new MysqlStore({
+            user: database.USERNAME,
+            password: database.PASSWORD,
+            database: database.DATABASE,
+            host: database.HOST
+        })
+    })
+)
 
 // 路由
 router(app)

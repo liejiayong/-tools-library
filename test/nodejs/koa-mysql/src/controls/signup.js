@@ -76,7 +76,8 @@ exports.postSignup = async ctx => {
     } catch {
         ctx.body = {
             code: 0,
-            msg: '请输入正确信息'
+            msg: '请输入正确信息',
+            ctx
         }
     }
 }

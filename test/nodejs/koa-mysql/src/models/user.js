@@ -6,6 +6,12 @@ exports.findDataByName = name => {
     return query(_sql)
 }
 
+// 通过用户id查找用户
+exports.findDataByUId = id => {
+    let _sql = `select * from users where id="${id}";`
+    return query(_sql)
+}
+
 // 注册用户
 exports.registerUser = value => {
     let _sql = 'insert into users set name=?,pass=?,avator=?,moment=?;'

@@ -1,0 +1,45 @@
+@mixin bgimg($width, $url) {
+  background: url(#{$url}) no-repeat top center / #{$width} auto;
+}
+@mixin bgimgc($width, $url) {
+  background: url(#{$url}) no-repeat center / #{$width} auto;
+}
+@mixin bgimg-repeat($width, $url) {
+  background: url(#{$url}) repeat / #{$width} auto;
+}
+
+@mixin inputcolor($color) {
+  color: $color;
+  &::-webkit-input-placeholder{
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &::-ms-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+}
+@mixin inputbg($color) {
+  background-color: $color;
+  &::-webkit-input-placeholder{
+    background-color: $color;
+  }
+  &::-moz-placeholder {
+    background-color: $color;
+  }
+  &::-ms-input-placeholder {
+    background-color: $color;
+  }
+  &::-moz-placeholder {
+    background-color: $color;
+  }
+}
+
+@mixin lh($height) {
+  height: $height;
+  line-height: $height;
+}

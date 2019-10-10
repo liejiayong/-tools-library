@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="address=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="robots" content="follow" />
+  <meta name="author" content="liejy" />
+  <meta name="copyright" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>clipboard template</title>
+</head>
+
+<body>
+
+  <a href="javascript:;" class="jybtn btn-share" data-clipboard-target="#btnCopy">点击获取链接</a>
+  <p>您的专属分享链接为：
+    <span class="color-orange text-underline" data-clipboard-text="http://www.baidu.com"
+      id="btnCopy">www.baidu.com</span>
+  </p>
+
+  <!-- 复制弹窗 start -->
+  <span
+    style="display: none;padding: 10px;position: fixed;top: 30%;left: 50%;-webkit-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-o-transform: translateX(-50%);transform: translateX(-50%);background-color: #000;color: #fff;box-shadow: 0 0 5px #000;white-space: nowrap;z-index:100;"
+    class="jycopytip">复制成功</span>
+  <!-- 复制弹窗 end -->
+
+  <script type="text/javascript" src="./jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="./clipboard.min.js?v=2.0.4"></script>
+  <script type="text/javascript">
+    // 分享
+    var clipboard = new ClipboardJS('.btn-share');
+    clipboard.on('success', function (e) {
+      $('.jycopytip').fadeIn(5000).fadeOut(2000)
+      alert('复制成功');
+    });
+    clipboard.on('error', function (e) {
+      alert('浏览器不支持点击复制，请长按链接复制！');
+    });
+
+    var clipboard = new ClipboardJS('#btnCopy');
+    clipboard.on('success', function (e) {
+      alert('获取完整链接成功');
+    });
+    clipboard.on('error', function (e) {
+      alert('浏览器不支持点击复制，请长按链接复制！');
+    });
+  </script>
+</body>
+
+</html>

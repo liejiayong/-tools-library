@@ -1,0 +1,436 @@
+@import "../_const.scss";
+@import "../_mixin.scss";
+
+$bg: #634039;
+$bg-gradient: linear-gradient(#bf3b2e, #a92f2a, #962829, #8c2327);
+$bg-tit: linear-gradient(#5b2d0d, #732705);
+$bg-border: #fff;
+$color: #e8a14b;
+$color-tit: #e8a14b;
+$fs-tit: 0.3rem;
+$fs-content: 0.24rem;
+
+$main-gutter: 0.4rem 0.5rem 0.5rem;
+$width: 6.51rem;
+$max-height: 6.77rem;
+$max-height-s: 3rem;
+
+// table
+$table-border: 0.02rem solid transparent;
+$fs-table: 0.18rem;
+$table-height: 0.5rem;
+
+// input select textarea
+$input-bg: #fff;
+$input-color: #000;
+$input-border: 0px solid #000;
+
+// btn-ok
+$btn-pop-ok-bg: #820000;
+$btn-pop-ok-txt: #ffb9b9;
+
+.pop {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-scroll-chaining: none;
+  overscroll-behavior: contain;
+  &.active {
+    display: block;
+    opacity: 1;
+  }
+  .pop_mask {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+  }
+  .pop_main {
+    position: fixed;
+    margin-left: -($width / 2);
+    left: 50%;
+    top: 20%;
+    width: $width;
+    // max-height: $max-height;
+    height: $max-height;
+    color: $color;
+    background: $bg;
+    // background: $bg-gradient;
+    // border: 0.03rem solid $bg-border;
+    z-index: 20;
+  }
+  .pop_main-s {
+    position: fixed;
+    margin-left: -($width / 2);
+    left: 50%;
+    top: 20%;
+    width: $width;
+    min-height: $max-height-s;
+    color: $color;
+    background: $bg;
+    // background: $bg-gradient;
+    // border: 0.03rem solid $bg-border;
+    z-index: 20;
+  }
+  .pop_header {
+    margin: 0.4rem auto 0;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: $fs-tit;
+    color: $color-tit;
+    // @include lh(.6rem);
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    // background: $bg-tit;
+  }
+  .btn_pop_close {
+    $width: 0.31rem;
+    position: absolute;
+    top: 0.15rem;
+    right: 0.15rem;
+    width: $width;
+    height: $width;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAA9klEQVRIicXXUQ6DIAwG4N/dxRdvwtmnu4TeowtZNYwgtIXGJnuYYr+/Cy5hIiJwTQCuL451OS82FgArgNkZjv3f7AFEFKf/0K92Iprjr+Hwmbl/rC26JxJvHI4BUvg4++cLPAIU4Rz3CHALl/CRAarwHT4iQBOu4T0BRHALtwRI4eZ66SSSACpYiksCqGENXgtggrV4KUCwwhY8D0BW2IqDJ04rWPpYJ9+fmDzfXKHnn7AHTne7KUAvXNqEQ99z6XusDjAKNgUYCaufGw2rnveAxX28YFE/T7jZ1xuu9gefWDZHuBTg78Sy8AUvOA2wsofnTqkAvo4w0Hzsm9+kAAAAAElFTkSuQmCC")
+      no-repeat center / $width auto;
+    z-index: 30;
+  }
+  .pop_body {
+    margin: 0 auto;
+    padding: $main-gutter;
+    font-size: $fs-content;
+  }
+  .pop_txt {
+    margin: 0.35rem auto 0;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .btn-pop-ok {
+    display: block;
+    margin: 0.3rem auto 0;
+    width: 1.1rem;
+    padding: 0.1rem 0.15rem;
+    text-align: center;
+    color: $btn-pop-ok-txt;
+    background: $btn-pop-ok-bg;
+  }
+  // select
+  .popselect {
+    display: block;
+    position: relative;
+    $width: 100%;
+    $height: 0.5rem;
+    $radius: 0;
+    margin: 0 auto;
+    padding: 0 0.2rem;
+    width: $width;
+    height: $height;
+    background: $input-bg;
+    color: $input-color;
+    // -webkit-appearance: none;
+    //    -moz-appearance: none;
+    //         appearance: none;
+    outline: none;
+    border: $input-border;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0.2rem;
+      border-top: 0.12rem solid #961010;
+      border-bottom: 0.12rem solid transparent;
+      border-left: 0.12rem solid transparent;
+      border-right: 0.12rem solid transparent;
+      height: 0;
+      width: 0;
+      font-size: 0;
+      line-height: 0;
+      overflow: hidden;
+    }
+    &:not(:last-of-type) {
+      margin-bottom: 0.12rem;
+    }
+    option {
+      text-align: center;
+    }
+  }
+  // input
+  .popinput {
+    margin: 0.2rem auto 0;
+    .popinput-cell {
+      $width: inherit;
+      $height: 0.56rem;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      // -webkit-box-pack: justify;
+      // -webkit-justify-content: space-between;
+      //    -moz-box-pack: justify;
+      //     -ms-flex-pack: justify;
+      //         justify-content: space-between;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -moz-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      margin-bottom: 0.16rem;
+      width: $width;
+      height: $height;
+      .popinput-tit {
+        $width: 1.5rem;
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 #{$width};
+        -moz-box-flex: 0;
+        -ms-flex: 0 0 #{$width};
+        flex: 0 0 #{$width};
+        width: $width;
+        height: $height;
+        line-height: $height;
+      }
+      .popinput-inp {
+        // $width: 3rem;
+        // -webkit-box-flex: 0;
+        // -webkit-flex: 0 0 #{$width};
+        // -moz-box-flex: 0;
+        // -ms-flex: 0 0 #{$width};
+        // flex: 0 0 #{$width};
+        // width: $width;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -moz-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        height: $height;
+        line-height: $height;
+        input {
+          padding: 0 0.2rem;
+          width: 100%;
+          height: 100%;
+          outline: none;
+          border: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          color: $input-color;
+          background-color: $input-bg;
+          -moz-border-radius: 0.1rem;
+          border-radius: 0.1rem;
+          &::-webkit-input-placeholder {
+            color: $input-color;
+          }
+        }
+        textarea {
+          padding: 0 0.2rem;
+          width: 100%;
+          height: 100%;
+          outline: none;
+          border: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          color: $input-color;
+          background-color: $input-bg;
+          -moz-border-radius: 0.1rem;
+          border-radius: 0.1rem;
+          &::-webkit-input-placeholder {
+            color: $input-color;
+          }
+        }
+      }
+    }
+  }
+  // table
+  .jy-pop-table {
+    // margin-top: 0.27rem;
+    width: inherit;
+    max-height: 4rem;
+    border: $table-border;
+    overflow: hidden;
+    .table-tit {
+      width: inherit;
+      .tablecell,
+      .tablecell3,
+      .tablecell4,
+      .tablecell5 {
+        color: #c03814;
+        background-color: #fac17b;
+        @include lh($table-height);
+        padding: 0 0.04rem;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        overflow-x: auto;
+        font-size: $fs-table;
+        &:not(:last-of-type) {
+          border-bottom: $table-border;
+          border-right: $table-border;
+        }
+        &:last-of-type {
+          border-bottom: $table-border;
+        }
+      }
+    }
+    .table-body {
+      width: inherit;
+      max-height: 4rem;
+      overflow-y: auto;
+      .tablecell,
+      .tablecell3,
+      .tablecell4,
+      .tablecell5 {
+        @include lh($table-height);
+        padding: 0 0.04rem;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        overflow-x: auto;
+        font-size: $fs-table;
+        &:not(:last-of-type) {
+          border-bottom: $table-border;
+          border-right: $table-border;
+        }
+      }
+      .tablecell:last-of-type {
+        &:last-of-type {
+          border-bottom: $table-border;
+        }
+      }
+      .table-item:not(:last-of-type) {
+      }
+    }
+    .table-tit,
+    .table-item {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -moz-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      overflow: hidden;
+      .tablecell {
+        &:nth-of-type(1) {
+          $width: 36%;
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 $width;
+          -moz-box-flex: 0;
+          -ms-flex: 0 0 $width;
+          flex: 0 0 $width;
+          width: $width;
+        }
+        &:nth-of-type(2) {
+          $width: 15%;
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 $width;
+          -moz-box-flex: 0;
+          -ms-flex: 0 0 $width;
+          flex: 0 0 $width;
+          width: $width;
+        }
+        &:nth-of-type(3) {
+          $width: 49%;
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 $width;
+          -moz-box-flex: 0;
+          -ms-flex: 0 0 $width;
+          flex: 0 0 $width;
+          width: $width;
+        }
+      }
+      .tablecell3 {
+        $width: 30%;
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 $width;
+        -moz-box-flex: 0;
+        -ms-flex: 0 0 $width;
+        flex: 0 0 $width;
+        width: $width;
+      }
+      .tablecell4 {
+        $width: 40%;
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 $width;
+        -moz-box-flex: 0;
+        -ms-flex: 0 0 $width;
+        flex: 0 0 $width;
+        width: $width;
+      }
+      .tablecell5 {
+        padding: 0 0.04rem;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        overflow-x: auto;
+        font-size: $fs-table;
+        &:nth-of-type(1) {
+          $width: 50%;
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 $width;
+          -moz-box-flex: 0;
+          -ms-flex: 0 0 $width;
+          flex: 0 0 $width;
+          width: $width;
+        }
+        &:nth-of-type(2) {
+          $width: 50%;
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 $width;
+          -moz-box-flex: 0;
+          -ms-flex: 0 0 $width;
+          flex: 0 0 $width;
+          width: $width;
+        }
+      }
+    }
+  }
+  // 兑换码
+  .pop_txt {
+    text-align: center;
+    .txt-code {
+      padding: 0 0.09rem;
+      // margin-right: 0.02rem;
+      // -webkit-box-flex: 1;
+      // -webkit-flex: 1;
+      // -moz-box-flex: 1;
+      // -ms-flex: 1;
+      // flex: 1;
+      // height: 0.49rem;
+      line-height: 0.49rem;
+    }
+    .popcodetxt {
+      max-width: 6rem;
+      overflow-x: auto;
+    }
+  }
+}

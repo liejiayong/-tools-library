@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui,viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <meta name="format-detection" content="address=no" />
+  <!--for baidu 识别移动端页面并禁止百度转码-->
+  <meta name="applicable-device" content="mobile" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <!-- 删除默认的苹果工具栏和菜单栏 -->
+  <!-- <meta name="apple-touch-fullscreen" content="yes" /> -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- 避免IE使用兼容模式 -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+  <!-- 启用360浏览器的极速模式(webkit) -->
+  <meta name="renderer" content="webkit" />
+  <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+  <meta name="HandheldFriendly" content="true" />
+  <!-- 微软的老式浏览器 -->
+  <meta name="MobileOptimized" content="320" />
+  <!-- UC强制全屏 -->
+  <meta name="full-screen" content="yes" />
+  <!-- QQ强制全屏 -->
+  <meta name="x5-fullscreen" content="true" />
+  <!-- UC应用模式 -->
+  <meta name="browsermode" content="application" />
+  <!-- QQ应用模式 -->
+  <meta name="x5-page-mode" content="app" />
+  <!-- windows phone 点击无高光 -->
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="liejy" />
+  <meta name="copyright" content="" />
+  <title>h5 template</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <!-- 主要内容 -->
+  <div class="jywrapper">
+    <div class="jy-section section-1">
+      <div class="jy-login">
+        <!-- 登录前 -->
+        <!-- <a href="javascript:;" class="jybtn btn-login"></a> -->
+        <!-- 登录后 -->
+        <!-- <div class="jy-logout">
+                <a href="javascript:;" class="jybtn btn-logout">注销</a>
+                <i>|</i>
+                <div class="nickname">朕灬发粪涂墙xxxxxxx</div>
+              </div> -->
+      </div>
+      <div class="time">活动时间：9月1日00:00:00-9月7日23:59:59</div>
+    </div>
+
+    <div class="jy-section section-2">
+
+    </div>
+  </div>
+
+  <!--旋屏提示 -->
+  <div id="orientLayer" class="orientLayer">
+    <div class="orient_content">
+      <i class="orient_icon"></i>
+      <div class="orient_desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+  </div>
+  <div class="jycopytip"></div>
+
+  <!-- 弹窗 -->
+  <!-- pop 我的奖品 -->
+  <div class="pop pop-myprize1 active" id="J_myprizePop1">
+    <div class="pop_mask"></div>
+    <div class="pop_main">
+      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <div class="pop_header">我的奖励</div>
+      <div class="pop_body">
+        <div class="jy-pop-table">
+          <div class="table-tit">
+            <div class="tablecell3">礼包名称</div>
+            <div class="tablecell4">激活码</div>
+            <div class="tablecell3">操作</div>
+          </div>
+          <div class="table-body">
+            <div class="table-item">
+              <div class="tablecell3">全名洪文礼包*1</div>
+              <div data-clipboard-text="cccccccccccccccc" class="tablecell4 btn-popcode">cccccccccccccccc</div>
+              <div class="tablecell3 btnpopcode" data-clipboard-target=".btn-popcode">复制</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pop pop-myprize2 " id="J_myprizePop2">
+    <div class="pop_mask"></div>
+    <div class="pop_main">
+      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <div class="pop_header">我的奖励</div>
+      <div class="pop_body">
+        <div class="jy-pop-table">
+          <div class="table-tit">
+            <div class=" tablecell5">礼包名称</div>
+            <div class=" tablecell5">获得时间</div>
+          </div>
+          <div class="table-body">
+            <div class="table-item">
+              <div class=" tablecell5">全名洪文礼包*1</div>
+              <div class=" tablecell5">2019-09-01</div>
+            </div>
+            <div class="table-item">
+              <div class=" tablecell5">全名洪文礼包*1</div>
+              <div class=" tablecell5">2019-09-01</div>
+            </div>
+            <div class="table-item">
+              <div class=" tablecell5">全名洪文礼包*1</div>
+              <div class=" tablecell5">2019-09-01</div>
+            </div>
+            <div class="table-item">
+              <div class=" tablecell5">全名洪文礼包*1</div>
+              <div class=" tablecell5">2019-09-01</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop 概率展示 -->
+  <div class="pop pop-pro " id="J_proPop">
+    <div class="pop_mask"></div>
+    <div class="pop_main">
+      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <div class="pop_header">概率展示</div>
+      <div class="pop_body">
+        <div class="jy-pop-table">
+          <div class="table-tit">
+            <div class="tablecell ">奖品内容</div>
+            <div class="tablecell ">概率</div>
+          </div>
+          <div class="table-body">
+            <div class="table-item">
+              <div class="tablecell ">弑神谪仙伞</div>
+              <div class="tablecell ">2%</div>
+            </div>
+            <div class="table-item">
+              <div class="tablecell ">超级转生丹*1</div>
+              <div class="tablecell ">5%</div>
+            </div>
+            <div class="table-item">
+              <div class="tablecell ">高级转生丹*2</div>
+              <div class="tablecell ">8%</div>
+            </div>
+            <div class="table-item">
+              <div class="tablecell ">传世宝钻*20</div>
+              <div class="tablecell ">10%</div>
+            </div>
+            <div class="table-item">
+              <div class="tablecell ">金砖*5</div>
+              <div class="tablecell ">15%</div>
+            </div>
+            <div class="table-item">
+              <div class="tablecell ">黑铁*200</div>
+              <div class="tablecell ">15%</div>
+            </div>
+            <div class="table-item">
+              <div class="tablecell ">野外boss挑战卷*2</div>
+              <div class="tablecell ">15%</div>
+            </div>
+            <div class="table-item">
+              <div class="tablecell ">谢谢参与</div>
+              <div class="tablecell ">30%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop 中奖·提示  -->
+  <div class="pop " id="J_giftPop">
+    <div class="pop_mask"></div>
+    <div class="pop_main-s">
+      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <div class="pop_header">中奖·提示</div>
+      <div class="pop_body">
+        <div class="pop_txt tc">恭喜您获得：<span class="color-red">xxxxx礼包</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop 请绑定后再参与  -->
+  <div class="pop pop-bind " id="J_bindPop">
+    <div class="pop_mask"></div>
+    <div class="pop_main-s">
+      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <div class="pop_header">请绑定后再参与</div>
+      <div class="pop_body tc">
+        <p class="mt-40">
+          <select name="" id="" class="popselect">
+            <option value="">请选择区服</option>
+            <option value="">xxx</option>
+          </select>
+          <select name="" id="" class="popselect">
+            <option value="">请选择角色名</option>
+            <option value="">xxx</option>
+          </select>
+        </p>
+        <div style="color: #333;" class="mt-20">注意：角色一旦绑定，将无法取消或更改！</div>
+        <a href="javascript:;" class="jybtn btn-pop-ok mt-20">确认</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- js -->
+  <script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
+  <script type="text/javascript" src="./js/swiper.min.js?v=4.3.5"></script>
+  <script type="text/javascript" src="./js/jquery.SuperSlide.js?v=2.1.1"></script>
+  <script type="text/javascript" src="./js/danmu.js"></script>
+  <script>
+    // 定义初始化
+    $(function () {
+      var imgBaseUrl = '', activeCls = 'active';
+
+      // 弹窗
+      // 关闭弹窗
+      $('.btn_pop_close').on('click', function () {
+        resetWin();
+        $(this).parents('.pop').fadeOut();
+      });
+      // 我的奖品1
+      $('.myprice1').on('click', function () {
+        fixedWin();
+        $('#J_myprizePop1').fadeIn();
+      });
+
+      //复制
+      var $cpSucTip = $('.jycopytip');
+      var clipboard = new ClipboardJS('.btnpopcode');
+      clipboard.on('success', function () {
+        $('#J_mycodePop').fadeOut();
+        $cpSucTip
+          .text('复制成功')
+          .fadeIn(500)
+          .fadeOut(1000);
+      });
+      clipboard.on('error', function () {
+        $cpSucTip
+          .text('您的手机不支持点击复制，请长按复制！')
+          .fadeIn(500)
+          .fadeOut(1000);
+      });
+    });
+
+    var subject = {
+      initial: function () {
+        this.font();
+        // this.proload();
+        // this.music();
+        // this.swiper();
+      },
+      // 滚动
+      swiper: function () {
+        $('#pSwiper').fadeIn();
+        pSwiper = new Swiper('#pSwiper', {
+          autoplay: false,
+          direction: 'vertical',
+          initialSlide: 0,
+          speed: TYPE_NUMBER_DURATION,
+          width: window.innerWidth,
+          height: window.innerHeight < 667 ? 667 : window.innerHeight,
+          autoHeight: true, //高度随内容变化
+          on: {
+            slideChange: function () {
+              var index = this.activeIndex;
+              // 滑到提交答案页面
+              if (index == 11) {
+                result.isLosed = false;
+              }
+            }
+          }
+        });
+      },
+      // 音乐
+      music: function () {
+        // 背景音乐
+        bgSound = new Howl({
+          src: [],
+          autoplay: true,
+          loop: true,
+          volume: 0.35
+        });
+        bgSound.play();
+        $('#btnBgm').addClass('active');
+      },
+      // 预加载
+      proload: function () {
+        var loader = new ImagesLoader();
+
+        loader.loadImages([], imgBaseUrl);
+        loader.complete(function () {
+          // $('#loadpage').fadeOut(500);
+          // $('#pSwiper').fadeIn();
+          subject.swiper();
+          console.log(':::initial loader success');
+        });
+        loader.process(function () {
+          // var prsnum = this.processNum ? this.processNum : 100;
+          // $('#loading_rate').html(prsnum + '%');
+        });
+        loader.start();
+      },
+      // 字体适配
+      font: function () {
+        var docEl = document.documentElement || document.body;
+        var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        var reCalc = function () {
+          var clientWidth = docEl.clientWidth;
+          var fontSize = 100 * (clientWidth / 750);
+          window.baseFontSize = fontSize;
+          docEl.style.fontSize = fontSize + 'px';
+          // 屏幕提示
+          var w = docEl.clientWidth;
+          var h = docEl.clientHeight;
+          if (h > w) {
+            $('#orientLayer').hide();
+          } else {
+            $('#orientLayer').show();
+          }
+        };
+        reCalc();
+        window.addEventListener(resizeEvt, reCalc, false);
+        document.addEventListener('DOMContentLoaded', reCalc, false);
+      }
+    };
+    subject.initial();
+    // 固定窗口
+    function fixedWin() {
+      $('html,body').css({ overflow: 'hidden' });
+    }
+    // 还原窗口
+    function resetWin() {
+      $('html,body').css({ overflow: '' });
+    }
+  </script>
+</body>
+
+</html>

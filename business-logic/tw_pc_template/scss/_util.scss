@@ -1,0 +1,280 @@
+@import "./_const.scss";
+@import "./_mixin.scss";
+
+.lh-15 {
+  line-height: 1.5;
+}
+.lh-20 {
+  line-height: 2;
+}
+
+.clearfix:after {
+  content: "\0020";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0;
+}
+.clearfix {
+  zoom: 1;
+}
+.fl {
+  float: left;
+}
+.fr{
+  float: right;
+}
+.hide {
+  display: none;
+  opacity: 0;
+}
+.vf-hide {
+  overflow: hidden;
+}
+
+.tl{
+  text-align: left;
+}
+.tc {
+  text-align: center;
+}
+.tr {
+  text-align: right;
+}
+.fb {
+  font-weight: bold;
+}
+.text-indent{
+  text-indent: 2em;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.fs-40 {
+  font-size: 40px;
+}
+.fs-32 {
+  font-size: 32px;
+}
+.fs-30{
+  font-size: 30px
+}
+.fs-28{
+  font-size: 28px
+}
+.fs-26{
+  font-size: 26px
+}
+.fs-24{
+  font-size: 24px
+}
+.fs-22{
+  font-size: 22px
+}
+.fs-20{
+  font-size: 20px
+}
+.fs-18{
+  font-size: 18px
+}
+.fs-16{
+  font-size: 16px
+}
+.fs-14{
+  font-size: 14px
+}
+.fs-12{
+  font-size: 12px
+}
+
+.mauto {
+  margin: 0 auto;
+}
+.mt-10 {
+  margin-top: 10px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.ml-20 {
+  margin-left: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.pl-10 {
+  padding-right: 10px;
+}
+.pt-10 {
+  padding-top: 10px;
+}
+.pt-20 {
+  padding-top: 20px;
+}
+.pt-30 {
+  padding-top: 30px;
+}
+.pt-40 {
+  padding-top: 40px;
+}
+.pt-50 {
+  padding-top: 50px;
+}
+
+.color-yellow {
+  color: $color-yellow;
+}
+.color-orange {
+  color: $color-orange;
+}
+.color-red {
+  color: $color-red;
+}
+
+.prelative {
+  position: relative;
+}
+.absolute-0 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.jy-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.jy-flex-c {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.g-flex-5 {
+  width: 50%;
+  -webkit-box-flex: 50%;
+  -webkit-flex: 50%;
+  -moz-box-flex: 50%;
+  -ms-flex: 50%;
+  flex: 50%;
+}
+.g-flex-4 {
+  width: 40%;
+  -webkit-box-flex: 40%;
+  -webkit-flex: 40%;
+  -moz-box-flex: 40%;
+  -ms-flex: 40%;
+  flex: 40%;
+}
+.g-flex-wrap {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.nowrap {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fill-100 {
+  width: 100%;
+  height: 100%;
+}
+.jybtn {
+  display: inline-block;
+  cursor: pointer;
+  z-index: 100;
+}
+.btn-brightness {
+  &:hover {
+    -webkit-filter: brightness(0.8);
+    filter: brightness(0.8);
+  }
+}
+.jybtn-primary {
+  display: inline-block;
+  cursor: pointer;
+  color: $btn-txt-color;
+  background-color: $btn-bg-color;
+  z-index: 100;
+}
+.opacity-0{
+  opacity: 0;
+}
+
+.jy-tit {
+  overflow: hidden;
+  text-indent: -9999px;
+  font-size: 0;
+}
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.mainheader {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  zoom: 1;
+}
+.mainsection {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  zoom: 1;
+}
+.section {
+  position: relative;
+  margin: 0 auto;
+  width: $w-main;
+  background: no-repeat top center;
+  /* overflow: hidden; */
+}
+.section .jylist > li {
+  position: relative;
+  margin: 0 0 10px 25px;
+  color: #c2786a;
+}
+.section .jylist > li::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: -25px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  -moz-border-radius: 18px;
+  border-radius: 18px;
+  background-color: #c2786a;
+  color: #440b00;
+}
+.section .jylist > li:nth-of-type(1)::before {
+  content: "1";
+}
+.section .jylist > li:nth-of-type(2)::before {
+  content: "2";
+}

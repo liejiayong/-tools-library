@@ -1,252 +1,272 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui,viewport-fit=cover" />
-    <meta name="format-detection" content="telephone=no, email=no" />
-    <meta name="format-detection" content="address=no" />
-    <!--for baidu 识别移动端页面并禁止百度转码-->
-    <meta name="applicable-device" content="mobile" />
-    <meta http-equiv="Cache-Control" content="no-transform" />
-    <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <!-- 删除默认的苹果工具栏和菜单栏 -->
-    <!-- <meta name="apple-touch-fullscreen" content="yes" /> -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <!-- 避免IE使用兼容模式 -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
-    <!-- 启用360浏览器的极速模式(webkit) -->
-    <meta name="renderer" content="webkit" />
-    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
-    <meta name="HandheldFriendly" content="true" />
-    <!-- 微软的老式浏览器 -->
-    <meta name="MobileOptimized" content="320" />
-    <!-- UC强制全屏 -->
-    <meta name="full-screen" content="yes" />
-    <!-- QQ强制全屏 -->
-    <meta name="x5-fullscreen" content="true" />
-    <!-- UC应用模式 -->
-    <meta name="browsermode" content="application" />
-    <!-- QQ应用模式 -->
-    <meta name="x5-page-mode" content="app" />
-    <!-- windows phone 点击无高光 -->
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="liejy" />
-    <meta name="copyright" content="" />
-    <title>h5 template</title>
-    <style>
-      .orientLayer {
-        display: none;
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background: #333;
-        z-index: 9997;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui,viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <meta name="format-detection" content="address=no" />
+  <!--for baidu 识别移动端页面并禁止百度转码-->
+  <meta name="applicable-device" content="mobile" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <!-- 删除默认的苹果工具栏和菜单栏 -->
+  <!-- <meta name="apple-touch-fullscreen" content="yes" /> -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!-- 避免IE使用兼容模式 -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+  <!-- 启用360浏览器的极速模式(webkit) -->
+  <meta name="renderer" content="webkit" />
+  <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+  <meta name="HandheldFriendly" content="true" />
+  <!-- 微软的老式浏览器 -->
+  <meta name="MobileOptimized" content="320" />
+  <!-- UC强制全屏 -->
+  <meta name="full-screen" content="yes" />
+  <!-- QQ强制全屏 -->
+  <meta name="x5-fullscreen" content="true" />
+  <!-- UC应用模式 -->
+  <meta name="browsermode" content="application" />
+  <!-- QQ应用模式 -->
+  <meta name="x5-page-mode" content="app" />
+  <!-- windows phone 点击无高光 -->
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="liejy" />
+  <meta name="copyright" content="" />
+  <title>h5 template</title>
+  <style>
+    .orientLayer {
+      display: none;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: #333;
+      z-index: 9997;
+    }
+
+    .orientLayer .orient_content {
+      position: absolute;
+      width: 100%;
+      top: 45%;
+      margin-top: -75px;
+      text-align: center;
+    }
+
+    .orientLayer .orient_icon {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAADaCAMAAABU68ovAAAAS1BMVEUAAAD09PT5+fn8/Pz////5+fny8vL////5+fn39/f6+vr////x8fH////////+/v7////x8fH39/f////////////////x8fH///+HBPvxAAAAF3RSTlMADSCUBmbWn1c2gvHBvq1uKOpP187lQw7/C7wAAAPMSURBVHja7d3JkpswEIDh1mYWA8Ispt//STNS2XHbcQgkyK0k/R/mMKevRsgGaQrBI1Wa5rJ8qEtjSgU/ps3y8YyG52y9sFRbIOnTwtRJPxTVZWHrUsEtzaAgDg0xdVpYO6nIqBfm6jgkC3saAMzCngFQu4dyULCaGnZfbArK/RfUL1N7HeXuMRlgQ8PuUWl2//02tHekG7jkwLjAksOgLLDkcIl+MXKYsF+MLBKGMIQhjL+f4RR8NOXeMRx8PP+GoeDjqTcMYEgYwhCGMIQhDGF8JQyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCWKvyph3PiHie28JXloFhyy4AaOeuVHBP+w8wtCEGKjEaYmoakzN0gT+viJAOsUrLsDWuV1swiGiSMvoRvzcZf+210v3Vmenx69GEn3NKhsN7rVNAU67Fp67pGAZvFf3bK5cyilQMe782Ow3v0x2ZNioR46aYB/h55cNRpmEYjLUaViJ/ji4Jw2GssOtUkkrA6DFmYC2PNHc8w44bLv8Bn2qPZ9QYai2s1ZemnYlDH83QGJo1/Do91N2IMX8cg87VAbamKl9MOB3M0GQG7qg/mGEiQzPfBNozmSV8jBJDPTeji5OV/c48jonjZlQYUtwMHxQT++NSnK6GndEGhmdnjIFxZWfEidKzM8gnOSejDlnYmzIh9vUNjSF2Rh+fVtgZ18AY2Rk+MFp2hgkM/kt0CgzPzVAYqrgZLk4U9nXRNjA6bkaPoZKbUcQxscwMTZ7/j2P0sLMuMvTBjAmnwlcKtjaQZYgDGR5jY1cPm57q51QLC4/m1pTrg2RbDNVwNANafGrYsAwx2uMZDml+y5JhD8czFFWYLYu4DhIwNi946pZQD2LsX/4dZrJinoChzhjbtmZe2EQMKJBk3kH6glw8qRhXyljfT3GQjgFx1M3T7pK77S75p92lHlIyTFBs2mtLyqgQu007j2kZME5qwz5scobXcE+93ZW2DHv0tvJFO8c9+rE1vvrP/2NBGMK4JwyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAkjafm+JzCTtyZm8g7Jnf3rL/bckTBowqBlx2ictla7hpVxquBWdeJjNAq+pxouxkkBSZ2YGBU8VfEwGnipYWE4eMmxMDS8pFkYFl6yLAyVB6M/clAuy+9Wwkvl8rtdoMlhwjZgcvj4MlDm8GFegsrhq00BGP4vegMA+o9ve1T/h7c9Op/DsHI5GiyTg9JyOTYul0P0cjlSMJcDFrmPm/wGYAznCtxJQgcAAAAASUVORK5CYII=');
+      display: inline-block;
+      width: 67px;
+      height: 109px;
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      -webkit-animation: i infinite 1.5s ease-in-out;
+      -moz-animation: i infinite 1.5s ease-in-out;
+      animation: i infinite 1.5s ease-in-out;
+      -webkit-background-size: 67px 67px;
+      -moz-background-size: 67px;
+      background-size: 67px;
+    }
+
+    @-webkit-keyframes i {
+      10% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
       }
-      .orientLayer .orient_content {
-        position: absolute;
-        width: 100%;
-        top: 45%;
-        margin-top: -75px;
-        text-align: center;
+
+      50%,
+      60% {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
       }
-      .orientLayer .orient_icon {
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAADaCAMAAABU68ovAAAAS1BMVEUAAAD09PT5+fn8/Pz////5+fny8vL////5+fn39/f6+vr////x8fH////////+/v7////x8fH39/f////////////////x8fH///+HBPvxAAAAF3RSTlMADSCUBmbWn1c2gvHBvq1uKOpP187lQw7/C7wAAAPMSURBVHja7d3JkpswEIDh1mYWA8Ispt//STNS2XHbcQgkyK0k/R/mMKevRsgGaQrBI1Wa5rJ8qEtjSgU/ps3y8YyG52y9sFRbIOnTwtRJPxTVZWHrUsEtzaAgDg0xdVpYO6nIqBfm6jgkC3saAMzCngFQu4dyULCaGnZfbArK/RfUL1N7HeXuMRlgQ8PuUWl2//02tHekG7jkwLjAksOgLLDkcIl+MXKYsF+MLBKGMIQhjL+f4RR8NOXeMRx8PP+GoeDjqTcMYEgYwhCGMIQhDGF8JQyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCWKvyph3PiHie28JXloFhyy4AaOeuVHBP+w8wtCEGKjEaYmoakzN0gT+viJAOsUrLsDWuV1swiGiSMvoRvzcZf+210v3Vmenx69GEn3NKhsN7rVNAU67Fp67pGAZvFf3bK5cyilQMe782Ow3v0x2ZNioR46aYB/h55cNRpmEYjLUaViJ/ji4Jw2GssOtUkkrA6DFmYC2PNHc8w44bLv8Bn2qPZ9QYai2s1ZemnYlDH83QGJo1/Do91N2IMX8cg87VAbamKl9MOB3M0GQG7qg/mGEiQzPfBNozmSV8jBJDPTeji5OV/c48jonjZlQYUtwMHxQT++NSnK6GndEGhmdnjIFxZWfEidKzM8gnOSejDlnYmzIh9vUNjSF2Rh+fVtgZ18AY2Rk+MFp2hgkM/kt0CgzPzVAYqrgZLk4U9nXRNjA6bkaPoZKbUcQxscwMTZ7/j2P0sLMuMvTBjAmnwlcKtjaQZYgDGR5jY1cPm57q51QLC4/m1pTrg2RbDNVwNANafGrYsAwx2uMZDml+y5JhD8czFFWYLYu4DhIwNi946pZQD2LsX/4dZrJinoChzhjbtmZe2EQMKJBk3kH6glw8qRhXyljfT3GQjgFx1M3T7pK77S75p92lHlIyTFBs2mtLyqgQu007j2kZME5qwz5scobXcE+93ZW2DHv0tvJFO8c9+rE1vvrP/2NBGMK4JwyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAkjafm+JzCTtyZm8g7Jnf3rL/bckTBowqBlx2ictla7hpVxquBWdeJjNAq+pxouxkkBSZ2YGBU8VfEwGnipYWE4eMmxMDS8pFkYFl6yLAyVB6M/clAuy+9Wwkvl8rtdoMlhwjZgcvj4MlDm8GFegsrhq00BGP4vegMA+o9ve1T/h7c9Op/DsHI5GiyTg9JyOTYul0P0cjlSMJcDFrmPm/wGYAznCtxJQgcAAAAASUVORK5CYII=');
-        display: inline-block;
-        width: 67px;
-        height: 109px;
+
+      90% {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+      }
+
+      to {
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+      }
+    }
+
+    @-moz-keyframes i {
+      10% {
         -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+      }
+
+      50%,
+      60% {
+        -moz-transform: rotate(0);
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+      }
+
+      90% {
+        -moz-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+      }
+
+      to {
+        -moz-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+      }
+    }
+
+    @keyframes i {
+      10% {
+        -moz-transform: rotate(90deg);
         -o-transform: rotate(90deg);
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
-        -webkit-animation: i infinite 1.5s ease-in-out;
-        -moz-animation: i infinite 1.5s ease-in-out;
-        animation: i infinite 1.5s ease-in-out;
-        -webkit-background-size: 67px 67px;
-        -moz-background-size: 67px;
-        background-size: 67px;
       }
-      @-webkit-keyframes i {
-        10% {
-          transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-        }
-        50%,
-        60% {
-          transform: rotate(0);
-          -webkit-transform: rotate(0);
-        }
-        90% {
-          transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-        }
-        to {
-          transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-        }
-      }
-      @-moz-keyframes i {
-        10% {
-          -moz-transform: rotate(90deg);
-          transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-        }
-        50%,
-        60% {
-          -moz-transform: rotate(0);
-          transform: rotate(0);
-          -webkit-transform: rotate(0);
-        }
-        90% {
-          -moz-transform: rotate(90deg);
-          transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-        }
-        to {
-          -moz-transform: rotate(90deg);
-          transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-        }
-      }
-      @keyframes i {
-        10% {
-          -moz-transform: rotate(90deg);
-          -o-transform: rotate(90deg);
-          transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-        }
-        50%,
-        60% {
-          -moz-transform: rotate(0);
-          -o-transform: rotate(0);
-          transform: rotate(0);
-          -webkit-transform: rotate(0);
-        }
-        90% {
-          -moz-transform: rotate(90deg);
-          -o-transform: rotate(90deg);
-          transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-        }
-        to {
-          -moz-transform: rotate(90deg);
-          -o-transform: rotate(90deg);
-          transform: rotate(90deg);
-          -webkit-transform: rotate(90deg);
-        }
-      }
-      .orientLayer .orient_desc {
-        margin-top: 20px;
-        font-size: 15px;
-        color: #fff;
-      }
-      @media screen and (min-aspect-ratio: 13/9) {
-        .orientLayer {
-          display: block;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!--旋屏提示 -->
-    <div id="orientLayer" class="orientLayer">
-      <div class="orient_content">
-        <i class="orient_icon"></i>
-        <div class="orient_desc">为了更好的体验，请使用竖屏浏览</div>
-      </div>
-    </div>
 
-    <script>
-      // 定义初始化
-      var imgBaseUrl = '';
-      var subject = {
-        initial: function() {
-          this.proload();
-          this.music();
-          this.font();
-          // this.swiper();
-        },
-        // 滚动
-        swiper: function() {
-          $('#pSwiper').fadeIn();
-          pSwiper = new Swiper('#pSwiper', {
-            autoplay: false,
-            direction: 'vertical',
-            initialSlide: 0,
-            speed: TYPE_NUMBER_DURATION,
-            width: window.innerWidth,
-            height: window.innerHeight < 667 ? 667 : window.innerHeight,
-            autoHeight: true, //高度随内容变化
-            on: {
-              slideChange: function() {
-                var index = this.activeIndex;
-                // 滑到提交答案页面
-                if (index == 11) {
-                  result.isLosed = false;
-                }
+      50%,
+      60% {
+        -moz-transform: rotate(0);
+        -o-transform: rotate(0);
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+      }
+
+      90% {
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+      }
+
+      to {
+        -moz-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+      }
+    }
+
+    .orientLayer .orient_desc {
+      margin-top: 20px;
+      font-size: 15px;
+      color: #fff;
+    }
+
+    @media screen and (min-aspect-ratio: 13/9) {
+      .orientLayer {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!--旋屏提示 -->
+  <div id="orientLayer" class="orientLayer">
+    <div class="orient_content">
+      <i class="orient_icon"></i>
+      <div class="orient_desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+  </div>
+
+  <script>
+    // 定义初始化
+    var imgBaseUrl = '';
+    var subject = {
+      initial: function () {
+        this.proload();
+        this.music();
+        this.font();
+        // this.swiper();
+      },
+      // 滚动
+      swiper: function () {
+        $('#pSwiper').fadeIn();
+        pSwiper = new Swiper('#pSwiper', {
+          autoplay: false,
+          direction: 'vertical',
+          initialSlide: 0,
+          speed: TYPE_NUMBER_DURATION,
+          width: window.innerWidth,
+          height: window.innerHeight < 667 ? 667 : window.innerHeight,
+          autoHeight: true, //高度随内容变化
+          on: {
+            slideChange: function () {
+              var index = this.activeIndex;
+              // 滑到提交答案页面
+              if (index == 11) {
+                result.isLosed = false;
               }
             }
-          });
-        },
-        // 音乐
-        music: function() {
-          // 背景音乐
-          bgSound = new Howl({
-            src: [],
-            autoplay: true,
-            loop: true,
-            volume: 0.35
-          });
-          bgSound.play();
-          $('#btnBgm').addClass('active');
-        },
-        // 预加载
-        proload: function() {
-          var loader = new ImagesLoader();
+          }
+        });
+      },
+      // 音乐
+      music: function () {
+        // 背景音乐
+        bgSound = new Howl({
+          src: [],
+          autoplay: true,
+          loop: true,
+          volume: 0.35
+        });
+        bgSound.play();
+        $('#btnBgm').addClass('active');
+      },
+      // 预加载
+      proload: function () {
+        var loader = new ImagesLoader();
 
-          loader.loadImages([], imgBaseUrl);
-          loader.complete(function() {
-            // $('#loadpage').fadeOut(500);
-            // $('#pSwiper').fadeIn();
-            subject.swiper();
-            console.log(':::initial loader success');
-          });
-          loader.process(function() {
-            // var prsnum = this.processNum ? this.processNum : 100;
-            // $('#loading_rate').html(prsnum + '%');
-          });
-          loader.start();
-        },
-        // 字体适配
-        font: function() {
-          var docEl = document.documentElement || document.body;
-          var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
-          var reCalc = function() {
-            var clientWidth = docEl.clientWidth;
-            window.baseFontSize = 100 * (clientWidth / 750);
-            docEl.style.fontSize = window.baseFontSize + 'px';
-            // 屏幕提示
-            var w = docEl.clientWidth;
-            var h = docEl.clientHeight;
-            if (h > w) {
-              $('#orientLayer').hide();
-            } else {
-              $('#orientLayer').show();
-            }
-          };
-          if (!document.addEventListener) return;
-          reCalc();
-          window.addEventListener(resizeEvt, reCalc, false);
-          document.addEventListener('DOMContentLoaded', reCalc, false);
-        }
-      };
-      subject.initial();
-    </script>
-  </body>
+        loader.loadImages([], imgBaseUrl);
+        loader.complete(function () {
+          // $('#loadpage').fadeOut(500);
+          // $('#pSwiper').fadeIn();
+          subject.swiper();
+          console.log(':::initial loader success');
+        });
+        loader.process(function () {
+          // var prsnum = this.processNum ? this.processNum : 100;
+          // $('#loading_rate').html(prsnum + '%');
+        });
+        loader.start();
+      },
+      // 字体适配
+      font: function () {
+        var docEl = document.documentElement || document.body;
+        var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        var reCalc = function () {
+          var clientWidth = docEl.clientWidth;
+          var fontSize = 100 * (clientWidth / 750)
+          window.baseFontSize = fontSize;
+          docEl.style.fontSize = fontSize + 'px';
+          // 屏幕提示
+          var w = docEl.clientWidth;
+          var h = docEl.clientHeight;
+          if (h > w) {
+            $('#orientLayer').hide();
+          } else {
+            $('#orientLayer').show();
+          }
+        };
+        reCalc();
+        window.addEventListener(resizeEvt, reCalc, false);
+        document.addEventListener('DOMContentLoaded', reCalc, false);
+      }
+    };
+    subject.initial();
+  </script>
+</body>
+
 </html>

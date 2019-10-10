@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="address=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="robots" content="follow" />
+  <meta name="author" content="liejy" />
+  <meta name="copyright" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>pc template</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+      <div id="js-ie-tips" style="display:block;position:absolute;left:0;top:0;width:100%;height:50px;background:#2fc1c6;text-align:center;line-height:50px;font-size:18px;z-index: 2048;">
+        <a style="color:#fff;text-decoration:underline;" href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank">当前的浏览器版本过低，可能会影响本网页浏览，建议升级到最新版本。</a>
+        <a href="javascript:;" style="color:#fff;" id="js-ie-tips-close" onclick="(function () {document.getElementById('js-ie-tips').style.display = 'none';})()">×</a>
+      </div>
+  <![endif]-->
+
+  <div class="wrapper">
+    <!-- section- header -->
+    <div class="navbar">
+      <ul>
+        <li><a href="#" class="btn-home">游戏官网</a></li>
+        <li><a href="#" class="btn-dl">微端下载</a></li>
+        <li style="margin-top: 14px;color: #fff;font-size: 13px;">
+          <p>分</p>
+          <p>享</p>
+          <p>到</p>
+        </li>
+        <div class="bdsharebuttonbox bdshare-button-style0-24" style="width:100%" data-bd-bind="1531362208930">
+          <a href="#" class="jybtn btn-wechat " data-cmd="weixin" title="分享到微信"></a>
+          <a href="#" class="jybtn btn-zoom" data-cmd="qzone" title="分享到QQ空间"></a>
+          <a href="#" class="jybtn btn-sina" data-cmd="tsina" title="分享到新浪微博"></a>
+        </div>
+        <style>
+          .bdsharebuttonbox a,
+          .bdsharebuttonbox .bds_more {
+            float: none;
+            display: block;
+            margin: 8px auto 0;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            background-image: url('./img/skill-sprite.png');
+          }
+        </style>
+      </ul>
+    </div>
+    <!-- header -->
+    <div class="section section-header">
+      <div class="mainheader">
+        <div class="icon-logo"></div>
+
+        <div class="time tc">
+          <p>活动时间：9月13日-9月17日</p>
+          <a href="javascript:;" class="jybtn btn-rule"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- section-1 -->
+    <div class="section section-1">
+      <div class="mainsection"></div>
+    </div>
+  </div>
+
+  <div class="jycopytip"></div>
+  <!-- 弹窗 -->
+  <!-- 兑换成功 -->
+  <div class="pop " id="J_recharge">
+    <div class="pop_mask"></div>
+    <div class="pop_main gift_body">
+      <a href="javascript:;" class="pop_close">关闭</a>
+      <div class="pop_body">
+        <div class="pt">温馨提示</div>
+        <div class="gift_body_txt lh-20">
+          <p>兑换xxx成功</p>
+        </div>
+        <a href="javascript:;" class="jybtn pop_submit">确认</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 手机验证 -->
+  <div class="pop " id="J_authTelPop">
+    <div class="pop_mask"></div>
+    <div class="pop_main">
+      <a href="javascript:;" class="pop_close">关闭</a>
+      <div class="pop_body">
+        <div class="pt">预约首服</div>
+        <ul class="register_info">
+          <li>
+            <!-- <span>手机号码：</span> -->
+            <input placeholder="请输入手机号码" type="tel" class="pop_input">
+          </li>
+          <li>
+            <!-- <span>验&nbsp;&nbsp;证&nbsp;&nbsp;码：</span> -->
+            <input placeholder="请输入验证码" type="tel" class="pop_input_auth">
+            <a href="javascript:;" class="jybtn btn_pop_auth">获取验证码</a>
+          </li>
+        </ul>
+        <a href="javascript:;" class="jybtn pop_submit">确认信息</a>
+      </div>
+    </div>
+  </div>
+  <!-- 信息登记 -->
+  <div class="pop " id="J_registerPop">
+    <div class="pop_mask"></div>
+    <div class="pop_main">
+      <a href="javascript:;" class="pop_close">关闭</a>
+      <div class="pop_body">
+        <div class="pt">信息登记</div>
+        <ul class="register_info">
+          <li>
+            <span>区服类型</span>
+            <div class="pop_select">
+              <select>
+                <option value="">--请选择区服类型--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </li>
+          <li>
+            <span>数字区服</span>
+            <input type="text" class="pop_input">
+          </li>
+          <li>
+            <span>角色名称</span>
+            <input type="text" class="pop_input">
+          </li>
+          <li>
+            <span>玩家姓名</span>
+            <input type="text" class="pop_input">
+          </li>
+          <li>
+            <span>联系手机</span>
+            <input type="tel" class="pop_input">
+          </li>
+          <li>
+            <span>收货地址</span>
+            <input type="tel" class="pop_input">
+          </li>
+        </ul>
+        <a href="javascript:;" class="jybtn pop_submit">确认信息</a>
+      </div>
+    </div>
+  </div>
+  <!-- 填写账号信息 -->
+  <div class="pop " id="J_bindPop">
+    <div class="pop_mask"></div>
+    <div class="pop_main">
+      <a href="javascript:;" class="pop_close">关闭</a>
+      <div class="pop_body">
+        <div class="pt">填写账号信息</div>
+        <ul class="register_info">
+          <li>
+            <div class="pop_select">
+              <select>
+                <option value="">--请选择游戏--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </li>
+          <li>
+            <div class="pop_select">
+              <select>
+                <option value="">--请选择区服--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+            </div>
+          </li>
+          <li>
+            <input type="text" placeholder="请输入区服ID" class="pop_input">
+          </li>
+          <li class="clearfix">
+            <input type="text" class="pop_input_auth">
+            <a href="javascript:;" class="jybtn btn_pop_auth">获取角色</a>
+          </li>
+        </ul>
+        <a href="javascript:;" class="jybtn pop_submit">确认提交</a>
+      </div>
+    </div>
+  </div>
+  <!-- 奖品查询 -->
+  <div class="pop active" id="J_giftPop">
+    <div class="pop_mask"></div>
+    <div class="pop_main">
+      <a href="javascript:;" class="pop_close">关闭</a>
+      <div class="pop_body">
+        <div class="pt">礼包领取记录</div>
+        <p class="yh">您已获得的奖品</p>
+        <div class="gift_list">
+          <table class="poptable tc">
+            <thead>
+              <tr>
+                <td>奖品名称</td>
+                <td>奖品内容</td>
+                <td>获奖时间</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>一代宗师称号</td>
+                <td>贪玩SVIP</td>
+                <td>2019.04.25</td>
+              </tr>
+              <tr>
+                <td>一代宗师称号</td>
+                <td>贪玩SVIP</td>
+                <td>2019.04.25</td>
+              </tr>
+              <tr>
+                <td>一代宗师称号</td>
+                <td>贪玩SVIP</td>
+                <td>2019.04.25</td>
+              </tr>
+              <tr>
+                <td>一代宗师称号</td>
+                <td>贪玩SVIP</td>
+                <td>2019.04.25</td>
+              </tr>
+              <tr>
+                <td>一代宗师称号</td>
+                <td>贪玩SVIP</td>
+                <td>2019.04.25</td>
+              </tr>
+              <tr>
+                <td>一代宗师称号</td>
+                <td>贪玩SVIP</td>
+                <td>2019.04.25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 弹窗end -->
+
+  <!-- js -->
+  <script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="http://image.tanwan.com/jsCommon/tw_nav_public.js"></script>
+  <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
+  <script type="text/javascript" src="./js/swiper.min.js?v=4.3.5"></script>
+  <script type="text/javascript" src="./js/jquery.SuperSlide.js?v=2.1.1"></script>
+  <script type="text/javascript" src="./js/danmu.js"></script>
+  <script type="text/javascript">
+    var activeCls = 'active';
+    // pop
+    //关闭
+    $('.pop_close,.pop_submit').on('click', function () {
+      $(this).parents('.pop').fadeOut();
+    });
+
+    // 领取礼包
+    $('.btn-get,.btn-get-s').on('click', function () {
+      $('#J_recharge').fadeIn();
+    }); 
+  </script>
+
+  <!-- footer css -->
+  <style>
+    #cyou_bottom .cyou_bottom_cont p,
+    #cyou_bottom .cyou_bottom_cont a,
+    .footer-right a {
+      color: #333;
+    }
+
+    #cyou_bottom .cyou_bottom_cont a:hover {
+      color: #333;
+    }
+
+    div#cyou_bottom,
+    div#cyou_bottom .cyou_bottom_wraper {
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+      background: transparent;
+      background-position-y: 0;
+      color: #333;
+    }
+
+    div#cyou_bottom {
+      background: #000 no-repeat center top;
+    }
+
+    .cyou-top {
+      display: none;
+    }
+
+    #cyou-top .myMessage p,
+    #cyou-top .myMessage span {
+      width: 190px;
+    }
+
+    #cyou-top .myMessage {
+      height: 76px;
+    }
+  </style>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"贪玩传奇世界网页版同名专属战歌《贪玩传世》已经上架QQ音乐了，快和我来一起唱响贪玩传世吧！","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24",onBeforeClick:function(cmd,config){},onAfterClick:function(cmd){share(cmd)}},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+@import "../_const.scss";
+@import "../_mixin.scss";
+
+$tit-height: .36rem;
+
+.list_panel{
+  .list_tit{
+    display: inline-block;
+    padding: 0 .1rem;
+    font-size: .24rem;
+    font-weight: bold;
+    color: #ffecd9;
+    @include lh($tit-height);
+    -moz-border-radius: $tit-height;
+         border-radius: $tit-height;
+    background-color: #b73b1a;
+  }
+  .list_body{
+    position: relative;
+    padding-left: .3rem;
+    li{
+      position: relative;
+      // padding-top: .12rem;
+      margin-top: .16rem;
+      line-height: 1.5;
+      list-style: none;
+      // &::before{
+      //   content: "1";
+      //   display: block;
+      //   position: absolute;
+      //   top: .09rem;
+      //   left: -.3rem;
+      //   width: .24rem;
+      //   height: .24rem;
+      //   line-height: .24rem;
+      //   text-align: center;
+      //   font-size: .17rem;
+      //   color: #ffecd9;
+      //   background-color: #a33c2f;
+      //   -moz-border-radius: 50%;
+      //        border-radius: 50%;
+      // }
+      @for $i from 1 through 10 {
+          &:nth-of-type(#{$i}){
+            &::before{
+              content: "#{$i}";
+              display: block;
+              position: absolute;
+              top: .09rem;
+              left: -.3rem;
+              width: .24rem;
+              height: .24rem;
+              line-height: .24rem;
+              text-align: center;
+              font-size: .17rem;
+              color: #ffecd9;
+              background-color: #b73b1a;
+              -moz-border-radius: 50%;
+                   border-radius: 50%;
+            }
+        }
+      }
+    }
+  }
+}

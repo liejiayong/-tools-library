@@ -1,0 +1,79 @@
+/**
+  * @name: index.css
+  * @description: page style
+  * @author: liejiayong(809206619@qq.com)
+  * @data: 2018-12-18
+*/
+@import "./_const.scss";
+@import "./_mixin.scss";
+@import "./_reset.scss";
+@import "./_font.scss";
+@import "./_sprite.scss";
+@import "./_util.scss";
+@import "./_lib.scss";
+
+/**
+*  business css
+**/
+/* navbar css */
+.navbar {
+  position: fixed;
+  top: 340px;
+  right: 22px;
+  text-align: center;
+  background-color: rgba(33, 26, 105, 0.788235294117647);
+  padding: 12px 0;
+  width: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  z-index: 100;
+  ul {
+    li {
+      a {
+        display: block;
+        margin: 8px auto 0;
+        overflow: hidden;
+        text-indent: -99999px;
+      }
+    }
+  }
+}
+
+/* section-header */
+.section-header {
+  position: relative;
+  height: 904px;
+  background-image: url("../img/bgh.jpg");
+  .mainheader {
+    position: relative;
+    padding-top: 10px;
+    height: 100%;
+    background: url("../img/bghm.jpg") no-repeat center top;
+    .icon-logo {
+      width: 196px;
+      height: 66px;
+      @include bgimg("../img/logo.png");
+    }
+    .time {
+      margin: 276px 0 0 515px;
+      width: 523px;
+      // @include lh(50px);
+      color: #4048b4;
+      font-size: 16px;
+      // @include bgimgc('../img/bg-time.png');
+    }
+    .btn-rule {
+      display: block;
+      margin: 15px auto 0;
+    }
+  }
+}
+
+// bg1
+.section-1 {
+  position: relative;
+  height: 2088px;
+  background-image: url("../img/bg1.jpg");
+  .mainsection {
+  }
+}

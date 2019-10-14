@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
-		<title>刮刮卡</title>
-		<script src="scratchcard.js"></script>
-	</head>
 
-	<body>
-		<style>
-			.card {
-				width: 375px;
-				height: 140px;
-				background: url('award.jpg');
-				background-size: 375px 140px;
-			}
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>刮刮卡</title>
+</head>
 
-			.card canvas {
-				width: 375px;
-				height: 140px;
-				border: 1px solid #000;
-			}
-		</style>
-		<div class="card">
-			<canvas id="canvas" width="750" height="280"></canvas>
-		</div>
-	</body>
-	<script src="./scraping.js"></script>
-	<script>
-		window.addEventListener(
-			'touchmove',
-			function(e) {
-				e.preventDefault()
-			},
-			{ passive: false }
-		)
+<body>
+	<style>
+		.card canvas {
+			border: 1px solid #000;
+		}
+	</style>
+	<div class="card"> </div>
+</body>
+<!-- <script src="./canvas-scraping.js"></script> -->
+<!-- <script src="./canvas-scraping.min.js"></script> -->
+<script src="./CanvasScraping.js"></script>
+<script>
+	// window.addEventListener(
+	// 	'touchmove',
+	// 	function (e) {
+	// 		e.preventDefault()
+	// 	},
+	// 	{ passive: false }
+	// )
 
-		new ScratchCard({
-			canvas: document.getElementById('canvas'),
-			coverImg: 'scratch-2x.jpg',
-			pixelRatio: 2,
-			doneCallback: function() {
-				console.log('done')
-			}
-		})
-	</script>
+	var card = document.querySelector('.card')
+	var scraping = new CanvasScraping(card, {
+		coverImg: './scratch-2x.jpg',
+		pixelRatio: 2
+	})
+
+	console.log(scraping)
+	setTimeout(function () {
+		scraping.setAward('./award.jpg')
+	}, 2000);
+</script>
+
 </html>

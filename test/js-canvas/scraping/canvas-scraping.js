@@ -17,7 +17,7 @@
 import './lib/Promise.ployfill.js'
 import './lib/simulateTouch.js'
 
-class CanvasScraping {
+export default class CanvasScraping {
 	constructor(element = null, config) {
 		const DEFAULT_CONFIG = {
 			width: 300, // canvas 宽
@@ -29,7 +29,7 @@ class CanvasScraping {
 			pixelRatio: 1, // 屏幕倍数
 			duration: 2000, // 展现全部的淡出效果时间（ms）
 			percent: 60, // 刮开面积 占 整张刮卡的百分比
-			doneCallback: () => {console.log('done')}, // 全部刮开回调
+			doneCallback: () => { console.log('done') }, // 全部刮开回调
 			awardCssText: '', // 奖品图片样式
 			unit: 'px', // 宽高css单位
 			containerClass: 'scraping-container', // 装载刮卡的父元素类名
@@ -216,8 +216,8 @@ class CanvasScraping {
 	}
 	_preStyle(style) {
 		var el = document.createElement('div');
-	
-		var vendor = (function() {
+
+		var vendor = (function () {
 			var transformName = {
 				webkit: 'webkitTransform',
 				Moz: 'MozTransform',
@@ -232,30 +232,29 @@ class CanvasScraping {
 			}
 			return false;
 		})();
-	
+
 		if (vendor === false) {
 			return false;
 		}
-	
+
 		if (vendor === 'standard') {
 			return style;
 		}
-	
+
 		return vendor + style.charAt(0).toUpperCase() + style.substr(1);
 	}
 	_extend(defOption, extOption) {
 		if ('assign' in Object) {
-      return Object.assign(defOption, extOption)
+			return Object.assign(defOption, extOption)
 		}
 
-		let {...ret} = defOption;
 		for (let key in extOption) {
-				if (ret[key]) {
-						ret[key] = extOption[key];
-				}
+			if (defOption[key]) {
+				defOption[key] = extOption[key];
+			}
 		}
-		return ret;
-}
+		return defOption;
+	}
 	/**
 	 * 加载背景图
 	 */

@@ -16,7 +16,6 @@
 	</style>
 	<div class="card"> </div>
 </body>
-<!-- <script src="./canvas-scraping.js"></script> -->
 <!-- <script src="./canvas-scraping.min.js"></script> -->
 <script src="./CanvasScraping.js"></script>
 <script>
@@ -27,14 +26,13 @@
 	// 	},
 	// 	{ passive: false }
 	// )
-
+	console.log(CanvasScraping)
 	var card = document.querySelector('.card')
-	var scraping = new CanvasScraping(card, {
+	var scraping = new CanvasScraping.default(card, {
 		coverImg: './scratch-2x.jpg',
 		pixelRatio: 2
 	})
 
-	console.log(scraping)
 	setTimeout(function () {
 		scraping.setAward('./award.jpg')
 	}, 2000);

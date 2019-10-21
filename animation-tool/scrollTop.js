@@ -78,3 +78,17 @@ export const scrollTop = (el, from = 0, to, duration = 500, endCallback) => {
     }
     scroll(from, to, step)
 }
+
+/**
+ * 主要针对移动端的动画滚动
+ * @param {*} element 所滚动到的元素
+ * @param {*} option scrollIntoView api 的option
+ */
+export function scrollIntoView(element, option = {behavior: "smooth", block: "end", inline: "nearest"}) {
+    if ('scrollIntoView' in element) {
+        element.scrollIntoView(option);
+    } else {
+       var offsetTop =  element.offsetTop;
+        window.scrollTo(0, offsetTop);
+    }
+}

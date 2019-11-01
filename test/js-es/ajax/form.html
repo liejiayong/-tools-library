@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>form 提交数据</title>
+</head>
+
+<body>
+  <form action="http://www.shichengw.com/huodong/sygift/act.php?a=?a=set_user_server_role" method="get">
+    <input type="hidden" name="os" :value="sys" />
+    <input type="hidden" name="server_id" :value="serverObj.id_encrypt" />
+    <input type="hidden" name="server_name" :value="serverObj.name" />
+    <input type="hidden" name="role_id" :value="roleObj.id_encrypt" />
+    <input type="hidden" name="role_name" :value="roleObj.name" />
+    <input type="hidden" />
+    <div class="jy-dialog_btn">
+      <input type="submit" value="确认" slot="button" class="jy-dialog_btn--ok" />
+    </div>
+  </form>
+</body>
+
+</html>

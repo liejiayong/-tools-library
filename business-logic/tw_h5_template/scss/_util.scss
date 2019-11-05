@@ -119,10 +119,20 @@
 }
 // 旋转屏幕 :end
 
-.lh-15{
+body {
+  font: #{$fs-primary}/ 1 "微软雅黑", -apple-system, system-ui,
+    BlinkMacSystemFont, Helvetica, Helvetica Neue, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, "微软雅黑", Arial, sans-serif;
+  color: $color-primary;
+  background-color: $color-theme-bg;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+.lh-15 {
   line-height: 1.5;
 }
-.lh-20{
+.lh-20 {
   line-height: 2;
 }
 
@@ -134,12 +144,12 @@
   display: block;
   visibility: hidden;
   height: 0;
-  content: '\0020';
+  content: "\0020";
 }
 .fl {
   float: left;
 }
-.fr{
+.fr {
   float: right;
 }
 .hide {
@@ -150,120 +160,120 @@
   overflow: hidden;
 }
 
-.tl{
+.tl {
   text-align: left;
 }
 .tc {
   text-align: center;
 }
-.tr{
+.tr {
   text-align: right;
 }
 .fb {
   font-weight: bold;
 }
-.text-indent{
+.text-indent {
   text-indent: 2em;
 }
 .text-underline {
   text-decoration: underline;
 }
 .fs-40 {
-  font-size: .4rem;
+  font-size: 0.4rem;
 }
 .fs-32 {
-  font-size: .32rem;
+  font-size: 0.32rem;
 }
-.fs-30{
-  font-size: .3rem
+.fs-30 {
+  font-size: 0.3rem;
 }
-.fs-28{
-  font-size: .28rem
+.fs-28 {
+  font-size: 0.28rem;
 }
-.fs-26{
-  font-size: .26rem
+.fs-26 {
+  font-size: 0.26rem;
 }
-.fs-24{
-  font-size: .24rem
+.fs-24 {
+  font-size: 0.24rem;
 }
-.fs-22{
-  font-size: .22rem
+.fs-22 {
+  font-size: 0.22rem;
 }
-.fs-20{
-  font-size: .2rem
+.fs-20 {
+  font-size: 0.2rem;
 }
-.fs-18{
-  font-size: .18rem
+.fs-18 {
+  font-size: 0.18rem;
 }
-.fs-16{
-  font-size: .16rem
+.fs-16 {
+  font-size: 0.16rem;
 }
-.fs-14{
-  font-size: .14rem
+.fs-14 {
+  font-size: 0.14rem;
 }
-.fs-12{
-  font-size: .12rem;
+.fs-12 {
+  font-size: 0.12rem;
 }
 
 .mauto {
   margin: 0 auto;
 }
-.mt-10{
-  margin-top: .1rem;
+.mt-10 {
+  margin-top: 0.1rem;
 }
-.ml-10{
-  margin-left: .1rem;
+.ml-10 {
+  margin-left: 0.1rem;
 }
 .mt-15 {
   margin-top: 0.15rem;
 }
-.mt-20{
-  margin-top: .2rem;
+.mt-20 {
+  margin-top: 0.2rem;
 }
-.ml-20{
-  margin-left: .2rem;
+.ml-20 {
+  margin-left: 0.2rem;
 }
-.ml-25{
-  margin-left: .25rem;
+.ml-25 {
+  margin-left: 0.25rem;
 }
-.mt-30{
-  margin-top: .3rem;
+.mt-30 {
+  margin-top: 0.3rem;
 }
-.ml-30{
-  margin-left: .3rem;
+.ml-30 {
+  margin-left: 0.3rem;
 }
-.mt-40{
-  margin-top: .4rem;
+.mt-40 {
+  margin-top: 0.4rem;
 }
-.ml-40{
-  margin-left: .4rem;
+.ml-40 {
+  margin-left: 0.4rem;
 }
-.mt-50{
-  margin-top: .5rem;
+.mt-50 {
+  margin-top: 0.5rem;
 }
-.ml-50{
-  margin-left: .5rem;
+.ml-50 {
+  margin-left: 0.5rem;
 }
 .pl-10 {
-  padding-right: .1rem;
+  padding-right: 0.1rem;
 }
 .pt-10 {
-  padding-top: .1rem;
+  padding-top: 0.1rem;
 }
 .pt-20 {
-  padding-top: .2rem;
+  padding-top: 0.2rem;
 }
 .pt-30 {
-  padding-top: .3rem;
+  padding-top: 0.3rem;
 }
 .pt-40 {
-  padding-top: .4rem;
+  padding-top: 0.4rem;
 }
 .pt-50 {
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 }
 
-.text-underline{
+.text-underline {
   text-decoration: underline;
 }
 
@@ -340,6 +350,12 @@
   cursor: pointer;
   z-index: 100;
 }
+a:hover {
+  text-decoration: none;
+  color: inherit;
+  -webkit-filter: brightness(0.8);
+  filter: brightness(0.8);
+}
 .btn-brightness {
   &:hover {
     -webkit-filter: brightness(0.8);
@@ -353,7 +369,7 @@
   background-color: $color-btn-bg;
   z-index: 100;
 }
-.opacity-0{
+.opacity-0 {
   opacity: 0;
 }
 
@@ -371,14 +387,14 @@
 .jy-section {
   position: relative;
   width: 100%;
-  background: url('') no-repeat top center / $bg-width auto;
+  background: url("") no-repeat top center / $bg-width auto;
 }
-.sectionmain{
+.sectionmain {
   position: relative;
   margin: 0 auto;
   width: $main-width;
 }
-.sectionmain-x{
+.sectionmain-x {
   position: relative;
   margin: 0 auto;
   width: $main-width-x;

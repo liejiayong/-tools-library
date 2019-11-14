@@ -55,6 +55,12 @@
 .fs-40 {
   font-size: 40px;
 }
+.fs-36 {
+  font-size: 36px;
+}
+.fs-34 {
+  font-size: 34px;
+}
 .fs-32 {
   font-size: 32px;
 }
@@ -113,6 +119,9 @@
 .mt-50 {
   margin-top: 50px;
 }
+.mt-60 {
+  margin-top: 60px;
+}
 .pl-10 {
   padding-right: 10px;
 }
@@ -131,6 +140,9 @@
 .pt-50 {
   padding-top: 50px;
 }
+.pt-60 {
+  padding-top: 60px;
+}
 
 .color-yellow {
   color: $color-yellow;
@@ -141,6 +153,15 @@
 .color-red {
   color: $color-red;
 }
+.color-green {
+  color: $color-green;
+}
+.color-grey {
+  color: $color-green;
+}
+.color-deep-grey {
+  color: $color-green;
+}
 
 .prelative {
   position: relative;
@@ -149,6 +170,9 @@
   position: absolute;
   top: 0;
   left: 0;
+}
+.vertical-middle {
+  vertical-align: middle;
 }
 .jy-flex {
   display: -webkit-box;
@@ -168,6 +192,20 @@
   -moz-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+.jy-flex-vc {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.jy-flex-hc {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .g-flex-5 {
   width: 50%;

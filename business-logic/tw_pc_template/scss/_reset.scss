@@ -9,6 +9,7 @@ body {
   box-sizing: border-box;
   -ms-scroll-chaining: none;
   overscroll-behavior: contain;
+  scroll-behavior: smooth;
 }
 *:before,
 *:after {
@@ -28,6 +29,7 @@ body {
   color: $color-primary;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility; 
 }
 html,
 body,
@@ -150,8 +152,6 @@ a {
 a:hover {
   text-decoration: none;
   color: inherit;
-  -webkit-filter: brightness(0.8);
-          filter: brightness(0.8);
 }
 ::-webkit-scrollbar {
   display: none;

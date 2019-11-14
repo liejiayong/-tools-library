@@ -9,6 +9,7 @@ body {
   box-sizing: border-box;
   -ms-scroll-chaining: none;
   overscroll-behavior: contain;
+  scroll-behavior: smooth;
 }
 *:before,
 *:after {
@@ -21,23 +22,19 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   width: 100%;
-  -ms-scroll-chaining: none;
-  overscroll-behavior: contain;
-  // touch-action: none;
-  // -ms-touch-action: none;
 }
 body {
-  font: #{$fs-primary}/ 1 -apple-system, system-ui, BlinkMacSystemFont,
-    Helvetica, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei,
-    "微软雅黑", Arial, sans-serif;
+  margin: 0 auto;
+  font: #{$fs-primary}/ 1 "微软雅黑", -apple-system, system-ui,
+    BlinkMacSystemFont, Helvetica, Helvetica Neue, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, "微软雅黑", Arial, sans-serif;
   color: $color-primary;
   background-color: $color-theme-bg;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   width: 100%;
-  max-width: 7.5rem;
-  margin: 0 auto;
-  -ms-scroll-chaining: none;
-  overscroll-behavior: contain;
+  max-width: 740px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 html,
 body,
@@ -158,7 +155,7 @@ a:hover {
   text-decoration: none;
   color: inherit;
   -webkit-filter: brightness(0.8);
-          filter: brightness(0.8);
+  filter: brightness(0.8);
 }
 ::-webkit-scrollbar {
   display: none;

@@ -32,6 +32,7 @@
     background-position: 0 0;
   }
 }
+
 @-moz-keyframes progress-bar-stripes {
   from {
     background-position: .8rem 0;
@@ -40,6 +41,7 @@
     background-position: 0 0;
   }
 }
+
 @keyframes progress-bar-stripes {
   from {
     background-position: .8rem 0;
@@ -48,6 +50,7 @@
     background-position: 0 0;
   }
 }
+
 @-webkit-keyframes nones {
   0% {
     display: none;
@@ -84,20 +87,24 @@
 @-webkit-keyframes floating {
   0% {
     -webkit-transform: translate3d(0, -10px, 0);
+    -moz-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
   100% {
     -webkit-transform: translate3d(0, 0px, 0);
+    -moz-transform: translate3d(0, 0px, 0);
     transform: translate3d(0, 0px, 0);
   }
 }
 
 @-moz-keyframes floating {
   0% {
+    -webkit-transform: translate3d(0, -10px, 0);
     -moz-transform: translate3d(0, -10px, 0);
     transform: translate3d(0, -10px, 0);
   }
   100% {
+    -webkit-transform: translate3d(0, 0px, 0);
     -moz-transform: translate3d(0, 0px, 0);
     transform: translate3d(0, 0px, 0);
   }

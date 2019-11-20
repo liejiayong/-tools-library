@@ -56,7 +56,7 @@ export default {
     try {
       window.localStorage.removeItem(a);
     } catch (e) {
-      ((b = new Date()), b.setTime(b.getTime() - 1), (c = util.getItem(a)), null != c && (document.cookie = a + '=' + c + ';expires=' + b.toGMTString()));
+      ((b = new Date()), b.setTime(b.getTime() - 1), (c = this.getItem(a)), null != c && (document.cookie = a + '=' + c + ';expires=' + b.toGMTString()));
     }
     log();
   },
@@ -64,8 +64,7 @@ export default {
     try {
       window.localStorage.clear();
     } catch (e) {
-      
+      log();
     }
-    log();
   }
 };

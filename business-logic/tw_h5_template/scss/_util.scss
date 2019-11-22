@@ -1,6 +1,12 @@
 @import "./_const.scss";
 @import "./_mixin.scss";
 
+body {
+  font: #{$fs-primary}/ 1 "微软雅黑";
+  color: $color-primary;
+  background-color: $color-theme-bg;
+}
+
 .lh-15 {
   line-height: 1.5;
 }
@@ -12,23 +18,25 @@
   zoom: 1;
 }
 .clearfix:after {
+  content: "\0020";
   clear: both;
   display: block;
-  visibility: hidden;
   height: 0;
-  content: "\0020";
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0;
 }
-.fl {
+.float_l {
   float: left;
 }
-.fr {
+.float_r {
   float: right;
 }
 .hide {
   display: none;
   opacity: 0;
 }
-.vf-hide {
+.vf_hide {
   overflow: hidden;
 }
 
@@ -132,23 +140,48 @@
 .ml-50 {
   margin-left: 0.5rem;
 }
+.ml-60 {
+  margin-left: 0.6rem;
+}
+.mt-60 {
+  margin-top: 0.6rem;
+}
+
 .pl-10 {
-  padding-right: 0.1rem;
+  padding-left: 0.1rem;
 }
 .pt-10 {
   padding-top: 0.1rem;
 }
+.pl-20 {
+  padding-left: 0.2rem;
+}
 .pt-20 {
   padding-top: 0.2rem;
+}
+.pl-30 {
+  padding-left: 0.3rem;
 }
 .pt-30 {
   padding-top: 0.3rem;
 }
+.pl-40 {
+  padding-left: 0.4rem;
+}
 .pt-40 {
   padding-top: 0.4rem;
 }
+.pl-50 {
+  padding-left: 0.5rem;
+}
 .pt-50 {
   padding-top: 0.5rem;
+}
+.pl-60 {
+  padding-left: 0.6rem;
+}
+.pt-60 {
+  padding-top: 0.6rem;
 }
 
 .color-yellow {
@@ -214,6 +247,9 @@
   -ms-flex-pack: center;
   justify-content: center;
 }
+.jy-flex-hspace{
+  justify-content: space-between;
+}
 .g-flex-5 {
   width: 50%;
   -webkit-box-flex: 50%;
@@ -230,6 +266,22 @@
   -ms-flex: 40%;
   flex: 40%;
 }
+.g-flex-3 {
+  width: 30%;
+  -webkit-box-flex: 30%;
+  -webkit-flex: 30%;
+  -moz-box-flex: 30%;
+  -ms-flex: 30%;
+  flex: 30%;
+}
+.g-flex-2 {
+  width: 20%;
+  -webkit-box-flex: 20%;
+  -webkit-flex: 20%;
+  -moz-box-flex: 20%;
+  -ms-flex: 20%;
+  flex: 20%;
+}
 .g-flex-wrap {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
@@ -241,22 +293,23 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .fill-100 {
   width: 100%;
   height: 100%;
 }
-.jybtn {
+.jy-btn {
   display: inline-block;
   cursor: pointer;
   z-index: 100;
 }
-.btn-brightness {
+.jy-btn-brightness {
   &:hover {
     -webkit-filter: brightness(0.8);
     filter: brightness(0.8);
   }
 }
-.jybtn-primary {
+.jy-btn-primary {
   display: inline-block;
   cursor: pointer;
   color: $color-btn-txt;
@@ -272,7 +325,7 @@
   text-indent: -9999px;
   font-size: 0;
 }
-.jywrapper {
+.jy-wrapper {
   position: relative;
   width: 100%;
   max-width: 750px;
@@ -285,12 +338,12 @@
   width: 100%;
   background: url("") no-repeat top center / $bg-width auto;
 }
-.sectionmain {
+.jy-sectionmain {
   position: relative;
   margin: 0 auto;
   width: $main-width;
 }
-.sectionmain-x {
+.jy-sectionmain-x {
   position: relative;
   margin: 0 auto;
   width: $main-width-x;

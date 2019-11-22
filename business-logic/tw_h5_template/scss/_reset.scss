@@ -1,6 +1,3 @@
-@import "./_const.scss";
-@import "./_mixin.scss";
-
 *,
 html,
 body {
@@ -39,11 +36,9 @@ html {
 
 body {
   margin: 0 auto;
-  font: #{$fs-primary}/ 1 "微软雅黑", -apple-system, system-ui,
-    BlinkMacSystemFont, Helvetica, Helvetica Neue, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, "微软雅黑", Arial, sans-serif;
-  color: $color-primary;
-  background-color: $color-theme-bg;
+  font: 14px / 1 -apple-system, system-ui, BlinkMacSystemFont, Helvetica,
+    Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑",
+    Arial, sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -54,14 +49,44 @@ body {
 html,
 body,
 iframe,
+canvas,
 form,
+blockquote,
+fieldset,
+code,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p,
 dl,
 dt,
 dd,
 ol,
 ul,
-li {
+li,
+table,
+thead,
+tbody,
+td,
+tr section,
+menu,
+nav,
+header,
+footer,
+aside,
+article,
+figure,
+figcaption,
+hgroup,
+legend,
+summary,
+details,
+command,
+progress,
+dialog {
   margin: 0;
   padding: 0;
 }
@@ -228,10 +253,10 @@ audio:not([controls]) {
 /* Forms
    ========================================================================== */
 
-:focus {
-  outline: 0;
-  border: 0;
-}
+// :focus {
+//   outline: 0;
+//   border: 0;
+// }
 
 /**
  * 1. Change the font styles in all browsers.

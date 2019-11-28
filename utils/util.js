@@ -79,13 +79,15 @@ export function throttle(fn, threshhold = 160) {
   };
 }
 
-function throttle_es5(fn, threshhold = 160) {
+function throttle_es5(fn, threshhold) {
+  if (!threshhold) threshhold = 160;
+
   var timer = null;
-  var start = Data.now();
+  var start = Date.now();
   return function () {
     var context = this,
       arg = arguments,
-      curr = Data.now();
+      curr = Date.now();
     if (timer) clearTimeout(timer);
     if (curr - start >= threshhold) {
       fn.apply(context, arg);
@@ -165,6 +167,35 @@ export function setQueryString(map, type = 'search') {
   window.location[type] = query
 }
 
+function setQueryString(map, type) {
+  let query = window.location[type];
+
+  if (!type) {
+    type = 'search';
+  }
+
+  for (const key in map) {
+    const val = map[key]
+
+    if (getQueryString(key, type)) {
+      const regExp = new RegExp(`(.*)([#&?]${key}=)(.*?)($|&.*)`)
+      const match = query.match(regExp)
+
+      if (val === '') {
+        match.splice(2, 2)
+      } else {
+        match[3] = val
+      }
+      match.shift()
+      query = match.join('')
+    } else {
+      query = query.length ? `${query}&${key}=${val}` : `${key}=${val}`
+    }
+  }
+
+  window.location[type] = query
+}
+
 /**
  * 检查ie版本
  */
@@ -201,30 +232,29 @@ function IEVersion() {
 var mobileBrowser = {
   versions: function () {
     var u = navigator.userAgent, dpr = window.devicePixelRatio, sw = window.screen.width, sh = window.screen.height;
-    return {//移动终端浏览器版本信息
-      trident: u.indexOf('Trident') > -1, //IE内核
-      presto: u.indexOf('Presto') > -1, //opera内核
-      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-      iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器
-      iPad: u.indexOf('iPad') > -1, //是否iPad
-      webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
-      iphoneXS: /iphone/gi.test(u) && ((dpr == 3 && sw == 375 && sh == 812) // iPhone X、iPhone XS
-        || (dpr == 3 && sw == 414 && sh == 896) // iPhone XS Max
-        || (dpr == 2 && sw == 414 && sh == 896)), // iPhone XR
+    return {
+      trident: u.indexOf('Trident') > -1,
+      presto: u.indexOf('Presto') > -1,
+      webKit: u.indexOf('AppleWebKit') > -1,
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/),
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+      iPhone: u.indexOf('iPhone') > -1,
+      iPad: u.indexOf('iPad') > -1,
+      webApp: u.indexOf('Safari') == -1,
+      iphoneXS: /iphone/gi.test(u) && ((dpr == 3 && sw == 375 && sh == 812)
+        || (dpr == 3 && sw == 414 && sh == 896)
+        || (dpr == 2 && sw == 414 && sh == 896)),
       weixin: u.toLowerCase().indexOf('micromessenger') > -1,
-      qq:function () {
-        const u = navigator.userAgent
-        let match = u.match(/QQ\//i)
-        match = match ? match[0] : false
-        return match == 'QQ/'
+      qq: function () {
+        var match = u.match(/QQ\//i);
+        match = match ? match[0] : false;
+        return match == 'QQ/';
       },
-      weiBo: ua.match(/WeiBo/i) == "weibo", // 微博
+      weiBo: u.match(/WeiBo/i) == "weibo",
       Safari: u.indexOf('Safari') > -1,
-      QQbrw: u.indexOf('MQQBrowser') > -1, // QQ浏览器
+      QQbrw: u.indexOf('MQQBrowser') > -1,
       webview: !(u.match(/Chrome\/([\d.]+)/) || u.match(/CriOS\/([\d.]+)/)) && u.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
       ucweb: function () {
         try {

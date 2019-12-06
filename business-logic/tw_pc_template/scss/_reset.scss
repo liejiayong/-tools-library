@@ -1,9 +1,9 @@
 *,
 html,
 body {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  // -webkit-box-sizing: border-box;
+  // -moz-box-sizing: border-box;
+  // box-sizing: border-box;
   -ms-scroll-chaining: none;
   overscroll-behavior: contain;
   scroll-behavior: smooth;
@@ -35,13 +35,11 @@ html {
    ========================================================================== */
 
 body {
-  margin: 0 auto;
-  font: 50px / 1 -apple-system, system-ui, BlinkMacSystemFont, Helvetica,
+  font: 14px / 1 -apple-system, system-ui, BlinkMacSystemFont, Helvetica,
     Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑",
     Arial, sans-serif;
   -webkit-tap-highlight-color: transparent;
   text-rendering: optimizeLegibility;
-  min-width: 1200px;
 }
 
 /**
@@ -233,6 +231,7 @@ sup {
  */
 
 img {
+  vertical-align: middle;
   border-style: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -250,6 +249,18 @@ video {
 audio:not([controls]) {
   display: none;
   height: 0;
+}
+video::-internal-media-controls-download-button {
+  display: none;
+}
+video::-webkit-media-controls-panel {
+  width: calc(100% + 30px);
+}
+video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
 }
 
 /* Forms

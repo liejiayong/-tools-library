@@ -80,6 +80,9 @@ body {
 .text-underline {
   text-decoration: underline;
 }
+.text-none {
+  text-decoration: none;
+}
 
 .fs-40 {
   font-size: 0.4rem;
@@ -279,6 +282,12 @@ body {
 
 .prelative {
   position: relative;
+}
+.pabsolute{
+  position: absolute;
+}
+.pfixed{
+  position: fixed;
 }
 .absolute-0 {
   position: absolute;

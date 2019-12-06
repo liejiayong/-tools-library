@@ -2,6 +2,8 @@
 @import "./_mixin.scss";
 
 body {
+  margin: 0 auto;
+  min-width: 1200px;
   font: #{$fs-primary}/ 1 "微软雅黑";
   color: $color-primary;
   background-color: $color-theme-bg;
@@ -12,6 +14,19 @@ body {
 }
 .lh-20 {
   line-height: 2;
+}
+
+.vertical-top {
+  vertical-align: top;
+}
+.vertical-middle {
+  vertical-align: middle;
+}
+.vertical-bottom {
+  vertical-align: bottom;
+}
+.vertical-baseline {
+  vertical-align: baseline;
 }
 
 .clearfix {
@@ -49,17 +64,32 @@ body {
 .tr {
   text-align: right;
 }
+
+.flighter {
+  font-weight: lighter;
+}
+.fnormal {
+  font-weight: normal;
+}
 .fb {
   font-weight: bold;
 }
+
 .text-indent {
   text-indent: 2em;
 }
 .text-underline {
   text-decoration: underline;
 }
+.text-none {
+  text-decoration: none;
+}
+
 .fs-40 {
   font-size: 40px;
+}
+.fs-38 {
+  font-size: 38px;
 }
 .fs-36 {
   font-size: 36px;
@@ -104,11 +134,23 @@ body {
 .mauto {
   margin: 0 auto;
 }
+.ml-5 {
+  margin-left: 5px;
+}
+.mt-5 {
+  margin-top: 5px;
+}
 .ml-10 {
   margin-left: 10px;
 }
 .mt-10 {
   margin-top: 10px;
+}
+.ml-15 {
+  margin-left: 15px;
+}
+.mt-15 {
+  margin-top: 15px;
 }
 .ml-20 {
   margin-left: 20px;
@@ -116,11 +158,23 @@ body {
 .mt-20 {
   margin-top: 20px;
 }
+.ml-25 {
+  margin-left: 25px;
+}
+.mt-25 {
+  margin-top: 25px;
+}
 .ml-30 {
   margin-left: 30px;
 }
 .mt-30 {
   margin-top: 30px;
+}
+.ml-35 {
+  margin-left: 35px;
+}
+.mt-35 {
+  margin-top: 35px;
 }
 .ml-40 {
   margin-left: 40px;
@@ -141,11 +195,23 @@ body {
   margin-top: 60px;
 }
 
+.pl-5 {
+  padding-left: 5px;
+}
+.pt-5 {
+  padding-top: 5px;
+}
 .pl-10 {
   padding-left: 10px;
 }
 .pt-10 {
   padding-top: 10px;
+}
+.pl-15 {
+  padding-left: 15px;
+}
+.pt-15 {
+  padding-top: 15px;
 }
 .pl-20 {
   padding-left: 20px;
@@ -153,11 +219,23 @@ body {
 .pt-20 {
   padding-top: 20px;
 }
+.pl-25 {
+  padding-left: 25px;
+}
+.pt-25 {
+  padding-top: 25px;
+}
 .pl-30 {
   padding-left: 30px;
 }
 .pt-30 {
   padding-top: 30px;
+}
+.pl-35 {
+  padding-left: 35px;
+}
+.pt-35 {
+  padding-top: 35px;
 }
 .pl-40 {
   padding-left: 40px;
@@ -187,6 +265,12 @@ body {
 .color-red {
   color: $color-red;
 }
+.color-blue {
+  color: $color-blue;
+}
+.color-pink {
+  color: $color-pink;
+}
 .color-green {
   color: $color-green;
 }
@@ -200,14 +284,28 @@ body {
 .prelative {
   position: relative;
 }
+.pabsolute{
+  position: absolute;
+}
+.pfixed{
+  position: fixed;
+}
 .absolute-0 {
   position: absolute;
   top: 0;
   left: 0;
 }
-.vertical-middle {
-  vertical-align: middle;
+
+.flow_block {
+  display: block;
 }
+.flow_inline {
+  display: inline;
+}
+.flow_inblock {
+  display: inline-block;
+}
+
 .jy-flex {
   display: -webkit-box;
   display: -webkit-flex;
@@ -241,10 +339,10 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
 }
-.jy-flex-hspace{
+.jy-flex-hspace {
   justify-content: space-between;
 }
-.g-flex-5 {
+.jy-flex-g5 {
   width: 50%;
   -webkit-box-flex: 50%;
   -webkit-flex: 50%;
@@ -252,7 +350,7 @@ body {
   -ms-flex: 50%;
   flex: 50%;
 }
-.g-flex-4 {
+.jy-flex-g4 {
   width: 40%;
   -webkit-box-flex: 40%;
   -webkit-flex: 40%;
@@ -260,7 +358,7 @@ body {
   -ms-flex: 40%;
   flex: 40%;
 }
-.g-flex-3 {
+.jy-flex-g3 {
   width: 30%;
   -webkit-box-flex: 30%;
   -webkit-flex: 30%;
@@ -268,7 +366,7 @@ body {
   -ms-flex: 30%;
   flex: 30%;
 }
-.g-flex-2 {
+.jy-flex-g2 {
   width: 20%;
   -webkit-box-flex: 20%;
   -webkit-flex: 20%;
@@ -276,16 +374,33 @@ body {
   -ms-flex: 20%;
   flex: 20%;
 }
-.g-flex-wrap {
+.jy-flex-wrap {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+
 .nowrap {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.ellipsis-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.ellipsis-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 
 .fill-100 {
@@ -325,16 +440,11 @@ body {
   margin: 0 auto;
   overflow: hidden;
 }
-.jy-mainheader {
+.jy-headermain {
   position: relative;
   margin: 0 auto;
   width: 1200px;
-  zoom: 1;
-}
-.jy-mainsection {
-  position: relative;
-  margin: 0 auto;
-  width: 1200px;
+  height: 100%;
   zoom: 1;
 }
 .jy-section {
@@ -343,4 +453,18 @@ body {
   width: $w-main;
   background: no-repeat top center;
   /* overflow: hidden; */
+}
+.jy-sectionmain {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  height: 100%;
+  background: no-repeat top center;
+}
+.jy-sectionmain-x {
+  position: relative;
+  margin: 0 auto;
+  width: 1000px;
+  height: 100%;
+  background: no-repeat top center;
 }

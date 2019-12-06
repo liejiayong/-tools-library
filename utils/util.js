@@ -26,8 +26,10 @@ export function shuffle(arr) {
 
 /**
  *  防抖函数。使用柯里化返回新函数
- *  使用说明：限制函数在指定时间后触发
- *  应用场景：适用于输入搜索（input、keyup）、提交按钮、弹窗
+ *  使用说明：在最后一次事件后才触发一次函数。
+          *  当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，
+          *  如果设定的时间到来之前，又一次触发了事件，就重新开始延时。
+ *  应用场景：适合应用于监听事件（event）类型的场景（如：输入搜索（input、keyup）、提交按钮、弹窗）
  * @param fn
  * @param delay
  * @returns {Function}
@@ -42,7 +44,7 @@ export function debounce(fn, delay) {
   };
 }
 
-function debounce_es5(fn, delay) {
+function debounce(fn, delay) {
   var timer = null;
   return function () {
     var context = this,
@@ -56,31 +58,32 @@ function debounce_es5(fn, delay) {
 
 /**
  * 节流函数。使用柯里化返回新函数
- *  使用说明：强制函数以固定的速率执行
- *  应用场景：适合应用于动画相关的场景（resize、touchmove、mousemove、scroll）
+ *  使用说明：使得一定时间内只触发一次函数。原理是通过判断是否到达一定时间来触发函数。。
+          * 当持续触发事件时，保证一定时间段内只调用一次事件处理函数。
+          * 节流通俗解释就比如我们水龙头放水，阀门一打开，水哗哗的往下流，秉着勤俭节约的优良传统美德，我们要把水龙头关小点，最好是如我们心意按照一定规律在某个时间间隔内一滴一滴的往下滴。
+ *  应用场景：适合应用于监听事件（event）类型的场景（如：resize、touchmove、mousemove、scroll）
  * @param fun
  * @param delay
  * @returns {Function}
  */
-export function throttle(fn, threshhold = 160) {
-  var timer = null;
-  var start = Date.now();
+export function throttle(fn, delay = 160) {
+  let timer = null;
+  let start = Date.now();
   return function (...args) {
-    var curr = Data.now();
-    if (timer) clearTimeout(timer);
-    if (curr - start >= threshhold) {
+    var curr = Date.now();
+    if (curr - start >= delay) {
       fn.apply(this, args);
-      start = curr;
+      start = Date.now();
     } else {
       timer = setTimeout(() => {
         fn.apply(this, args);
-      }, threshhold);
+      }, delay);
     }
   };
 }
 
-function throttle_es5(fn, threshhold) {
-  if (!threshhold) threshhold = 160;
+function throttle(fn, delay) {
+  if (!delay) delay = 160;
 
   var timer = null;
   var start = Date.now();
@@ -88,14 +91,13 @@ function throttle_es5(fn, threshhold) {
     var context = this,
       arg = arguments,
       curr = Date.now();
-    if (timer) clearTimeout(timer);
-    if (curr - start >= threshhold) {
+    if (curr - start >= delay) {
       fn.apply(context, arg);
-      start = curr;
+      start = Date.now();
     } else {
       timer = setTimeout(function () {
         fn.apply(context, arg);
-      }, threshhold);
+      }, delay);
     }
   };
 }
@@ -196,80 +198,76 @@ function setQueryString(map, type) {
   window.location[type] = query
 }
 
-/**
- * 检查ie版本
- */
-function IEVersion() {
-  var userAgent = navigator.userAgent; // 取得浏览器的userAgent字符串
-  var isIE = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1; // 判断是否IE<11浏览器
-  var isEdge = userAgent.indexOf('Edge') > -1 && !isIE; // 判断是否IE的Edge浏览器
-  var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf('rv:11.0') > -1;
-  if (isIE) {
-    var reIE = new RegExp('MSIE (\\d+\\.\\d+);');
-    reIE.test(userAgent);
-    var fIEVersion = parseFloat(RegExp['$1']);
-    if (fIEVersion === 7) {
-      return 7;
-    } else if (fIEVersion === 8) {
-      return 8;
-    } else if (fIEVersion === 9) {
-      return 9;
-    } else if (fIEVersion === 10) {
-      return 10;
-    } else {
-      return 6;// IE版本<=7
-    }
-  } else if (isEdge) {
-    return 'edge';// edge
-  } else if (isIE11) {
-    return 11; // IE11
-  } else {
-    return -1;// 不是ie浏览器
-  }
-};
-
 // 获取移动终端浏览器版本信息
 var mobileBrowser = {
-  versions: function () {
-    var u = navigator.userAgent, dpr = window.devicePixelRatio, sw = window.screen.width, sh = window.screen.height;
+  brower: (function () {
+    var u = navigator.userAgent, dpr = window.devicePixelRatio,
+      sw = window.screen.width, sh = window.screen.height;
+
     return {
-      trident: u.indexOf('Trident') > -1,
-      presto: u.indexOf('Presto') > -1,
-      webKit: u.indexOf('AppleWebKit') > -1,
-      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
-      mobile: !!u.match(/AppleWebKit.*Mobile.*/),
-      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
-      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
-      iPhone: u.indexOf('iPhone') > -1,
-      iPad: u.indexOf('iPad') > -1,
-      webApp: u.indexOf('Safari') == -1,
+      trident: ~u.indexOf('Trident') ? true : false,
+      presto: ~u.indexOf('Presto') ? true : false,
+      webKit: !!u.match(/Web[kK]it[\/]{0,1}([\d.]+)/),
+      gecko: ~u.indexOf('Gecko') && ~u.indexOf('KHTML') ? true : false,
+      Symbian: ~u.indexOf('Symbian') ? true : false,
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? true : false,
+      android: !u.indexOf('Android') || !u.indexOf('Linux') ? true : false,
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/) ? true : false,
+      iPhone: ~u.indexOf('iPhone') ? true : false,
+      iPad: ~u.indexOf('iPad') ? true : false,
+      osx: !!u.match(/\(Macintosh\; Intel /),
       iphoneXS: /iphone/gi.test(u) && ((dpr == 3 && sw == 375 && sh == 812)
         || (dpr == 3 && sw == 414 && sh == 896)
-        || (dpr == 2 && sw == 414 && sh == 896)),
-      weixin: u.toLowerCase().indexOf('micromessenger') > -1,
-      qq: function () {
-        var match = u.match(/QQ\//i);
-        match = match ? match[0] : false;
-        return match == 'QQ/';
-      },
-      weiBo: u.match(/WeiBo/i) == "weibo",
-      Safari: u.indexOf('Safari') > -1,
-      QQbrw: u.indexOf('MQQBrowser') > -1,
-      webview: !(u.match(/Chrome\/([\d.]+)/) || u.match(/CriOS\/([\d.]+)/)) && u.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
-      ucweb: function () {
-        try {
-          return parseFloat(u.match(/ucweb\d+\.\d+/gi).toString().match(/\d+\.\d+/).toString()) >= 8.2
-        } catch (e) {
-          if (u.indexOf('UC') > -1) {
-            return true;
+        || (dpr == 2 && sw == 414 && sh == 896)) ? true : false,
+      wechat: /micromessenger/i.test(u),
+      qq: /QQ\//i.test(u),
+      weiBo: /WeiBo/i.test(u),
+      Safari: /Safari/i.test(u),
+      qqBrw: /MQQBrowser/i.test(u),
+      win: /Win\d{2}|Windows/.test(u),
+      wp: !!u.match(/Windows Phone ([\d.]+)/),
+      webos: !!u.match(/(webOS|hpwOS)[\s\/]([\d.]+)/),
+      touchpad: this.webos && !!u.match(/TouchPad/),
+      kindle: !!u.match(/Kindle\/([\d.]+)/),
+      silk: !!u.match(/Silk\/([\d._]+)/),
+      blackberry: !!u.match(/(BlackBerry).*Version\/([\d.]+)/),
+      bb10: !!u.match(/(BB10).*Version\/([\d.]+)/),
+      rimtabletos: !!u.match(/(RIM\sTablet\sOS)\s([\d.]+)/),
+      playbook: !!u.match(/PlayBook/),
+      chrome: !!u.match(/Chrome\/([\d.]+)/) || u.match(/CriOS\/([\d.]+)/),
+      webview: !!u.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
+      uc: ~u.indexOf("UBrowser") || ~u.indexOf("UCBrowser") ? true : false,
+      firefox: !!u.match(/Firefox\/([\d.]+)/),
+      firefoxos: !!u.match(/\((?:Mobile|Tablet); rv:([\d.]+)\).*Firefox\/[\d.]+/),
+      ie: !!u.match(/MSIE\s([\d.]+)/) || !!u.match(/Trident\/[\d](?=[^\?]+).*rv:([0-9.].)/),
+      edge: this.ie && ~u.indexOf('Edge') ? true : false,
+      ieV: (function () {
+        var isIE11 = ~u.indexOf('Trident') && ~u.indexOf('rv:11.0') ? true : false;
+        if (this.ie) {
+          var reIE = new RegExp('MSIE (\\d+\\.\\d+);');
+          reIE.test(u);
+          var fIEVersion = parseFloat(RegExp['$1']);
+          if (fIEVersion === 7) {
+            return 7;
+          } else if (fIEVersion === 8) {
+            return 8;
+          } else if (fIEVersion === 9) {
+            return 9;
+          } else if (fIEVersion === 10) {
+            return 10;
+          } else {
+            return 6; // IE版本<=7
           }
-          return false;
+        } else if (this.edge) {
+          return 'edge'; // edge
+        } else if (isIE11) {
+          return 11; // IE11
+        } else {
+          return 0; // 不是ie浏览器
         }
-      }(),
-      Symbian: u.indexOf('Symbian') > -1,
-      ucSB: u.indexOf('Firofox/1.') > -1
+      }())
     };
-  }(),
+  }()),
   language: (navigator.browserLanguage || navigator.language).toLowerCase()
 }
 

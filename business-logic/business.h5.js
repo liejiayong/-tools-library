@@ -49,22 +49,22 @@ var jyBus = {
       }, delay);
     };
   },
-  throttle: function (fn, threshhold) {
-    if (!threshhold) threshhold = 160;
+  throttle: function (fn, delay) {
+    if (!delay) delay = 160;
+
     var timer = null;
     var start = Date.now();
     return function () {
       var context = this,
         arg = arguments,
         curr = Date.now();
-      if (timer) clearTimeout(timer);
-      if (curr - start >= threshhold) {
+      if (curr - start >= delay) {
         fn.apply(context, arg);
-        start = curr;
-      } else {
+        start = Date.now();
+      } else {      
         timer = setTimeout(function () {
           fn.apply(context, arg);
-        }, threshhold);
+        }, delay);
       }
     };
   },
@@ -77,127 +77,74 @@ var jyBus = {
     const value = window.location[type].match(regExp);
     return value && decodeURIComponent(value[1]);
   },
-  versions: function () {
-    var u = navigator.userAgent, dpr = window.devicePixelRatio, sw = window.screen.width, sh = window.screen.height;
+  brower: (function () {
+    var u = navigator.userAgent, dpr = window.devicePixelRatio,
+      sw = window.screen.width, sh = window.screen.height;
+
     return {
-      trident: u.indexOf('Trident') > -1,
-      presto: u.indexOf('Presto') > -1,
-      webKit: u.indexOf('AppleWebKit') > -1,
-      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
-      mobile: !!u.match(/AppleWebKit.*Mobile.*/),
-      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
-      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
-      iPhone: u.indexOf('iPhone') > -1,
-      iPad: u.indexOf('iPad') > -1,
-      webApp: u.indexOf('Safari') == -1,
+      trident: ~u.indexOf('Trident') ? true : false,
+      presto: ~u.indexOf('Presto') ? true : false,
+      webKit: !!u.match(/Web[kK]it[\/]{0,1}([\d.]+)/),
+      gecko: ~u.indexOf('Gecko') && ~u.indexOf('KHTML') ? true : false,
+      Symbian: ~u.indexOf('Symbian') ? true : false,
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? true : false,
+      android: !u.indexOf('Android') || !u.indexOf('Linux') ? true : false,
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/) ? true : false,
+      iPhone: ~u.indexOf('iPhone') ? true : false,
+      iPad: ~u.indexOf('iPad') ? true : false,
+      osx: !!u.match(/\(Macintosh\; Intel /),
       iphoneXS: /iphone/gi.test(u) && ((dpr == 3 && sw == 375 && sh == 812)
         || (dpr == 3 && sw == 414 && sh == 896)
-        || (dpr == 2 && sw == 414 && sh == 896)),
-      weixin: u.toLowerCase().indexOf('micromessenger') > -1,
-      qq: function () {
-        var match = u.match(/QQ\//i);
-        match = match ? match[0] : false;
-        return match == 'QQ/';
-      },
-      weiBo: u.match(/WeiBo/i) == "weibo",
-      Safari: u.indexOf('Safari') > -1,
-      QQbrw: u.indexOf('MQQBrowser') > -1,
-      webview: !(u.match(/Chrome\/([\d.]+)/) || u.match(/CriOS\/([\d.]+)/)) && u.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
-      ucweb: function () {
-        try {
-          return parseFloat(u.match(/ucweb\d+\.\d+/gi).toString().match(/\d+\.\d+/).toString()) >= 8.2
-        } catch (e) {
-          if (u.indexOf('UC') > -1) {
-            return true;
+        || (dpr == 2 && sw == 414 && sh == 896)) ? true : false,
+      wechat: /micromessenger/i.test(u),
+      qq: /QQ\//i.test(u),
+      weiBo: /WeiBo/i.test(u),
+      Safari: /Safari/i.test(u),
+      qqBrw: /MQQBrowser/i.test(u),
+      win: /Win\d{2}|Windows/.test(u),
+      wp: !!u.match(/Windows Phone ([\d.]+)/),
+      webos: !!u.match(/(webOS|hpwOS)[\s\/]([\d.]+)/),
+      touchpad: this.webos && !!u.match(/TouchPad/),
+      kindle: !!u.match(/Kindle\/([\d.]+)/),
+      silk: !!u.match(/Silk\/([\d._]+)/),
+      blackberry: !!u.match(/(BlackBerry).*Version\/([\d.]+)/),
+      bb10: !!u.match(/(BB10).*Version\/([\d.]+)/),
+      rimtabletos: !!u.match(/(RIM\sTablet\sOS)\s([\d.]+)/),
+      playbook: !!u.match(/PlayBook/),
+      chrome: !!u.match(/Chrome\/([\d.]+)/) || u.match(/CriOS\/([\d.]+)/),
+      webview: !!u.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
+      uc: ~u.indexOf("UBrowser") || ~u.indexOf("UCBrowser") ? true : false,
+      firefox: !!u.match(/Firefox\/([\d.]+)/),
+      firefoxos: !!u.match(/\((?:Mobile|Tablet); rv:([\d.]+)\).*Firefox\/[\d.]+/),
+      ie: !!u.match(/MSIE\s([\d.]+)/) || !!u.match(/Trident\/[\d](?=[^\?]+).*rv:([0-9.].)/),
+      edge: this.ie && ~u.indexOf('Edge') ? true : false,
+      ieV: (function () {
+        var isIE11 = ~u.indexOf('Trident') && ~u.indexOf('rv:11.0') ? true : false;
+        if (this.ie) {
+          var reIE = new RegExp('MSIE (\\d+\\.\\d+);');
+          reIE.test(u);
+          var fIEVersion = parseFloat(RegExp['$1']);
+          if (fIEVersion === 7) {
+            return 7;
+          } else if (fIEVersion === 8) {
+            return 8;
+          } else if (fIEVersion === 9) {
+            return 9;
+          } else if (fIEVersion === 10) {
+            return 10;
+          } else {
+            return 6; // IE版本<=7
           }
-          return false;
+        } else if (this.edge) {
+          return 'edge'; // edge
+        } else if (isIE11) {
+          return 11; // IE11
+        } else {
+          return 0; // 不是ie浏览器
         }
-      }(),
-      Symbian: u.indexOf('Symbian') > -1,
-      ucSB: u.indexOf('Firofox/1.') > -1
+      }())
     };
-  }()
+  }()),
+  language: (navigator.browserLanguage || navigator.language).toLowerCase()
 };
 jyBus.initial();
-
-  // var jyBus = {
-  //     // 滚动
-  //     swiper: function () {
-  //       $('#pSwiper').fadeIn();
-  //       pSwiper = new Swiper('#pSwiper', {
-  //         autoplay: false,
-  //         direction: 'vertical',
-  //         initialSlide: 0,
-  //         speed: TYPE_NUMBER_DURATION,
-  //         width: window.innerWidth,
-  //         height: window.innerHeight < 667 ? 667 : window.innerHeight,
-  //         autoHeight: true, //高度随内容变化
-  //         on: {
-  //           slideChange: function () {
-  //             var index = this.activeIndex;
-  //             // 滑到提交答案页面
-  //             if (index == 11) {
-  //               result.isLosed = false;
-  //             }
-  //           }
-  //         }
-  //       });
-  //     },
-  //     // 音乐
-  //     music: function () {
-  //       // 背景音乐
-  //       bgSound = new Howl({
-  //         src: [],
-  //         autoplay: true,
-  //         loop: true,
-  //         volume: 0.35
-  //       });
-  //       bgSound.play();
-  //       $('#btnBgm').addClass('active');
-  //     },
-  //     // 预加载
-  //     proload: function () {
-  //       var loader = new ImagesLoader();
-
-  //       loader.loadImages([], imgBaseUrl);
-  //       loader.complete(function () {
-  //         // $('#loadpage').fadeOut(500);
-  //         // $('#pSwiper').fadeIn();
-  //         subject.swiper();
-  //         console.log(':::initial loader success');
-  //       });
-  //       loader.process(function () {
-  //         // var prsnum = this.processNum ? this.processNum : 100;
-  //         // $('#loading_rate').html(prsnum + '%');
-  //       });
-  //       loader.start();
-  //     },
-  //   initial: function () {
-  //     this.font();
-  //     // this.proload();
-  //     // this.music();
-  //     // this.swiper();
-  //   },
-  //   // 字体适配
-  //   font: function () {
-  //     var docEl = document.documentElement || document.body;
-  //     var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
-  //     var reCalc = function () {
-  //       var clientWidth = docEl.clientWidth;
-  //       var fontSize = 100 * (clientWidth / 750);
-  //       window.baseFontSize = fontSize;
-  //       docEl.style.fontSize = fontSize + 'px';
-  //       // 屏幕提示
-  //       var w = docEl.clientWidth;
-  //       var h = docEl.clientHeight;
-  //       if (h > w) {
-  //         $('#orientLayer').hide();
-  //       } else {
-  //         $('#orientLayer').show();
-  //       }
-  //     };
-  //     reCalc();
-  //     window.addEventListener(resizeEvt, reCalc, false);
-  //     document.addEventListener('DOMContentLoaded', reCalc, false);
-  //   }
-  // };

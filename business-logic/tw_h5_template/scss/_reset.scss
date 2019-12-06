@@ -36,7 +36,7 @@ html {
 
 body {
   margin: 0 auto;
-  font: 14px / 1 -apple-system, system-ui, BlinkMacSystemFont, Helvetica,
+  font: 50px / 1 -apple-system, system-ui, BlinkMacSystemFont, Helvetica,
     Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑",
     Arial, sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -231,6 +231,7 @@ sup {
  */
 
 img {
+  vertical-align: middle;
   border-style: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -248,6 +249,18 @@ video {
 audio:not([controls]) {
   display: none;
   height: 0;
+}
+video::-internal-media-controls-download-button {
+  display: none;
+}
+video::-webkit-media-controls-panel {
+  width: calc(100% + 30px);
+}
+video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+video::-webkit-media-controls-fullscreen-button {
+  display: none;
 }
 
 /* Forms

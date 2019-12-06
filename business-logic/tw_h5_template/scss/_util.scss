@@ -2,6 +2,7 @@
 @import "./_mixin.scss";
 
 body {
+  margin: 0 auto;
   font: #{$fs-primary}/ 1 "微软雅黑";
   color: $color-primary;
   background-color: $color-theme-bg;
@@ -12,6 +13,19 @@ body {
 }
 .lh-20 {
   line-height: 2;
+}
+
+.vertical-top {
+  vertical-align: top;
+}
+.vertical-middle {
+  vertical-align: middle;
+}
+.vertical-bottom {
+  vertical-align: bottom;
+}
+.vertical-baseline {
+  vertical-align: baseline;
 }
 
 .clearfix {
@@ -49,17 +63,29 @@ body {
 .tr {
   text-align: right;
 }
+
+.flighter {
+  font-weight: lighter;
+}
+.fnormal {
+  font-weight: normal;
+}
 .fb {
   font-weight: bold;
 }
+
 .text-indent {
   text-indent: 2em;
 }
 .text-underline {
   text-decoration: underline;
 }
+
 .fs-40 {
   font-size: 0.4rem;
+}
+.fs-38 {
+  font-size: 0.38rem;
 }
 .fs-36 {
   font-size: 0.36rem;
@@ -104,6 +130,12 @@ body {
 .mauto {
   margin: 0 auto;
 }
+.mt-5 {
+  margin-top: 0.05rem;
+}
+.ml-5 {
+  margin-left: 0.05rem;
+}
 .mt-10 {
   margin-top: 0.1rem;
 }
@@ -113,11 +145,17 @@ body {
 .mt-15 {
   margin-top: 0.15rem;
 }
+.ml-15 {
+  margin-left: 0.15rem;
+}
 .mt-20 {
   margin-top: 0.2rem;
 }
 .ml-20 {
   margin-left: 0.2rem;
+}
+.mt-25 {
+  margin-top: 0.25rem;
 }
 .ml-25 {
   margin-left: 0.25rem;
@@ -127,6 +165,12 @@ body {
 }
 .ml-30 {
   margin-left: 0.3rem;
+}
+.mt-35 {
+  margin-top: 0.35rem;
+}
+.ml-35 {
+  margin-left: 0.35rem;
 }
 .mt-40 {
   margin-top: 0.4rem;
@@ -147,11 +191,23 @@ body {
   margin-top: 0.6rem;
 }
 
+.pl-5 {
+  padding-left: 0.05rem;
+}
+.pt-5 {
+  padding-top: 0.05rem;
+}
 .pl-10 {
   padding-left: 0.1rem;
 }
 .pt-10 {
   padding-top: 0.1rem;
+}
+.pl-15 {
+  padding-left: 0.15rem;
+}
+.pt-15 {
+  padding-top: 0.15rem;
 }
 .pl-20 {
   padding-left: 0.2rem;
@@ -159,11 +215,23 @@ body {
 .pt-20 {
   padding-top: 0.2rem;
 }
+.pl-25 {
+  padding-left: 0.25rem;
+}
+.pt-25 {
+  padding-top: 0.25rem;
+}
 .pl-30 {
   padding-left: 0.3rem;
 }
 .pt-30 {
   padding-top: 0.3rem;
+}
+.pl-35 {
+  padding-left: 0.35rem;
+}
+.pt-35 {
+  padding-top: 0.35rem;
 }
 .pl-40 {
   padding-left: 0.4rem;
@@ -193,6 +261,12 @@ body {
 .color-red {
   color: $color-red;
 }
+.color-blue {
+  color: $color-blue;
+}
+.color-pink {
+  color: $color-pink;
+}
 .color-green {
   color: $color-green;
 }
@@ -211,9 +285,17 @@ body {
   top: 0;
   left: 0;
 }
-.vertical-middle {
-  vertical-align: middle;
+
+.flow_block {
+  display: block;
 }
+.flow_inline {
+  display: inline;
+}
+.flow_inblock {
+  display: inline-block;
+}
+
 .jy-flex {
   display: -webkit-box;
   display: -webkit-flex;
@@ -247,10 +329,10 @@ body {
   -ms-flex-pack: center;
   justify-content: center;
 }
-.jy-flex-hspace{
+.jy-flex-hspace {
   justify-content: space-between;
 }
-.g-flex-5 {
+.jy-flex-g5 {
   width: 50%;
   -webkit-box-flex: 50%;
   -webkit-flex: 50%;
@@ -258,7 +340,7 @@ body {
   -ms-flex: 50%;
   flex: 50%;
 }
-.g-flex-4 {
+.jy-flex-g4 {
   width: 40%;
   -webkit-box-flex: 40%;
   -webkit-flex: 40%;
@@ -266,7 +348,7 @@ body {
   -ms-flex: 40%;
   flex: 40%;
 }
-.g-flex-3 {
+.jy-flex-g3 {
   width: 30%;
   -webkit-box-flex: 30%;
   -webkit-flex: 30%;
@@ -274,7 +356,7 @@ body {
   -ms-flex: 30%;
   flex: 30%;
 }
-.g-flex-2 {
+.jy-flex-g2 {
   width: 20%;
   -webkit-box-flex: 20%;
   -webkit-flex: 20%;
@@ -282,22 +364,40 @@ body {
   -ms-flex: 20%;
   flex: 20%;
 }
-.g-flex-wrap {
+.jy-flex-wrap {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+
 .nowrap {
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.ellipsis-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.ellipsis-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
 
 .fill-100 {
   width: 100%;
   height: 100%;
 }
+
 .jy-btn {
   display: inline-block;
   cursor: pointer;
@@ -316,6 +416,7 @@ body {
   background-color: $color-btn-bg;
   z-index: 100;
 }
+
 .opacity-0 {
   opacity: 0;
 }
@@ -326,10 +427,10 @@ body {
   font-size: 0;
 }
 .jy-wrapper {
+  margin: 0 auto;
   position: relative;
   width: 100%;
   max-width: 750px;
-  margin: 0 auto;
 }
 
 // bg home page

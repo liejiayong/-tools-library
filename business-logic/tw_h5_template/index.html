@@ -7,49 +7,38 @@
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui,viewport-fit=cover" />
   <meta name="format-detection" content="telephone=no, email=no" />
   <meta name="format-detection" content="address=no" />
-  <!--for baidu 识别移动端页面并禁止百度转码-->
   <meta name="applicable-device" content="mobile" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <!-- 删除默认的苹果工具栏和菜单栏 -->
-  <!-- <meta name="apple-touch-fullscreen" content="yes" /> -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <!-- 避免IE使用兼容模式 -->
   <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
-  <!-- 启用360浏览器的极速模式(webkit) -->
   <meta name="renderer" content="webkit" />
-  <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
   <meta name="HandheldFriendly" content="true" />
-  <!-- 微软的老式浏览器 -->
   <meta name="MobileOptimized" content="320" />
-  <!-- UC强制全屏 -->
   <meta name="full-screen" content="yes" />
-  <!-- QQ强制全屏 -->
   <meta name="x5-fullscreen" content="true" />
-  <!-- UC应用模式 -->
   <meta name="browsermode" content="application" />
-  <!-- QQ应用模式 -->
   <meta name="x5-page-mode" content="app" />
-  <!-- windows phone 点击无高光 -->
   <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="author" content="f_liejy,d_,b_" />
+  <meta name="copyright" content="tanwan" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
-  <meta name="author" content="liejy" />
-  <meta name="copyright" content="" />
-  <title>h5 template</title>
+  <title></title>
   <link rel="stylesheet" href="./css/index.css">
+  <script>var jyBus = { initial: function () { this.font() }, font: function () { var docEl = document.documentElement || document.body; var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'; var reCalc = function () { var clientWidth = docEl.clientWidth, PIX = 750; clientWidth = clientWidth > PIX ? PIX : clientWidth; var fontSize = 100 * (clientWidth / PIX); window.baseFontSize = fontSize; docEl.style.fontSize = fontSize + 'px' }; reCalc(); window.addEventListener(resizeEvt, reCalc, false); document.addEventListener('DOMContentLoaded', reCalc, false) }, winReset: function () { document.querySelector('body').style.overflow = ''; document.querySelector('body').style.overflow = '' }, winFixed: function () { document.querySelector('body').style.overflow = 'hidden'; document.querySelector('body').style.overflow = 'hidden' }, getRandom: function (min, max) { return Math.floor(Math.random() * (max - min + 1) + min) }, shuffle: function (arr) { var _arr = arr.slice(); for (var i = 0; i < _arr.length; i++) { var j = this.getRandom(0, i); var n = _arr[i]; _arr[i] = _arr[j]; _arr[j] = n } return _arr }, debounce: function (fn, delay) { var timer = null; return function () { var context = this, arg = arguments; if (timer) clearTimeout(timer); timer = setTimeout(function () { fn.apply(context, arg) }, delay) } }, throttle: function (fn, delay) { if (!delay) delay = 160; var timer = null; var start = Date.now(); return function () { var context = this, arg = arguments, curr = Date.now(); if (curr - start >= delay) { fn.apply(context, arg); start = Date.now() } else { timer = setTimeout(function () { fn.apply(context, arg) }, delay) } } }, trim: function (str) { return str.replace(/^\s+|\s+$/g, '') }, getQueryString: function (key, type) { type = type ? type : 'search'; const regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)'); const value = window.location[type].match(regExp); return value && decodeURIComponent(value[1]) }, brower: (function () { var u = navigator.userAgent, dpr = window.devicePixelRatio, sw = window.screen.width, sh = window.screen.height; return { trident: ~u.indexOf('Trident') ? true : false, presto: ~u.indexOf('Presto') ? true : false, webKit: !!u.match(/Web[kK]it[\/]{0,1}([\d.]+)/), gecko: ~u.indexOf('Gecko') && ~u.indexOf('KHTML') ? true : false, Symbian: ~u.indexOf('Symbian') ? true : false, ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? true : false, android: !u.indexOf('Android') || !u.indexOf('Linux') ? true : false, mobile: !!u.match(/AppleWebKit.*Mobile.*/) ? true : false, iPhone: ~u.indexOf('iPhone') ? true : false, iPad: ~u.indexOf('iPad') ? true : false, osx: !!u.match(/\(Macintosh\; Intel /), iphoneXS: /iphone/gi.test(u) && ((dpr == 3 && sw == 375 && sh == 812) || (dpr == 3 && sw == 414 && sh == 896) || (dpr == 2 && sw == 414 && sh == 896)) ? true : false, wechat: /micromessenger/i.test(u), qq: /QQ\//i.test(u), weiBo: /WeiBo/i.test(u), Safari: /Safari/i.test(u), qqBrw: /MQQBrowser/i.test(u), win: /Win\d{2}|Windows/.test(u), wp: !!u.match(/Windows Phone ([\d.]+)/), webos: !!u.match(/(webOS|hpwOS)[\s\/]([\d.]+)/), touchpad: this.webos && !!u.match(/TouchPad/), kindle: !!u.match(/Kindle\/([\d.]+)/), silk: !!u.match(/Silk\/([\d._]+)/), blackberry: !!u.match(/(BlackBerry).*Version\/([\d.]+)/), bb10: !!u.match(/(BB10).*Version\/([\d.]+)/), rimtabletos: !!u.match(/(RIM\sTablet\sOS)\s([\d.]+)/), playbook: !!u.match(/PlayBook/), chrome: !!u.match(/Chrome\/([\d.]+)/) || u.match(/CriOS\/([\d.]+)/), webview: !!u.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/), uc: ~u.indexOf("UBrowser") || ~u.indexOf("UCBrowser") ? true : false, firefox: !!u.match(/Firefox\/([\d.]+)/), firefoxos: !!u.match(/\((?:Mobile|Tablet); rv:([\d.]+)\).*Firefox\/[\d.]+/), ie: !!u.match(/MSIE\s([\d.]+)/) || !!u.match(/Trident\/[\d](?=[^\?]+).*rv:([0-9.].)/), edge: this.ie && ~u.indexOf('Edge') ? true : false, ieV: (function () { var isIE11 = ~u.indexOf('Trident') && ~u.indexOf('rv:11.0') ? true : false; if (this.ie) { var reIE = new RegExp('MSIE (\\d+\\.\\d+);'); reIE.test(u); var fIEVersion = parseFloat(RegExp['$1']); if (fIEVersion === 7) { return 7 } else if (fIEVersion === 8) { return 8 } else if (fIEVersion === 9) { return 9 } else if (fIEVersion === 10) { return 10 } else { return 6 } } else if (this.edge) { return 'edge' } else if (isIE11) { return 11 } else { return 0 } }()) } }()), language: (navigator.browserLanguage || navigator.language).toLowerCase() }; jyBus.initial();</script>
 </head>
 
 <body>
   <!-- 主要内容 -->
-  <div class="jywrapper">
+  <div class="jy-wrapper">
     <div class="jy-section section-1">
       <div class="jy-login">
         <!-- 登录前 -->
-        <!-- <a href="javascript:;" class="jybtn btn-login"></a> -->
+        <!-- <a href="javascript:;" class="jy-btn btn-login"></a> -->
         <!-- 登录后 -->
         <!-- <div class="jy-logout">
-                <a href="javascript:;" class="jybtn btn-logout">注销</a>
+                <a href="javascript:;" class="jy-btn btn-logout">注销</a>
                 <i>|</i>
                 <div class="nickname">朕灬发粪涂墙xxxxxxx</div>
               </div> -->
@@ -76,7 +65,7 @@
   <div class="pop pop-myprize1 active" id="J_myprizePop1">
     <div class="pop_mask"></div>
     <div class="pop_main">
-      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
       <div class="pop_header">我的奖励</div>
       <div class="pop_body">
         <div class="jy-pop-table">
@@ -99,7 +88,7 @@
   <div class="pop pop-myprize2 " id="J_myprizePop2">
     <div class="pop_mask"></div>
     <div class="pop_main">
-      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
       <div class="pop_header">我的奖励</div>
       <div class="pop_body">
         <div class="jy-pop-table">
@@ -134,7 +123,7 @@
   <div class="pop pop-pro " id="J_proPop">
     <div class="pop_mask"></div>
     <div class="pop_main">
-      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
       <div class="pop_header">概率展示</div>
       <div class="pop_body">
         <div class="jy-pop-table">
@@ -185,7 +174,7 @@
   <div class="pop " id="J_giftPop">
     <div class="pop_mask"></div>
     <div class="pop_main-s">
-      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
       <div class="pop_header">中奖·提示</div>
       <div class="pop_body">
         <div class="pop_txt tc">恭喜您获得：<span class="color-red">xxxxx礼包</span></div>
@@ -197,7 +186,7 @@
   <div class="pop pop-bind " id="J_bindPop">
     <div class="pop_mask"></div>
     <div class="pop_main-s">
-      <a href="javascript:;" class="jybtn btn_pop_close"></a>
+      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
       <div class="pop_header">请绑定后再参与</div>
       <div class="pop_body tc">
         <p class="mt-40">
@@ -211,7 +200,7 @@
           </select>
         </p>
         <div style="color: #333;" class="mt-20">注意：角色一旦绑定，将无法取消或更改！</div>
-        <a href="javascript:;" class="jybtn btn-pop-ok mt-20">确认</a>
+        <a href="javascript:;" class="jy-btn btn-pop-ok mt-20">确认</a>
       </div>
     </div>
   </div>
@@ -225,7 +214,6 @@
   <script>
     // 定义初始化
     $(function () {
-      var imgBaseUrl = '', activeCls = 'active';
 
       // 弹窗
       // 关闭弹窗
@@ -257,96 +245,6 @@
       });
     });
 
-    var subject = {
-      initial: function () {
-        this.font();
-        // this.proload();
-        // this.music();
-        // this.swiper();
-      },
-      // 滚动
-      swiper: function () {
-        $('#pSwiper').fadeIn();
-        pSwiper = new Swiper('#pSwiper', {
-          autoplay: false,
-          direction: 'vertical',
-          initialSlide: 0,
-          speed: TYPE_NUMBER_DURATION,
-          width: window.innerWidth,
-          height: window.innerHeight < 667 ? 667 : window.innerHeight,
-          autoHeight: true, //高度随内容变化
-          on: {
-            slideChange: function () {
-              var index = this.activeIndex;
-              // 滑到提交答案页面
-              if (index == 11) {
-                result.isLosed = false;
-              }
-            }
-          }
-        });
-      },
-      // 音乐
-      music: function () {
-        // 背景音乐
-        bgSound = new Howl({
-          src: [],
-          autoplay: true,
-          loop: true,
-          volume: 0.35
-        });
-        bgSound.play();
-        $('#btnBgm').addClass('active');
-      },
-      // 预加载
-      proload: function () {
-        var loader = new ImagesLoader();
-
-        loader.loadImages([], imgBaseUrl);
-        loader.complete(function () {
-          // $('#loadpage').fadeOut(500);
-          // $('#pSwiper').fadeIn();
-          subject.swiper();
-          console.log(':::initial loader success');
-        });
-        loader.process(function () {
-          // var prsnum = this.processNum ? this.processNum : 100;
-          // $('#loading_rate').html(prsnum + '%');
-        });
-        loader.start();
-      },
-      // 字体适配
-      font: function () {
-        var docEl = document.documentElement || document.body;
-        var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
-        var reCalc = function () {
-          var clientWidth = docEl.clientWidth;
-          var fontSize = 100 * (clientWidth / 750);
-          window.baseFontSize = fontSize;
-          docEl.style.fontSize = fontSize + 'px';
-          // 屏幕提示
-          var w = docEl.clientWidth;
-          var h = docEl.clientHeight;
-          if (h > w) {
-            $('#orientLayer').hide();
-          } else {
-            $('#orientLayer').show();
-          }
-        };
-        reCalc();
-        window.addEventListener(resizeEvt, reCalc, false);
-        document.addEventListener('DOMContentLoaded', reCalc, false);
-      }
-    };
-    subject.initial();
-    // 固定窗口
-    function fixedWin() {
-      $('html,body').css({ overflow: 'hidden' });
-    }
-    // 还原窗口
-    function resetWin() {
-      $('html,body').css({ overflow: '' });
-    }
   </script>
 </body>
 

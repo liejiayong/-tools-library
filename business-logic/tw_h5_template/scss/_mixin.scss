@@ -10,7 +10,7 @@
 
 @mixin inputcolor($color) {
   color: $color;
-  &::-webkit-input-placeholder{
+  &::-webkit-input-placeholder {
     color: $color;
   }
   &::-moz-placeholder {
@@ -25,7 +25,7 @@
 }
 @mixin inputbg($color) {
   background-color: $color;
-  &::-webkit-input-placeholder{
+  &::-webkit-input-placeholder {
     background-color: $color;
   }
   &::-moz-placeholder {
@@ -42,4 +42,16 @@
 @mixin lh($height) {
   height: $height;
   line-height: $height;
+}
+
+@mixin triangle($width: 10px) {
+  border-top: $width dashed transparent;
+  border-bottom: $width dashed transparent;
+  border-left: $width dashed transparent;
+  border-right: $width dashed transparent;
+  height: 0;
+  width: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
 }

@@ -63,6 +63,10 @@ body {
 .tr {
   text-align: right;
 }
+.select-tc{
+  text-align: center;
+  text-align-last:center;
+}
 
 .flighter {
   font-weight: lighter;
@@ -128,6 +132,12 @@ body {
 }
 .fs-12 {
   font-size: 0.12rem;
+}
+.fs-10{
+  font-size: .1rem;
+}
+.fs-0{
+  font-size: 0;
 }
 
 .mauto {

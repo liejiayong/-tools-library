@@ -81,35 +81,75 @@ const regExpUitl = {
     const reg = new RegExp(`${sym}="([^\"]*)"`, 'g')
     return string.match(reg)[1]
   },
-  // 获取ie版本
-  iev() {
-    const userAgent = navigator.userAgent; // 取得浏览器的userAgent字符串
-    const isIE = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1; // 判断是否IE<11浏览器
-    const isEdge = userAgent.indexOf('Edge') > -1 && !isIE; // 判断是否IE的Edge浏览器
-    const isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf('rv:11.0') > -1;
-    if (isIE) {
-      const reIE = new RegExp('MSIE (\\d+\\.\\d+);');
-      reIE.test(userAgent);
-      const fIEVersion = parseFloat(RegExp['$1']);
-      if (fIEVersion === 7) {
-        return 7;
-      } else if (fIEVersion === 8) {
-        return 8;
-      } else if (fIEVersion === 9) {
-        return 9;
-      } else if (fIEVersion === 10) {
-        return 10;
-      } else {
-        return 6;// IE版本<=7
-      }
-    } else if (isEdge) {
-      return 'edge';// edge
-    } else if (isIE11) {
-      return 11; // IE11
-    } else {
-      return -1;// 不是ie浏览器
-    }
-  },
+  // 获取移动终端浏览器版本信息
+  brower: (function () {
+    var u = navigator.userAgent, dpr = window.devicePixelRatio,
+      sw = window.screen.width, sh = window.screen.height;
+
+    return {
+      trident: ~u.indexOf('Trident') ? true : false,
+      presto: ~u.indexOf('Presto') ? true : false,
+      webKit: !!u.match(/Web[kK]it[\/]{0,1}([\d.]+)/),
+      gecko: ~u.indexOf('Gecko') && ~u.indexOf('KHTML') ? true : false,
+      Symbian: ~u.indexOf('Symbian') ? true : false,
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? true : false,
+      android: !u.indexOf('Android') || !u.indexOf('Linux') ? true : false,
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/) ? true : false,
+      iPhone: ~u.indexOf('iPhone') ? true : false,
+      iPad: ~u.indexOf('iPad') ? true : false,
+      osx: !!u.match(/\(Macintosh\; Intel /),
+      iphoneXS: /iphone/gi.test(u) && ((dpr == 3 && sw == 375 && sh == 812)
+        || (dpr == 3 && sw == 414 && sh == 896)
+        || (dpr == 2 && sw == 414 && sh == 896)) ? true : false,
+      wechat: /micromessenger/i.test(u),
+      qq: /QQ\//i.test(u),
+      weiBo: /WeiBo/i.test(u),
+      Safari: /Safari/i.test(u),
+      qqBrw: /MQQBrowser/i.test(u),
+      win: /Win\d{2}|Windows/.test(u),
+      wp: !!u.match(/Windows Phone ([\d.]+)/),
+      webos: !!u.match(/(webOS|hpwOS)[\s\/]([\d.]+)/),
+      touchpad: this.webos && !!u.match(/TouchPad/),
+      kindle: !!u.match(/Kindle\/([\d.]+)/),
+      silk: !!u.match(/Silk\/([\d._]+)/),
+      blackberry: !!u.match(/(BlackBerry).*Version\/([\d.]+)/),
+      bb10: !!u.match(/(BB10).*Version\/([\d.]+)/),
+      rimtabletos: !!u.match(/(RIM\sTablet\sOS)\s([\d.]+)/),
+      playbook: !!u.match(/PlayBook/),
+      chrome: !!u.match(/Chrome\/([\d.]+)/) || u.match(/CriOS\/([\d.]+)/),
+      webview: !!u.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/),
+      uc: ~u.indexOf("UBrowser") || ~u.indexOf("UCBrowser") ? true : false,
+      firefox: !!u.match(/Firefox\/([\d.]+)/),
+      firefoxos: !!u.match(/\((?:Mobile|Tablet); rv:([\d.]+)\).*Firefox\/[\d.]+/),
+      ie: !!u.match(/MSIE\s([\d.]+)/) || !!u.match(/Trident\/[\d](?=[^\?]+).*rv:([0-9.].)/),
+      edge: this.ie && ~u.indexOf('Edge') ? true : false,
+      ieV: (function () {
+        var isIE11 = ~u.indexOf('Trident') && ~u.indexOf('rv:11.0') ? true : false;
+        if (this.ie) {
+          var reIE = new RegExp('MSIE (\\d+\\.\\d+);');
+          reIE.test(u);
+          var fIEVersion = parseFloat(RegExp['$1']);
+          if (fIEVersion === 7) {
+            return 7;
+          } else if (fIEVersion === 8) {
+            return 8;
+          } else if (fIEVersion === 9) {
+            return 9;
+          } else if (fIEVersion === 10) {
+            return 10;
+          } else {
+            return 6; // IE版本<=7
+          }
+        } else if (this.edge) {
+          return 'edge'; // edge
+        } else if (isIE11) {
+          return 11; // IE11
+        } else {
+          return 0; // 不是ie浏览器
+        }
+      }())
+    };
+  }()),
   // 判断iphoneX series系列
   isIphoneXS() {
     const u = navigator.userAgent, dpr = window.devicePixelRatio, sw = window.screen.width, sh = window.screen.height;
@@ -129,5 +169,31 @@ const regExpUitl = {
     let match = u.match(/QQ\//i)
     match = match ? match[0] : false
     return match == 'QQ/'
+  },
+  /**
+   * 判断字符串是否含有中文
+   */
+  isZh: (str) => {
+    var reg = /[^/u4e00-/u9fa5]/;
+    if (reg.test(str)) {
+      return true;
+    } {
+      return false;
+    }
+  },
+  /**
+   * 获取字符实际长度
+   * 中文长度为2，英文长度为1
+   */
+  stringLen: (str) => {
+    var len = str.length;
+    var curr = 0;
+    for (i = 0; i < len; i++) {
+      if ((str.charCodeAt(i) & 0xff00) != 0) {
+        curr++;
+      }
+      curr++;
+    }
+    return curr;
   }
 }

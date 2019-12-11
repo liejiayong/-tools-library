@@ -24,6 +24,10 @@
   line-height: 28px;
   z-index: 100;
   color: #fef8e7;
+  .navbar-body{
+    overflow: hidden;
+    transition: all .3s ease;
+  }
   .bg-menu {
     position: relative;
     li {
@@ -44,6 +48,28 @@
           z-index: 1;
         }
       }
+    }
+  }
+  .navbar-btn-stat {
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    border-top: 20px dashed transparent;
+    border-bottom: 20px dashed transparent;
+    border-left: 20px dashed transparent;
+    border-right: 20px solid #6872d0;
+    height: 0;
+    width: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transform: rotate(0);
+    transition: all 0.3s ease;
+    transform-origin: 75% 50%;
+    &.active {
+      transform: rotate(180deg);
+      transition: all 0.3s ease;
     }
   }
 }

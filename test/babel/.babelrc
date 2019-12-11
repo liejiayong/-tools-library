@@ -1,0 +1,19 @@
+/**
+  设置API、es2015+运行时导入
+  设置es2015兼容
+**/
+{
+  "presets": [
+    [
+      "@babel/preset-env"
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "corejs": 3
+      }
+    ]
+  ]
+}

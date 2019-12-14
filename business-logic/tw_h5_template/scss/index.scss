@@ -15,6 +15,28 @@
 /**
 *  business css
 **/
+// navbar
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.48rem;
+  overflow: hidden;
+  background: #656a9b;
+  color: #ffffe3;
+  z-index: 10;
+  .navbar-body {
+    height: 100%;
+    padding: 0 0.2rem;
+  }
+  .profile {
+  }
+  .btnlist {
+    flex: 1;
+  }
+}
+
 // section-1
 .section-1 {
   height: 7.365rem;
@@ -92,6 +114,6 @@
 .section-2 {
   height: 7.365rem;
   background-image: url('../img/bg2.jpg');
-  .mainsection {
+  .jy-sectionmain {
   }
 }

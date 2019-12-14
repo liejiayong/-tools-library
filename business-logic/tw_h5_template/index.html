@@ -32,6 +32,21 @@
 <body>
   <!-- 主要内容 -->
   <div class="jy-wrapper">
+    <!-- navbar -->
+    <div class="navbar ">
+      <div class="navbar-body jy-flex jy-flex-vc">
+        <div class="logo"></div>
+        <div class="ml-10 profile">
+          <p class="fs-30">極品修真</p>
+          <p class="fs-22 mt-10">11月20日全平台公测</p>
+        </div>
+        <div class="btnlist tr  ">
+          <a href="#" class="jy-btn btn-dl-google"></a>
+          <a href="#" class="jy-btn btn-dl-ios"></a>
+        </div>
+      </div>
+    </div>
+
     <div class="jy-section section-1">
       <div class="jy-login">
         <!-- 登录前 -->
@@ -52,33 +67,33 @@
   </div>
 
   <!--旋屏提示 -->
-  <div id="orientLayer" class="orientLayer">
-    <div class="orient_content">
-      <i class="orient_icon"></i>
-      <div class="orient_desc">为了更好的体验，请使用竖屏浏览</div>
+  <div id="orientLayer" class="jy-orient_layer">
+    <div class="jy-orient_content">
+      <i class="jy-orient_icon"></i>
+      <div class="jy-orient_extra">为了更好的体验，请使用竖屏浏览</div>
     </div>
   </div>
   <div class="jycopytip"></div>
 
   <!-- 弹窗 -->
   <!-- pop 我的奖品 -->
-  <div class="pop pop-myprize1 active" id="J_myprizePop1">
+  <div class="pop pop-myprize1 " id="J_myprizePop1">
     <div class="pop_mask"></div>
     <div class="pop_main">
-      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
+      <a href="javascript:;" class="jybtn btn_pop_close"></a>
       <div class="pop_header">我的奖励</div>
       <div class="pop_body">
-        <div class="jy-pop-table">
+        <div class="jy-table">
           <div class="table-tit">
-            <div class="tablecell3">礼包名称</div>
-            <div class="tablecell4">激活码</div>
-            <div class="tablecell3">操作</div>
+            <div class="tablecell">礼包名称</div>
+            <div class="tablecell">激活码</div>
+            <div class="tablecell">操作</div>
           </div>
           <div class="table-body">
             <div class="table-item">
-              <div class="tablecell3">全名洪文礼包*1</div>
-              <div data-clipboard-text="cccccccccccccccc" class="tablecell4 btn-popcode">cccccccccccccccc</div>
-              <div class="tablecell3 btnpopcode" data-clipboard-target=".btn-popcode">复制</div>
+              <div class="tablecell">全名洪文礼包*1</div>
+              <div data-clipboard-text="cccccccccccccccc" class="tablecell btn-popcode">cccccccccccccccc</div>
+              <div class="tablecell btnpopcode" data-clipboard-target=".btn-popcode">复制</div>
             </div>
           </div>
         </div>
@@ -88,81 +103,30 @@
   <div class="pop pop-myprize2 " id="J_myprizePop2">
     <div class="pop_mask"></div>
     <div class="pop_main">
-      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
+      <a href="javascript:;" class="jybtn btn_pop_close"></a>
       <div class="pop_header">我的奖励</div>
       <div class="pop_body">
-        <div class="jy-pop-table">
+        <div class="jy-table">
           <div class="table-tit">
-            <div class=" tablecell5">礼包名称</div>
-            <div class=" tablecell5">获得时间</div>
+            <div class="tablecell tablecell5">礼包名称</div>
+            <div class="tablecell tablecell5">获得时间</div>
           </div>
           <div class="table-body">
             <div class="table-item">
-              <div class=" tablecell5">全名洪文礼包*1</div>
-              <div class=" tablecell5">2019-09-01</div>
+              <div class="tablecell tablecell5">全名洪文礼包*1</div>
+              <div class="tablecell tablecell5">2019-09-01</div>
             </div>
             <div class="table-item">
-              <div class=" tablecell5">全名洪文礼包*1</div>
-              <div class=" tablecell5">2019-09-01</div>
+              <div class="tablecell tablecell5">全名洪文礼包*1</div>
+              <div class="tablecell tablecell5">2019-09-01</div>
             </div>
             <div class="table-item">
-              <div class=" tablecell5">全名洪文礼包*1</div>
-              <div class=" tablecell5">2019-09-01</div>
+              <div class="tablecell tablecell5">全名洪文礼包*1</div>
+              <div class="tablecell tablecell5">2019-09-01</div>
             </div>
             <div class="table-item">
-              <div class=" tablecell5">全名洪文礼包*1</div>
-              <div class=" tablecell5">2019-09-01</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- pop 概率展示 -->
-  <div class="pop pop-pro " id="J_proPop">
-    <div class="pop_mask"></div>
-    <div class="pop_main">
-      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
-      <div class="pop_header">概率展示</div>
-      <div class="pop_body">
-        <div class="jy-pop-table">
-          <div class="table-tit">
-            <div class="tablecell ">奖品内容</div>
-            <div class="tablecell ">概率</div>
-          </div>
-          <div class="table-body">
-            <div class="table-item">
-              <div class="tablecell ">弑神谪仙伞</div>
-              <div class="tablecell ">2%</div>
-            </div>
-            <div class="table-item">
-              <div class="tablecell ">超级转生丹*1</div>
-              <div class="tablecell ">5%</div>
-            </div>
-            <div class="table-item">
-              <div class="tablecell ">高级转生丹*2</div>
-              <div class="tablecell ">8%</div>
-            </div>
-            <div class="table-item">
-              <div class="tablecell ">传世宝钻*20</div>
-              <div class="tablecell ">10%</div>
-            </div>
-            <div class="table-item">
-              <div class="tablecell ">金砖*5</div>
-              <div class="tablecell ">15%</div>
-            </div>
-            <div class="table-item">
-              <div class="tablecell ">黑铁*200</div>
-              <div class="tablecell ">15%</div>
-            </div>
-            <div class="table-item">
-              <div class="tablecell ">野外boss挑战卷*2</div>
-              <div class="tablecell ">15%</div>
-            </div>
-            <div class="table-item">
-              <div class="tablecell ">谢谢参与</div>
-              <div class="tablecell ">30%</div>
+              <div class="tablecell tablecell5">全名洪文礼包*1</div>
+              <div class="tablecell tablecell5">2019-09-01</div>
             </div>
           </div>
         </div>
@@ -173,8 +137,8 @@
   <!-- pop 中奖·提示  -->
   <div class="pop " id="J_giftPop">
     <div class="pop_mask"></div>
-    <div class="pop_main-s">
-      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
+    <div class="pop_main">
+      <a href="javascript:;" class="jybtn btn_pop_close"></a>
       <div class="pop_header">中奖·提示</div>
       <div class="pop_body">
         <div class="pop_txt tc">恭喜您获得：<span class="color-red">xxxxx礼包</span></div>
@@ -186,7 +150,7 @@
   <div class="pop pop-bind " id="J_bindPop">
     <div class="pop_mask"></div>
     <div class="pop_main-s">
-      <a href="javascript:;" class="jy-btn btn_pop_close"></a>
+      <a href="javascript:;" class="jybtn btn_pop_close"></a>
       <div class="pop_header">请绑定后再参与</div>
       <div class="pop_body tc">
         <p class="mt-40">
@@ -200,7 +164,7 @@
           </select>
         </p>
         <div style="color: #333;" class="mt-20">注意：角色一旦绑定，将无法取消或更改！</div>
-        <a href="javascript:;" class="jy-btn btn-pop-ok mt-20">确认</a>
+        <a href="javascript:;" class="jybtn btn-pop-ok mt-20"></a>
       </div>
     </div>
   </div>
@@ -208,7 +172,7 @@
   <!-- js -->
   <script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
   <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
-  <script type="text/javascript" src="./js/swiper.min.js?v=4.3.5"></script>
+  <script type="text/javascript" src="./js/swiper.min.js?v=5.2.0"></script>
   <script type="text/javascript" src="./js/jquery.SuperSlide.js?v=2.1.1"></script>
   <script type="text/javascript" src="./js/danmu.js"></script>
   <script>
@@ -218,12 +182,12 @@
       // 弹窗
       // 关闭弹窗
       $('.btn_pop_close').on('click', function () {
-        resetWin();
+        jyBus.winReset();
         $(this).parents('.pop').fadeOut();
       });
       // 我的奖品1
       $('.myprice1').on('click', function () {
-        fixedWin();
+        jyBus.winFixed();
         $('#J_myprizePop1').fadeIn();
       });
 

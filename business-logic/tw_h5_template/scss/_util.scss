@@ -481,6 +481,14 @@ body {
   bottom: 0;
   background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
+  &.active{
+    display: block;
+  }
+}
+@media screen and (min-aspect-ratio: 13/9) {
+  .jy-orient_layer {
+    display: block;
+  }
 }
 .jy-orient_content {
   position: absolute;
@@ -505,6 +513,11 @@ body {
   -webkit-background-size: 67px;
   -moz-background-size: 67px;
   background-size: 67px;
+}
+.jy-orient_extra {
+  margin-top: 20px;
+  font-size: 15px;
+  color: #fff;
 }
 @-webkit-keyframes rotation {
   10% {
@@ -573,16 +586,6 @@ body {
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
-  }
-}
-.jy-orient_extra {
-  margin-top: 20px;
-  font-size: 15px;
-  color: #fff;
-}
-@media screen and (min-aspect-ratio: 13/9) {
-  .jy-orient_layer {
-    display: block;
   }
 }
 // 旋转屏幕 :end

@@ -1,11 +1,10 @@
-*,
 html,
 body {
   // -webkit-box-sizing: border-box;
   // -moz-box-sizing: border-box;
   // box-sizing: border-box;
-  -ms-scroll-chaining: none;
-  overscroll-behavior: contain;
+  // -ms-scroll-chaining: none;
+  // overscroll-behavior: contain;
   scroll-behavior: smooth;
 }
 // *:before,
@@ -281,12 +280,19 @@ input,
 optgroup,
 select,
 textarea {
+  position: relative;
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
   margin: 0; /* 2 */
   border: 0;
   outline: 0;
   appearance: none;
+  box-sizing: border-box;
+}
+
+select {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC")
+    no-repeat right 10px center/ 8px auto;
 }
 
 /**

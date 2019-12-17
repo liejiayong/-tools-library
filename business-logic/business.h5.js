@@ -1,4 +1,5 @@
 var jyBus = {
+  activeCls: 'active',
   initial: function () {
     this.font();
   },
@@ -61,7 +62,7 @@ var jyBus = {
       if (curr - start >= delay) {
         fn.apply(context, arg);
         start = Date.now();
-      } else {      
+      } else {
         timer = setTimeout(function () {
           fn.apply(context, arg);
         }, delay);
@@ -76,6 +77,93 @@ var jyBus = {
     const regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)');
     const value = window.location[type].match(regExp);
     return value && decodeURIComponent(value[1]);
+  },
+  isNumber: function (number) {
+    return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]'
+  },
+  /**
+   * deprecated
+   * @param {*} tipCls 
+   * @param {*} cb 
+   */
+  elCopy: function (tipCls, cb) {
+    tipCls = tipCls || '.jy-copytips';
+
+    var $tip = null;
+    if (document.querySelector(tipCls)) {
+      $tip = document.querySelector(tipCls);
+    } else {
+      $tip = document.createElement('div');
+      $tip.className = tipCls.substr(1);
+      $tip.style.cssText = 'display: none;padding: 10px;position: fixed;top: 30%;left: 50%;-webkit-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-o-transform: translateX(-50%);transform: translateX(-50%);background-color: #000;color: #fff;box-shadow: 0 0 5px #000;white-space: nowrap;z-index:2001;'
+      document.body.appendChild($tip)
+    }
+
+    if (cb && typeof cb === 'function') {
+      cb();
+    } else {
+      if (!ClipboardJS) return new Error('ClipboardJS is not found!');
+
+      var clipboard = new ClipboardJS('.btnpopcode');
+      clipboard.on('success', function () {
+        $('#J_mycodePop').fadeOut();
+        $tip
+          .text('复制成功')
+          .fadeIn(500)
+          .fadeOut(1000);
+      });
+      clipboard.on('error', function () {
+        $tip
+          .text('您的手机不支持点击复制，请长按复制！')
+          .fadeIn(500)
+          .fadeOut(1000);
+      });
+    }
+  },
+  /**
+   * 
+   * @param {number} index 奖品总数
+   * @param {number} index 中奖下标
+   * @param {function} cbCurrent 抽奖动画中回调
+   * @param {function} cbEnd 抽奖动画完成回调
+   */
+  lottery(index, total, cbCurrent, cbEnd) {
+    if (!this.isNumber(index)) return new Error('the arguments of index must number!');
+    if (typeof cbEnd !== 'function') return new Error('the arguments of cbEnd must function!');
+    if (typeof cbCurrent !== 'function') return new Error('the arguments of cbCurrent must function!');
+
+    var TYPE_SPEED = 0; // 转盘开始速度
+    var TYPE_ADD_SPEED = 20; // 每次加速度
+    var TYPE_LAST_SPEED = 500; // 转盘结束速度
+    var TYPE_MAX_INDEX = total; // 奖品总数
+    var currSpeed = 0; // 当前速度
+    var totalIndex = 0; // 下标总数
+    var currentIndex = 0; // 当前下标
+
+    // 抽奖动画
+    var animate = function () {
+      var timer = setTimeout(function () {
+        totalIndex += 1;
+        currSpeed += TYPE_ADD_SPEED;
+        if (currSpeed > TYPE_LAST_SPEED) {
+          if (currentIndex === index) {
+            clearTimeout(timer);
+            cbEnd(currentIndex);
+          } else {
+            currentIndex = totalIndex % TYPE_MAX_INDEX;
+            clearTimeout(timer);
+            cbCurrent(currentIndex);
+            animate();
+          }
+        } else {
+          currentIndex = totalIndex % TYPE_MAX_INDEX;
+          clearTimeout(timer);
+          cbCurrent(currentIndex);
+          animate();
+        }
+      }, TYPE_SPEED + currSpeed);
+    }
+    animate();
   },
   brower: (function () {
     var u = navigator.userAgent, dpr = window.devicePixelRatio,
@@ -148,3 +236,4 @@ var jyBus = {
   language: (navigator.browserLanguage || navigator.language).toLowerCase()
 };
 jyBus.initial();
+

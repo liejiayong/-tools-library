@@ -13,3 +13,11 @@ export function isObjectStructure(value) {
 export function isObject(value) {
     return Object.prototype.toString.call(value) === '[object Object]'
 }
+
+/**
+ * 检查是否数字
+ * @param {Number} number 
+ */
+function isNumber(number) {
+    return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]'
+}

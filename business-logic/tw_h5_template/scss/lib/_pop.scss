@@ -2,7 +2,6 @@
 @import "../_mixin.scss";
 
 $bg: #fff;
-$bg-gradient: linear-gradient(#bf3b2e, #a92f2a, #962829, #8c2327);
 $bg-tit: linear-gradient(#656a9b, #747aae);
 $bg-border: #fff;
 $color: #666666;
@@ -14,10 +13,6 @@ $main-gutter: 0 0.5rem 0.5rem;
 $width: 6.4rem;
 $max-height: 7rem;
 $max-height-s: 5rem;
-
-$table-border: #ccc;
-
-$btnok: #820000;
 
 .jy-pop {
   display: none;
@@ -37,14 +32,15 @@ $btnok: #820000;
     display: block;
     opacity: 1;
   }
-  .jy-pop_mask,.jy-pop_mask--clickable {
+  .jy-pop_mask,
+  .jy-pop_mask--clickable {
     position: fixed;
     z-index: 10;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.8);
   }
   .jy-pop_main_tit {
     $main-border-radius: 0.3rem;
@@ -63,6 +59,8 @@ $btnok: #820000;
     z-index: 20;
   }
   .jy-pop_main {
+    $main-border-radius: 0.3rem;
+
     position: fixed;
     margin-left: -($width / 2);
     left: 50%;
@@ -71,21 +69,25 @@ $btnok: #820000;
     max-height: $max-height;
     color: $color;
     background: $bg;
-    // background: $bg-gradient;
     // border: 0.03rem solid $bg-border;
+    -moz-border-radius: $main-border-radius;
+    border-radius: $main-border-radius;
     z-index: 20;
   }
-  .jy-pop_main-s {
+  .jy-pop_main--mini {
+    $main-border-radius: 0.3rem;
+
     position: fixed;
     margin-left: -($width / 2);
     left: 50%;
     top: 20%;
     width: $width;
-    max-height: $max-height-s;
+    max-height: $max-height;
     color: $color;
     background: $bg;
-    // background: $bg-gradient;
     // border: 0.03rem solid $bg-border;
+    -moz-border-radius: $main-border-radius;
+    border-radius: $main-border-radius;
     z-index: 20;
   }
   .jy-pop_main_tit--header {
@@ -101,48 +103,6 @@ $btnok: #820000;
     text-overflow: ellipsis;
     overflow: hidden;
     background: $bg-tit;
-    .jy-pop_main_tit--header-sty {
-      display: inline-block;
-      position: relative;
-      &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: -0.2rem;
-        -webkit-transform: translate(0, -50%);
-        -moz-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
-        -o-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        -webkit-background-size: 7.6rem 5.7rem;
-        -moz-background-size: 7.6rem 5.7rem;
-        background-size: 7.6rem 5.7rem;
-        background-image: url("../img/sprite-role.png");
-        background-position: -7.3rem -4.21rem;
-        width: 0.07rem;
-        height: 0.14rem;
-      }
-      &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: -0.2rem;
-        -webkit-transform: translate(0, -50%);
-        -moz-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
-        -o-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-        -webkit-background-size: 7.6rem 5.7rem;
-        -moz-background-size: 7.6rem 5.7rem;
-        background-size: 7.6rem 5.7rem;
-        background-image: url("../img/sprite-role.png");
-        background-position: -7.15rem -4.21rem;
-        width: 0.07rem;
-        height: 0.14rem;
-      }
-    }
   }
   .jy-pop_header {
     margin: 0 auto;
@@ -158,7 +118,7 @@ $btnok: #820000;
     overflow: hidden;
     background: $bg-tit;
   }
-  .btn_pop_close {
+  .jy-btn_pop_close {
     $width: 0.31rem;
     position: absolute;
     top: 0.15rem;
@@ -178,8 +138,8 @@ $btnok: #820000;
     -moz-border-radius: 0 0 0.3rem 0.3rem;
     border-radius: 0 0 0.3rem 0.3rem;
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
   .jy-pop_body {
     margin: 0 auto;
@@ -188,28 +148,24 @@ $btnok: #820000;
   }
   .jy-pop_txt {
     margin: 0.35rem auto 0;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -moz-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
   }
-  .btn-ok {
+  .jy-pop_btn-ok {
     display: block;
     margin: 0.3rem auto 0;
     width: 1.1rem;
     padding: 0.1rem 0.15rem;
     text-align: center;
     color: #ffb9b9;
-    background: $btnok;
+    background: #820000;
   }
   // select
-  .jy-popselect {
-    display: block;
-    position: relative;
+  .jy-pop_select {
     $width: 3.3rem;
     $height: 0.45rem;
     $radius: 0;
+
+    display: block;
+    position: relative;
     margin: 0 auto;
     padding: 0 0.2rem;
     width: $width;
@@ -221,12 +177,6 @@ $btnok: #820000;
     -moz-border-radius: $radius;
     border-radius: $radius;
     overflow: hidden;
-    // -webkit-appearance: none;
-    //    -moz-appearance: none;
-    //         appearance: none;
-    // -webkit-box-sizing: border-box;
-    // -moz-box-sizing: border-box;
-    // box-sizing: border-box;
     &:not(:last-of-type) {
       margin-bottom: 0.12rem;
     }
@@ -235,12 +185,13 @@ $btnok: #820000;
     }
   }
   // input
-  .jy-popinput {
+  .jy-pop_input {
     margin: 0.2rem auto 0;
   }
-  .jy-popinput-cell {
+  .jy-pop_input_cell {
     $width: inherit;
     $height: 0.56rem;
+
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -259,172 +210,176 @@ $btnok: #820000;
     margin-bottom: 0.16rem;
     width: $width;
     height: $height;
-    .jy-popinput-tit {
-      $width: 1.5rem;
-      -webkit-box-flex: 0;
-      -webkit-flex: 0 0 #{$width};
-      -moz-box-flex: 0;
-      -ms-flex: 0 0 #{$width};
-      flex: 0 0 #{$width};
-      width: $width;
-      height: $height;
-      line-height: $height;
-      font-size: 0.24rem;
-      color: #725c38;
-    }
-    .jy-popinput-inp {
-      $width: 3.3rem;
-      $height: 0.45rem;
-      -webkit-box-flex: 0;
-      -webkit-flex: 0 0 #{$width};
-      -moz-box-flex: 0;
-      -ms-flex: 0 0 #{$width};
-      flex: 0 0 #{$width};
-      width: $width;
-      $radius: 0;
-      width: $width;
-      height: $height;
-      height: $height;
-      line-height: $height;
-      input {
-        $color: #dbbc88;
-        padding: 0 0.2rem;
-        width: 100%;
-        height: 100%;
-        outline: none;
-        border: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
+  }
+  .jy-pop_input_cell-label {
+    $width: 1.5rem;
+
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 #{$width};
+    -moz-box-flex: 0;
+    -ms-flex: 0 0 #{$width};
+    flex: 0 0 #{$width};
+    width: $width;
+    height: $height;
+    line-height: $height;
+    font-size: 0.24rem;
+    color: #725c38;
+  }
+  .jy-pop_input_cell-inp {
+    $width: 3.3rem;
+    $height: 0.45rem;
+    $radius: 0;
+
+    position: relative;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 #{$width};
+    -moz-box-flex: 0;
+    -ms-flex: 0 0 #{$width};
+    flex: 0 0 #{$width};
+    width: $width;
+    width: $width;
+    height: $height;
+    height: $height;
+    line-height: $height;
+    input {
+      $color: #dbbc88;
+      $bg: #edd2a5;
+
+      padding: 0 0.2rem;
+      width: 100%;
+      height: 100%;
+      outline: none;
+      border: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      color: $color;
+      padding: 0 0.2rem;
+      background: $bg;
+      border: 0.02rem solid $color;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      &::-webkit-input-placeholder {
         color: $color;
-        padding: 0 0.2rem;
-        background: #edd2a5;
-        border: 0.02rem solid #e4b76a;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        &::-webkit-input-placeholder {
-          color: $color;
-        }
       }
     }
   }
   // table
-  .jy-table {
-    $height: 1.6rem;
+  $table-border: #ccc;
+  $table-height: 1.6rem;
+  $tabel-cell-height: 0.5rem;
+  .jy-pop_table {
     margin: 0 auto;
     width: 4.9rem;
-    max-height: $height;
+    max-height: $table-height;
     border: 0.02rem solid $table-border;
     overflow: hidden;
-    .table-tit {
-      .tablecell {
-        &:not(:last-of-type) {
-          border-bottom: 0.02rem solid $table-border;
-          border-right: 0.02rem solid $table-border;
-        }
-        &:last-of-type {
-          border-bottom: 0.02rem solid $table-border;
-        }
+  }
+  .jy-pop_table_head {
+    .jy-pop_table_cell {
+      &:not(:last-of-type) {
+        border-bottom: 0.02rem solid $table-border;
+        border-right: 0.02rem solid $table-border;
+      }
+      &:last-of-type {
+        border-bottom: 0.02rem solid $table-border;
       }
     }
-    .jy-pop_table_body {
-      max-height: $height;
-      overflow-y: auto;
-      overflow-x: hidden;
-      .tablecell {
-        background: #f5dfba;
-        &:not(:last-of-type) {
-          border-bottom: 0.02rem solid $table-border;
-          border-right: 0.02rem solid $table-border;
-        }
-      }
-      .tablecell:last-of-type {
-        &:last-of-type {
-          border-bottom: 0.02rem solid $table-border;
-        }
-      }
-      .table-item:not(:last-of-type) {
+  }
+  .jy-pop_table_body {
+    max-height: $table-height;
+    overflow-y: auto;
+    overflow-x: hidden;
+    .jy-pop_table_cell {
+      background: #f5dfba;
+      &:not(:last-of-type) {
+        border-bottom: 0.02rem solid $table-border;
+        border-right: 0.02rem solid $table-border;
       }
     }
-    .table-tit,
-    .table-item {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -moz-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -moz-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      overflow: hidden;
-      .tablecell {
-        $height: 0.5rem;
-        height: $height;
-        line-height: $height;
-        padding: 0 0.04rem;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        text-align: center;
-        overflow-x: auto;
-        overflow-y: hidden;
-        font-size: 0.18rem;
-        &:nth-of-type(1) {
-          $width: 60%;
-          -webkit-box-flex: 0;
-          -webkit-flex: 0 0 $width;
-          -moz-box-flex: 0;
-          -ms-flex: 0 0 $width;
-          flex: 0 0 $width;
-          width: $width;
-        }
-        &:nth-of-type(2) {
-          $width: 40%;
-          -webkit-box-flex: 0;
-          -webkit-flex: 0 0 $width;
-          -moz-box-flex: 0;
-          -ms-flex: 0 0 $width;
-          flex: 0 0 $width;
-          width: $width;
-        }
-        // &:nth-of-type(3) {
-        //   $width: 20%;
-        //   -webkit-box-flex: 0;
-        //   -webkit-flex: 0 0 $width;
-        //   -moz-box-flex: 0;
-        //   -ms-flex: 0 0 $width;
-        //   flex: 0 0 $width;
-        //   width: $width;
-        // }
+    .jy-pop_table_cell:last-of-type {
+      &:last-of-type {
+        border-bottom: 0.02rem solid $table-border;
       }
-      .tablecell5 {
-        &:nth-of-type(1) {
-          $width: 50%;
-          -webkit-box-flex: 0;
-          -webkit-flex: 0 0 $width;
-          -moz-box-flex: 0;
-          -ms-flex: 0 0 $width;
-          flex: 0 0 $width;
-          width: $width;
-        }
-        &:nth-of-type(2) {
-          $width: 50%;
-          -webkit-box-flex: 0;
-          -webkit-flex: 0 0 $width;
-          -moz-box-flex: 0;
-          -ms-flex: 0 0 $width;
-          flex: 0 0 $width;
-          width: $width;
-        }
-      }
+    }
+  }
+  .jy-pop_table_head,
+  .jy-pop_table_item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .jy-pop_table_cell {
+    height: $tabel-cell-height;
+    line-height: $tabel-cell-height;
+    padding: 0 0.04rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-size: 0.18rem;
+    &:nth-of-type(1) {
+      $width: 60%;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 $width;
+      -moz-box-flex: 0;
+      -ms-flex: 0 0 $width;
+      flex: 0 0 $width;
+      width: $width;
+    }
+    &:nth-of-type(2) {
+      $width: 40%;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 $width;
+      -moz-box-flex: 0;
+      -ms-flex: 0 0 $width;
+      flex: 0 0 $width;
+      width: $width;
+    }
+    // &:nth-of-type(3) {
+    //   $width: 20%;
+    //   -webkit-box-flex: 0;
+    //   -webkit-flex: 0 0 $width;
+    //   -moz-box-flex: 0;
+    //   -ms-flex: 0 0 $width;
+    //   flex: 0 0 $width;
+    //   width: $width;
+    // }
+  }
+  .jy-pop_table_cell5 {
+    $width: 50%;
+    &:nth-of-type(1) {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 $width;
+      -moz-box-flex: 0;
+      -ms-flex: 0 0 $width;
+      flex: 0 0 $width;
+      width: $width;
+    }
+    &:nth-of-type(2) {
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 $width;
+      -moz-box-flex: 0;
+      -ms-flex: 0 0 $width;
+      flex: 0 0 $width;
+      width: $width;
     }
   }
   .jy-pop-table-link {
     $width: 1.3rem;
     $height: 0.36rem;
+
     display: inline-block;
     width: $width;
     @include lh($height);

@@ -39,6 +39,7 @@ body {
     Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑",
     Arial, sans-serif;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-overflow-scrolling: touch;
 }
 
 /**
@@ -105,10 +106,10 @@ i {
  in mobile
 */
 
-// ::-webkit-scrollbar {
-//   display: none;
-//   opacity: 0;
-// }
+::-webkit-scrollbar {
+  display: none;
+  opacity: 0;
+}
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and

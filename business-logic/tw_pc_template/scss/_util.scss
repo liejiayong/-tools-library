@@ -285,10 +285,10 @@ body {
   color: $color-green;
 }
 .color-grey {
-  color: $color-green;
+  color: $color-grey;
 }
 .color-deep-grey {
-  color: $color-green;
+  color: $color-deep-grey;
 }
 
 .prelative {
@@ -462,6 +462,7 @@ body {
   margin: 0 auto;
   width: $w-main;
   background: no-repeat top center;
+  box-sizing: border-box;
   /* overflow: hidden; */
 }
 .jy-sectionmain {

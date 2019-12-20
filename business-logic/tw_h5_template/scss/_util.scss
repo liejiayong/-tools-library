@@ -284,10 +284,10 @@ body {
   color: $color-green;
 }
 .color-grey {
-  color: $color-green;
+  color: $color-grey;
 }
 .color-deep-grey {
-  color: $color-green;
+  color: $color-deep-grey;
 }
 
 .prelative {
@@ -457,6 +457,7 @@ body {
   position: relative;
   width: 100%;
   background: no-repeat top center / $bg-width auto;
+  box-sizing: border-box;
 }
 .jy-sectionmain {
   position: relative;

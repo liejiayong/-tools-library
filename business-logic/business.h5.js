@@ -95,9 +95,9 @@ var jyBus = {
     } else {
       $tip = document.createElement('div');
       $tip.className = tipCls.substr(1);
-      $tip.style.cssText = 'display: none;padding: 10px;position: fixed;top: 30%;left: 50%;-webkit-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-o-transform: translateX(-50%);transform: translateX(-50%);background-color: #000;color: #fff;box-shadow: 0 0 5px #000;white-space: nowrap;z-index:2001;'
-      document.body.appendChild($tip)
-    }
+      $tip.style.cssText = 'display: none;padding: 10px;position: fixed;top: 30%;left: 50%;-webkit-transform: translateX(-50%);-moz-transform: translateX(-50%);-ms-transform: translateX(-50%);-o-transform: translateX(-50%);transform: translateX(-50%);background-color: #000;color: #fff;box-shadow: 0 0 5px #000;white-space: nowrap;z-index:2001;';
+      document.body.appendChild($tip);
+    };
 
     if (cb && typeof cb === 'function') {
       cb();
@@ -118,7 +118,7 @@ var jyBus = {
           .fadeIn(500)
           .fadeOut(1000);
       });
-    }
+    };
   },
   /**
    * 
@@ -154,7 +154,7 @@ var jyBus = {
             clearTimeout(timer);
             cbCurrent(currentIndex);
             animate();
-          }
+          };
         } else {
           currentIndex = totalIndex % TYPE_MAX_INDEX;
           clearTimeout(timer);
@@ -162,7 +162,7 @@ var jyBus = {
           animate();
         }
       }, TYPE_SPEED + currSpeed);
-    }
+    };
     animate();
   },
   brower: (function () {

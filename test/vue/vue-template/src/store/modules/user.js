@@ -2,6 +2,10 @@ import cookie from '@/utils/cookie'
 import { COOKIES_TYPE_TOKEN, COOKIES_TYPE_USERINFO, COOKIES_TYPE_HTTP_HEADER_XTOKEN } from '@/config/cookies'
 
 const user = {
+  state: {
+    user: null,
+    token: ''
+  },
   getter: {
     getUser: state => state.user || cookie.getItem(COOKIES_TYPE_USERINFO),
     getToken: state => state.token

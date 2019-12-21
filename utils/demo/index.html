@@ -12,9 +12,11 @@
 
   <!-- <script type="module" src="../localstorage.js"></script> -->
   <script type="module">
-    import cookie from '../localstorage.js'
+    import cookie from '../cookie/index.js'
     document.cookie = "someCookieName=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
     console.log(document.cookie)
+    console.log(cookie)
+    cookie.set('asds', '232', { expires: 0.001 })
   </script>
 </body>
 

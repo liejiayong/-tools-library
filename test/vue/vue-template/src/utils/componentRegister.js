@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 /**
  * 首字母大写
  * @param str 字符串
@@ -28,10 +29,6 @@ requireComponent.keys().forEach(filePath => {
     ? capitalizeFirstLetter(componentConfig.default.name)
     : fileName
   Vue.component(componentName, componentConfig.default || componentConfig)
-  console.log(' requireComponent', requireComponent.keys())
+  // console.log(' requireComponent', requireComponent.keys())
 })
-// export const regComponent = (pathName = './') => {
 
-// }
-
-// regComponent('@/')

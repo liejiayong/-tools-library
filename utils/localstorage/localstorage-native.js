@@ -1,5 +1,5 @@
-//判断浏览是否支持localStorage
 
+//判断浏览是否支持localStorage
 function isLocalStorageSupport() {
   try {
     var isSupport = 'localStorage' in window && window['localStorage'] !== null;
@@ -9,8 +9,8 @@ function isLocalStorageSupport() {
     }
     return isSupport;
   } catch (e) {
-    return false;
-  }
+    return false; 
+  } 
 }
 //判断浏览器是否开启无痕模式
 function isInPrivate() {

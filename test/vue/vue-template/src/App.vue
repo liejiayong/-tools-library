@@ -3,6 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <empty></empty>
+      <j-y-badge :count="999"></j-y-badge>
+      <jy-stepper></jy-stepper>
     </div>
     <router-view/>
   </div>
@@ -12,7 +15,8 @@
 export default {
   name: 'App',
   mounted() {
-    console.log(this)
+    console.log('this,', this, this.$jyDialog)
+    // this.$jyDialog({title: 1})
     this.$http.get('/ss')
   }
 }

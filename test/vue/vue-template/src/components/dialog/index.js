@@ -5,7 +5,7 @@ const Dialog = {}
 let instance = null
 
 // 注册Dialog
-Dialog.install = function (Vue, options) {
+Dialog.install = function (Vue) {
 
     Vue.component('jy-dialog', DialogComponent)
 

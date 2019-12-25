@@ -29,6 +29,6 @@ requireComponent.keys().forEach(filePath => {
     ? capitalizeFirstLetter(componentConfig.default.name)
     : fileName
   Vue.component(componentName, componentConfig.default || componentConfig)
-  // console.log(' requireComponent', requireComponent.keys())
+  console.log(' requireComponent', filePath, componentName, componentConfig)
 })
 

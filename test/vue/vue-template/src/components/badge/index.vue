@@ -28,7 +28,7 @@ const classMap = {
 };
 
 export default {
-	name: "JYBadge",
+	name: "JyBadge",
 	props: {
 		count: {
 			// 显示的数字，大于overflowCount时，显示${overflowCount}+，为 0 时隐藏

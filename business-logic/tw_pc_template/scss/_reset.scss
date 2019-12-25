@@ -39,8 +39,8 @@ body {
     Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑",
     Arial, sans-serif;
   -webkit-tap-highlight-color: transparent;
-  text-rendering: optimizeLegibility;
   -webkit-overflow-scrolling: touch;
+  text-rendering: optimizeLegibility;
 }
 
 /**
@@ -288,6 +288,13 @@ textarea {
   border: 0;
   outline: 0;
   appearance: none;
+}
+
+select {
+  text-align: center;
+  text-align-last:center;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC")
+    no-repeat right 10px center/ 8px auto;
 }
 
 /**

@@ -42,14 +42,15 @@
     height: $nav-height;
   }
   .jy-nav_logo {
-    -moz-border-radius: 0.3rem;
+    $width: 1.64rem;
     margin-bottom: -0.24rem;
-    border-radius: 0.3rem;
+    // -moz-border-radius: 0.3rem;
+    // border-radius: 0.3rem;
     -webkit-box-flex: 0;
-    -webkit-flex: 0 0 1.27rem;
+    -webkit-flex: 0 0 $width;
     -moz-box-flex: 0;
-    -ms-flex: 0 0 1.27rem;
-    flex: 0 0 1.27rem;
+    -ms-flex: 0 0 $width;
+    flex: 0 0 $width;
   }
   .jy-nav_profile {
     // flex: 1;

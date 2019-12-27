@@ -17,18 +17,22 @@ function capitalizeFirstLetter(str) {
  */
 function validateFileName(str) {
   return /^\S+\.vue$/.test(str) &&
-    str.replace(/^\S+\/(\w+)\.vue$/, (rs, $1) => capitalizeFirstLetter($1))
+    str.replace(/^\S+\/(\w+)\.vue$/, capitalizeFirstLetter('$1'))
+}
+
+// 注册注册组件
+function registerComponents(requireComponent) {
+  requireComponent.keys().forEach(filePath => {
+    const componentConfig = requireComponent(filePath)
+    const fileName = validateFileName(filePath)
+    const componentName = fileName.toLowerCase() === 'index'
+      ? capitalizeFirstLetter(componentConfig.default.name)
+      : fileName
+    Vue.component(componentName, componentConfig.default || componentConfig)
+    // console.log(' requireComponent:', filePath, componentName, componentConfig)
+  })
 }
 
 // 找到组件文件夹下以.vue命名的文件，如果文件名为index，那么取组件中的name作为注册的组件名
-const requireComponent = require.context('../components', true, /\.vue$/)
-requireComponent.keys().forEach(filePath => {
-  const componentConfig = requireComponent(filePath)
-  const fileName = validateFileName(filePath)
-  const componentName = fileName.toLowerCase() === 'index'
-    ? capitalizeFirstLetter(componentConfig.default.name)
-    : fileName
-  Vue.component(componentName, componentConfig.default || componentConfig)
-  console.log(' requireComponent', filePath, componentName, componentConfig)
-})
-
+const component = require.context('../components', true, /\.vue$/)
+registerComponents(component)

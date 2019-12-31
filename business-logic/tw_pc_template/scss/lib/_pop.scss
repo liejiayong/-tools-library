@@ -185,6 +185,7 @@ $height-table-overflow: 200px;
         width: $width;
         height: $height;
         line-height: $height;
+        box-sizing: border-box;
         font-size: 18px;
       }
       // input auth
@@ -200,6 +201,7 @@ $height-table-overflow: 200px;
         line-height: $height;
         font-size: 18px;
         vertical-align: middle;
+        box-sizing: border-box;
       }
       // btn_pop_auth
       .btn_pop_auth {
@@ -216,6 +218,7 @@ $height-table-overflow: 200px;
         line-height: $height;
         font-size: 18px;
         vertical-align: middle;
+        box-sizing: border-box;
         &.disable{
           border: 1px solid #ccc;
           background-color: #ccc;

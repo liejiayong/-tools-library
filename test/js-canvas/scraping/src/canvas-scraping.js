@@ -14,8 +14,8 @@
  * version: 0.1.0
  */
 
-import './lib/Promise.ployfill.js'
-import './lib/simulateTouch.js'
+// import './lib/Promise.ployfill.js'
+import '../lib/simulateTouch.js'
 
 export default class CanvasScraping {
 	constructor(element = null, config) {

@@ -2,11 +2,11 @@ const path = require('path');
 
 const  config = {
     entry: {
-      CanvasScraping: './canvas-scraping.js'
+      scraping: './dist/canvas-scraping.js'
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, './'),
+        path: path.resolve(__dirname, './build'),
         library: 'CanvasScraping',
         libraryTarget: 'umd'
     }

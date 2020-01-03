@@ -34,8 +34,10 @@
 		pixelRatio: 2
 	})
 
-	setTimeout(function () {
-		scraping.setAward('./award.jpg')
+	scraping.setAward('./award.jpg')
+	scraping.setLock(false)
+	setInterval(() => {
+		scraping.setCover('./scratch-2x.jpg')
 	}, 2000);
 </script>
 

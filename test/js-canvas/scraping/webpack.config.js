@@ -9,6 +9,7 @@ const  config = {
         path: path.resolve(__dirname, './build'),
         library: 'CanvasScraping',
         libraryTarget: 'umd'
+        // libraryTarget: 'window'
     }
 };
 

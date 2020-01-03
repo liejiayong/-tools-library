@@ -43,6 +43,7 @@ export default class CanvasScraping {
 		this.height = 0 // canvas height
 		this.offsetTop = 0
 		this.offsetLeft = 0
+		this.lock = true // 锁住不能刮
 
 		const pixelRatio = this.config.pixelRatio > 1 ? this.config.pixelRatio : 1
 		this.pixelRatio = pixelRatio
@@ -79,6 +80,10 @@ export default class CanvasScraping {
 		this.done = false
 		this.config.doneCallback()
 	}
+	setLock(lock) {
+		if (typeof lock !== "boolean") return new Error(' the paramtar must be Boolean false or true')
+		this.lock = lock
+	}
 	/**
 	 * 设置背景图
 	 */
@@ -91,6 +96,7 @@ export default class CanvasScraping {
 				top = 0,
 				left = 0
 
+			this.ctx.save()
 			if (this.pixelRatio !== 1) {
 				const scale = this.scale,
 					sw = width * scale,
@@ -105,6 +111,7 @@ export default class CanvasScraping {
 			}
 
 			this.ctx.drawImage(image, left, top, width, height)
+			this.ctx.restore()
 		})
 	}
 	/**
@@ -180,9 +187,13 @@ export default class CanvasScraping {
 		canvas.style.cssText = `;width:initial;height:initial;`
 	}
 	_drawPoint({ x = 0, y = 0, radius = 0 }) {
+		this.ctx.save()
+		const scale = this.scale
+		this.ctx.scale(scale, scale)
 		if (this.config.mode !== 'sector') this.ctx.beginPath()
 		this.ctx.arc(x, y, radius, 0, 2 * Math.PI)
 		this.ctx.fill()
+		this.ctx.restore()
 	}
 	_pixelPercent() {
 		const pixelData = this.ctx.getImageData(0, 0, this.width, this.height).data, pixelLen = pixelData.length
@@ -289,11 +300,13 @@ export default class CanvasScraping {
 	}
 	_eventUp(e) {
 		e.preventDefault()
+		if (this.lock) return
 		this.isDown = false
 		this.ctx.restore()
 	}
 	_eventDown(e) {
 		e.preventDefault()
+		if (this.lock) return
 		this.ctx.save()
 		if (this.config.mode === 'sector') this.ctx.beginPath()
 		this.ctx.globalCompositeOperation = 'destination-out'
@@ -301,6 +314,7 @@ export default class CanvasScraping {
 	}
 	_eventMove(e) {
 		e.preventDefault()
+		if (this.lock) return
 		if (this.isDown && !this.done) {
 			const { x, y, radius } = this._getPostion(e.changedTouches[0])
 			this._drawPoint({ x, y, radius })

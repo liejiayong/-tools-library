@@ -81,13 +81,13 @@ gulp.task('spritejs', function() {
 		)
 		.pipe(gulp.dest('js'))
 })
-var isPrite = false
+var isPrite = true
 gulp.task('spritecss', function() {
 	gulp
 		.src('img/*')
 		.pipe(
 			spritesmith({
-				imgName: 'sprite-social.png', //保存合并后图片的地址
+				imgName: 'sprite.png', //保存合并后图片的地址
 				cssName: 'skill-sprite.css', //保存合并后对于css样式的地址
 				padding: 8, //合并时两个图片的间距
 				algorithm: 'binary-tree', //注释1
@@ -101,7 +101,7 @@ gulp.task('spritecss', function() {
 								txt = '.' + sprite.name + '{display:inline-block;' + 'background-size: ' + sprite.total_width + 'px ' + sprite.total_height + 'px' + ";background-image: url('../img/" + sprite.escaped_image + "');" + 'background-position: ' + sprite.px.offset_x + ' ' + sprite.px.offset_y + ';width:' + sprite.px.width + ';' + 'height:' + sprite.px.height + ';' + '}\n'
 							} else {
 								// '.' + sprite.name + '{' + "background-size: " + px2rem(sprite.total_width) + ' ' + px2rem(sprite.total_height) + ";background-image: url('../img/" + sprite.escaped_image + "');" + 'background-position: ' + px2rem(sprite.px.offset_x) + ' ' + px2rem(sprite.px.offset_y) + ';' + 'width:' + px2rem(sprite.px.width) + ';' + 'height:' + px2rem(sprite.px.height) + ';' + '}\n'
-								txt = '.' + sprite.name + '{display:inlineblock;' + 'background-size: ' + px2rem(sprite.total_width) + ' ' + px2rem(sprite.total_height) + ";background-image: url('../img/" + sprite.escaped_image + "');" + 'background-position: ' + px2rem(sprite.px.offset_x) + ' ' + px2rem(sprite.px.offset_y) + ';' + 'width:' + px2rem(sprite.px.width) + ';' + 'height:' + px2rem(sprite.px.height) + ';' + '}\n'
+								txt = '.' + sprite.name + '{display:inline-block;' + 'background-size: ' + px2rem(sprite.total_width) + ' ' + px2rem(sprite.total_height) + ";background-image: url('../img/" + sprite.escaped_image + "');" + 'background-position: ' + px2rem(sprite.px.offset_x) + ' ' + px2rem(sprite.px.offset_y) + ';' + 'width:' + px2rem(sprite.px.width) + ';' + 'height:' + px2rem(sprite.px.height) + ';' + '}\n'
 								// '.' + sprite.name + '{margin: 0 auto;object-fit:cover;' + "background-size: " + px2rem(sprite.total_width) + ' ' + px2rem(sprite.total_height) + ";background-image: url('../img/" + sprite.escaped_image + "');" + 'background-position: ' + px2rem(sprite.px.offset_x) + ' ' + px2rem(sprite.px.offset_y) + ';' + 'width: .8rem;height:.8rem;' + '}\n'
 							}
 							arr.push(txt)

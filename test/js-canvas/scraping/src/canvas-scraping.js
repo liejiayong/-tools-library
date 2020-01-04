@@ -12,7 +12,7 @@
  */
 
 // import './lib/Promise.ployfill.js'
-// import '../lib/simulateTouch.js'
+import '../lib/simulateTouch.js'
 
 export default class CanvasScraping {
 	constructor(element = null, config) {
@@ -180,6 +180,7 @@ export default class CanvasScraping {
 		const b = this.container.getBoundingClientRect()
 		this.offsetLeft = b.left
 		this.offsetTop = b.top
+		// console.log('getBoundingClientRect', b, this.offsetLeft, this.offsetTop)
 		if (width && height) {
 			cw = width
 			ch = height
@@ -191,7 +192,7 @@ export default class CanvasScraping {
 		this.width = canvas.width = cw
 		this.height = canvas.height = ch
 		this.ctx = canvas.getContext('2d')
-		this.ctx.fillStyle= this.config.coverColor
+		this.ctx.fillStyle = this.config.coverColor
 		canvas.style.cssText = `;width:initial;height:initial;`
 	}
 	_drawPoint({ x = 0, y = 0, radius = 0 }) {
@@ -216,13 +217,16 @@ export default class CanvasScraping {
 	}
 	_getPostion(touches) {
 		if (!touches || (touches && !touches.clientX)) return { x: 0, y: 0, radius: 0 }
-
 		const { pixelRatio, radius } = this.config
-		let x = (touches.clientX + document.body.scrollLeft || touches.pageX) - this.offsetLeft || 0,
-			y = (touches.clientY + document.body.scrollTop || touches.pageY) - this.offsetTop || 0
+		// let x = (touches.clientX + document.body.scrollLeft || touches.pageX) - this.offsetLeft || 0,
+		// y = (touches.clientY + document.body.scrollTop || touches.pageY) - this.offsetTop || 0
+		let x = (touches.clientX - this.offsetLeft),
+			y = (touches.clientY - this.offsetTop)
 
-		x = x * pixelRatio
-		y = y * pixelRatio
+		// console.log('touches', x, y, this.offsetLeft, this.offsetTop)
+		x = Math.abs(x) * pixelRatio
+		y = Math.abs(y) * pixelRatio
+		// console.log(touches, x, y)
 		return { x, y, radius }
 	}
 	_judgeArea() {
@@ -327,7 +331,7 @@ export default class CanvasScraping {
 		if (this.isDown && !this.done) {
 			const { x, y, radius } = this._getPostion(e.changedTouches[0])
 			this._drawPoint({ x, y, radius })
-			console.log('--move', x, y, radius)
+			// console.log('--move', x, y, radius)
 			this._judgeArea()
 		}
 	}

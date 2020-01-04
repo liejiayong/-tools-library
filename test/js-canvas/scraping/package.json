@@ -4,7 +4,8 @@
   "description": "babel Template",
   "main": "canvas-scraping.js",
   "scripts": {
-    "compiler": "babel src --out-dir dist --watch",
+    "watch": "babel src --out-dir dist --watch",
+    "compiler": "babel src --out-dir dist",
     "build": "webpack --config webpack.config.js"
   },
   "keywords": [

@@ -11,34 +11,65 @@
 <body>
 	<style>
 		.card canvas {
+			margin: 0 auto;
 			border: 1px solid #000;
 		}
 	</style>
 	<div class="card"> </div>
+	<button>再来一次</button>
 </body>
+<!-- 模块测试 -->
+<script type="module">
+	import CanvasScraping from './src/canvas-scraping.js'
+	console.log(CanvasScraping)
+	var card = document.querySelector('.card')
+	var scraping = new CanvasScraping(card, {
+		coverImg: './scratch-2x.jpg',
+		pixelRatio: 2,
+		doneCallback: function () {
+			// scraping.setCover('./scratch-2x.jpg')
+
+		}
+	})
+
+	scraping.setLock(false)
+	scraping.setAward('./award.jpg')
+	// setInterval(() => {
+
+	// }, 2000);
+
+	document.querySelector('button').addEventListener('click', function () {
+		scraping.setCover()
+	});
+</script>
+
 <!-- <script src="./canvas-scraping.min.js"></script> -->
 <!-- <script src="./CanvasScraping.js"></script> -->
-<script src="./build/scraping.js"></script>
+
+<!-- <script src="./build/scraping.js"></script>
 <script>
-	// window.addEventListener(
-	// 	'touchmove',
-	// 	function (e) {
-	// 		e.preventDefault()
-	// 	},
-	// 	{ passive: false }
-	// )
 	console.log(CanvasScraping)
 	var card = document.querySelector('.card')
 	var scraping = new CanvasScraping.default(card, {
+		coverColor: '#eff7ff',
 		coverImg: './scratch-2x.jpg',
-		pixelRatio: 2
+		pixelRatio: 2,
+		// mode: 'sector',
+		doneCallback: function () {
+			// scraping.setCover('./scratch-2x.jpg')
+			console.log('end')
+		}
 	})
 
-	scraping.setAward('./award.jpg')
 	scraping.setLock(false)
-	setInterval(() => {
-		scraping.setCover('./scratch-2x.jpg')
-	}, 2000);
-</script>
+	scraping.setAward('./award.jpg')
+	// setInterval(() => {
+
+	// }, 2000);
+	console.log(scraping)
+	document.querySelector('button').addEventListener('click', function () {
+		scraping.reset()
+	});
+</script> -->
 
 </html>

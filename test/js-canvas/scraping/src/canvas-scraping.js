@@ -4,7 +4,10 @@
  * 
  * canvas 设置this.ctx.scale(scale, scale)之后，canvas上像素图像的坐标位置及长宽会根据scale倍数来缩放图像。
  * 本做法用来适配移动端的高清屏，在pc端时pixelRatio默认为像素 1，无需手动设置；在移动端时，图片需设置则可按需设置，刮刮卡封面图片的长宽原则根据 width = canvas的width * pixelRatio，height = canvas 的height * pixelRatio即可
- * 
+ * 支持加锁解锁
+ * 支持复位
+ * 支持随机设置奖品与覆盖面
+ *
  * 存在问题，当鼠标移开canvas元素后，touchend事件 与touchleave事件没有正常触发，在解决中
  * 
  * author: liejiayong(809206619@qq.com)
@@ -75,6 +78,7 @@ export default class CanvasScraping {
 	_clearAll() {
 		this.ctx.fillRect(0, 0, this.width, this.height)
 		this.done = false
+		this.lock = true
 		this.config.doneCallback()
 		const transition = this._preStyle('transition')
 		this.ctx.canvas.style[transition] = 'none'
@@ -84,6 +88,7 @@ export default class CanvasScraping {
 		this.lock = lock
 	}
 	reset() {
+		this.lock = false
 		this.setCover()
 	}
 	/**
@@ -171,20 +176,19 @@ export default class CanvasScraping {
 	_createCanvas() {
 		const canvas = document.createElement('canvas')
 		canvas.innerText = '浏览器版本过低，请使用最新版本浏览器进行浏览！'
+		canvas.style.cssText = `;width:initial;height:initial;`
 		this.container.appendChild(canvas)
 
 		const { width, height } = this.config
 		let cw = 0,
 			ch = 0
 
-		const b = this.container.getBoundingClientRect()
-		this.offsetLeft = b.left
-		this.offsetTop = b.top
-		// console.log('getBoundingClientRect', b, this.offsetLeft, this.offsetTop)
+
 		if (width && height) {
 			cw = width
 			ch = height
 		} else {
+			const b = this.container.getBoundingClientRect()
 			cw = b.width
 			ch = b.height
 		}
@@ -193,7 +197,13 @@ export default class CanvasScraping {
 		this.height = canvas.height = ch
 		this.ctx = canvas.getContext('2d')
 		this.ctx.fillStyle = this.config.coverColor
-		canvas.style.cssText = `;width:initial;height:initial;`
+		this._resetBounding()
+	}
+	_resetBounding() {
+		const b = this.container.getBoundingClientRect()
+		this.offsetLeft = b.left
+		this.offsetTop = b.top
+		// console.log('getBoundingClientRect', b, this.offsetLeft, this.offsetTop)
 	}
 	_drawPoint({ x = 0, y = 0, radius = 0 }) {
 		this.ctx.save()
@@ -320,6 +330,7 @@ export default class CanvasScraping {
 	_eventDown(e) {
 		e.preventDefault()
 		if (this.lock) return
+		this._resetBounding()
 		this.ctx.save()
 		if (this.config.mode === 'sector') this.ctx.beginPath()
 		this.ctx.globalCompositeOperation = 'destination-out'

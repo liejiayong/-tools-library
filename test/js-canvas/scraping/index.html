@@ -12,7 +12,7 @@
 	<style>
 		.card{
 			position: relative;
-			margin: 50px;
+			margin: 500px 50px;
 		}
 		.card canvas {
 			margin: 0 auto;
@@ -29,7 +29,7 @@
 	<button>再来一次</button>
 </body>
 <!-- 模块测试 -->
-<script type="module">
+<!-- <script type="module">
 	import CanvasScraping from './src/canvas-scraping.js'
 	console.log(CanvasScraping)
 	var card = document.querySelector('.card')
@@ -51,12 +51,12 @@
 	document.querySelector('button').addEventListener('click', function () {
 		scraping.reset()
 	});
-</script>
+</script> -->
 
 <!-- <script src="./canvas-scraping.min.js"></script> -->
 <!-- <script src="./CanvasScraping.js"></script> -->
 
-<!-- <script src="./build/scraping.js"></script>
+<script src="./build/scraping.js"></script>
 <script>
 	console.log(CanvasScraping)
 	var card = document.querySelector('.card')
@@ -68,6 +68,7 @@
 		doneCallback: function () {
 			// scraping.setCover('./scratch-2x.jpg')
 			console.log('end')
+			scraping.setLock(true)
 		}
 	})
 
@@ -80,6 +81,6 @@
 	document.querySelector('button').addEventListener('click', function () {
 		scraping.reset()
 	});
-</script> -->
+</script>
 
 </html>

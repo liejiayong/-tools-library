@@ -32,6 +32,7 @@ $width: 1.6rem;
   overflow: hidden;
 }
 .jy-navbar__item {
+  $bg: #5f2309 linear-gradient(#431909, #5f2309, #7c2d08);
   margin-bottom: 0.02rem;
   position: relative;
   width: $width;
@@ -39,44 +40,7 @@ $width: 1.6rem;
   color: #c3b9a4;
   font-size: 0.2rem;
   text-align: center;
-  background-color: #5f2309;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#431909),
-    color-stop(#5f2309),
-    to(#7c2d08)
-  );
-  background-image: -webkit-linear-gradient(#431909, #5f2309, #7c2d08);
-  background-image: -moz-linear-gradient(#431909, #5f2309, #7c2d08);
-  background-image: -o-linear-gradient(#431909, #5f2309, #7c2d08);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#431909),
-    color-stop(#5f2309),
-    to(#7c2d08)
-  );
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#431909),
-    color-stop(#5f2309),
-    to(#7c2d08)
-  );
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#431909),
-    color-stop(#5f2309),
-    to(#7c2d08)
-  );
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#431909), color-stop(#5f2309), to(#7c2d08));
-  background-image: linear-gradient(#431909, #5f2309, #7c2d08);
+  background: $bg;
   -webkit-animation: rtol 0.3s ease-in;
   -moz-animation: rtol 0.3s ease-in;
   animation: rtol 0.3s ease-in;

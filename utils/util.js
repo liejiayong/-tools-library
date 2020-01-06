@@ -360,3 +360,14 @@ export const sizeSym = (val) => {
  * @param {*} url 
  */
 export const isBase64 = url => /^data:image\/([\w+]+);base64,([\s\S]+)/.test(url)
+
+/**
+ * 消除浏览器惯性
+ * 
+ * 适用于移动端，尤其是ios浏览器上下滚动时，滚动到顶部或底部时产生的整体滑动一定位置的惯性情况
+ */
+export const inertiaScroll = {
+  fn: function (e) { e.preventDefault(); },
+  open: function () { window.addEventListener('touchmove', this.fn, { passive: false }); },
+  off: function () { window.removeEventListener('touchmove', this.fn, { passive: false }); }
+}

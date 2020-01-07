@@ -10,10 +10,11 @@
 
 <body>
 	<style>
-		.card{
+		.card {
 			position: relative;
 			margin: 500px 50px;
 		}
+
 		.card canvas {
 			margin: 0 auto;
 			border: 1px solid #000;
@@ -29,34 +30,34 @@
 	<button>再来一次</button>
 </body>
 <!-- 模块测试 -->
-<!-- <script type="module">
+<script type="module">
 	import CanvasScraping from './src/canvas-scraping.js'
 	console.log(CanvasScraping)
 	var card = document.querySelector('.card')
 	var scraping = new CanvasScraping(card, {
 		coverImg: './scratch-2x.jpg',
 		pixelRatio: 2,
+		onReady: function () { }, // 开始刮
 		doneCallback: function () {
 			// scraping.setCover('./scratch-2x.jpg')
-
-		}
+		} // 全部刮完
 	})
 
-	scraping.setLock(false)
-	scraping.setAward('./award.jpg')
+	scraping.setLock(false); // 设置锁。true不能刮
+	scraping.setAward('./award.jpg') // 设置奖品
 	// setInterval(() => {
 
 	// }, 2000);
 
 	document.querySelector('button').addEventListener('click', function () {
-		scraping.reset()
+		scraping.reset() // 重置后才能玩下次刮刮卡
 	});
-</script> -->
+</script>
 
 <!-- <script src="./canvas-scraping.min.js"></script> -->
 <!-- <script src="./CanvasScraping.js"></script> -->
 
-<script src="./build/scraping.js"></script>
+<!-- <script src="./build/scraping.js"></script>
 <script>
 	console.log(CanvasScraping)
 	var card = document.querySelector('.card')
@@ -81,6 +82,6 @@
 	document.querySelector('button').addEventListener('click', function () {
 		scraping.reset()
 	});
-</script>
+</script> -->
 
 </html>

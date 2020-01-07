@@ -29,6 +29,7 @@ export default class CanvasScraping {
 			pixelRatio: 1, // 屏幕倍数
 			duration: 2000, // 展现全部的淡出效果时间（ms）
 			percent: 60, // 刮开面积 占 整张刮卡的百分比
+			onReady: function () { console.log('ready') },
 			doneCallback: () => { console.log('done') }, // 全部刮开回调
 			awardCssText: '', // 奖品图片样式
 			unit: 'px', // 宽高css单位
@@ -44,6 +45,7 @@ export default class CanvasScraping {
 		this.offsetTop = 0
 		this.offsetLeft = 0
 		this.lock = true // 锁住不能刮
+		this.first = true
 
 		const pixelRatio = this.config.pixelRatio > 1 ? this.config.pixelRatio : 1
 		this.pixelRatio = pixelRatio
@@ -53,6 +55,11 @@ export default class CanvasScraping {
 		this.container = null // 装载刮卡的父元素
 
 		this._init()
+	}
+	_readyCB() {
+		if (!this.first) return
+		this.first = false
+		this.config.onReady()
 	}
 	/**
 	 * 清除覆盖层所有像素,支持动画消除
@@ -89,6 +96,7 @@ export default class CanvasScraping {
 	}
 	reset() {
 		this.lock = false
+		this.first = true
 		this.setCover()
 	}
 	/**
@@ -330,6 +338,7 @@ export default class CanvasScraping {
 	_eventDown(e) {
 		e.preventDefault()
 		if (this.lock) return
+		this._readyCB()
 		this._resetBounding()
 		this.ctx.save()
 		if (this.config.mode === 'sector') this.ctx.beginPath()

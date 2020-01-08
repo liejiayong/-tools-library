@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>save pic</title>
+  <script src="../pixi/pixi.min.js"></script>
+  <style>
+    canvas {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="btnSave">保存</button>
+  <canvas width="256" height="256" id="share"></canvas>
+
+  <script>
+    let Application = PIXI.Application,
+      Container = PIXI.Container,
+      loader = PIXI.loader,
+      resources = PIXI.loader.resources,
+      TextureCache = PIXI.utils.TextureCache,
+      Sprite = PIXI.Sprite,
+      Rectangle = PIXI.Rectangle;
+
+
+    let app = new Application({
+      width: 256,
+      height: 256,
+      antialiasing: true,
+      transparent: false,
+      resolution: 1
+    });
+
+    document.body.appendChild(app.view)
+
+    loader.add([{
+      name: 'dagon', url: "./images/dungeon.png"
+    }]).load(setup);
+
+    function setup() {
+      let dagon = new Sprite(resources['dagon'].texture);
+      app.stage.scale.set(.5, .5)
+      app.stage.addChild(dagon);
+
+    }
+
+    const posterCanvas = document.querySelector('#share');
+    const posterCtx = posterCanvas.getContext('2d');
+
+    document.querySelector('#btnSave').addEventListener('click', function () {
+      console.log(app)
+      let rectangle = new PIXI.Graphics();
+      rectangle.lineStyle(4, 0xFF3300, 1);
+      rectangle.beginFill(0x66CCFF);
+      rectangle.drawRect(100, 0, 100, 100);
+      rectangle.endFill();
+      app.stage.mask = rectangle
+      // Render the graphics as an HTMLImageElement
+      const image = app.renderer.plugins.extract.image(app.stage);
+      document.body.appendChild(image);
+
+      posterCtx.drawImage(image, 0, 0, 256, 256, 0, 0, 512, 512)
+    });
+
+
+
+
+
+  </script>
+</body>
+
+</html>

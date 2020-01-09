@@ -60,7 +60,6 @@
       rectangle.drawRect(100, 0, 100, 100);
       rectangle.endFill();
       app.stage.mask = rectangle
-      // Render the graphics as an HTMLImageElement
       const image = app.renderer.plugins.extract.image(app.stage);
       document.body.appendChild(image);
 

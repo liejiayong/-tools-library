@@ -67,6 +67,7 @@ app.stage.addChild(ellipse);
 //Triangle
 let triangle = new Graphics();
 triangle.beginFill(0x66FF33);
+triangle.lineStyle(4, 0x99CCFF,1,0, true);;
 
 //Use `drawPolygon` to define the triangle as an
 //array of x/y positions
@@ -76,6 +77,7 @@ triangle.drawPolygon([
     32, 64,              //Second point
     0, 0                 //Third point 
 ]);
+triangle.closePath()
 
 triangle.endFill();
 

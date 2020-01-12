@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>drag sprite</title>
+</head>
+
+<body>
+  <script src="../pixi/pixi.min.js"></script>
+  <script src="../pixi/hammer.min.js?v=2.0.8"></script>
+  <script>
+    //Aliases
+    let Application = PIXI.Application,
+      Container = PIXI.Container,
+      loader = PIXI.loader,
+      resources = PIXI.loader.resources,
+      TextureCache = PIXI.utils.TextureCache,
+      Sprite = PIXI.Sprite,
+      Rectangle = PIXI.Rectangle;
+
+    //Create a Pixi Application
+    let app = new Application({
+      width: window.innerWidth,
+      height: window.innerHeight,
+      antialiasing: true,
+      transparent: false,
+      resolution: 1
+    }
+    );
+    document.body.appendChild(app.view);
+
+    loader
+      .add("images/tileset.png")
+      .load(setup);
+
+    function setup() {
+      // let texture = resources["images/tileset.png"].texture;
+      let texture = TextureCache["images/tileset.png"];
+      let rectangle = new Rectangle(192, 128, 64, 64);
+      texture.frame = rectangle;
+      let rocket = new Sprite(texture);
+      console.log(rocket)
+      rocket.diff = {
+        x: 0,
+        y: 0,
+        tap: false
+      }
+      rocket.x = 32;
+      rocket.y = 32;
+      rocket.buttonMode = true;
+      rocket.interactive = true;
+      rocket.on('pointerdown', function (e) {
+        console.log(e)
+        rocket.diff.tap = true;
+        rocket.diff.x = e.data.global.x;
+        rocket.diff.y = e.data.global.y;
+      });
+      rocket.on('pointermove', function () {
+        if (!rocket.diff.tap) return;
+        rocket.x += 2
+      });
+      rocket.on('pointerup', function () {
+        rocket.diff.tap = false;
+      });
+      app.stage.addChild(rocket);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+  </script>
+</body>
+
+</html>

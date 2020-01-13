@@ -12,6 +12,54 @@
   <script src="../pixi/pixi.min.js"></script>
   <script src="../pixi/hammer.min.js?v=2.0.8"></script>
   <script>
+    var pixiUtil = {
+      getDashedTop: function (top, lineTo, maxTop) {
+        var ret = top;
+        if (top > maxTop) {
+          ret = maxTop;
+        } else if (top < maxTop && (top + lineTo) > maxTop) {
+          ret = maxTop;
+        } else {
+          ret = top + lineTo;
+        }
+
+        return ret;
+      },
+      drawDashedVertical: function (line, params) {
+        var lineWidth = params.lineWidth, color = params.color, lineTo = params.lineTo,
+          width = params.width, height = params.height,
+          top = params.top, left = params.left;
+
+        var maxTop = top + height;
+        line.moveTo(left, top);
+
+        while (maxTop > top) {
+          line.lineTo(left, lineTo);
+          top = this.getDashedTop(top, lineTo, maxTop);
+          line.moveTo(left, top);
+          top = this.getDashedTop(top, lineTo, maxTop);
+          console.log(top, maxTop)
+        }
+      },
+      drawDashed: function (params) {
+        var lineWidth = 2, color = 0xcccccc, lineTo = 2,
+          width = params.width, height = params.height,
+          top = params.top, left = params.left;
+        var line = new PIXI.Graphics();
+        line.x = left;
+        line.y = top;
+        line.lineStyle(lineWidth, color, 1);
+        line.moveTo(0, 0);
+
+        params.lineWidth = lineWidth;
+        params.color = color;
+        params.lineTo = lineTo;
+        this.drawDashedVertical(line, { width: params.width, height: params.height, top: top });
+
+        return line;
+      }
+    }
+
     //Aliases
     let Application = PIXI.Application,
       Container = PIXI.Container,
@@ -65,7 +113,9 @@
       rocket.on('pointerup', function () {
         rocket.diff.tap = false;
       });
+      var dashed = pixiUtil.drawDashed({ width: rocket.width, height: rocket.height, left: rocket.x, top: rocket.y });
       app.stage.addChild(rocket);
+      rocket.addChild(dashed);
 
 
 

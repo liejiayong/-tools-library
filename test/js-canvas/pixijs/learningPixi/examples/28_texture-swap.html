@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="pixiJs">
+<meta name="description" content="pixiJs">
+<title>pixiJs</title>
+</head>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+var app = new PIXI.Application();
+document.body.appendChild(app.view);
+
+var bol = false;
+
+// create a texture from an image path
+var texture = PIXI.Texture.fromImage('https://pixijs.io/examples/required/assets/flowerTop.png');
+
+// create a second texture
+var secondTexture = PIXI.Texture.fromImage('https://pixijs.io/examples/required/assets/eggHead.png');
+
+// create a new Sprite using the texture
+var dude = new PIXI.Sprite(texture);
+
+// center the sprites anchor point
+dude.anchor.set(0.5);
+
+// move the sprite to the center of the screen
+dude.x = app.screen.width / 2;
+dude.y = app.screen.height / 2;
+
+app.stage.addChild(dude);
+
+// make the sprite interactive
+dude.interactive = true;
+dude.buttonMode = true;
+
+dude.on('pointertap', function() {
+    bol = !bol;
+    if (bol) {
+        dude.texture = secondTexture;
+    }
+    else {
+        dude.texture = texture;
+    }
+});
+
+app.ticker.add(function() {
+    // just for fun, let's rotate mr rabbit a little
+    dude.rotation += 0.1;
+});
+</script>
+</body>
+</html>

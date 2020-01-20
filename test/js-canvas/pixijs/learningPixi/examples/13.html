@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="pixiJs">
+<meta name="description" content="pixiJs">
+<title>pixiJs</title>
+</head>
+<body>
+<script src="../pixi/pixi.min.js"></script>
+<script>
+	var app = new PIXI.Application();
+	document.body.appendChild(app.view);
+
+	app.stop();
+
+	PIXI.loader
+		.add('spritesheet', 'https://pixijs.io/examples/required/assets/mc.json')
+		.load(onAssetsLoaded);
+
+	function onAssetsLoaded() {
+
+		// create an array to store the textures
+		var explosionTextures = [],
+			i;
+
+		for (i = 0; i < 26; i++) {
+			 var texture = PIXI.Texture.fromFrame('Explosion_Sequence_A ' + (i+1) + '.png');
+			 explosionTextures.push(texture);
+		}
+
+		for (i = 0; i < 50; i++) {
+			// create an explosion AnimatedSprite
+			var explosion = new PIXI.extras.AnimatedSprite(explosionTextures);
+
+			explosion.x = Math.random() * app.screen.width;
+			explosion.y = Math.random() * app.screen.height;
+			explosion.anchor.set(0.5);
+			explosion.rotation = Math.random() * Math.PI;
+			explosion.scale.set(0.75 + Math.random() * 0.5);
+			explosion.gotoAndPlay(Math.random() * 27);
+			app.stage.addChild(explosion);
+		}
+
+		// start animating
+		app.start();
+	}
+
+
+</script>
+</body>
+</html>

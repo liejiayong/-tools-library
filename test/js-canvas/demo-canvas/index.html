@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no,email=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no">
+
+
+<meta content="width=device-width,viewport-fit=cover,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport" viewport-fit="cover">
+
+
+<meta name="copyright" content="Tanwan">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+<meta name="applicable-device" content="mobile">
+<title>新新H5SDK</title>
+<link type="text/css" rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.12.0.min.js"></script>
+<script type="text/javascript">$(function(){function initScreen(callback){var dh = document.documentElement.clientHeight,dw = document.documentElement.clientWidth;$("html").css("font-size",dh/dw<1.5 ? (dh/603*312.5+"%") : (dw/375*312.5+"%"));if(callback)callback()}$(window).on('onorientationchange'in window ? 'orientationchange' : 'resize', function (){setTimeout(initScreen, 200)});initScreen()})</script>
+</head>
+<body>
+<div class="main">
+    <div class="user-hd">
+        <div class="avatar" style="background-image:url('imgs/2.jpg')"></div>
+        <div class="uname">永恒之刃</div>
+    </div>
+    <div class="lists">
+        <a href="#" class="item"><i class="ico phone-ico"></i>更换手机</a>
+        <a href="#" class="item"><i class="ico safe-ico"></i>实名认证</a>
+        <a href="#" class="item"><i class="ico gift-ico"></i>领取礼包</a>
+        <a href="#" class="item"><i class="ico news-ico"></i>新闻公告</a>
+        <a href="#" class="item"><i class="ico pas-ico"></i>密码管理</a>
+        <a href="#" class="item"><i class="ico chat-ico"></i>联系客服</a>
+    </div>
+    <div class="lists">
+        <a href="#" class="item"><i class="ico switch-ico"></i>切换账号</a>
+    </div>
+</div>
+
+<div class="pop" id="Jtip">
+    <div class="dialog">
+        <div class="dialog-hd">提示</div>
+        <div class="dialog-bd">
+            294K因为未绑定手机号码而未能进行登录验证，请进行手机绑定后验证
+        </div>
+        <div class="dialog-ft">
+            <a href="javascript:;" class="dialog-btn">稍后绑定</a>
+            <a href="javascript:;" class="dialog-btn btn-warn">立即绑定</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+//演示
+$('.lists .item').on('click',function(){
+    $('#Jtip').fadeIn();
+})
+$('.dialog-btn').on('click',function(){
+    $('#Jtip').fadeOut();
+})
+
+
+
+</script>
+
+
+<canvas id="my_canvas" width="540" heihgt="180"></canvas>
+<script type="text/javascript">
+    // 获取像素比
+    var getPixelRatio = function (context) {
+        var backingStore = context.backingStorePixelRatio ||
+            context.webkitBackingStorePixelRatio ||
+            context.mozBackingStorePixelRatio ||
+            context.msBackingStorePixelRatio ||
+            context.oBackingStorePixelRatio ||
+            context.backingStorePixelRatio || 1;
+        return (window.devicePixelRatio || 1) / backingStore;
+    };
+    //画文字
+    var myCanvas = document.getElementById("my_canvas");
+    var context = myCanvas.getContext("2d");
+    var ratio = getPixelRatio(context);
+ 
+    myCanvas.style.width = myCanvas.width + 'px';
+    myCanvas.style.height = myCanvas.height + 'px';
+ 
+    myCanvas.width = myCanvas.width * ratio;
+    myCanvas.height = myCanvas.height * ratio;
+ 
+    // 放大倍数
+    context.scale(ratio, ratio);
+ 
+    context.font = "18px Georgia";
+    context.fillStyle = "#999";
+    context.fillText("我是清晰的文字", 50, 50);
+</script>
+
+
+</body>
+</html>

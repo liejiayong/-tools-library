@@ -6,11 +6,11 @@ $width-label: 16px;
 
 .jy-list-msg {
   margin-top: 93px;
-  .tit{
+  .tit {
     font-size: 18px;
     padding-bottom: 10px;
   }
-  .msg-content{
+  .msg-content {
     position: relative;
     color: #949494;
     li {
@@ -20,17 +20,14 @@ $width-label: 16px;
       color: inherit;
       padding-left: $width-padding;
       @include lh(26px);
-      &::before{
-        content: '';
+      &::before {
+        content: "";
         display: block;
         position: absolute;
         top: 50%;
         left: 0;
         -webkit-transform: translateY(-50%) rotate(45deg);
-            -moz-transform: translateY(-50%) rotate(45deg);
-            -ms-transform: translateY(-50%) rotate(45deg);
-              -o-transform: translateY(-50%) rotate(45deg);
-                transform: translateY(-50%) rotate(45deg);
+        transform: translateY(-50%) rotate(45deg);
         @include lh($width-label);
         width: $width-label;
         text-align: center;
@@ -41,7 +38,7 @@ $width-label: 16px;
         display: inline-block;
         vertical-align: middle;
       }
-      i{
+      i {
         position: absolute;
         left: 0;
         text-align: center;
@@ -49,12 +46,9 @@ $width-label: 16px;
         font-size: 14px;
         color: #111214;
       }
-      span{
+      span {
         -webkit-box-flex: 1;
-        -webkit-flex: 1;
-           -moz-box-flex: 1;
-            -ms-flex: 1;
-                flex: 1;
+        flex: 1;
       }
     }
   }

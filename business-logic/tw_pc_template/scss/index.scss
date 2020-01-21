@@ -26,6 +26,7 @@
   color: #fef8e7;
   .navbar-body{
     overflow: hidden;
+    -webkit-transition: all .3s ease;
     transition: all .3s ease;
   }
   .bg-menu {
@@ -64,11 +65,16 @@
     line-height: 0;
     overflow: hidden;
     cursor: pointer;
-    transform: rotate(0);
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
-    transform-origin: 75% 50%;
+    -webkit-transform-origin: 75% 50%;
+            transform-origin: 75% 50%;
     &.active {
-      transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg);
+      -webkit-transition: all 0.3s ease;
       transition: all 0.3s ease;
     }
   }

@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="format-detection" content="address=no" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
   <meta name="renderer" content="webkit" />
   <meta name="robots" content="follow" />
@@ -66,8 +65,9 @@
     </div>
     <!-- header -->
     <div class="jy-section section-header">
-      <video style="position: absolute;top:0;left:50%;margin-left:-960px;width: 1920px;height: 1084px;object-fit:fill" x5-video-player-fullscreen="true" controlsList="nodownload" muted autoplay loop src="./media/b.mp4"></video>
-      
+      <video style="position: absolute;top:0;left:50%;margin-left:-960px;width: 1920px;height: 1084px;object-fit:fill"
+        x5-video-player-fullscreen="true" controlsList="nodownload" muted autoplay loop src="./media/b.mp4"></video>
+
       <div class="jy-headermain">
         <div class="logo"></div>
 
@@ -87,133 +87,133 @@
   <div class="jycopytip"></div>
   <!-- 弹窗 -->
   <!-- 兑换成功 -->
-  <div class="pop " id="J_recharge">
-    <div class="pop_mask"></div>
-    <div class="pop_main gift_body">
-      <a href="javascript:;" class="pop_close">关闭</a>
-      <div class="pop_body">
-        <div class="pt">温馨提示</div>
-        <div class="gift_body_txt lh-20">
+  <div class="jy-pop " id="J_rechargePop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main ">
+      <a href="javascript:;" class="jy-pop_close">关闭</a>
+      <div class="jy-pop_head">温馨提示</div>
+      <div class="jy-pop_body">
+        <div class="jy-pop_body__tit">内容体标题</div>
+        <div class="lh-20">
           <p>兑换xxx成功</p>
         </div>
-        <a href="javascript:;" class="jy-btn pop_submit">确认</a>
+        <div class="jy-pop_body__code">sdfasxpswwwww111112sadsa</div>
+        <div class="clearfix jy-pop_body__codetie mt-10">
+          <div class="jy-pop_body__codetie-label float_l">验证码</div>
+          <div class="jy-pop_body__codetie-body float_l">sdfasxpswwwww111112sadsa</div>
+        </div>
+        <a href="javascript:;" class="jy-btn jy-pop_ok">确认</a>
       </div>
     </div>
   </div>
 
   <!-- 手机验证 -->
-  <div class="pop " id="J_authTelPop">
-    <div class="pop_mask"></div>
-    <div class="pop_main">
-      <a href="javascript:;" class="pop_close">关闭</a>
-      <div class="pop_body">
-        <div class="pt">预约首服</div>
-        <ul class="register_info">
-          <li>
-            <!-- <span>手机号码：</span> -->
-            <input placeholder="请输入手机号码" type="tel" class="pop_input">
+  <div class="jy-pop " id="J_authTelPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main">
+      <a href="javascript:;" class="jy-pop_close">关闭</a>
+      <div class="jy-pop_head">温馨提示</div>
+      <div class="jy-pop_body">
+        <div class="mt-10 tc">预约首服</div>
+        <ul class="mt-10 jy-pop_inp">
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">手机号码：</div>
+            <input placeholder="请输入手机号码" type="tel" class="jy-pop_inp__body">
           </li>
-          <li>
-            <!-- <span>验&nbsp;&nbsp;证&nbsp;&nbsp;码：</span> -->
-            <input placeholder="请输入验证码" type="tel" class="pop_input_auth">
-            <a href="javascript:;" class="jy-btn btn_pop_auth">获取验证码</a>
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码：</div>
+            <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__body">
+          </li>
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码：</div>
+            <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth">
+            <a href="javascript:;" class="jy-btn jy-pop_inp__btnauth disable">获取验证码</a>
           </li>
         </ul>
-        <a href="javascript:;" class="jy-btn pop_submit">确认信息</a>
+        <a href="javascript:;" class="jy-btn jy-pop_ok">确认</a>
       </div>
     </div>
   </div>
-  <!-- 信息登记 -->
-  <div class="pop " id="J_registerPop">
-    <div class="pop_mask"></div>
-    <div class="pop_main">
-      <a href="javascript:;" class="pop_close">关闭</a>
-      <div class="pop_body">
-        <div class="pt">信息登记</div>
-        <ul class="register_info">
-          <li>
-            <span>区服类型</span>
-            <div class="pop_select">
-              <select>
-                <option value="">--请选择区服类型--</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-              </select>
-            </div>
+
+  <!-- 收获地址 -->
+  <div class="jy-pop " id="J_addressPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main">
+      <a href="javascript:;" class="jy-pop_close">关闭</a>
+      <div class="jy-pop_head">温馨提示</div>
+      <div class="jy-pop_body">
+        <div class="mt-10 tc">信息登记</div>
+        <ul class="mt-20 jy-pop_inp">
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">区服类型</div>
+            <select class="jy-pop_select">
+              <option value="">--请选择区服类型--</option>
+            </select>
           </li>
-          <li>
-            <span>数字区服</span>
-            <input type="text" class="pop_input">
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">用户名称</div>
+            <input placeholder="请输入用户名称" type="tel" class="jy-pop_inp__body">
           </li>
-          <li>
-            <span>角色名称</span>
-            <input type="text" class="pop_input">
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">联系手机</div>
+            <input placeholder="请输入联系手机" type="tel" class="jy-pop_inp__body">
           </li>
-          <li>
-            <span>玩家姓名</span>
-            <input type="text" class="pop_input">
-          </li>
-          <li>
-            <span>联系手机</span>
-            <input type="tel" class="pop_input">
-          </li>
-          <li>
-            <span>收货地址</span>
-            <input type="tel" class="pop_input">
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">收货地址</div>
+            <input placeholder="请输入收货地址" type="tel" class="jy-pop_inp__body">
           </li>
         </ul>
-        <a href="javascript:;" class="jy-btn pop_submit">确认信息</a>
+        <a href="javascript:;" class="jy-btn jy-pop_ok">确认</a>
       </div>
     </div>
   </div>
-  <!-- 填写账号信息 -->
-  <div class="pop " id="J_bindPop">
-    <div class="pop_mask"></div>
-    <div class="pop_main">
-      <a href="javascript:;" class="pop_close">关闭</a>
-      <div class="pop_body">
-        <div class="pt">填写账号信息</div>
-        <ul class="register_info">
-          <li>
-            <div class="pop_select">
-              <select>
-                <option value="">--请选择游戏--</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-              </select>
-            </div>
+
+  <!-- 登记信息 -->
+  <div class="jy-pop " id="J_regPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main">
+      <a href="javascript:;" class="jy-pop_close">关闭</a>
+      <div class="jy-pop_head">温馨提示</div>
+      <div class="jy-pop_body">
+        <div class="mt-10 tc">填写账号信息</div>
+        <ul class="mt-20 jy-pop_inp">
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">区服类型</div>
+            <select class="jy-pop_select">
+              <option value="">--请选择游戏--</option>
+            </select>
           </li>
-          <li>
-            <div class="pop_select">
-              <select>
-                <option value="">--请选择区服--</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-              </select>
-            </div>
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">区服类型</div>
+            <select class="jy-pop_select">
+              <option value="">--请选择区服--</option>
+            </select>
           </li>
-          <li>
-            <input type="text" placeholder="请输入区服ID" class="pop_input">
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">用户ID</div>
+            <input placeholder="请输入用户ID" type="tel" class="jy-pop_inp__body">
           </li>
-          <li class="clearfix">
-            <input type="text" class="pop_input_auth">
-            <a href="javascript:;" class="jy-btn btn_pop_auth">获取角色</a>
+          <li class="jy-pop_inp__cell">
+            <div class="jy-pop_inp__label">&nbsp;&nbsp;</div>
+            <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth">
+            <a href="javascript:;" class="jy-btn jy-pop_inp__btnauth disable">获取角色</a>
           </li>
         </ul>
-        <a href="javascript:;" class="jy-btn pop_submit">确认提交</a>
+        <a href="javascript:;" class="jy-btn jy-pop_ok">确认</a>
       </div>
     </div>
   </div>
+
   <!-- 奖品查询 -->
-  <div class="pop " id="J_giftPop">
-    <div class="pop_mask"></div>
-    <div class="pop_main">
-      <a href="javascript:;" class="pop_close">关闭</a>
-      <div class="pop_body">
-        <div class="pt">礼包领取记录</div>
-        <p class="yh">您已获得的奖品</p>
-        <div class="gift_list">
-          <table class="poptable tc">
+  <div class="jy-pop" id="J_recordPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main">
+      <a href="javascript:;" class="jy-pop_close">关闭</a>
+      <div class="jy-pop_head">礼包领取记录</div>
+      <div class="jy-pop_body">
+        <p class="lh-20">您已获得的奖品</p>
+        <div class="jy-pop__scrollbar mt-10">
+          <table class="jy-pop__table tc">
             <thead>
               <tr>
                 <td>奖品名称</td>
@@ -222,6 +222,21 @@
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td>一代宗师称号</td>
+                <td>贪玩SVIP</td>
+                <td>2019.04.25</td>
+              </tr>
+              <tr>
+                <td>一代宗师称号</td>
+                <td>贪玩SVIP</td>
+                <td>2019.04.25</td>
+              </tr>
+              <tr>
+                <td>一代宗师称号</td>
+                <td>贪玩SVIP</td>
+                <td>2019.04.25</td>
+              </tr>
               <tr>
                 <td>一代宗师称号</td>
                 <td>贪玩SVIP</td>
@@ -269,10 +284,10 @@
   <script type="text/javascript" src="./js/danmu.js"></script>
   <script type="text/javascript">
     var activeCls = 'active';
-    // pop
+    // jy-pop
     //关闭
-    $('.pop_close,.pop_submit').on('click', function () {
-      $(this).parents('.pop').fadeOut();
+    $('.jy-pop_close,.jy-pop_submit').on('click', function () {
+      $(this).parents('.jy-pop').fadeOut();
     });
 
     // 领取礼包

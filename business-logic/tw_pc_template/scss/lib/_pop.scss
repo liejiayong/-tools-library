@@ -1,33 +1,33 @@
 @import "../_const.scss";
 @import "../_mixin.scss";
 
-/* pop */
+/* jy-pop */
 // bg
+$width-pop: 500px;
+$fs-body: 16px;
 $color-bg: #2f2b7f;
 $color-border: #57513b;
 $color-txt: #d2d2d2;
 
-// btn
+// btn-ok
 $color-btn-txt: #383314;
-$color-btn-bg: linear-gradient(45deg, #c9a647, #e2b95c,#ffd175);
+$color-btn-bg: linear-gradient(45deg, #c9a647, #e2b95c, #ffd175);
 
-$color-input: #fff;
+// input
+$input-width: 350px;
+$input-width-label: 90px;
+$input-height: 35px;
+$input-color-bg: #fff;
+$input-color-txt: inherit;
+$input-fs-txt: 14px;
+$input-fs-label: inherit;
 
 // table
-$color-table-border: rgba(0,0,0, .3);
-$color-table-txt: #b4a16a;
-$height-table-overflow: 200px;
+$table-color-border: rgba(0, 0, 0, 0.3);
+$table-color-txt: inherit;
+$table-height-overflow: 200px;
 
-.mt-30{
-  margin-top: 30px;
-}
-.lh-15{
-  line-height: 1.5;
-}
-.lh-20{
-  line-height: 2;
-}
-.pop {
+.jy-pop {
   position: fixed;
   z-index: 1000;
   top: 0;
@@ -35,32 +35,51 @@ $height-table-overflow: 200px;
   left: 0;
   bottom: 0;
   display: none;
+  // 激活
   &.active {
     display: block;
   }
-  .pop_close {
+  @-webkit-keyframes zoom {
+    from {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    to {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  @keyframes zoom {
+    from {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    to {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  // 关闭
+  &_close {
     position: absolute;
     right: 18px;
     top: 18px;
     width: 28px;
     height: 28px;
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAABM0lEQVRIibXWS0oEMRCA4d8ecSUexXOIg65E29mK4Mq9MILXEJcOCraPEcGLeA4vICNKQRpCyKOqJ127JE2+FJWu7o2/+d4lcAZcAZ+MEy1wC7w1wAWwKwPgYATuFFgAO8BUwGvgF9gCniujgt0DE+AHOBfwBZiNgIaYjJeNW3xyE7XQGPYqC433UFcJTWIhWAPNYjFwHbSIpcAhqArLgRZUjZVADWrCJDYLYI9KPHroEbBtxbRgCp1YMQsYQ3FY6/qwKko11BxwZdnAAoYXZFBz0IIh1rq5lRXV1DCG+TV7CG7vR26zUoYlrHOfNj/Tw6FgCUuhXQ5NgVrMjMZAK2ZCQ3AopkZ9cF1MhfZgLayICnhSGcuh+/Liyx9xbcxHJfrmcCMZvgPfLtOamI8eA1/A3T+1rJJSqo6dygAAAABJRU5ErkJggg==')
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAABM0lEQVRIibXWS0oEMRCA4d8ecSUexXOIg65E29mK4Mq9MILXEJcOCraPEcGLeA4vICNKQRpCyKOqJ127JE2+FJWu7o2/+d4lcAZcAZ+MEy1wC7w1wAWwKwPgYATuFFgAO8BUwGvgF9gCniujgt0DE+AHOBfwBZiNgIaYjJeNW3xyE7XQGPYqC433UFcJTWIhWAPNYjFwHbSIpcAhqArLgRZUjZVADWrCJDYLYI9KPHroEbBtxbRgCp1YMQsYQ3FY6/qwKko11BxwZdnAAoYXZFBz0IIh1rq5lRXV1DCG+TV7CG7vR26zUoYlrHOfNj/Tw6FgCUuhXQ5NgVrMjMZAK2ZCQ3AopkZ9cF1MhfZgLayICnhSGcuh+/Liyx9xbcxHJfrmcCMZvgPfLtOamI8eA1/A3T+1rJJSqo6dygAAAABJRU5ErkJggg==")
       no-repeat center / 28px 28px;
     text-indent: -9999px;
     overflow: hidden;
     -webkit-transition: 0.5s ease;
-    -moz-transition: 0.5s ease;
-    -o-transition: 0.5s ease;
     transition: 0.5s ease;
+    z-index: 100;
     &:hover {
       -webkit-transform: rotate(180deg);
-      -moz-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-      -o-transform: rotate(180deg);
       transform: rotate(180deg);
     }
   }
-  .pop_mask{
+  // 蒙版
+  &_mask {
     position: fixed;
     z-index: 10;
     top: 0;
@@ -68,241 +87,325 @@ $height-table-overflow: 200px;
     left: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.6);
+    &__clickable {
+      cursor: pointer;
+    }
   }
-  .pop_main {
+  // 确认按钮
+  &_ok {
+    position: relative;
+    padding: 10px 20px;
+    margin-top: 18px;
+    background: $color-btn-bg;
+    color: $color-btn-txt;
+    border-radius: 6px;
+    vertical-align: middle;
+    font-size: 16px;
+    &:hover {
+      -webkit-filter: brightness(1.1);
+      filter: brightness(1.1);
+    }
+  }
+  // 主体：主要设置背景
+  &_main {
+    margin: 100px 0 0 -265px;
     position: fixed;
     left: 50%;
     top: 0;
     z-index: 20;
-    width: 530px;
+    width: $width-pop;
     background: $color-bg;
-    margin: 100px 0 0 -265px;
-    -webkit-animation: zoom 0.6s ease;
-    -moz-animation: zoom 0.6s ease;
-    animation: zoom 0.6s ease;
-    border: 1px solid $color-border;
-  }
-  .pop_body {
-    padding: 30px 20px 57px;
-    text-align: center;
     color: $color-txt;
-    // 标题
-    .pt {
+    font-size: $fs-body;
+    border: 1px solid $color-border;
+    -webkit-animation: zoom 0.6s ease;
+    animation: zoom 0.6s ease;
+  }
+  // 主体标题
+  &_head {
+    padding-top: 30px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+  }
+  // 内容体
+  &_body {
+    padding: 10px 20px 40px;
+    text-align: center;
+    // 内容体标题
+    &__tit {
       font-size: 28px;
       font-weight: bold;
       color: inherit;
-      margin-bottom: 40px;
     }
-    .yh {
-      font-size: 18px;
-      color: #f5efdd;
-      background: $color-table-border;
-      height: 29px;
-      line-height: 29px;
-    }
-    .gift_list {
-      overflow-y: auto;
-      max-height: $height-table-overflow;
-    }
-    .exc_txt {
-      background: rgba(255, 255, 255, 0.06);
-      height: 77px;
-      margin-top: 30px;
-      color: inherit;
-      line-height: 30px;
-      p {
-        font-size: 24px;
-      }
-      .t {
-        font-size: 18px;
-        padding-top: 5px;
-      }
-    }
-    .exc_t2 {
-      color: inherit;
-      font-size: 18px;
-      margin-top: 30px;
-    }
-    .exc_ccode{
-      padding: 10px 20px;
-      line-height: 1;
-      background-color: $color-table-border;
-      color: $color-table-txt;
-      font-size: 16px;
-    }
-    .gift_body_txt{
-      font-size: 16px;
-    }
-    // 表格
-    .poptable {
-      border-spacing: 0;
-      border-collapse: collapse;
-      width: 100%;
-      border-bottom: 1px solid $color-table-border;
-      border-right: 1px solid $color-table-border;
-      tr:first-child td {
-        border-top: none;
-      }
-      td {
-        border-top: 1px solid $color-table-border;
-        border-left: 1px solid $color-table-border;
-        font-size: 18px;
-        color: $color-table-txt;
-        line-height: 30px;
-        text-align: left;
-        text-indent: 15px;
-      }
-    }
-    // 信息登记
-    .register_info {
-      $width: 100%;
-      $height: 45px;
-      color: $color-input;
-      margin: 0 auto;
-      width: 400px;
-      li {
-        height: $height;
-        line-height: $height;
-        color: inherit;
-        font-size: 18px;
-        &:not(:last-of-type) {
-          margin-bottom: 18px;
-        }
-        span {
-          float: left;
-          width: 90px;
-          vertical-align: middle;
-        }
-      }
-      // input
-      .pop_input {
-        float: left;
-        padding: 0 1em;
-        border: 1px solid #8088b0;
-        outline: 0;
-        -webkit-appearance: none;
-        background-color: #fff;
-        width: $width;
-        height: $height;
-        line-height: $height;
-        box-sizing: border-box;
-        font-size: 18px;
-      }
-      // input auth
-      .pop_input_auth {
-        float: left;
-        padding: 0 10px;
-        // border: 1px solid #8088b0;
-        outline: 0;
-        -webkit-appearance: none;
-        background-color: #fff;
-        width: 270px;
-        height: $height;
-        line-height: $height;
-        font-size: 18px;
-        vertical-align: middle;
-        box-sizing: border-box;
-      }
-      // btn_pop_auth
-      .btn_pop_auth {
-        float: right;
-        padding: 0 10px;
-        border: 1px solid #8088b0;
-        outline: 0;
-        -webkit-appearance: none;
-        border: 1px solid #fff;
-        background-color: #fff;
-        color: #5a392c;
-        width: 130px;
-        height: $height;
-        line-height: $height;
-        font-size: 18px;
-        vertical-align: middle;
-        box-sizing: border-box;
-        &.disable{
-          border: 1px solid #ccc;
-          background-color: #ccc;
-          color: #fff;
-        }
-        &:hover{
-          -webkit-filter: grayscale(.3);
-                  filter: grayscale(.3);
-        }
-      }
-      // select
-      .pop_select{
-        width: $width;
-        height: $height;
-        float: left;
-        background-color: #fff;
-        border: 1px solid #8088b0;
-        vertical-align: middle;
-        select {
-          position: relative;
-          padding-left: 1em;
-          border: 0;
-          outline: 0;
-          background-color: transparent;
-          width: inherit;
-          height: inherit;
-          line-height: inherit;
-          font-size: inherit;
-          z-index: 1;
-        }
-      }
-    }
-    // 确认按钮
-    .pop_submit{
+    // 兑换码：单行
+    &__code {
+      margin-left: auto;
+      margin-right: auto;
       position: relative;
-      padding: 14px 20px;
-      margin-top: 18px;
-      background: $color-btn-bg;
-      color: $color-btn-txt;
-      // -moz-border-radius: 8px;
-      // border-radius: 8px;
-      vertical-align: middle;
-      font-size: 16px;
-      &:hover{
-        -webkit-filter: grayscale(.3);
-                filter: grayscale(.3);
+      width: 300px;
+      @include lh(36px);
+      text-align: center;
+      white-space: nowrap;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: #430707;
+      color: inherit;
+    }
+    // 兑换码：与标题并列
+    &__codetie {
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      width: 400px;
+      @include lh(36px);
+      text-align: center;
+      white-space: nowrap;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: #430707;
+      color: inherit;
+      &-label {
+        padding: 0 5px;
+        width: 100px;
+      }
+      &-body {
+        padding: 0 5px;
+        width: 280px;
       }
     }
   }
-}
-@-webkit-keyframes zoom {
-  from {
-    -webkit-transform: scale(0);
-    transform: scale(0);
+  // input
+  &_inp {
+    position: relative;
+    color: $input-color-txt;
+    zoom: 1;
+    &::after {
+      content: "\0020";
+      clear: both;
+      display: block;
+      height: 0;
+      visibility: hidden;
+      opacity: 0;
+      font-size: 0;
+    }
+    &__cell {
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      width: $input-width;
+      @include lh($input-height);
+      font-size: $input-fs-label;
+      overflow: hidden;
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+    }
+    &__label {
+      float: left;
+      width: $input-width-label;
+      vertical-align: middle;
+      box-sizing: border-box;
+    }
+    &__body {
+      float: left;
+      padding: 0 1em;
+      border: 0;
+      outline: 0;
+      width: ($input-width - $input-width-label);
+      @include lh(inherit);
+      font-size: $input-fs-txt;
+      background-color: $input-color-bg;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+    }
+    $width_btn_input_auth: 100px;
+    &__bodyauth {
+      float: left;
+      padding: 0 1em;
+      border: 0;
+      outline: 0;
+      width: ($input-width - $input-width-label - $width_btn_input_auth);
+      @include lh(inherit);
+      font-size: $input-fs-txt;
+      background-color: $input-color-bg;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      box-sizing: border-box;
+    }
+    &__btnauth {
+      display: block;
+      float: left;
+      padding: 0 10px;
+      outline: 0;
+      border: 0;
+      width: $width_btn_input_auth;
+      background-color: $input-color-bg;
+      color: #27ab13;
+      // border: 1px solid #8088b0;
+      @include lh(inherit);
+      font-size: 14px;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      &.disable {
+        cursor: no-drop;
+        color: #ccc;
+      }
+    }
   }
-  to {
-    -webkit-transform: scale(1);
-    transform: scale(1);
+  // select
+  &_select {
+    float: left;
+    width: ($input-width - $input-width-label);
+    @include lh($input-height);
+    background: $input-color-bg
+      url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC")
+      no-repeat center right 10px;
+    color: $input-color-txt;
+    // border: 1px solid #000;
+    font-size: inherit;
+    vertical-align: middle;
+    padding-left: 1em;
+    border: 0;
+    outline: 0;
   }
-}
-@-moz-keyframes zoom {
-  from {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    transform: scale(0);
+  // 滚动块
+  &__scrollbar {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: $table-height-overflow;
   }
-  to {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    transform: scale(1);
-  }
-}
-@keyframes zoom {
-  from {
-    -webkit-transform: scale(0);
-    -moz-transform: scale(0);
-    -o-transform: scale(0);
-    transform: scale(0);
-  }
-  to {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
+  // 表格
+  &__table {
+    position: relative;
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+    border-bottom: 1px solid $table-color-border;
+    border-right: 1px solid $table-color-border;
+    thead{
+      border-top: 1px solid $table-color-border;
+      border-bottom: 1px solid $table-color-border;
+    }
+    tr:first-child td {
+      border-top: none;
+    }
+    td {
+      border-top: 1px solid $table-color-border;
+      border-left: 1px solid $table-color-border;
+      font-size: 18px;
+      color: $table-color-txt;
+      line-height: 30px;
+      text-align: left;
+      text-indent: 15px;
+    }
   }
 }
 
+// 完整模板
+// <div class="jy-pop active" id="J_Pop">
+// <div class="jy-pop_mask"></div>
+// <div class="jy-pop_main">
+//   <a href="javascript:;" class="jy-pop_close">关闭</a>
+//   <div class="jy-pop_head">礼包领取记录</div>
+//   <div class="jy-pop_body">
+//     <div class="jy-pop_body__tit">内容体标题</div>
+//     <div class="lh-20">
+//       <p>兑换xxx成功</p>
+//     </div>
+//     <div class="jy-pop_body__code">sdfasxpswwwww111112sadsa</div>
+//     <div class="clearfix jy-pop_body__codetie mt-10">
+//       <div class="jy-pop_body__codetie-label float_l">验证码</div>
+//       <div class="jy-pop_body__codetie-body float_l">sdfasxpswwwww111112sadsa</div>
+//     </div>
+//     <p class="lh-20">您已获得的奖品</p>
+//     <ul class="mt-20 jy-pop_inp">
+//       <li class="jy-pop_inp__cell">
+//         <div class="jy-pop_inp__label">区服类型</div>
+//         <select class="jy-pop_select">
+//           <option value="">--请选择游戏--</option>
+//         </select>
+//       </li>
+//       <li class="jy-pop_inp__cell">
+//         <div class="jy-pop_inp__label">区服类型</div>
+//         <select class="jy-pop_select">
+//           <option value="">--请选择区服--</option>
+//         </select>
+//       </li>
+//       <li class="jy-pop_inp__cell">
+//         <div class="jy-pop_inp__label">用户ID</div>
+//         <input placeholder="请输入用户ID" type="tel" class="jy-pop_inp__body">
+//       </li>
+//       <li class="jy-pop_inp__cell">
+//         <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码：</div>
+//         <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth">
+//         <a href="javascript:;" class="jy-btn jy-pop_inp__btnauth disable">获取验证码</a>
+//       </li>
+//     </ul>
+//     <div class="jy-pop__scrollbar mt-10">
+//       <table class="jy-pop__table tc">
+//         <thead>
+//           <tr>
+//             <td>奖品名称</td>
+//             <td>奖品内容</td>
+//             <td>获奖时间</td>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           <tr>
+//             <td>一代宗师称号</td>
+//             <td>贪玩SVIP</td>
+//             <td>2019.04.25</td>
+//           </tr>
+//           <tr>
+//             <td>一代宗师称号</td>
+//             <td>贪玩SVIP</td>
+//             <td>2019.04.25</td>
+//           </tr>
+//           <tr>
+//             <td>一代宗师称号</td>
+//             <td>贪玩SVIP</td>
+//             <td>2019.04.25</td>
+//           </tr>
+//           <tr>
+//             <td>一代宗师称号</td>
+//             <td>贪玩SVIP</td>
+//             <td>2019.04.25</td>
+//           </tr>
+//           <tr>
+//             <td>一代宗师称号</td>
+//             <td>贪玩SVIP</td>
+//             <td>2019.04.25</td>
+//           </tr>
+//           <tr>
+//             <td>一代宗师称号</td>
+//             <td>贪玩SVIP</td>
+//             <td>2019.04.25</td>
+//           </tr>
+//           <tr>
+//             <td>一代宗师称号</td>
+//             <td>贪玩SVIP</td>
+//             <td>2019.04.25</td>
+//           </tr>
+//           <tr>
+//             <td>一代宗师称号</td>
+//             <td>贪玩SVIP</td>
+//             <td>2019.04.25</td>
+//           </tr>
+//           <tr>
+//             <td>一代宗师称号</td>
+//             <td>贪玩SVIP</td>
+//             <td>2019.04.25</td>
+//           </tr>
+//         </tbody>
+//       </table>
+//     </div>
+//   </div>
+// </div>
+// </div>

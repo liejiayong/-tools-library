@@ -32,7 +32,7 @@ body {
 .clearfix {
   zoom: 1;
 }
-.clearfix:after {
+.clearfix::after {
   content: "\0020";
   clear: both;
   display: block;

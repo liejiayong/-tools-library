@@ -14,6 +14,7 @@
   width: 100%;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 100;
 }
 .jy-navbar_other .return {
@@ -34,9 +35,6 @@
   border-color: rgb(201, 196, 196);
   border-style: solid;
   -webkit-transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
-  -moz-transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
-  -ms-transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
-  -o-transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
   transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
   position: absolute;
   top: 50%;

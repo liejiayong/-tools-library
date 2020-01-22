@@ -17,7 +17,7 @@
 	app.stop();
 
 	PIXI.loader
-		.add('spritesheet', 'https://pixijs.io/examples/required/assets/mc.json')
+		.add('spritesheet', 'images/treasureHunter.json')
 		.load(onAssetsLoaded);
 
 	function onAssetsLoaded() {
@@ -27,7 +27,7 @@
 			i;
 
 		for (i = 0; i < 26; i++) {
-			 var texture = PIXI.Texture.fromFrame('Explosion_Sequence_A ' + (i+1) + '.png');
+			 var texture = PIXI.Texture.fromFrame('explorer.png');
 			 explosionTextures.push(texture);
 		}
 

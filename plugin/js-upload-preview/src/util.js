@@ -1,5 +1,44 @@
+/***
+ * 工具函数
+ */
+var utils = {
+  /**
+   * 剔除前后空字符
+   * @param {*} str 字符串
+   */
+  trim: function (str) {
+    return str.replace(/^\s+|\s+$/g, '');;
+  },
+  /**
+   * 
+   * @param {*} fn 
+   */
+  preset: function (fn) {
+    var presetArgs = [].slice.call(arguments, 1);
+    return function () {
+      fn.apply(null, presetArgs.concat([].slice.call(arguments)));
+    };
+  },
+  /**
+   * 合并对象
+   */
+  extend: function () {
+    var ret = {};
+    for (var i = 0, len = arguments.length, arg; i < len; ++i) {
+      if (arg = arguments[i]) {
+        for (var p in arg) {
+          if (!ret.hasOwnProperty(p)) {
+            ret[p] = arg[p];
+          }
+        }
+      }
+    }
+    return ret;
+  }
+};
+
 /**
- * 
+ * URL 兼容
  */
 let URL = (function (URL) {
   if (!URL) return;
@@ -15,7 +54,7 @@ let URL = (function (URL) {
 }(window.webkitURL || window.URL));
 
 /**
- 事件兼容性处理
+* 事件 兼容
 **/
 let on, off;
 //v1.0.1 修复document.body未生成时，特征检测报错的bug
@@ -38,49 +77,3 @@ else {
   };
 }
 
-/**
- * 将文件转化为base64
- * 用于现代浏览器
- * @param {*} file 文件对象
- */
-function fileToBase64(file) {
-  new Promise((resolve, reject) => {
-    if (!file) return resolve(undefined)
-
-    // 存在则使用，使用window.URL.createObjectURL提高性能
-    if (!!URL) {
-      resolve(URL.createObjectURL(file))
-    }
-    // // ff3.0不支持FileReader
-    else if (!window['FileReader']) {
-      resolve(file.readAsDataURL())
-    }
-    else {
-      var freader = new FileReader(file)
-      freader.readAsDataURL(file)
-      freader.onload = ev => {
-        resolve(ev.target.result)
-      }
-      freader.onerror = () => {
-        reject(new Error('FileReader read error!'))
-      }
-    }
-  })
-}
-
-/**
- * 获取文件上传(如:input)元素的图片地址
- * 用于IE浏览器
- * @param {*} fileEl 文件上传元素
- */
-function readPathForIE(fileEl) {
-  let path = fileEl.value || ''
-
-  // IE11下，文档模式小于10无法通过value、getAttribute和outerHTML获取input[type=file]的真实路径
-  if (src.search(/\w:\\fakepath/) === 0) {
-    fileEl.select()
-    path = document.selection.createRangeCollection()[0].htmlText
-  }
-
-  return path
-} 

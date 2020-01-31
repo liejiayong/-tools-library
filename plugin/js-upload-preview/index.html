@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img {
+      display: block;
+    }
+    .preview{
+      /* width: 200px;
+      height: 200px; */
+    }
+  </style>
+</head>
+
+<body>
+  <input type="file" id="upload">
+  <div class="preview"></div>
+  <script src="./src/demo.js"></script>
+  <script>
+    var input = document.getElementById('upload');
+    var preview = document.querySelector('.preview');
+    new Preview(input, preview);
+  </script>
+</body>
+
+</html>

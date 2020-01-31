@@ -109,7 +109,9 @@
 		}
 		else{
 			var fr = new window.FileReader();
+
 			on(fr, 'load', function(e){
+				// console.log(this.result)
 				cb(e.target.result);
 			});
 			fr.readAsDataURL(file);
@@ -178,6 +180,7 @@
 				if (!img){
 					img = new Image();
 					img.className = imgCls;
+					console.log(previewEl, previewEl.offsetWidth, previewEl.offsetHeight)
 					img.style.width = previewEl.offsetWidth + 'px';
 					img.style.height = previewEl.offsetHeight + 'px';
 					previewEl.appendChild(img);

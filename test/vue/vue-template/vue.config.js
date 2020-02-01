@@ -5,7 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-	publicPath: './', // 发布到github page上的配置路径
+	// publicPath: './', // 发布到github page上的配置路径
 	publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
 
 	// 打包的目录

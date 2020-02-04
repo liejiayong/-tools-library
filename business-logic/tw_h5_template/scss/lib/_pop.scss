@@ -10,7 +10,7 @@ $fs-tit: 0.35rem;
 $fs-content: 0.3rem;
 $main-border-radius: 0.18rem;
 
-$main-gutter: 0 0 .4rem 0;
+$main-gutter: 0 0 0.4rem 0;
 $width: 6.3rem;
 $max-height: 7rem;
 $max-height-s: 5rem;
@@ -93,15 +93,15 @@ $input-select-height: 0.6rem;
     text-overflow: ellipsis;
     overflow: hidden;
     // background: $bg-tit;
-    &::before{
-      content: '';
+    &::before {
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
       width: 5.2rem;
-      border-bottom: .015rem solid #02294e;
+      border-bottom: 0.015rem solid #02294e;
       -webkit-transform: translateX(-50%);
-              transform: translateX(-50%);
+      transform: translateX(-50%);
     }
   }
   .jy-pop_main--header-sty {
@@ -109,10 +109,10 @@ $input-select-height: 0.6rem;
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     background: $bg;
-    padding:.05rem .1rem;
+    padding: 0.05rem 0.1rem;
     // &::before {
     //   content: "";
     //   position: absolute;
@@ -171,19 +171,19 @@ $input-select-height: 0.6rem;
     border-radius: 0 0 0.3rem 0.3rem;
     box-sizing: border-box;
   }
-  .jy-pop_body--sty{
-    margin: .4rem auto 0;
-    padding: .3rem;
+  .jy-pop_body--sty {
+    margin: 0.4rem auto 0;
+    padding: 0.3rem;
     width: 5.7rem;
     background: #3f94d4;
-    border-radius: .12rem;
+    border-radius: 0.12rem;
     box-sizing: border-box;
   }
   .jy-pop_txt {
     margin: 0.35rem auto 0;
   }
   .jy-pop_btn-ok {
-    $height: .62rem;
+    $height: 0.62rem;
     display: block;
     margin: 0.4rem auto 0;
     width: 2.4rem;
@@ -198,7 +198,7 @@ $input-select-height: 0.6rem;
     border-radius: $height;
   }
   .jy-pop_btn-ok-or {
-    $height: .62rem;
+    $height: 0.62rem;
     display: block;
     margin: 0.4rem auto 0;
     width: 2.4rem;
@@ -217,7 +217,7 @@ $input-select-height: 0.6rem;
     max-height: 5rem;
     overflow-x: hidden;
     overflow-y: auto;
-}
+  }
   // select
   .jy-pop_select {
     $width: 4.4rem;
@@ -225,14 +225,15 @@ $input-select-height: 0.6rem;
 
     display: block;
     position: relative;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0 0.2rem;
     width: $width;
-    height: $input-select-height;
-    background-color: #be8c56;
-    color: #fff2c1;
+    @include lh($input-select-height);
+    background-color: #3f94d4;
+    color: #a3e0ff;
     outline: none;
-    border: 0.02rem solid #e4b76a;
+    border: 0.02rem solid #3f94d4;
     border-radius: $radius;
     overflow: hidden;
     &:not(:last-of-type) {
@@ -284,13 +285,13 @@ $input-select-height: 0.6rem;
     // flex: 0 0 #{$width};
     // width: $width;
     -webkit-box-flex: 1;
-            flex: 1;
+    flex: 1;
     @include lh($input-select-height);
     input {
       $color: #a3e0ff;
       $bg: transparent;
 
-      margin-left: .1rem;
+      margin-left: 0.1rem;
       padding: 0 0.2rem;
       width: 100%;
       height: 100%;
@@ -303,7 +304,7 @@ $input-select-height: 0.6rem;
       padding: 0 0.2rem;
       background: #3f94d4;
       // border: 0.02rem solid $color;
-      border-radius: .12rem;
+      border-radius: 0.12rem;
       box-sizing: border-box;
       &::-webkit-input-placeholder {
         color: $color;
@@ -450,5 +451,92 @@ $input-select-height: 0.6rem;
       overflow-x: auto;
       overflow-y: hidden;
     }
+  }
+  // picker
+  .jy-pop_picker_main {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 5000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translate(0, 100%);
+    transform: translate(0, 100%);
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    -webkit-animation: pickerSlide ease 0.3s forwards;
+    animation: pickerSlide ease 0.3s forwards;
+    background-color: #fff;
+  }
+  .jy-pop_picker_hd {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 9px 15px;
+    position: relative;
+    text-align: left;
+    font-size: 17px;
+    border-bottom: 0.02rem solid #e5e5e5;
+    box-shadow: 0 0 0.15rem #ccc;
+  }
+  .jy-pop_picker_btn {
+    display: block;
+    // -webkit-box-flex: 1;
+    // flex: 1;
+    cursor: pointer;
+    &--cancel {
+      color: #a9a9a9;
+    }
+    &--confirm {
+      color: #1aad19;
+      text-align: right;
+    }
+  }
+  .jy-pop_picker__body {
+    position: relative;
+    background-color: #fff;
+    height: 238px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    ul {
+      padding: 20px;
+      color: #000;
+      li {
+        width: 100%;
+        height: 34px;
+        line-height: 34px;
+        &.active {
+          color: #1aad19;
+        }
+      }
+    }
+  }
+}
+
+@-webkit-keyframes pickerSlide {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pickerSlide {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }

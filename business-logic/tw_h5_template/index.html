@@ -304,16 +304,36 @@
       <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
       <div class="jy-pop_main_header">填写游戏信息</div>
       <div class="jy-pop_body tc">
-        <p class="pt-40">
-          <select name="" id="" class="jy-pop_select ff-normal">
-            <option value="">请选择区服</option>
-            <option value="">xxx</option>
-          </select>
-        </p>
-        <a href="javascript:;" style="margin-top: .8rem;" class="jy-btn jy-pop_btn-ok">确认</a>
+        <div class="mt-40 jy-pop_select ff-normal" id="jyCallPicker">请选择区服</div>
       </div>
     </div>
   </div>
+
+  <!-- pop selector  -->
+  <div class="jy-pop " id="J_selectorPop">
+    <div class="jy-pop_mask jy-pop_mask--clickable"></div>
+    <div class="jy-pop_picker_main">
+      <div class="jy-pop_picker_hd">
+        <a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--cancel">取消</a>
+        <a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--confirm">确定</a>
+      </div>
+      <div class="jy-pop_picker__body">
+        <ul id="jyPopPicker">
+          <li class="active">xxx</li>
+          <li>123</li>
+          <li>xxx</li>
+          <li>123</li>
+          <li>xxx</li>
+          <li>123</li>
+          <li>xxx</li>
+          <li>123</li>
+          <li>xxx</li>
+          <li>123</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <!-- js -->
   <script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
   <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
@@ -323,25 +343,36 @@
   <script type="text/javascript" src="./js/danmu.js"></script>
   <script>
     $(function () {
-
+      var activeCls = 'active';
+      function showTip(str) {
+        var $tip = $('#J_tipPop');
+        $tip.find('.jy-pop-tiptxt').text(str);
+        $tip.fadeIn();
+      }
       // 弹窗
       // 关闭弹窗
-      $('.jy-btn_pop_close,.jy-pop_mask--clickable').on('click', function () {
+      $('.jy-btn_pop_close,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel').on('click', function () {
         jyBus.winReset();
         $(this).parents('.jy-pop').fadeOut();
       });
-      // 领取礼品
-      $('.btn-get').on('click', function () {
-        if (!$(this).hasClass(jyBus.activeCls)) {
-          jyBus.winFixed();
-          $(this).addClass(jyBus.activeCls);
-          $('#J_signPop').fadeIn();
-        }
+      $('#jyPopPicker').on('click', 'li', function () {
+        $(this).addClass(activeCls).siblings().removeClass(activeCls);
       });
-      // 选择愿望
-      $('.btn-wish').on('click', function () {
-        jyBus.winFixed();
-        $('#J_wishPop').fadeIn();
+      // 区服选择唤醒
+      $('#jyCallPicker').on('click', function () {
+        $('#J_selectorPop').fadeIn();
+      });
+      // 区服选择确认
+      $('.jy-pop_picker_btn--confirm').on('click', function () {
+        // 业务逻辑
+
+
+        $(this).parents('.jy-pop').fadeOut();
+        $('#J_gamePop').hide();
+      });
+      // 我的奖励
+      $('.btn-mygift').on('click', function () {
+        $('#J_recordPop').fadeIn();
       });
 
       //复制

@@ -75,29 +75,16 @@
   </div>
 
   <!-- 弹窗 -->
-  <!-- pop 中奖记录 success  -->
-  <div class="jy-pop " id="J_recordSucPop">
+  <!-- pop tip1  -->
+  <div class="jy-pop " id="J_tip1Pop">
     <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main_tit bg-pop-1">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close bg-pop-close"></a>
-      <div class="jy-pop_body_tit tc">
-        <div class="bg-pop-tit-record mauto"></div>
-        <div class="pt-50 fs-36">
-          恭喜获得青铜礼包
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- pop 中奖记录 fail  -->
-  <div class="jy-pop " id="J_recordFailPop">
-    <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main_tit bg-pop-1 jy-pop_main--filter">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close bg-pop-close"></a>
-      <div class="jy-pop_body_tit tc">
-        <div class="bg-pop-tit-record mauto"></div>
-        <div class="pt-50">
-          <p class="fs-24">可惜了，没有中奖</p>
-          <p class="fs-35 mt-20">下次再来吧</p>
+    <div class="jy-pop_main ">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
+      <div class="jy-pop_main_header">非常抱歉 </div>
+      <div class="jy-pop_body tc">
+        <div class="jy-pop_body--sty">
+          <div class="pt-20 fs-36 lh-20 jy-pop-tiptxt">差一点礼物就属于你的啦~</div>
+          <a href="javascript:;" class="jy-btn jy-pop_btn-ok-or">确认</a>
         </div>
       </div>
     </div>
@@ -105,82 +92,107 @@
 
   <script>
   </script>
-  <!-- pop 已签到  -->
-  <div class="jy-pop " id="J_signPop">
+  <!-- pop tip  -->
+  <div class="jy-pop " id="J_tipPop">
     <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main_tit bg-pop-1">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close bg-pop-close"></a>
-      <div class="jy-pop_body_tit tc">
-        <div class="jy-pop_main_tit--header">
-          <div class="jy-pop_main_tit--header-sty">已签到</div>
-        </div>
-        <div class="pt-50 fs-36">
-          恭喜获得青铜礼包
+    <div class="jy-pop_main ">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
+      <div class="jy-pop_main_header">温馨提示 </div>
+      <div class="jy-pop_body tc">
+        <div class="jy-pop_body--sty">
+          <div class="pt-20 fs-36 lh-20 jy-pop-tiptxt">您的心动值不足哦~</div>
+          <a href="javascript:;" class="jy-btn jy-pop_btn-ok-or">确认</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- pop 双旦许愿  -->
-  <div class="jy-pop " id="J_wishPop">
+  <!-- pop 贪玩春运活动概率公示  -->
+  <div class="jy-pop " id="J_adverPop">
     <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main_tit bg-pop-3">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close bg-pop-close"></a>
-      <div class="jy-pop_body_tit tc">
-        <div class="jy-pop_main_tit--header">
-          <div class="jy-pop_main_tit--header-sty">双旦许愿</div>
+    <div class="jy-pop_main">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-pop-close"></a>
+      <div class="jy-pop_main_header"> </div>
+      <div class="jy-pop_body">
+        <div class="jy-pop_main--header mt-40">
+          <div class="jy-pop_main--header-sty">贪玩新年活动概率公示</div>
         </div>
-        <div class="pt-30">
-          <div class="jy-flex jy-flex-hspace jy-flex-wrap jy-pop_item">
-            <div class="jy-pop_item-gift">我想要xx神装</div>
-            <div class="jy-pop_item-gift">我想要xx神装</div>
-            <div class="jy-pop_item-gift">我想要xx神装</div>
-            <div class="jy-pop_item-gift">我想要xx神装</div>
-            <div class="jy-pop_item-gift">我想要xx神装</div>
-            <div class="jy-pop_item-gift">我想要xx神装</div>
-            <div class="jy-pop_item-gift">我想要xx神装</div>
-            <div class="jy-pop_item-gift">我想要xx神装</div>
-          </div>
-          <a href="javascript:;" class="jy-btn jy-pop_btn-ok">确定发送</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- pop 我的扭蛋记录  -->
-  <div class="jy-pop " id="J_recordPop">
-    <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main_tit bg-pop-2">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close bg-pop-close"></a>
-      <div class="jy-pop_body_tit tc">
-        <div class="jy-pop_main_tit--header">
-          <div class="jy-pop_main_tit--header-sty">我的扭蛋记录</div>
-        </div>
-        <div class="pt-20">
-          <div class="jy-pop_table">
+        <div style="color:#22619c;width:5.2rem;" class="mauto jy-pop_scrollbar mt-30 lh-20">
+          <p>亲爱的玩家朋友们：</p>
+          <p>应国家有关法律规定，现对活动内各玩法中物品产出概率公布如下：</p>
+          <p>一、怦然心动</p>
+          <p>活动期间首次心动可获得【怦然心动游戏大礼包】*1，100%概率获得。另外，每天心动即可获得随机【心动值】，100%概率获得。</p>
+          <p>二、爱要有“礼”</p>
+          <p>活动期间，消耗【心动值】*5可进行一次采摘，奖品概率公示如下</p>
+          <div class="jy-pop_table mt-30">
+            <div class="jy-pop_table_head">
+              <div class="jy-pop_table_cell">奖 品</div>
+              <div class="jy-pop_table_cell">概率</div>
+            </div>
             <div class="jy-pop_table_body">
               <div class="jy-pop_table_item">
-                <div class="jy-pop_table_cell jy-pop_table_cell1">5万银两*1</div>
+                <div class="jy-pop_table_cell">华为Mate 20</div>
+                <div class="jy-pop_table_cell">0.01%</div>
               </div>
               <div class="jy-pop_table_item">
-                <div class="jy-pop_table_cell jy-pop_table_cell1">5万银两*1</div>
+                <div class="jy-pop_table_cell">黄金礼盒</div>
+                <div class="jy-pop_table_cell">5%</div>
               </div>
               <div class="jy-pop_table_item">
-                <div class="jy-pop_table_cell jy-pop_table_cell1">5万银两*1</div>
+                <div class="jy-pop_table_cell">屠龙刀外型U盘</div>
+                <div class="jy-pop_table_cell">5%</div>
               </div>
               <div class="jy-pop_table_item">
-                <div class="jy-pop_table_cell jy-pop_table_cell1">5万银两*1</div>
+                <div class="jy-pop_table_cell">膳魔师保温杯</div>
+                <div class="jy-pop_table_cell">5%</div>
               </div>
               <div class="jy-pop_table_item">
-                <div class="jy-pop_table_cell jy-pop_table_cell1">5万银两*1</div>
+                <div class="jy-pop_table_cell">记忆棉U型枕</div>
+                <div class="jy-pop_table_cell">5%</div>
               </div>
               <div class="jy-pop_table_item">
-                <div class="jy-pop_table_cell jy-pop_table_cell1">5万银两*1</div>
-              </div>
-              <div class="jy-pop_table_item">
-                <div class="jy-pop_table_cell jy-pop_table_cell1">5万银两*1</div>
+                <div class="jy-pop_table_cell">白色长柄雨伞</div>
+                <div class="jy-pop_table_cell">5%</div>
               </div>
 
+            </div>
+          </div>
+
+          <div class=" mt-20 lh-20">温馨提示：文中所有概率均是在大样本（大量用户）下的统计数值，与单个玩家的少量测试数据之间可能会存在一定差异。</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- pop 我的奖励  -->
+  <div class="jy-pop " id="J_recordPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main ">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
+      <div class="jy-pop_main_header">我的奖励 </div>
+      <div class="jy-pop_body tc">
+        <div class="pt-40">
+          <div class="jy-pop_table">
+            <div class="jy-pop_scrollbar">
+              <div class="jy-pop_table_body">
+                <div class="jy-pop_table_item">
+                  <div class="jy-pop_table_cell">怦然心动游戏礼包*1</div>
+                  <div class="jy-pop_table_cell "><a href="javascript:;"
+                      class="jy-btn jy-pop-table-link btn-pop-view">查看</a></div>
+                </div>
+                <div class="jy-pop_table_item">
+                  <div class="jy-pop_table_cell">抱枕被*1</div>
+                  <div class="jy-pop_table_cell "><a href="javascript:;"
+                      class="jy-btn jy-pop-table-link btn-pop-address">填写地址</a></div>
+                </div>
+                <div class="jy-pop_table_item">
+                  <div class="jy-pop_table_cell">怦然心动游戏礼包*1</div>
+                  <div class="jy-pop_table_cell "><a href="javascript:;"
+                      class="jy-btn jy-pop-table-link btn-pop-get">待领取</a></div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -191,13 +203,17 @@
   <!-- pop 奖品一览  -->
   <div class="jy-pop " id="J_awardPop">
     <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main_tit bg-pop-2">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close bg-pop-close"></a>
-      <div class="jy-pop_body_tit tc">
-        <div class="jy-pop_main_tit--header">
-          <div class="jy-pop_main_tit--header-sty">奖品一览</div>
+    <div class="jy-pop_main ">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
+      <div class="jy-pop_main_header">奖品展示 </div>
+      <div class="jy-pop_body tc">
+        <!-- 图片控制 -->
+        <div class="jy-pop_body--sty">
+          <div class="bg-pop-gift mauto"></div>
         </div>
-        <div class="pt-20">
+
+        <!-- 代码控制 -->
+        <!-- <div class="pt-20">
           <div class="jy-pop_table">
             <div class="jy-pop_table_body">
               <div class="jy-pop_table_item">
@@ -223,63 +239,71 @@
 
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
 
   <!-- pop 查看礼包码  -->
-  <div class="jy-pop active" id="J_codePop">
+  <div class="jy-pop " id="J_codePop">
     <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main_tit bg-pop-1">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close bg-pop-close"></a>
-      <div class="jy-pop_body_tit tc">
-        <div class="jy-pop_main_tit--header">
-          <div class="jy-pop_main_tit--header-sty">礼包码</div>
+    <div class="jy-pop_main ">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
+      <div class="jy-pop_main_header">游戏礼包</div>
+      <div class="jy-pop_body tc">
+        <div class="jy-pop_main--header mt-40">
+          <div class="jy-pop_main--header-sty ">礼包码</div>
         </div>
-        <div class="jy-pop_txt pt-10 tc btn-popcode">fgheuofbpghxwoag</div>
-        <a href="javascript:;" data-clipboard-text="fgheuofbpghxwoag" class="jy-btn jy-pop_btn-ok btnpopcode">复制</a>
+        <div class="jy-pop_txt tc btn-popcode">fgheuofbpghxwoag</div>
+        <a href="javascript:;" data-clipboard-text="fgheuofbpghxwoag" class="jy-btn jy-pop_btn-ok btnpopcode">一键复制</a>
       </div>
+
     </div>
   </div>
 
   <!-- pop 填写个人信息  -->
   <div class="jy-pop " id="J_ownPop">
     <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main_tit ">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close bg-pop-close"></a>
-      <div class="jy-pop_body_tit tc">
-        <div class="jy-pop_main_tit--header">
-          <div class="jy-pop_main_tit--header-sty">绑定角色</div>
+    <div class="jy-pop_main ">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
+      <div class="jy-pop_main_header">填写个人信息</div>
+      <div class="jy-pop_body tc">
+        <div class="jy-pop_main--header mt-40">
+          <div class="jy-pop_main--header-sty">恭喜你！获得XXX !</div>
         </div>
         <div class="pt-30">
           <div class="jy-pop_input_cell">
-            <div class="jy-pop_input_cell-label tr">区服：</div>
+            <div class="jy-pop_input_cell-label tr">姓名:</div>
             <div class="jy-pop_input_cell-inp">
               <input placeholder="" type="text" class="ff-normal">
             </div>
           </div>
           <div class="jy-pop_input_cell mt-20">
-            <div class="jy-pop_input_cell-label tr">角色名:</div>
+            <div class="jy-pop_input_cell-label tr">手机:</div>
+            <div class="jy-pop_input_cell-inp">
+              <input placeholder="" type="text" class="ff-normal">
+            </div>
+          </div>
+          <div class="jy-pop_input_cell mt-20">
+            <div class="jy-pop_input_cell-label tr">地址:</div>
             <div class="jy-pop_input_cell-inp">
               <input placeholder="" type="text" class="ff-normal">
             </div>
           </div>
         </div>
-        <a href="javascript:;" class="jy-btn jy-pop_btn-ok">绑定该角色</a>
+        <a href="javascript:;" class="jy-btn jy-pop_btn-ok">确认提交</a>
       </div>
+
     </div>
   </div>
 
   <!-- pop 填写游戏信息  -->
-  <div class="jy-pop " id="J_gamePop">
+  <div class="jy-pop active" id="J_gamePop">
     <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main_tit bg-pop-2">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close bg-pop-close"></a>
-      <div class="jy-pop_body_tit tc">
-        <div class="jy-pop_main_tit--header">
-          <div class="jy-pop_main_tit--header-sty">填写游戏信息</div>
-        </div>
+    <div class="jy-pop_main ">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
+      <div class="jy-pop_main_header">填写游戏信息</div>
+      <div class="jy-pop_body tc">
         <p class="pt-40">
           <select name="" id="" class="jy-pop_select ff-normal">
             <option value="">请选择区服</option>
@@ -290,7 +314,6 @@
       </div>
     </div>
   </div>
-
   <!-- js -->
   <script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
   <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>

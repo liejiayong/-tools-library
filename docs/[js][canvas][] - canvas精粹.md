@@ -58,6 +58,8 @@ img.onload = function() {}
 
 将 canvas 堆栈顶部的状态 pop 出来，相当于回复默认属性变量
 
+> 值得注意的是，在每次fill()和stroke()时必须设置样式、线宽等
+
 ```js
 // 填充三角形
 // 路径使用填充（filled）时，路径自动闭合
@@ -65,6 +67,10 @@ ctx.beginPath()
 ctx.moveTo(25, 25)
 ctx.lineTo(105, 25)
 ctx.lineTo(25, 105)
+ctx.lineCap = 'round'
+ctx.lineJoin = 'round'
+ctx.strokeStyle = "#ff0000"
+ctx.lineWidth = 8
 ctx.fill()
 // 描边三角形
 // 路径使用填充（filled）时，路径自动闭合 使用描边（stroked）则不会闭合路径
@@ -73,6 +79,10 @@ ctx.moveTo(125, 125)
 ctx.lineTo(125, 45)
 ctx.lineTo(45, 125)
 ctx.closePath()
+ctx.lineCap = 'round'
+ctx.lineJoin = 'round'
+ctx.strokeStyle = "#ff0000"
+ctx.lineWidth = 8
 ctx.stroke()
 ```
 

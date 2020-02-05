@@ -385,7 +385,7 @@
           this.psw = psw;
           var startScroll, touchStart, touchCurrent;
           psw.slides.on('touchstart', function (e) {
-            startScroll = Math.round(this.scrollTop) + 2;
+            startScroll = Math.ceil(this.scrollTop) + 2;
             touchStart = e.targetTouches[0].pageY;
           }, true);
           psw.slides.on('touchmove', function (e) {

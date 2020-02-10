@@ -1,0 +1,24 @@
+<body>
+  <script>
+    // 映射关系
+    let map = {
+      setItem: (key, value) => window.localStorage['setItem'](key, value),
+      getItem: (key) => window.localStorage['getItem'](key),
+    }
+
+    // “中转页面”监听 ifameWin.postMessage() 事件
+    window.addEventListener('message', function (e) {
+      let { method, key, value } = e.data
+      console.log(e, map)
+      // 处理对应的存储方法
+      if (!map[method]) return;
+      let result = map[method](key, value)
+      // 返回给当前 client 的数据
+      let response = {
+        result,
+      }
+      // 把获取的数据，传递给 client 窗口
+      window.parent.postMessage(response, 'http://127.0.0.1:8002')
+    })
+  </script>
+</body>

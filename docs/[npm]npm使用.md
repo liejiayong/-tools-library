@@ -195,3 +195,35 @@ npm --registry
 npm --registry https://registry.npm.taobao.org install <packageName>
 yarn --registry https://registry.npm.taobao.org add <packageName>
 ```
+
+## FAQS
+
+### 全局包运行是报错： SecurityError: (:) []，PSSecurityException
+
+```
+
++ CategoryInfo          : SecurityError: (:) []，PSSecurityException
++ FullyQualifiedErrorId : UnauthorizedAccess
+
+```
+
+原因：Windows 下 PowerShell 默认的权限级别是 Restricted，不允许执行 PS 脚本（即.ps1 文件）。如果在 Restricted 权限级别下运行，会得到上述错误
+
+解决：Set-ExecutionPolicy RemoteSigned -Scope process
+
+- 科普 window 执行策略：
+
+```bash
+#更新执行策略
+Set-ExecutionPolicy <policy-name>
+
+#policy-name可能的值
+Unrestricted、RemoteSigned、AllSigned、Restricted、Default、Bypass、Undefined
+
+#将ExecutionPolicy改为Unrestricted，可以运行未签名的脚本
+Set-ExecutionPolicy Unrestricted
+
+#查询详细策略
+get-help about_Execution_Policise
+
+```

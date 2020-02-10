@@ -1,0 +1,27 @@
+<body>
+  <!-- 开始存储事件 -->
+  <button onclick="handleSetItem()">client1-setItem</button>
+  <!-- iframe 嵌套“中转页面” hub.html -->
+  <iframe src="http://127.0.0.1:8003/test/DOM/iframe/hub.html" frameborder="0" id="hub"></iframe>
+
+  <script>
+    const $ = id => document.querySelector(id)
+    // 获取 iframe window 对象
+    const ifameWin = $('#hub').contentWindow
+
+    let count = 0
+    function handleSetItem() {
+      let request = {
+        // 存储的方法
+        method: 'setItem',
+        // 存储的 key
+        key: 'someKey',
+        // 需要存储的数据值
+        value: `来自 client-1 消息：${count++}`,
+      }
+      // 向 iframe “中转页面”发送消息
+      ifameWin.postMessage(request, 'http://127.0.0.1:8003')
+      console.log('client-1发送的信息', request)
+    }
+  </script>
+</body>

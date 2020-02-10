@@ -1,0 +1,23 @@
+<body>
+  <button onclick="handleGetItem()">client1-GetItem</button>
+  <button onclick="handleSetItem()">client1-SetItem</button>
+
+  <script src="./cross-storage.js"></script>
+  <script>
+    const crossStorage = new Client('http://127.0.0.1:8003/test/DOM/iframe/postMessage/hub.html')
+    // 在 client1 中，获取 client2 存储的数据
+    function handleGetItem() {
+      crossStorage.getItem('client2Key', (result) => {
+        console.log('client-1 getItem result: ', result)
+      })
+    }
+
+    var i = 1;
+    // client1 本地存储
+    function handleSetItem() {
+      crossStorage.setItem('client1Key', 'client-1 value' + i++, (result) => {
+        console.log('client-1 完成本地存储')
+      })
+    }
+  </script>
+</body>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>iframe test</title>
+</head>
+
+<body>
+  <style>
+    .mobile-device-view {
+      width: 337px;
+      height: 575px;
+      margin-left: 19px;
+      margin-top: 91px;
+      float: left;
+      border: 0;
+      background: url('/images/loading.gif') center no-repeat;
+    }
+
+    #phone-demo {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      margin-left: -186px;
+      margin-top: -379px;
+      width: 372px;
+      height: 757px;
+      background: url('/images/phone_bg_big.png') no-repeat;
+      z-index: 10001;
+    }
+  </style>
+
+  <div id="phone-demo" style="display: block;">
+    <iframe class="mobile-device-view" src="http://www.isqvip.com" frameborder="0"></iframe>
+  </div>
+
+</body>
+
+</html>

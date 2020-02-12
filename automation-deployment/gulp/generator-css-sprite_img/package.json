@@ -1,10 +1,10 @@
 {
-  "name": "package-css",
-  "private": true,
-  "version": "0.1.0",
-  "description": "generates sprite image and package css",
+  "name": "generation-sprite",
+  "version": "1.0.0",
+  "description": "to generation-sprite",
   "devDependencies": {
     "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
@@ -12,12 +12,11 @@
     "gulp-imagemin": "^4.1.0",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
+    "gulp.spritesmith": "^6.9.0",
     "merge-stream": "^1.0.1"
   },
   "main": "gulpfile.js",
-  "dependencies": {
-    "gulp.spritesmith": "^6.11.0"
-  },
+  "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

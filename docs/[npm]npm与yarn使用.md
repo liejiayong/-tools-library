@@ -1,3 +1,9 @@
+---
+title: [npm]npm与yarn使用
+---
+
+> 持续整理中
+
 ## 初始化库步骤：
 
 ```bash
@@ -75,8 +81,30 @@ touch
 
 ## 更新模块
 
+### npm 更新
+
 ```bash
 npm update <packageName>
+
+```
+
+### yarn 更新
+
+- 下载 npm-check-updates
+- yarn upgrade-interactive --latest（推荐）
+- yarn upgrade package@version
+
+```bash
+// 先下载
+yarn global add npm-check-updates
+// 更新包（yarn.lock和package.json同步更新）
+ncu --upgrade --upgradeAll && yarn upgrade
+
+yarn upgrade-interactive --latest
+// 需要手动选择升级的依赖包，按空格键选择，a 键切换所有，i 键反选选择
+
+yarn upgrade package@version
+// yarn.lock和package.json都会更新，但是会进行版本锁定 "echarts": "4.2.0-rc.2"
 ```
 
 ## 卸载安装

@@ -85,7 +85,6 @@ touch
 
 ```bash
 npm update <packageName>
-
 ```
 
 ### yarn 更新
@@ -255,3 +254,40 @@ Set-ExecutionPolicy Unrestricted
 get-help about_Execution_Policise
 
 ```
+
+### node-sass 安装错误
+
+首先要排除 node-sass 版本是否与你安装的 py2、py3 有冲突，如果没冲突则做下面操作。
+
+排除 py 问题，一般都是国内网络不稳定的问题了。
+
+那么我们有几种常用方法：
+
+- 设置特定包的淘宝源：
+
+```bash
+
+npm config set sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+npm config set phantomjs_cdnurl=https://npm.taobao.org/mirrors/phantomjs/
+npm config set electron_mirror=https://npm.taobao.org/mirrors/electron/
+npm config set registry=https://registry.npm.taobao.org
+
+```
+
+上述操作可以在使用 npm install 安装 node-sass、electron 和 phantomjs 时都能自动从淘宝源上下载。
+
+- 使用 cnpm 淘宝源下载
+
+npm install -g cnpm
+
+cnpm install
+
+- 使用 VPN
+
+npm config set proxy (http://127.0.0.1:1080)此处是 VPN 的代理地址
+
+npm i node-sass
+
+下载完成后删除 http 代理
+
+npm config delete proxy

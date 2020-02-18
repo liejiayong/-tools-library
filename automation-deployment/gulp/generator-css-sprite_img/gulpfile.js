@@ -6,20 +6,61 @@ const merge = require('merge-stream')
 const spritesmith = require('gulp.spritesmith')
 
 // gulp雪碧图插件：根据图片导出图路径
+const IMG_TYPE = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp', 'tif', 'pcx', 'tga', 'exif', 'fpx', 'svg', 'psd', 'cdr', 'pcd', 'dxf', 'ufo', 'eps', 'ai', 'raw', 'WMF']
 const baseUrl = ''
 const imgUrl = `${baseUrl}`
 const terminal = 'h5' // pc or h5
-const IMG_TYPE = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp', 'tif', 'pcx', 'tga', 'exif', 'fpx', 'svg', 'psd', 'cdr', 'pcd', 'dxf', 'ufo', 'eps', 'ai', 'raw', 'WMF']
-function setImgType(src = '', typeList = []) {
-	if (!src.length) return
-	let type = ''
-	typeList.forEach(t => {
-		if (src.lastIndexOf(t) > -1) {
-			type = t
-		}
-	})
-	return `.${type}`
-}
+var isPrite = true
+
+gulp.task('spritecss', function() {
+	gulp
+		.src('img/*')
+		.pipe(
+			spritesmith({
+				imgName: 'menu.png', //保存合并后图片的地址
+				cssName: 'skill-sprite.css', //保存合并后对于css样式的地址
+				padding: 50, //合并时两个图片的间距
+				algorithm: 'binary-tree', //注释1
+				cssTemplate: function(data) {
+					var arr = []
+					data.sprites.forEach(function(sprite) {
+						if (isPrite) {
+							// 图片雪碧图
+							let txt = ''
+							if (terminal == 'pc') {
+								txt = '.' + sprite.name + '{display:inline-block' + `;background: url("../img/${sprite.escaped_image}") no-repeat ${sprite.px.offset_x} ${sprite.px.offset_y} / ${sprite.px.total_width} auto` + ';width:' + sprite.px.width + ';height:' + sprite.px.height + ';}\n'
+							} else {
+								txt = '.' + sprite.name + '{display:inline-block' + `;background: url("../img/${sprite.escaped_image}") no-repeat ${px2rem(sprite.px.offset_x)} ${px2rem(sprite.px.offset_y)} / ${px2rem(sprite.total_width)} auto` + ';width:' + px2rem(sprite.px.width) + ';height:' + px2rem(sprite.px.height) + ';}\n'
+							}
+							arr.push(txt)
+						} else {
+							// 图片单独数据
+							// img name
+							const name = sprite.name,
+								source = sprite.source_image,
+								imgName = source.substr(source.indexOf(name))
+							let singleSty = '',
+								width = '',
+								height = ''
+
+							if (terminal == 'pc') {
+								width = sprite.px.width
+								height = sprite.px.height
+
+								singleSty = `.${name}{display:inline-block;width: ${width}; height: ${height}; background: url("../img/${imgName}") no-repeat;}\n`
+							} else {
+								;(width = getPixel({ width: sprite.width, type: terminal })), (height = getPixel({ width: sprite.height, type: terminal }))
+								singleSty = `.${name}{display:inline-block;width: ${width}; height: ${height}; background: url("../img/${imgName}") no-repeat 0 0 / ${width} auto;}\n`
+							}
+							arr.push(singleSty)
+						}
+					})
+					return arr.join('')
+				}
+			})
+		)
+		.pipe(gulp.dest('js'))
+})
 
 gulp.task('spritejs', function() {
 	gulp
@@ -37,7 +78,7 @@ gulp.task('spritejs', function() {
 						console.log(sprite)
 						const ext = source.replace(/.+\.(\w+)$/g, '$1')
 						imgList.push(`${imgUrl}${name}.${ext}`)
-					});
+					})
 
 					const IMG_LIST = 'var IMGLIST =' + JSON.stringify(imgList) + ';'
 					return IMG_LIST
@@ -46,57 +87,9 @@ gulp.task('spritejs', function() {
 		)
 		.pipe(gulp.dest('js'))
 })
-var isPrite = false
-gulp.task('spritecss', function() {
-	gulp
-		.src('img/*')
-		.pipe(
-			spritesmith({
-				imgName: 'sprite.png', //保存合并后图片的地址
-				cssName: 'skill-sprite.css', //保存合并后对于css样式的地址
-				padding: 28, //合并时两个图片的间距
-				algorithm: 'binary-tree', //注释1
-				cssTemplate: function(data) {
-					var arr = []
-					data.sprites.forEach(function(sprite) {
-						if (isPrite) {
-							// 图片雪碧图
-							let txt = ''
-							if (terminal == 'pc') {
-								txt = '.' + sprite.name + '{display:inline-block;' + 'background-size: ' + sprite.total_width + 'px ' + sprite.total_height + 'px' + ";background-image: url('../img/" + sprite.escaped_image + "');" + 'background-position: ' + sprite.px.offset_x + ' ' + sprite.px.offset_y + ';width:' + sprite.px.width + ';' + 'height:' + sprite.px.height + ';' + '}\n'
-							} else {
-								// '.' + sprite.name + '{' + "background-size: " + px2rem(sprite.total_width) + ' ' + px2rem(sprite.total_height) + ";background-image: url('../img/" + sprite.escaped_image + "');" + 'background-position: ' + px2rem(sprite.px.offset_x) + ' ' + px2rem(sprite.px.offset_y) + ';' + 'width:' + px2rem(sprite.px.width) + ';' + 'height:' + px2rem(sprite.px.height) + ';' + '}\n'
-								txt = '.' + sprite.name + '{display:inline-block;' + 'background-size: ' + px2rem(sprite.total_width) + ' ' + px2rem(sprite.total_height) + ";background-image: url('../img/" + sprite.escaped_image + "');" + 'background-position: ' + px2rem(sprite.px.offset_x) + ' ' + px2rem(sprite.px.offset_y) + ';' + 'width:' + px2rem(sprite.px.width) + ';' + 'height:' + px2rem(sprite.px.height) + ';' + '}\n'
-								// '.' + sprite.name + '{margin: 0 auto;object-fit:cover;' + "background-size: " + px2rem(sprite.total_width) + ' ' + px2rem(sprite.total_height) + ";background-image: url('../img/" + sprite.escaped_image + "');" + 'background-position: ' + px2rem(sprite.px.offset_x) + ' ' + px2rem(sprite.px.offset_y) + ';' + 'width: .8rem;height:.8rem;' + '}\n'
-							}
-							arr.push(txt)
-						} else {
-							// 图片单独数据
-							// img name
-							const name = sprite.name,
-								source = sprite.source_image,
-								imgName = source.substr(source.indexOf(name))
-							let singleSty = '',
-								width = '',
-								height = ''
-							if (terminal == 'pc') {
-								;(width = sprite.px.width), (height = sprite.px.height)
-								singleSty = `.${name}{display:inline-block;width: ${width}; height: ${height}; background: url("../img/${imgName}") no-repeat;}\n`
-							} else {
-								;(width = getPixel({ width: sprite.width, type: terminal })), (height = getPixel({ width: sprite.height, type: terminal }))
-								singleSty = `.${name}{display:inline-block;width: ${width}; height: ${height}; background: url("../img/${imgName}") no-repeat center / contain;}\n`
-							}
-							arr.push(singleSty)
-						}
-					})
-					return arr.join('')
-				}
-			})
-		)
-		.pipe(gulp.dest('js'))
-})
 
 //编译scss文件：gulp default
+// gulp.task('default', ['spritejs', 'spritecss', 'serve'])
 gulp.task('default', ['spritejs', 'spritecss'])
 
 function px2rem(width, symbol = 'rem') {
@@ -125,6 +118,17 @@ function getPixel({ width, type = 'h5', symbol = 'rem' }) {
 	}
 
 	return ret
+}
+
+function setImgType(src = '', typeList = []) {
+	if (!src.length) return
+	let type = ''
+	typeList.forEach(t => {
+		if (src.lastIndexOf(t) > -1) {
+			type = t
+		}
+	})
+	return `.${type}`
 }
 
 // 操作css文件
@@ -157,7 +161,7 @@ gulp.task('style', function() {
 	return merge(scssIndex, scssComponents)
 })
 
-//监听scss文件
+// //监听scss文件
 // gulp.task('serve', function() {
 // 	gulp.start('style')
 // 	gulp.watch('scss/*.scss', ['style'])

@@ -1,11 +1,14 @@
-// @font-face {
-//   font-family: 'WenYueXQNW8';
-//   src: url('../fonts/WenYue-XinQingNianTi-W8.eot') format('opentype'),
-//          url('../fonts/WenYue-XinQingNianTi-W8.eot?#iefix') format('embedded-opentype'),
-//          url('../fonts/WenYue-XinQingNianTi-W8.woff') format('woff'),
-//          url('../fonts/WenYue-XinQingNianTi-W8.ttf')  format('truetype'),
-//          url('../fonts/WenYue-XinQingNianTi-W8.svg#WenYueXQNW8') format('svg');
-// }
+@font-face {
+  font-family: 'fcustom';
+  src: url('../media/fcustom.ttf');
+  src: url('../media/fcustom.eot?#font-spider') format('embedded-opentype'), url('../media/fcustom.woff2') format('woff2'), url('../media/fcustom.woff') format('woff'), url('../media/fcustom.ttf') format('truetype'), url('../media/fcustom.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ff-fcustom{
+  font-family: 'fcustom';
+}
 
 .ff-normal{
   font-family: initial;

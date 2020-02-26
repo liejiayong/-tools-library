@@ -5,20 +5,20 @@
 // bg
 $width-pop: 500px;
 $fs-body: 16px;
-$color-bg: #2f2b7f;
+$color-bg: #0b090c;
 $color-border: #57513b;
-$color-txt: #d2d2d2;
+$color-txt: #afab95;
 
 // btn-ok
-$color-btn-txt: #383314;
-$color-btn-bg: linear-gradient(45deg, #c9a647, #e2b95c, #ffd175);
+$color-btn-txt: #f6dbba;
+$color-btn-bg: linear-gradient(45deg, #982a07, #c43e05, #a83005);
 
 // input
 $input-width: 350px;
 $input-width-label: 90px;
 $input-height: 35px;
 $input-color-bg: #fff;
-$input-color-txt: inherit;
+$input-color-txt: #afab95;
 $input-fs-txt: 14px;
 $input-fs-label: inherit;
 
@@ -98,7 +98,8 @@ $table-height-overflow: 200px;
     margin-top: 18px;
     background: $color-btn-bg;
     color: $color-btn-txt;
-    border-radius: 6px;
+    // border-radius: 6px;
+    border: 1px solid #eec468;
     vertical-align: middle;
     font-size: 16px;
     &:hover {
@@ -215,6 +216,7 @@ $table-height-overflow: 200px;
       width: ($input-width - $input-width-label);
       @include lh(inherit);
       font-size: $input-fs-txt;
+      @include inputcolor($input-color-txt);
       background-color: $input-color-bg;
       -webkit-appearance: none;
       -moz-appearance: none;
@@ -229,6 +231,7 @@ $table-height-overflow: 200px;
       outline: 0;
       width: ($input-width - $input-width-label - $width_btn_input_auth);
       @include lh(inherit);
+      @include inputcolor($input-color-txt);
       font-size: $input-fs-txt;
       background-color: $input-color-bg;
       -webkit-appearance: none;

@@ -65,7 +65,8 @@ body {
 }
 .select-tc{
   text-align: center;
-  text-align-last:center;
+  -moz-text-align-last:center;
+       text-align-last:center;
 }
 
 .flighter {
@@ -317,81 +318,52 @@ body {
 
 .jy-flex {
   display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .jy-flex-c {
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .jy-flex-vc {
   -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .jy-flex-hc {
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 .jy-flex-hspace {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
 }
 .jy-flex-g5 {
   width: 50%;
   -webkit-box-flex: 50%;
-  -webkit-flex: 50%;
-  -moz-box-flex: 50%;
-  -ms-flex: 50%;
   flex: 50%;
 }
 .jy-flex-g4 {
   width: 40%;
   -webkit-box-flex: 40%;
-  -webkit-flex: 40%;
-  -moz-box-flex: 40%;
-  -ms-flex: 40%;
   flex: 40%;
 }
 .jy-flex-g3 {
   width: 30%;
   -webkit-box-flex: 30%;
-  -webkit-flex: 30%;
-  -moz-box-flex: 30%;
-  -ms-flex: 30%;
   flex: 30%;
 }
 .jy-flex-g2 {
   width: 20%;
   -webkit-box-flex: 20%;
-  -webkit-flex: 20%;
-  -moz-box-flex: 20%;
-  -ms-flex: 20%;
   flex: 20%;
 }
 .jy-flex-wrap {
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
 .nowrap {
   overflow: hidden;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -400,7 +372,6 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 .ellipsis-3 {
@@ -408,7 +379,6 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 
@@ -460,6 +430,14 @@ body {
 }
 
 // bg home page
+.jy-headermain {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  height: 100%;
+  zoom: 1;
+  box-sizing: border-box;
+}
 .jy-section {
   position: relative;
   width: 100%;
@@ -470,11 +448,13 @@ body {
   position: relative;
   margin: 0 auto;
   width: $main-width;
+  box-sizing: border-box;
 }
 .jy-sectionmain-x {
   position: relative;
   margin: 0 auto;
   width: $main-width-x;
+  box-sizing: border-box;
 }
 
 // 旋转屏幕
@@ -510,16 +490,10 @@ body {
   display: inline-block;
   width: 67px;
   height: 109px;
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
   transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
   -webkit-animation: rotation infinite 1.5s ease-in-out;
-  -moz-animation: rotation infinite 1.5s ease-in-out;
   animation: rotation infinite 1.5s ease-in-out;
-  -webkit-background-size: 67px;
-  -moz-background-size: 67px;
   background-size: 67px;
 }
 .jy-orient_extra {
@@ -546,52 +520,21 @@ body {
     -webkit-transform: rotate(90deg);
   }
 }
-@-moz-keyframes rotation {
-  10% {
-    -moz-transform: rotate(90deg);
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-  }
-  50%,
-  60% {
-    -moz-transform: rotate(0);
-    transform: rotate(0);
-    -webkit-transform: rotate(0);
-  }
-  90% {
-    -moz-transform: rotate(90deg);
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-  }
-  100% {
-    -moz-transform: rotate(90deg);
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-  }
-}
 @keyframes rotation {
   10% {
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
     transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
   }
   50%,
   60% {
-    -moz-transform: rotate(0);
-    -o-transform: rotate(0);
     transform: rotate(0);
     -webkit-transform: rotate(0);
   }
   90% {
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
     transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
   }
   100% {
-    -moz-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
     transform: rotate(90deg);
     -webkit-transform: rotate(90deg);
   }

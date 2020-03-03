@@ -5,20 +5,21 @@
 // bg
 $width-pop: 500px;
 $fs-body: 16px;
-$color-bg: #0b090c;
-$color-border: #57513b;
-$color-txt: #afab95;
+$color-bg: #6fa361 linear-gradient(#67b751, #77bb64);
+$color-border: #6fa361;
+$color-txt: #c6f3bd;
 
 // btn-ok
-$color-btn-txt: #f6dbba;
-$color-btn-bg: linear-gradient(45deg, #982a07, #c43e05, #a83005);
+$color-btn-txt: #fae69a;
+$color-btn-bg: linear-gradient(45deg, #ec4c3c, #e54632, #da3623);
 
 // input
 $input-width: 350px;
 $input-width-label: 90px;
 $input-height: 35px;
 $input-color-bg: #fff;
-$input-color-txt: #afab95;
+$input-color-txt: #333;
+$input-color-label: #c6f3bd;
 $input-fs-txt: 14px;
 $input-fs-label: inherit;
 
@@ -98,8 +99,8 @@ $table-height-overflow: 200px;
     margin-top: 18px;
     background: $color-btn-bg;
     color: $color-btn-txt;
-    // border-radius: 6px;
-    border: 1px solid #eec468;
+    border-radius: 6px;
+    // border: 1px solid #eec468;
     vertical-align: middle;
     font-size: 16px;
     &:hover {
@@ -121,6 +122,7 @@ $table-height-overflow: 200px;
     border: 1px solid $color-border;
     -webkit-animation: zoom 0.6s ease;
     animation: zoom 0.6s ease;
+    border-radius: 20px;
   }
   // 主体标题
   &_head {
@@ -150,7 +152,7 @@ $table-height-overflow: 200px;
       white-space: nowrap;
       overflow-x: hidden;
       overflow-y: auto;
-      background: #430707;
+      // background: #f5dfc3;
       color: inherit;
     }
     // 兑换码：与标题并列
@@ -164,7 +166,7 @@ $table-height-overflow: 200px;
       white-space: nowrap;
       overflow-x: hidden;
       overflow-y: auto;
-      background: #430707;
+      // background: #f5dfc3;
       color: inherit;
       &-label {
         padding: 0 5px;
@@ -179,7 +181,7 @@ $table-height-overflow: 200px;
   // input
   &_inp {
     position: relative;
-    color: $input-color-txt;
+    color: $input-color-label;
     zoom: 1;
     &::after {
       content: "\0020";
@@ -292,7 +294,7 @@ $table-height-overflow: 200px;
     width: 100%;
     border-bottom: 1px solid $table-color-border;
     border-right: 1px solid $table-color-border;
-    thead{
+    thead {
       border-top: 1px solid $table-color-border;
       border-bottom: 1px solid $table-color-border;
     }

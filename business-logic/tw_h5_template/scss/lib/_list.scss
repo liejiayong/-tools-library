@@ -5,7 +5,8 @@ $tit-height: 0.38rem;
 
 .list_panel {
   padding-top: 1.2rem;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 6.44rem;
   .list_tit {
     display: inline-block;
@@ -13,7 +14,6 @@ $tit-height: 0.38rem;
     font-size: 0.24rem;
     // font-weight: bold;
     @include lh($tit-height);
-    -moz-border-radius: $tit-height;
     border-radius: $tit-height;
     color: #fff;
     background: #4872a8;
@@ -60,7 +60,6 @@ $tit-height: 0.38rem;
             font-size: 0.24rem;
             color: #fff;
             background-color: #7491bc;
-            -moz-border-radius: 50%;
             border-radius: 50%;
           }
         }
@@ -76,7 +75,6 @@ $tit-height: 0.38rem;
         font-size: 0.24rem;
         color: #fff;
         background-color: #7491bc;
-        -moz-border-radius: 50%;
         border-radius: 50%;
       }
     }

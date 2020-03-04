@@ -90,8 +90,6 @@
     </div>
   </div>
 
-  <script>
-  </script>
   <!-- pop tip  -->
   <div class="jy-pop " id="J_tipPop">
     <div class="jy-pop_mask"></div>
@@ -344,10 +342,13 @@
   <script>
     $(function () {
       var activeCls = 'active';
-      function showTip(str) {
+      function showTip(html) {
         var $tip = $('#J_tipPop');
-        $tip.find('.jy-pop-tiptxt').text(str);
+        $tip.find('.jy-pop-tiptxt').html(html);
         $tip.fadeIn();
+      }
+      function navTo(cls) {
+        $(cls).addClass(activeCls).siblings().removeClass(activeCls);
       }
       // 弹窗
       // 关闭弹窗

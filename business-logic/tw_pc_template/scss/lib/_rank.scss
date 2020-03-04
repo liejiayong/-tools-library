@@ -1,30 +1,92 @@
 @import "../_const.scss";
 @import "../_mixin.scss";
 
-$color-txt-head: #ffe0b4;
-$color-txt-body: #f2ce8b;
+$color-txt-head: #e5be86;
+$color-txt-body: #e5be86;
+$fs-h: 20px;
+$fs-b: 16px;
 
-.jy-rule{
-  $fs-h: 14px;
-  $fs-b: 12px;
-  .rule-head,.rule-body{
+.jy-rule {
+  width: 490px;
+  height: 530px;
+  text-align: center;
+  .rule-head,
+  .rule-body {
     font-size: 0;
     line-height: 1;
-    .rule-cell{
-      display: inline-block;
-      text-align: center;
+  }
+  .rule-cells {
+    display: inline-block;
+    @include lh(40px);
+  }
+  .rule-cell {
+    display: inline-block;
+    &:nth-of-type(1) {
+      width: 110px;
+    }
+    &:nth-of-type(2) {
+      width: 268px;
+    }
+    &:nth-of-type(3) {
+      width: 110px;
     }
   }
-  .rule-head{
+  .rule-head {
     color: $color-txt-head;
-    .rule-cell{
+    .rule-cells {
+    }
+    .rule-cell {
       font-size: $fs-h;
     }
   }
-  .rule-body{
+  .rule-body {
     color: $color-txt-body;
-    .rule-cell{
+    .rule-cells {
+      border-top: 1px dashed #373a3f;
+      &:nth-of-type(-n + 3) {
+        color: #fff33f;
+      }
+      // &:nth-of-type(1) {
+      //   .rule-cell:nth-of-type(1) {
+      //     background: url("../img/i-rank-1.png") no-repeat center;
+      //   }
+      // }
+      // &:nth-of-type(2) {
+      //   .rule-cell:nth-of-type(1) {
+      //     background: url("../img/i-rank-2.png") no-repeat center;
+      //   }
+      // }
+      // &:nth-of-type(3) {
+      //   .rule-cell:nth-of-type(1) {
+      //     background: url("../img/i-rank-3.png") no-repeat center;
+      //   }
+      // }
+    }
+    .rule-cell {
       font-size: $fs-b;
     }
   }
+  .jy-list-msg {
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
+
+// <div class="jy-rule">
+// <div class="rule-head">
+//   <div class="rule-cells">
+//     <div class="rule-cell">名次</div>
+//     <div class="rule-cell">游戏账号</div>
+//     <div class="rule-cell">累计徽章</div>
+//   </div>
+// </div>
+// <div class="rule-body">
+//   <div class="rule-cells">
+//     <div class="rule-cell">第一名</div>
+//     <div class="rule-cell">隔壁老王是秃头胖子</div>
+//     <div class="rule-cell">1234</div>
+//   </div>
+// </div>
+// </div>

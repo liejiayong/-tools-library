@@ -2,7 +2,8 @@
 @import "./_mixin.scss";
 
 body {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   font: #{$fs-primary}/1.15 "fcustom","微软雅黑";
   color: $color-primary;
   background-color: $color-theme-bg;
@@ -84,9 +85,15 @@ body {
 }
 .text-underline {
   text-decoration: underline;
+  &:hover{
+    text-decoration: none;
+  }
 }
 .text-none {
   text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 .fs-40 {
@@ -266,28 +273,34 @@ body {
   padding-top: 0.6rem;
 }
 
-.color-yellow {
+.text-white {
+  color: #fff;
+}
+.text-black {
+  color: #000;
+}
+.text-yellow {
   color: $color-yellow;
 }
-.color-orange {
+.text-orange {
   color: $color-orange;
 }
-.color-red {
+.text-red {
   color: $color-red;
 }
-.color-blue {
+.text-blue {
   color: $color-blue;
 }
-.color-pink {
+.text-pink {
   color: $color-pink;
 }
-.color-green {
+.text-green {
   color: $color-green;
 }
-.color-grey {
+.text-grey {
   color: $color-grey;
 }
-.color-deep-grey {
+.text-deep-grey {
   color: $color-deep-grey;
 }
 
@@ -388,7 +401,12 @@ body {
 }
 
 .jy-btn {
-  display: inline-block;
+  cursor: pointer;
+  z-index: 100;
+  text-indent: -9999px;
+  font-size: 0;
+}
+.jy-btn-txt {
   cursor: pointer;
   z-index: 100;
 }
@@ -416,7 +434,8 @@ body {
   font-size: 0;
 }
 .jy-wrapper {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   width: 100%;
   max-width: 750px;
@@ -424,7 +443,8 @@ body {
 
 .jy-content {
   padding: 1.17rem 0 .96rem;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   width: 100%;
 }
@@ -432,7 +452,8 @@ body {
 // bg home page
 .jy-headermain {
   position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 1200px;
   height: 100%;
   zoom: 1;
@@ -446,13 +467,15 @@ body {
 }
 .jy-sectionmain {
   position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: $main-width;
   box-sizing: border-box;
 }
 .jy-sectionmain-x {
   position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: $main-width-x;
   box-sizing: border-box;
 }

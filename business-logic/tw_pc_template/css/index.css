@@ -24,8 +24,6 @@ em, i { font-style: normal; }
 /**
  in mobile
 */
-::-webkit-scrollbar { display: none; opacity: 0; }
-
 /** Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Firefox, and Safari. */
 h1 { font-size: 2em; margin: 0.67em 0; }
 
@@ -142,7 +140,7 @@ template { display: none; }
 
 .ff-normal { font-family: initial; }
 
-body { margin: 0 auto; min-width: 1200px; font: 14px/ 1 "fcustom", "微软雅黑"; color: #000; background-color: #fff; }
+body { margin-left: auto; margin-right: auto; min-width: 1200px; font: 14px/ 1 "fcustom", "微软雅黑"; color: #000; background-color: #fff; }
 
 .lh-15 { line-height: 1.5; }
 
@@ -186,7 +184,11 @@ body { margin: 0 auto; min-width: 1200px; font: 14px/ 1 "fcustom", "微软雅黑
 
 .text-underline { text-decoration: underline; }
 
+.text-underline:hover { text-decoration: none; }
+
 .text-none { text-decoration: none; }
+
+.text-none:hover { text-decoration: underline; }
 
 .fs-40 { font-size: 40px; }
 
@@ -304,21 +306,25 @@ body { margin: 0 auto; min-width: 1200px; font: 14px/ 1 "fcustom", "微软雅黑
 
 .pt-60 { padding-top: 60px; }
 
-.color-yellow { color: yellow; }
+.text-white { color: #fff; }
 
-.color-orange { color: orange; }
+.text-black { color: #000; }
 
-.color-red { color: red; }
+.text-yellow { color: yellow; }
 
-.color-blue { color: blue; }
+.text-orange { color: orange; }
 
-.color-pink { color: pink; }
+.text-red { color: red; }
 
-.color-green { color: #cdffa8; }
+.text-blue { color: blue; }
 
-.color-grey { color: #666; }
+.text-pink { color: pink; }
 
-.color-deep-grey { color: #333; }
+.text-green { color: #cdffa8; }
+
+.text-grey { color: #666; }
+
+.text-deep-grey { color: #333; }
 
 .prelative { position: relative; }
 
@@ -362,7 +368,9 @@ body { margin: 0 auto; min-width: 1200px; font: 14px/ 1 "fcustom", "微软雅黑
 
 .fill-100 { width: 100%; height: 100%; }
 
-.jy-btn { display: inline-block; cursor: pointer; z-index: 100; }
+.jy-btn { cursor: pointer; z-index: 100; text-indent: -9999px; font-size: 0; }
+
+.jy-btn-txt { cursor: pointer; z-index: 100; }
 
 .jy-btn-brightness:hover { -webkit-filter: brightness(0.8); filter: brightness(0.8); }
 
@@ -372,25 +380,25 @@ body { margin: 0 auto; min-width: 1200px; font: 14px/ 1 "fcustom", "微软雅黑
 
 .jy-tit { overflow: hidden; text-indent: -9999px; font-size: 0; }
 
-.jy-wrapper { position: relative; width: 100%; margin: 0 auto; overflow: hidden; }
+.jy-wrapper { position: relative; width: 100%; margin-left: auto; margin-right: auto; overflow: hidden; }
 
-.jy-headermain { position: relative; margin: 0 auto; width: 1200px; height: 100%; zoom: 1; }
+.jy-headermain { position: relative; margin-left: auto; margin-right: auto; width: 1200px; height: 100%; zoom: 1; }
 
-.jy-section { position: relative; margin: 0 auto; width: initial; background: no-repeat top center; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; /* overflow: hidden; */ }
+.jy-section { position: relative; margin-left: auto; margin-right: auto; width: initial; background: no-repeat top center; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; /* overflow: hidden; */ }
 
-.jy-sectionmain { position: relative; margin: 0 auto; width: 1200px; height: 100%; background: no-repeat top center; }
+.jy-sectionmain { position: relative; margin-left: auto; margin-right: auto; width: 1200px; height: 100%; background: no-repeat top center; }
 
-.jy-sectionmain-x { position: relative; margin: 0 auto; width: 1000px; height: 100%; background: no-repeat top center; }
+.jy-sectionmain-x { position: relative; margin-left: auto; margin-right: auto; width: 1000px; height: 100%; background: no-repeat top center; }
 
-.jy-list-msg { margin-top: 93px; }
+.jy-list-msg { position: relative; margin-left: auto; margin-right: auto; width: 740px; }
 
-.jy-list-msg .tit { font-size: 18px; padding-bottom: 10px; }
+.jy-list-msg .tit { display: inline-block; font-size: 18px; padding: 0 15px; border: 1px solid #b3905d; border-radius: 30px; height: 30px; line-height: 30px; background: #25272a; }
 
-.jy-list-msg .msg-content { position: relative; color: #949494; }
+.jy-list-msg .msg-content { margin-top: 14px; position: relative; }
 
-.jy-list-msg .msg-content li { position: relative; margin: 7px 0; font-size: inherit; color: inherit; padding-left: 30px; height: 26px; line-height: 26px; }
+.jy-list-msg .msg-content li { position: relative; font-size: inherit; color: inherit; padding-left: 18px; line-height: 1.3; }
 
-.jy-list-msg .msg-content li::before { content: ""; display: block; position: absolute; top: 50%; left: 0; -webkit-transform: translateY(-50%) rotate(45deg); -moz-transform: translateY(-50%) rotate(45deg); -ms-transform: translateY(-50%) rotate(45deg); -o-transform: translateY(-50%) rotate(45deg); transform: translateY(-50%) rotate(45deg); height: 16px; line-height: 16px; width: 16px; text-align: center; background-color: #b4a16a; }
+.jy-list-msg .msg-content li::before { display: block; position: absolute; top: 50%; left: 0; -webkit-transform: translateY(-50%) rotate(45deg); -moz-transform: translateY(-50%) rotate(45deg); -ms-transform: translateY(-50%) rotate(45deg); -o-transform: translateY(-50%) rotate(45deg); transform: translateY(-50%) rotate(45deg); height: 16px; line-height: 16px; width: 16px; text-align: center; background-color: #b4a16a; }
 
 .jy-list-msg .msg-content li i, .jy-list-msg .msg-content li span { display: inline-block; vertical-align: middle; }
 
@@ -432,55 +440,69 @@ body { margin: 0 auto; min-width: 1200px; font: 14px/ 1 "fcustom", "微软雅黑
 
 .jy-pop_mask__clickable { cursor: pointer; }
 
-.jy-pop_ok { position: relative; padding: 10px 20px; margin-top: 18px; background: -webkit-linear-gradient(45deg, #c9a647, #e2b95c, #ffd175); background: -moz-linear-gradient(45deg, #c9a647, #e2b95c, #ffd175); background: -o-linear-gradient(45deg, #c9a647, #e2b95c, #ffd175); background: linear-gradient(45deg, #c9a647, #e2b95c, #ffd175); color: #383314; border-radius: 6px; vertical-align: middle; font-size: 16px; }
+.jy-pop_ok { position: relative; margin-top: 18px; vertical-align: middle; font-size: 16px; }
 
 .jy-pop_ok:hover { -webkit-filter: brightness(1.1); filter: brightness(1.1); }
 
-.jy-pop_main { margin: 100px 0 0 -265px; position: fixed; left: 50%; top: 0; z-index: 20; width: 500px; background: #2f2b7f; color: #d2d2d2; font-size: 16px; border: 1px solid #57513b; -webkit-animation: zoom 0.6s ease; -moz-animation: zoom 0.6s ease; animation: zoom 0.6s ease; }
+.jy-pop_main { margin: 100px 0px 0px -367px; position: fixed; left: 50%; top: 0; z-index: 20; width: 734px; background: #6fa361 -webkit-gradient(linear, left top, left bottom, from(#67b751), to(#77bb64)); background: #6fa361 -webkit-linear-gradient(#67b751, #77bb64); background: #6fa361 -moz-linear-gradient(#67b751, #77bb64); background: #6fa361 -o-linear-gradient(#67b751, #77bb64); background: #6fa361 linear-gradient(#67b751, #77bb64); color: #25272a; font-size: 28px; -webkit-animation: zoom 0.6s ease; -moz-animation: zoom 0.6s ease; animation: zoom 0.6s ease; border-radius: 20px; }
 
-.jy-pop_head { padding-top: 30px; font-size: 30px; font-weight: bold; text-align: center; }
+.jy-pop_head { padding-top: 40px; font-size: 36px; font-weight: bold; text-align: center; }
 
-.jy-pop_body { padding: 10px 20px 40px; text-align: center; }
+.jy-pop_body { padding: 40px 40px; text-align: center; }
 
 .jy-pop_body__tit { font-size: 28px; font-weight: bold; color: inherit; }
 
-.jy-pop_body__code { margin-left: auto; margin-right: auto; position: relative; width: 300px; height: 36px; line-height: 36px; text-align: center; white-space: nowrap; overflow-x: hidden; overflow-y: auto; background: #430707; color: inherit; }
+.jy-pop_body__code { margin-left: auto; margin-right: auto; position: relative; width: 300px; height: 36px; line-height: 36px; text-align: center; white-space: nowrap; overflow-x: hidden; overflow-y: auto; color: inherit; }
 
-.jy-pop_body__codetie { margin-left: auto; margin-right: auto; position: relative; width: 400px; height: 36px; line-height: 36px; text-align: center; white-space: nowrap; overflow-x: hidden; overflow-y: auto; background: #430707; color: inherit; }
+.jy-pop_body__codetie { margin-left: auto; margin-right: auto; position: relative; width: 500px; height: 35px; line-height: 35px; text-align: center; white-space: nowrap; overflow-x: hidden; overflow-y: auto; color: inherit; }
 
-.jy-pop_body__codetie-label { padding: 0 5px; width: 100px; }
+.jy-pop_body__codetie-label { padding: 0 10px; width: 100px; text-decoration: underline; font-size: 22px; color: #fff000; cursor: pointer; }
 
-.jy-pop_body__codetie-body { padding: 0 5px; width: 280px; }
+.jy-pop_body__codetie-body { padding: 0 5px; width: 358px; height: 35px; font-size: 24px; background: #f9d6a4; }
 
-.jy-pop_inp { position: relative; color: inherit; zoom: 1; }
+.jy-pop_inp { position: relative; color: #25272a; zoom: 1; }
 
 .jy-pop_inp::after { content: "\0020"; clear: both; display: block; height: 0; visibility: hidden; opacity: 0; font-size: 0; }
 
-.jy-pop_inp__cell { position: relative; margin-left: auto; margin-right: auto; width: 350px; height: 35px; line-height: 35px; font-size: inherit; overflow: hidden; }
+.jy-pop_inp__cell { position: relative; margin-left: auto; margin-right: auto; width: 350px; height: 35px; line-height: 35px; font-size: 20px; overflow: hidden; }
 
 .jy-pop_inp__cell:not(:last-of-type) { margin-bottom: 10px; }
 
-.jy-pop_inp__label { float: left; width: 90px; vertical-align: middle; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.jy-pop_inp__label { float: left; width: 90px; vertical-align: middle; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-align: right; padding-right: 10px; }
 
-.jy-pop_inp__body { float: left; padding: 0 1em; border: 0; outline: 0; width: 260px; height: inherit; line-height: inherit; font-size: 14px; background-color: #fff; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.jy-pop_inp__body { float: left; padding: 0 1em; border: 0; outline: 0; width: 260px; height: inherit; line-height: inherit; font-size: 20px; color: #333; background-color: #f9d6a4; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-.jy-pop_inp__bodyauth { float: left; padding: 0 1em; border: 0; outline: 0; width: 160px; height: inherit; line-height: inherit; font-size: 14px; background-color: #fff; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.jy-pop_inp__body::-webkit-input-placeholder { color: #333; }
 
-.jy-pop_inp__btnauth { display: block; float: left; padding: 0 10px; outline: 0; border: 0; width: 100px; background-color: #fff; color: #27ab13; height: inherit; line-height: inherit; font-size: 14px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: pointer; }
+.jy-pop_inp__body::-moz-placeholder { color: #333; }
 
-.jy-pop_inp__btnauth.disable { cursor: no-drop; color: #ccc; }
+.jy-pop_inp__body::-ms-input-placeholder { color: #333; }
 
-.jy-pop_select { float: left; width: 260px; height: 35px; line-height: 35px; background: #fff url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC") no-repeat center right 10px; color: inherit; font-size: inherit; vertical-align: middle; padding-left: 1em; border: 0; outline: 0; }
+.jy-pop_inp__body::-moz-placeholder { color: #333; }
+
+.jy-pop_inp__bodyauth { float: left; padding: 0 1em; border: 0; outline: 0; width: 160px; height: inherit; line-height: inherit; color: #333; font-size: 20px; background-color: #f9d6a4; -webkit-appearance: none; -moz-appearance: none; appearance: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.jy-pop_inp__bodyauth::-webkit-input-placeholder { color: #333; }
+
+.jy-pop_inp__bodyauth::-moz-placeholder { color: #333; }
+
+.jy-pop_inp__bodyauth::-ms-input-placeholder { color: #333; }
+
+.jy-pop_inp__bodyauth::-moz-placeholder { color: #333; }
+
+.jy-pop_inp__btnauth { display: block; float: left; padding: 0 10px; outline: 0; border: 0; width: 100px; background-color: #f9d6a4; color: #27ab13; height: inherit; line-height: inherit; font-size: 14px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-appearance: none; -moz-appearance: none; appearance: none; cursor: pointer; }
+
+.jy-pop_inp__btnauth.disable { cursor: no-drop; color: #adadad; -webkit-filter: grayscale(1); filter: grayscale(1); }
+
+.jy-pop_select { float: left; width: 260px; height: 35px; line-height: 35px; background: #f9d6a4 url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC") no-repeat center right 10px; color: #333; font-size: inherit; vertical-align: middle; padding-left: 1em; border: 0; outline: 0; }
 
 .jy-pop__scrollbar { overflow-x: hidden; overflow-y: auto; max-height: 200px; }
 
-.jy-pop__table { position: relative; border-spacing: 0; border-collapse: collapse; width: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.3); border-right: 1px solid rgba(0, 0, 0, 0.3); }
+.jy-pop__table { position: relative; border-spacing: 0; border-collapse: collapse; width: 100%; }
 
-.jy-pop__table thead { border-top: 1px solid rgba(0, 0, 0, 0.3); border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+.jy-pop__table tr:not(:last-of-type) { border-bottom: 1px dashed rgba(0, 0, 0, 0.3); }
 
-.jy-pop__table tr:first-child td { border-top: none; }
-
-.jy-pop__table td { border-top: 1px solid rgba(0, 0, 0, 0.3); border-left: 1px solid rgba(0, 0, 0, 0.3); font-size: 18px; color: inherit; line-height: 30px; text-align: left; text-indent: 15px; }
+.jy-pop__table td { font-size: 20px; color: inherit; text-indent: 15px; }
 
 /**
 *  business css

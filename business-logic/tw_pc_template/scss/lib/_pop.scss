@@ -3,11 +3,11 @@
 
 /* jy-pop */
 // bg
-$width-pop: 500px;
-$fs-body: 16px;
+$width-pop: 734px;
+$fs-body: 28px;
 $color-bg: #6fa361 linear-gradient(#67b751, #77bb64);
 $color-border: #6fa361;
-$color-txt: #c6f3bd;
+$color-txt: #25272a;
 
 // btn-ok
 $color-btn-txt: #fae69a;
@@ -17,11 +17,11 @@ $color-btn-bg: linear-gradient(45deg, #ec4c3c, #e54632, #da3623);
 $input-width: 350px;
 $input-width-label: 90px;
 $input-height: 35px;
-$input-color-bg: #fff;
+$input-color-bg: #f9d6a4;
 $input-color-txt: #333;
-$input-color-label: #c6f3bd;
-$input-fs-txt: 14px;
-$input-fs-label: inherit;
+$input-color-label: #25272a;
+$input-fs-txt: 20px;
+$input-fs-label: 20px;
 
 // table
 $table-color-border: rgba(0, 0, 0, 0.3);
@@ -95,11 +95,11 @@ $table-height-overflow: 200px;
   // 确认按钮
   &_ok {
     position: relative;
-    padding: 10px 20px;
+    // padding: 10px 20px;
     margin-top: 18px;
-    background: $color-btn-bg;
-    color: $color-btn-txt;
-    border-radius: 6px;
+    // background: $color-btn-bg;
+    // color: $color-btn-txt;
+    // border-radius: 6px;
     // border: 1px solid #eec468;
     vertical-align: middle;
     font-size: 16px;
@@ -110,7 +110,7 @@ $table-height-overflow: 200px;
   }
   // 主体：主要设置背景
   &_main {
-    margin: 100px 0 0 -265px;
+    margin: 100px 0px 0px (-$width-pop/2);
     position: fixed;
     left: 50%;
     top: 0;
@@ -119,21 +119,21 @@ $table-height-overflow: 200px;
     background: $color-bg;
     color: $color-txt;
     font-size: $fs-body;
-    border: 1px solid $color-border;
+    // border: 1px solid $color-border;
     -webkit-animation: zoom 0.6s ease;
     animation: zoom 0.6s ease;
     border-radius: 20px;
   }
   // 主体标题
   &_head {
-    padding-top: 30px;
-    font-size: 30px;
+    padding-top: 40px;
+    font-size: 36px;
     font-weight: bold;
     text-align: center;
   }
   // 内容体
   &_body {
-    padding: 10px 20px 40px;
+    padding: 40px 40px ;
     text-align: center;
     // 内容体标题
     &__tit {
@@ -160,8 +160,8 @@ $table-height-overflow: 200px;
       margin-left: auto;
       margin-right: auto;
       position: relative;
-      width: 400px;
-      @include lh(36px);
+      width: 500px;
+      @include lh($input-height);
       text-align: center;
       white-space: nowrap;
       overflow-x: hidden;
@@ -169,12 +169,19 @@ $table-height-overflow: 200px;
       // background: #f5dfc3;
       color: inherit;
       &-label {
-        padding: 0 5px;
+        padding: 0 10px;
         width: 100px;
+        text-decoration: underline;
+        font-size: 22px;
+        color: #fff000;
+        cursor: pointer;
       }
       &-body {
         padding: 0 5px;
-        width: 280px;
+        width: 358px;
+        height: $input-height;
+        font-size: 24px;
+        background:#f9d6a4;
       }
     }
   }
@@ -209,6 +216,8 @@ $table-height-overflow: 200px;
       width: $input-width-label;
       vertical-align: middle;
       box-sizing: border-box;
+      text-align: right;
+      padding-right: 10px;
     }
     &__body {
       float: left;
@@ -260,7 +269,9 @@ $table-height-overflow: 200px;
       cursor: pointer;
       &.disable {
         cursor: no-drop;
-        color: #ccc;
+        color: #adadad;
+        -webkit-filter: grayscale(1);
+                filter: grayscale(1);
       }
     }
   }
@@ -292,22 +303,27 @@ $table-height-overflow: 200px;
     border-spacing: 0;
     border-collapse: collapse;
     width: 100%;
-    border-bottom: 1px solid $table-color-border;
-    border-right: 1px solid $table-color-border;
+    // border-bottom: 1px solid $table-color-border;
+    // border-right: 1px solid $table-color-border;
     thead {
-      border-top: 1px solid $table-color-border;
-      border-bottom: 1px solid $table-color-border;
+      // border-top: 1px solid $table-color-border;
+      // border-bottom: 1px solid $table-color-border;
     }
-    tr:first-child td {
-      border-top: none;
+    tr{
+      &:not(:last-of-type) {
+        border-bottom: 1px dashed $table-color-border;
+      }
     }
+    // tr:first-child td {
+    //   border-top: none;
+    // }
     td {
-      border-top: 1px solid $table-color-border;
-      border-left: 1px solid $table-color-border;
-      font-size: 18px;
+      // border-top: 1px solid $table-color-border;
+      // border-left: 1px solid $table-color-border;
+      font-size: 20px;
       color: $table-color-txt;
-      line-height: 30px;
-      text-align: left;
+      // line-height: 30px;
+      // text-align: left;
       text-indent: 15px;
     }
   }

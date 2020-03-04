@@ -35,7 +35,8 @@ html {
    ========================================================================== */
 
 body {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   font: 50px / 1.15 -apple-system, system-ui, BlinkMacSystemFont, Helvetica,
     Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑",
     Arial, sans-serif;
@@ -131,8 +132,6 @@ h1 {
  */
 
 hr {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
@@ -170,7 +169,6 @@ abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-  -moz-text-decoration: underline dotted;
   text-decoration: underline dotted; /* 2 */
 }
 
@@ -288,13 +286,16 @@ textarea {
   margin: 0; /* 2 */
   border: 0;
   outline: 0;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   box-sizing: border-box;
 }
 
 select {
   text-align: center;
-  text-align-last:center;
+  -moz-text-align-last:center;
+       text-align-last:center;
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC")
     no-repeat right 10px center/ 8px auto;
 }
@@ -373,8 +374,6 @@ fieldset {
   */
 
 legend {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; /* 1 */
   color: inherit; /* 2 */
   display: table; /* 1 */
@@ -406,8 +405,6 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -428,7 +425,8 @@ textarea {
 
 [type="search"] {
   -webkit-appearance: textfield; /* 1 */
-  appearance: textfield;
+  -moz-appearance: textfield;
+       appearance: textfield;
   outline-offset: -2px; /* 2 */
 }
 

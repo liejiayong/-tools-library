@@ -2,9 +2,10 @@
 @import "./_mixin.scss";
 
 body {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   min-width: 1200px;
-  font: #{$fs-primary}/ 1 "fcustom","微软雅黑";
+  font: #{$fs-primary}/ 1 "fcustom", "微软雅黑";
   color: $color-primary;
   background-color: $color-theme-bg;
 }
@@ -64,9 +65,10 @@ body {
 .tr {
   text-align: right;
 }
-.select-tc{
+.select-tc {
   text-align: center;
-  text-align-last:center;
+  -moz-text-align-last: center;
+  text-align-last: center;
 }
 
 .flighter {
@@ -84,9 +86,15 @@ body {
 }
 .text-underline {
   text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
 }
 .text-none {
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .fs-40 {
@@ -134,10 +142,10 @@ body {
 .fs-12 {
   font-size: 12px;
 }
-.fs-10{
+.fs-10 {
   font-size: 10px;
 }
-.fs-0{
+.fs-0 {
   font-size: 0;
 }
 
@@ -266,38 +274,44 @@ body {
   padding-top: 60px;
 }
 
-.color-yellow {
+.text-white {
+  color: #fff;
+}
+.text-black {
+  color: #000;
+}
+.text-yellow {
   color: $color-yellow;
 }
-.color-orange {
+.text-orange {
   color: $color-orange;
 }
-.color-red {
+.text-red {
   color: $color-red;
 }
-.color-blue {
+.text-blue {
   color: $color-blue;
 }
-.color-pink {
+.text-pink {
   color: $color-pink;
 }
-.color-green {
+.text-green {
   color: $color-green;
 }
-.color-grey {
+.text-grey {
   color: $color-grey;
 }
-.color-deep-grey {
+.text-deep-grey {
   color: $color-deep-grey;
 }
 
 .prelative {
   position: relative;
 }
-.pabsolute{
+.pabsolute {
   position: absolute;
 }
-.pfixed{
+.pfixed {
   position: fixed;
 }
 .absolute-0 {
@@ -318,81 +332,52 @@ body {
 
 .jy-flex {
   display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
 }
 .jy-flex-c {
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .jy-flex-vc {
   -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 }
 .jy-flex-hc {
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 .jy-flex-hspace {
+  -webkit-box-pack: justify;
   justify-content: space-between;
 }
 .jy-flex-g5 {
   width: 50%;
   -webkit-box-flex: 50%;
-  -webkit-flex: 50%;
-  -moz-box-flex: 50%;
-  -ms-flex: 50%;
   flex: 50%;
 }
 .jy-flex-g4 {
   width: 40%;
   -webkit-box-flex: 40%;
-  -webkit-flex: 40%;
-  -moz-box-flex: 40%;
-  -ms-flex: 40%;
   flex: 40%;
 }
 .jy-flex-g3 {
   width: 30%;
   -webkit-box-flex: 30%;
-  -webkit-flex: 30%;
-  -moz-box-flex: 30%;
-  -ms-flex: 30%;
   flex: 30%;
 }
 .jy-flex-g2 {
   width: 20%;
   -webkit-box-flex: 20%;
-  -webkit-flex: 20%;
-  -moz-box-flex: 20%;
-  -ms-flex: 20%;
   flex: 20%;
 }
 .jy-flex-wrap {
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
 
 .nowrap {
   overflow: hidden;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -401,7 +386,6 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 .ellipsis-3 {
@@ -409,7 +393,6 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 
@@ -417,8 +400,14 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .jy-btn {
-  display: inline-block;
+  cursor: pointer;
+  z-index: 100;
+  text-indent: -9999px;
+  font-size: 0;
+}
+.jy-btn-txt {
   cursor: pointer;
   z-index: 100;
 }
@@ -447,19 +436,22 @@ body {
 .jy-wrapper {
   position: relative;
   width: 100%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
 }
 .jy-headermain {
   position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 1200px;
   height: 100%;
   zoom: 1;
 }
 .jy-section {
   position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: $w-main;
   background: no-repeat top center;
   box-sizing: border-box;
@@ -467,14 +459,16 @@ body {
 }
 .jy-sectionmain {
   position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 1200px;
   height: 100%;
   background: no-repeat top center;
 }
 .jy-sectionmain-x {
   position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   width: 1000px;
   height: 100%;
   background: no-repeat top center;

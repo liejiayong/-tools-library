@@ -1,27 +1,37 @@
 @import "../_const.scss";
 @import "../_mixin.scss";
 
-$width-padding: 30px;
+$width-padding: 18px;
 $width-label: 16px;
 
 .jy-list-msg {
-  margin-top: 93px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 740px;
   .tit {
+    display: inline-block;
     font-size: 18px;
-    padding-bottom: 10px;
+    padding: 0 15px;
+    border: 1px solid #b3905d;
+    border-radius: 30px;
+    @include lh(30px);
+    background: #25272a;
+    // padding-bottom: 10px;
   }
   .msg-content {
+    margin-top: 14px;
     position: relative;
-    color: #949494;
+    // color: #949494;
     li {
       position: relative;
-      margin: 7px 0;
+      // margin: 7px 0;
       font-size: inherit;
       color: inherit;
       padding-left: $width-padding;
-      @include lh(26px);
+      line-height: 1.3;
       &::before {
-        content: "";
+        // content: "";
         display: block;
         position: absolute;
         top: 50%;
@@ -61,3 +71,4 @@ $width-label: 16px;
 //   <li><i>2</i>参与活动需要登录账号并绑定手机号，一个手机号只能参与一次活动。	</li>
 // </ol>
 // </div>
+

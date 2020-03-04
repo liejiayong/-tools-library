@@ -19,7 +19,8 @@ $ff: 'Arial';
 .jy-countime {
   margin-top: 22px;
   .countime {
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     width: $ct-width;
     line-height: $item-height;

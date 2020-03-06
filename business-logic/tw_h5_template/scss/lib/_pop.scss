@@ -495,10 +495,12 @@ $input-select-height: 0.6rem;
     cursor: pointer;
     &--cancel {
       color: #a9a9a9;
+      padding-right: .5rem;
     }
     &--confirm {
       color: #1aad19;
       text-align: right;
+      padding-left: .5rem;
     }
   }
   .jy-pop_picker__body {

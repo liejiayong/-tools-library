@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui,viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <meta name="format-detection" content="address=no" />
+  <meta name="applicable-device" content="mobile" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="full-screen" content="yes" />
+  <meta name="x5-fullscreen" content="true" />
+  <meta name="browsermode" content="application" />
+  <meta name="x5-page-mode" content="app" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="author" content="f_liejy,d_hy,b_tzm" />
+  <meta name="copyright" content="tanwan" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>贪玩手游-樱花节</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <script>var jyBus = { activeCls: 'active', initial: function () { this.font() }, font: function () { var docEl = document.documentElement || document.body; var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'; var reCalc = function () { var clientWidth = docEl.clientWidth, PIX = 750; clientWidth = clientWidth > PIX ? PIX : clientWidth; var fontSize = 100 * (clientWidth / PIX); window.baseFontSize = fontSize; docEl.style.fontSize = fontSize + 'px' }; reCalc(); window.addEventListener(resizeEvt, reCalc, false); document.addEventListener('DOMContentLoaded', reCalc, false) }, winReset: function () { document.querySelector('body').style.overflow = ''; document.querySelector('body').style.overflow = '' }, winFixed: function () { document.querySelector('body').style.overflow = 'hidden'; document.querySelector('body').style.overflow = 'hidden' }, getRandom: function (min, max) { return Math.floor(Math.random() * (max - min + 1) + min) }, shuffle: function (arr) { var _arr = arr.slice(); for (var i = 0; i < _arr.length; i++) { var j = this.getRandom(0, i); var n = _arr[i]; _arr[i] = _arr[j]; _arr[j] = n } return _arr }, debounce: function (fn, delay) { var timer = null; return function () { var context = this, arg = arguments; if (timer) clearTimeout(timer); timer = setTimeout(function () { fn.apply(context, arg) }, delay) } }, throttle: function (fn, delay) { if (!delay) delay = 160; var timer = null; var start = Date.now(); return function () { var context = this, arg = arguments, curr = Date.now(); if (curr - start >= delay) { fn.apply(context, arg); start = Date.now() } else { timer = setTimeout(function () { fn.apply(context, arg) }, delay) } } }, trim: function (str) { return str.replace(/^\s+|\s+$/g, '') }, getQueryString: function (key, type) { type = type ? type : 'search'; const regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)'); const value = window.location[type].match(regExp); return value && decodeURIComponent(value[1]) }, isNumber: function (number) { return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]' }, lottery(index, total, cbCurrent, cbEnd) { if (!this.isNumber(index)) return new Error('the arguments of index must number!'); if (typeof cbEnd !== 'function') return new Error('the arguments of cbEnd must function!'); if (typeof cbCurrent !== 'function') return new Error('the arguments of cbCurrent must function!'); var TYPE_SPEED = 0; var TYPE_ADD_SPEED = 20; var TYPE_LAST_SPEED = 500; var TYPE_MAX_INDEX = total; var currSpeed = 0; var totalIndex = 0; var currentIndex = 0; var animate = function () { var timer = setTimeout(function () { totalIndex += 1; currSpeed += TYPE_ADD_SPEED; if (currSpeed > TYPE_LAST_SPEED) { if (currentIndex === index) { clearTimeout(timer); cbEnd(currentIndex) } else { currentIndex = totalIndex % TYPE_MAX_INDEX; clearTimeout(timer); cbCurrent(currentIndex); animate() } } else { currentIndex = totalIndex % TYPE_MAX_INDEX; clearTimeout(timer); cbCurrent(currentIndex); animate() } }, TYPE_SPEED + currSpeed) }; animate() }, language: (navigator.browserLanguage || navigator.language).toLowerCase() }; jyBus.initial();</script>
+</head>
+
+<body ontouchstart>
+
+  <!-- 主要内容 -->
+  <div class="jy-wrapper">
+    <!-- navbar -->
+    <div class="navbar ">
+      <div class="navbar-body jy-flex jy-flex-vc">
+        <div class="logo"></div>
+        <div class="ml-10 profile tr">
+          <div class="jy-login">
+            <!-- 登录前 -->
+            <!-- <span class="label">您好，</span>
+            <a href="javascript:;" class="jy-btn btn-login">请登录</a> -->
+            <!-- 登录后 -->
+            <div class="jy-logout">
+              <div class="nickname">18820785794</div>
+              <a href="javascript:;" class="jy-btn-txt btn-logout">注销</a>
+              <a href="#" class="jy-btn btn-award ml-10">我的奖励</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="jy-content">
+
+      <div class="jy-section section-1 active">
+        <div class="i-time"><a href="javascript:;" class="jy-btn btn-faqs"></a></div>
+        <div class="bg-kite jy-animate-pulse animated-infinite"><a href="javascript:;" class="jy-btn btn-kit "></a>
+        </div>
+        <div class="jy-sectionmain">
+
+          <a href="javascript:;" class="jy-btn btn-nav-gift jy-animate-pulse animated-infinite">赏花领礼包</a>
+          <a href="javascript:;" class="jy-btn btn-nav-lottery">幸运大抽奖</a>
+        </div>
+
+      </div>
+
+      <div class="jy-section section-2 ">
+        <div class="jy-sectionmain">
+          <div class="i-time">倒计时：<span id="gTime">30</span>S</div>
+
+          <div class="jy-btn-txt btn-fixed btn-fixwin animated-infinite ">屏幕固定</div>
+
+          <div class="jy-cards active" id="jyCards">
+
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-1"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-2"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-3"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-4"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-5"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-6"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-5"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-6"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-4"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-3"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-2"></div>
+              </div>
+            </div>
+            <div class="card-cells ">
+              <div class="card-cell ">
+                <!-- 背面 -->
+                <i class="i-card-b"></i>
+                <!-- 正面 -->
+                <div class="i-card-f i-card-1"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="jy-section section-3 ">
+        <div class="jy-btn-txt btn-fixed btn-nan-home ">返回首页</div>
+        <div class="jy-sectionmain">
+          <i class="mauto bg-tit-lottery"></i>
+
+          <div class="bg-kite-mask1 mauto animated-infinite jy-animate-floating">
+            <i class="i-kite i-kite-1 active"></i>
+            <i class="i-kite i-kite-2 active"></i>
+            <i class="i-kite i-kite-3 active"></i>
+            <i class="i-kite i-kite-4 active"></i>
+            <i class="i-kite i-kite-5 active"></i>
+            <i class="i-kite i-kite-6 active"></i>
+
+            <a href="javascript:;" class="i-msg tc">
+              <div class="pt-40 fb fs-36">放风筝</div>
+              <div class="pt-10">我的风筝：X个</div>
+            </a>
+          </div>
+
+
+          <div class="list_panel mauto">
+            <ul class="list_body lh-15">
+              <li><i>1</i>消耗【风筝】*1可放风筝，每次都有机会获得惊喜好礼哦</li>
+              <li><i>2</i>获得实物奖励的玩家请尽快填写您的个人信息便于我们发奖</li>
+              <li><i>3</i>中奖名单在官网公布后7日内仍未填写个人信息的玩家视为放弃奖励。</li>
+            </ul>
+          </div>
+
+          <div class="pt-20">
+            <a href="javascript:;" class="jy-btn btn-pop-nav-home">返回首页</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 弹窗 -->
+
+  <!-- pop tip  -->
+  <div class="jy-pop " id="J_tipPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main bg-pop">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close  btn-pop-close"></a>
+      <div class="jy-pop_main_header">温馨提示 </div>
+      <div class="jy-pop_body tc">
+        <div class="pt-40 lh-15 jy-pop-tiptxt">礼包领完了，下次请早~</div>
+        <a href="javascript:;" class="jy-btn btn-pop-ok btn-okclose mt-50"></a>
+      </div>
+    </div>
+  </div>
+  <div class="jy-pop " id="J_loadPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-flex jy-flex-c fill-100 gsn">3</div>
+  </div>
+  <!-- pop 赏花suc/fail  -->
+  <div class="jy-pop " id="J_seePop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main bg-pop">
+      <!-- <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-pop-close"></a> -->
+      <div class="jy-pop_main_header"></div>
+      <div class="jy-pop_body tc">
+        <p class="fs-28" id="seeTxt">赏花成功！恭喜获得风筝*1</p>
+        <p class="mt-10">（风筝可用于幸运大抽奖）</p>
+        <div class="mt-20 tc fs-0">
+          <a href="javascript:;" class="jy-btn btn-pop-nav-lottery">前往幸运大转盘</a>
+        </div>
+        <div class="mt-10 tc fs-0">
+          <a href="javascript:;" class="jy-btn btn-pop-again">再来一次</a>
+        </div>
+        <div class="mt-10 tc fs-0">
+          <a href="javascript:;" class="jy-btn btn-pop-nav-home">返回首页</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop 贪玩春运活动概率公示  -->
+  <div class="jy-pop " id="J_adverPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main bg-pop">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-pop-close"></a>
+      <div class="jy-pop_main_header">贪玩赏樱花活动概率公示 </div>
+      <div class="jy-pop_body">
+        <div style="width:4.7rem;" class="mauto jy-pop_scrollbar mt-10 lh-20">
+          <p>亲爱的玩家朋友们：</p>
+          <p>应国家有关法律规定，现对活动内各玩法中物品产出概率公布如下：</p>
+          <p>一、赏花领礼包</p>
+          <p>活动期间，首次赏花成功可获得【繁花似锦游戏礼包】*1，100%概率获得。另外，每天有5次赏花机会，每次赏花成功即可获风筝*1，100%概率获得。</p>
+          <p>二、幸运大抽奖</p>
+          <p>活动期间，消耗【风筝】*1可进行一次抽奖，奖品概率公示如下</p>
+          <div class="jy-pop_table mt-30">
+            <div class="jy-pop_table_head">
+              <div class="jy-pop_table_cell">奖 品</div>
+              <div class="jy-pop_table_cell">概率</div>
+            </div>
+            <div class="jy-pop_table_body">
+              <div class="jy-pop_table_item">
+                <div class="jy-pop_table_cell">华为P20 pro 64G</div>
+                <div class="jy-pop_table_cell">0.01%</div>
+              </div>
+              <div class="jy-pop_table_item">
+                <div class="jy-pop_table_cell">金箔礼包</div>
+                <div class="jy-pop_table_cell">5%</div>
+              </div>
+              <div class="jy-pop_table_item">
+                <div class="jy-pop_table_cell">屠龙刀外型U盘</div>
+                <div class="jy-pop_table_cell">5%</div>
+              </div>
+              <div class="jy-pop_table_item">
+                <div class="jy-pop_table_cell">记忆棉U型枕</div>
+                <div class="jy-pop_table_cell">5%</div>
+              </div>
+              <div class="jy-pop_table_item">
+                <div class="jy-pop_table_cell">手持风扇</div>
+                <div class="jy-pop_table_cell">5%</div>
+              </div>
+              <div class="jy-pop_table_item">
+                <div class="jy-pop_table_cell">白色长柄雨伞</div>
+                <div class="jy-pop_table_cell">5%</div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class=" mt-20 lh-20">温馨提示：文中所有概率均是在大样本（大量用户）下的统计数值，与单个玩家的少量测试数据之间可能会存在一定差异。</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- pop 游戏规则  -->
+  <div class="jy-pop " id="J_rulePop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main bg-pop">
+      <div class="jy-pop_main_header">游戏规则</div>
+      <div class="jy-pop_body">
+        <ul class="lh-15 list-decimal">
+          <li>游戏限时30秒，翻出相同的牌子，花朵一样即可消除</li>
+          <li>活动期间，首次赏花成功可获【繁花似锦游戏礼包】*1</li>
+          <li>每天有5次赏花机会，赏花成功即可获得风筝*1，风筝可用于【春风十里不如"礼"】</li>
+        </ul>
+
+        <div class="mt-20 tc fs-0">
+          <a href="javascript:;" class="jy-btn btn-pop-start-game">开始赏花</a>
+        </div>
+        <div class="mt-10 tc fs-0">
+          <a href="javascript:;" class="jy-btn btn-pop-nav-home">返回首页</a>
+        </div>
+        <div class="mt-10 color-red tc">我的赏花机会：X次</div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- pop 我的奖励  -->
+  <div class="jy-pop " id="J_recordPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main bg-pop">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close  btn-pop-close"></a>
+      <div class="jy-pop_main_header">我的奖励</div>
+      <div class="jy-pop_body tc">
+      </div>
+      <div style="height: 3.4rem;" class="pop-award jy-pop_scrollbar mauto">
+        <div class="award-cell">
+          <div class="content">1. 繁花似锦游戏礼包*1</div>
+          <div class="jy-btn-txt btn-pop-txt btn-pop-check">查看</div>
+        </div>
+        <div class="award-cell">
+          <div class="content">1. 繁花似锦游戏礼包*1</div>
+          <div class="jy-btn-txt btn-pop-txt btn-pop-check active">已领取</div>
+        </div>
+        <div class="award-cell">
+          <div class="content">2. 繁花似锦游戏礼包*1</div>
+          <div class="jy-btn-txt btn-pop-txt  btn-pop-get">待领取</div>
+        </div>
+        <div class="award-cell">
+          <div class="content">3. 繁花似锦游戏礼包*1</div>
+          <div class="jy-btn-txt btn-pop-txt  btn-pop-address">填写地址</div>
+        </div>
+        <div class="award-cell">
+          <div class="content">1. 繁花似锦游戏礼包*1</div>
+          <div class="jy-btn-txt btn-pop-txt  btn-pop-check">查看</div>
+        </div>
+        <div class="award-cell">
+          <div class="content">2. 繁花似锦游戏礼包*1</div>
+          <div class="jy-btn-txt btn-pop-txt  btn-pop-get">待领取</div>
+        </div>
+        <div class="award-cell">
+          <div class="content">3. 繁花似锦游戏礼包*1</div>
+          <div class="jy-btn-txt btn-pop-txt  btn-pop-address">填写地址</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop 填写个人信息  -->
+  <div class="jy-pop " id="J_ownPop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main bg-pop">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close  btn-pop-close"></a>
+      <div class="jy-pop_main_header ">恭喜获得XXX</div>
+      <div class="jy-pop_body tc">
+        <div class="color-blue fs-28 fb">请填写地址</div>
+        <div class="pt-30">
+          <div class="jy-pop_input_cell">
+            <div class="jy-pop_input_cell-label tr">姓名</div>
+            <div class="jy-pop_input_cell-inp">
+              <input placeholder="" type="text" class="ff-normal">
+            </div>
+          </div>
+          <div class="jy-pop_input_cell mt-20">
+            <div class="jy-pop_input_cell-label tr">手机</div>
+            <div class="jy-pop_input_cell-inp">
+              <input placeholder="" type="text" class="ff-normal">
+            </div>
+          </div>
+          <div class="jy-pop_input_cell mt-20">
+            <div class="jy-pop_input_cell-label tr">地址</div>
+            <div class="jy-pop_input_cell-inp">
+              <input placeholder="" type="text" class="ff-normal">
+            </div>
+          </div>
+          <a href="javascript:;" class="jy-btn btn-pop-sumbit mt-10">确认提交</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- pop 填写游戏信息  -->
+  <div class="jy-pop " id="J_gamePop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main bg-pop">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close  btn-pop-close"></a>
+      <div class="jy-pop_main_header ">恭喜获得女神游戏礼包</div>
+      <div class="jy-pop_body tc">
+        <div class="mt-40 jy-pop_select " id="jyCallPicker">请选择区服</div>
+        <a href="javascript:;" class="jy-btn btn-pop-ok btn-pop-code mt-30"></a>
+        <div class="mt-30">温馨提示：请尽快兑换礼包码，避免失效</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- pop selector  -->
+  <div style="z-index: 1001;" class="jy-pop " id="J_selectorPop">
+    <!-- <div class="jy-pop_mask jy-pop_mask--clickable"></div> -->
+    <div class="jy-pop_mask "></div>
+    <div class="jy-pop_picker_main">
+      <div class="jy-pop_picker_hd">
+        <a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--cancel">取消</a>
+        <a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--confirm">确定</a>
+      </div>
+      <div class="jy-pop_picker__body">
+        <ul id="jyPopPicker">
+          <li class="active">xxx</li>
+          <li>123</li>
+          <li>xxx</li>
+          <li>123</li>
+          <li>xxx</li>
+          <li>123</li>
+          <li>xxx</li>
+          <li>123</li>
+          <li>xxx</li>
+          <li>123</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- pop 查看礼包码  -->
+  <div class="jy-pop " id="J_codePop">
+    <div class="jy-pop_mask"></div>
+    <div class="jy-pop_main  bg-pop">
+      <a href="javascript:;" class="jy-btn jy-btn_pop_close  btn-pop-close"></a>
+      <div class="jy-pop_main_header">XXXX礼包码</div>
+      <div class="jy-pop_body tc">
+        <div class="jy-pop_txt tc btn-popcode">fgheuofbpghxwoag</div>
+        <a href="javascript:;" data-clipboard-text="fgheuofbpghxwoag"
+          class="mt-50 jy-btn bg-pop-copy btn-pop-copy btnpopcode"></a>
+        <div class="mt-20">温馨提示：请尽快兑换礼包码，避免失效</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 加载中 -->
+  <div class="ploading jy-flex jy-flex-c" id="pageLoading">
+    <div class="lh-20 tc">
+      <p>loading...</p>
+      <p id="ploadingPro">0%</p>
+    </div>
+  </div>
+
+  <!-- js -->
+  <script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
+  <script type="text/javascript" src="./js/imagesLoader.min.js"></script>
+  <script>
+    $(function () {
+      
+      var activeCls = 'active', disableCls = "disable";
+      function showTip(str) {
+        var $tip = $('#J_tipPop');
+        $tip.find('.jy-pop-tiptxt').html(str);
+        $tip.fadeIn();
+      }
+      function navTo(cls) {
+        $(cls).addClass(activeCls).siblings().removeClass(activeCls);
+      }
+      function cardFixed() { $('.jy-content').css({ 'overflow-y': 'hidden' }); }
+      function cardReset() { $('.jy-content').css({ 'overflow-y': 'auto' }); }
+      // 弹窗
+      // 关闭弹窗
+      $('.jy-btn_pop_close,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel,.jy-btn_pop_close_ns, .btn-okclose').on('click', function () {
+        jyBus.winReset();
+        $(this).parents('.jy-pop').fadeOut();
+
+        // 设置卡牌复位
+        $('.card-cell').each(function () { $(this).addClass(activeCls) });
+      });
+
+      $('.btn-fixwin').on('click', function () {
+        if ($(this).hasClass(activeCls)) {
+          cardReset();
+          $(this).removeClass(activeCls).text('屏幕固定');
+        } else {
+          cardFixed();
+          $(this).addClass(activeCls).text('屏幕拖动');
+        }
+      });
+
+      $('#jyPopPicker').on('click', 'li', function () {
+        $(this).addClass(activeCls).siblings().removeClass(activeCls);
+      });
+      // 区服选择唤醒
+      $('#jyCallPicker').on('click', function () {
+        $('#J_selectorPop').fadeIn();
+      });
+      // 区服选择确认
+      $('.jy-pop_picker_btn--confirm').on('click', function () {
+        // 业务逻辑
+
+
+        $(this).parents('.jy-pop').fadeOut();
+        $('#J_gamePop').hide();
+      });
+
+      // 我的奖励
+      $('.btn-award').on('click', function () {
+        $('#J_recordPop').fadeIn();
+      });
+      // 开始游戏
+      $('.btn-nav-gift').on('click', function () {
+        cardReset();
+        navTo('.section-2');
+        $('#J_rulePop').fadeIn();
+      });
+      // 幸运大转盘
+      $('.btn-nav-lottery,.btn-pop-nav-lottery').on('click', function () {
+        cardReset();
+        navTo('.section-3');
+        $('#J_seePop').fadeOut();
+      });
+      // 回到首页
+      $('.btn-pop-nav-home,.btn-nan-home').on('click', function () {
+        cardReset();
+        navTo('.section-1');
+        $('#J_rulePop').fadeOut();
+        $('#J_seePop').fadeOut();
+      });
+      // 概率公示
+      $('.btn-faqs').on('click', function () {
+        $('#J_adverPop').fadeIn();
+      });
+      // 锦囊
+      $('.btn-kit').on('click', function () {
+        $('#J_rulePop').fadeIn();
+      });
+      // 礼品查看
+      $('.btn-pop-check').on('click', function () {
+        $('#J_codePop').fadeIn();
+      });
+      // 礼品待领取
+      $('.btn-pop-get').on('click', function () {
+        $('#J_gamePop').fadeIn();
+      });
+      $('.btn-pop-code').on('click', function () {
+        $('#J_codePop').fadeIn();
+      });
+      // 填写信息
+      $('.btn-pop-address').on('click', function () {
+        $('#J_ownPop').fadeIn();
+      });
+      // 赏花
+      $('.btn-pop-start-game').on('click', function () {
+        $(this).parents('.jy-pop').hide();
+        if (logic.numflower == 0) {
+          showTip('摇骰机会用完啦~明天再来！');
+          return;
+        }
+
+        logic.loadGame();
+      });
+      // 再来一次
+      $('.btn-pop-again').on('click', function () {
+        $('#J_seePop').fadeOut(20);
+
+        logic.loadGame();
+      });
+      // 翻牌
+      $('.card-cell').on('click', function () {
+        var $t = $(this), sele = logic.sele, duration = logic.duration, isCarding = logic.isCarding,
+          dRe = $t.attr('data-re') == 'true', dOpen = $t.attr('data-open') == 'true', dFlag = $t.attr('data-flag'), dCls = $t.attr('data-cls');
+        console.log((isCarding || dRe || dOpen), typeof isCarding, dRe, dOpen, dFlag, sele, $t)
+        if (isCarding || dRe || dOpen) {
+          console.log('return')
+          return;
+        }
+
+        $t.addClass(activeCls);
+        if (sele.length == 0) {
+          logic.sele.push({ cls: dCls, flag: dFlag });
+          $t.attr({ 'data-open': true });
+        } else {
+          logic.isCarding = true;
+
+          var currCls = '.' + sele[0].cls;
+          if (sele[0].flag == dFlag) {
+            logic.delay(function () {
+              $t.addClass(disableCls).attr({ 'data-open': false, 'data-re': true });
+              $(currCls).addClass(disableCls).attr({ 'data-open': false, 'data-re': true });
+
+              logic.isCarding = false;
+              logic.score.current += 2;
+
+              if (logic.score.current >= logic.score.total) {
+                logic.cardResult();
+              }
+            }, duration);
+          } else {
+            logic.delay(function () {
+              $t.removeClass(activeCls).attr({ 'data-open': false });
+              $(currCls).removeClass(activeCls).attr({ 'data-open': false });
+              logic.isCarding = false;
+            }, duration);
+          }
+
+          logic.sele = []
+        }
+      });
+
+      var logic = {
+        imgPath: '../img/', // 图片地址
+        numflower: 20, // 赏花次数
+        isCarding: false,
+        score: { total: $('.card-cell').length, current: 0 },
+        sele: [],
+        timer: null,
+        time: { total: 30, current: 30 },
+        duration: 800,
+        // 游戏结束业务
+        cardResult: function () {
+          var score = logic.score;
+          console.log('card result: ', score)
+
+          // 赏花成功
+          if (score.total <= score.current) {
+
+            $('#J_seePop').find('#seeTxt').text('赏花成功！恭喜获得风筝*1');
+            $('#J_seePop').fadeIn();
+
+          }
+          // 赏花失败
+          else {
+
+            $('#J_seePop').find('#seeTxt').text('赏花失败！再来一次吧~');
+            $('#J_seePop').fadeIn();
+
+          }
+        },
+        cardRest: function () {
+          var $cell = $('.card-cell'), self = this,
+            cMap = [{ cls: 'i-card-1' }, { cls: 'i-card-2' }, { cls: 'i-card-3' }, { cls: 'i-card-4' }, { cls: 'i-card-5' }, { cls: 'i-card-6' }], temp = cMap.concat(cMap);
+
+          temp = self.shuffle(temp);
+          temp.forEach(function (val, i) {
+            var $cur = $cell.eq(i), curCls = 'cf-' + i;
+            $cur.attr({ 'data-flag': val.cls, 'data-re': false, 'data-open': false, 'data-cls': curCls, class: "card-cell active " + curCls });
+            $cur.find('.i-card-f').attr('class', 'i-card-f ' + val.cls);
+          });
+
+          self.isCarding = false;
+          self.score.current = 0;
+          self.time.current = self.time.total;
+          self.setTime();
+          clearInterval(self.timer);
+
+        },
+        setTime: function () {
+          var $gTime = $('#gTime'), time = this.time.current;
+          $gTime.text(time);
+        },
+        timeout: function () {
+          var self = this;
+
+          this.timer = setInterval(function () {
+            if (self.time.current == -1 || self.score.current >= self.score.total) {
+              clearInterval(self.timer);
+              self.cardResult();
+              return;
+            }
+
+            self.setTime();
+            self.time.current--;
+          }, 1000);
+        },
+        run: function () {
+          var self = this;
+          if (self.isCarding) {
+            return;
+          }
+          self.cardRest();
+        },
+        loadGame: function () {
+          var count = 5, $gsn = $('.gsn'), self = this;
+          navTo('.section-2');
+          $('#J_loadPop').fadeIn();
+          $gsn.text(count);
+
+          self.run();
+
+          var time = setInterval(function () {
+            --count;
+            if (count == -1) {
+              clearInterval(time);
+              return;
+            } else if (count == 0) {
+              $gsn.text('GO!');
+              $('#J_loadPop').fadeOut();
+              $('.card-cell').removeClass(activeCls).siblings().removeClass(activeCls);
+              self.delay(function () {
+                self.timeout();
+              }, 100);
+            } else {
+              $gsn.text(count);
+            }
+
+          }, 1000);
+        },
+        delay: function (cb, delay) {
+          setTimeout(function () {
+            cb();
+          }, delay);
+        },
+        shuffle: function (arr) {
+          let _arr = arr.slice();
+          for (let i = 0; i < _arr.length; i++) {
+            let j = jyBus.getRandom(0, i);
+            let n = _arr[i];
+            _arr[i] = _arr[j];
+            _arr[j] = n;
+          }
+          return _arr;
+        },
+        elementCopy: function (btnCopyCls) {
+          btnCopyCls = btnCopyCls || '.btnpopcode';
+          var $tip = $('<div class="jy-copytips" style="display: none; padding: 10px; position: fixed; top: 30%; left: 50%; transform: translateX(-50%); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); box-shadow: rgb(0, 0, 0) 0px 0px 5px; white-space: nowrap; z-index: 2001;"></div>');
+          $('body').append($tip);
+          var clipboard = new ClipboardJS(btnCopyCls);
+          clipboard.on('success', function () {
+            $tip.text('复制成功').fadeIn(500).fadeOut(1000);
+          });
+          clipboard.on('error', function () {
+            $tip.text('您的手机不支持点击复制，请长按复制！').fadeIn(500).fadeOut(1000);
+          });
+        },
+        loadingImg: function () {
+          var loader = new ImagesLoader();
+          loader.loadImages(["bg-kite-mask.png", "bg-kite-mask1.png", "bg-kite.png", "bg-p1.jpg", "bg-p2.jpg", "bg-pop.png", "i-card-1.png", "i-card-2.png", "i-card-3.png", "i-card-4.png", "i-card-5.png", "i-card-6.png", "i-card-b.png", "i-card-tail.png", "i-kite-1.png", "i-kite-2.png", "i-kite-3.png", "i-kite-4.png", "i-kite-5.png", "i-kite-6.png", "i-msg.png", "i-pop-selector.png", "i-time.png", "logo.png", "slogo.png", "sprite-vip.png"], this.imgPath);
+          loader.complete(function () {
+            $('#pageLoading').fadeOut();
+            navTo('.section-1');
+          });
+          loader.process(function () {
+            var prsnum = this.processNum;
+            $('#ploadingPro').html(prsnum + "%");
+          });
+          loader.start();
+        },
+        initial: function () {
+          this.loadingImg();
+          this.elementCopy();
+          $('input, textarea, select').on('blur', function () {
+            window.scroll(0, 0);
+          });
+        }
+      }
+      logic.initial();
+
+    });
+  </script>
+</body>
+
+</html>

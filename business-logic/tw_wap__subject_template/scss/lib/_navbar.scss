@@ -1,0 +1,134 @@
+// <!-- navbar -->
+// <div class="jy-navbar" id="navbar">
+//   <ul class="jy-navbar_wrapper">
+//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">新闻资讯</a></li>
+//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">游戏攻略</a></li>
+//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">福利中心</a></li>
+//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">玩家社区</a></li>
+//     <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">客服中心</a></li>
+//   </ul>
+// </div>
+
+$width: 1.6rem;
+.jy-navbar {
+  display: none;
+  position: fixed;
+  top: 1.2rem;
+  right: 0;
+  z-index: 100;
+  overflow: hidden;
+  &.active {
+    display: block;
+    // .jy-navbar__item {
+    //   -webkit-transform: translate3d(0, 0, 0);
+    //      -moz-transform: translate3d(0, 0, 0);
+    //           transform: translate3d(0, 0, 0);
+    // }
+  }
+}
+.jy-navbar_wrapper {
+  position: relative;
+  width: $width;
+  overflow: hidden;
+}
+.jy-navbar__item {
+  $bg: #5f2309 linear-gradient(#431909, #5f2309, #7c2d08);
+  margin-bottom: 0.02rem;
+  position: relative;
+  width: $width;
+  @include lh(0.6rem);
+  color: #c3b9a4;
+  font-size: 0.2rem;
+  text-align: center;
+  background: $bg;
+  -webkit-animation: rtol 0.3s ease-in;
+  -moz-animation: rtol 0.3s ease-in;
+  animation: rtol 0.3s ease-in;
+  margin-right: -1.6rem;
+  // -webkit-transform: translate3d(-100%, 0, 0);
+  // -moz-transform: translate3d(-100%, 0, 0);
+  // transform: translate3d(-100%, 0, 0);
+
+  // &:nth-of-type(1) {
+  //   -webkit-animation-delay: 0.2s;
+  //   -moz-animation-delay: 0.2s;
+  //   animation-delay: 0.2s;
+  // }
+  // &:nth-of-type(2) {
+  //   -webkit-animation-delay: 0.4s;
+  //   -moz-animation-delay: 0.4s;
+  //   animation-delay: 0.4s;
+  // }
+  // &:nth-of-type(3) {
+  //   -webkit-animation-delay: 0.6s;
+  //   -moz-animation-delay: 0.6s;
+  //   animation-delay: 0.6s;
+  // }
+  // &:nth-of-type(4) {
+  //   -webkit-animation-delay: 0.8s;
+  //   -moz-animation-delay: 0.8s;
+  //   animation-delay: 0.8s;
+  // }
+  // &:nth-of-type(5) {
+  //   -webkit-animation-delay: 1s;
+  //   -moz-animation-delay: 1s;
+  //   animation-delay: 1s;
+  // }
+  // &:nth-of-type(6) {
+  //   -webkit-animation-delay: 1.2s;
+  //   -moz-animation-delay: 1.2s;
+  //   animation-delay: 1.2s;
+  // }
+  // &:nth-of-type(7) {
+  //   -webkit-animation-delay: 1.4s;
+  //   -moz-animation-delay: 1.4s;
+  //   animation-delay: 1.4s;
+  // }
+  // &:nth-of-type(8) {
+  //   -webkit-animation-delay: 1.6s;
+  //   -moz-animation-delay: 1.6s;
+  //   animation-delay: 1.6s;
+  // }
+}
+.jy-navbar__item--link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+@-webkit-keyframes rtol {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-moz-keyframes rtol {
+  from {
+    -moz-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes rtol {
+  from {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}

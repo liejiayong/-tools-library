@@ -1,0 +1,43 @@
+@import "../_const.scss";
+@import "../_mixin.scss";
+
+$input-height: .45rem;
+$input-width: 4.78rem;
+$input-gutter: .18rem;
+$input-indent: .12rem;
+$input-raduis: .06rem;
+$input-bg: #ffe8dd;
+$input-color: #dab791;
+
+$textare-height: 2.1rem;
+
+$fs: .24rem;
+
+.input_item{
+  line-height: $input-height;
+  box-sizing: border-box;
+  input{
+    width: $input-width;
+    height: $input-height;
+    padding: $input-indent;
+    background-color: $input-bg;
+    @include inputcolor($input-color);
+    border-radius: $input-raduis;
+    font-size: $fs;
+  }
+  textarea{
+    padding: $input-indent;
+    width: $input-width;
+    height: $textare-height;
+    background-color: $input-bg;
+    @include inputcolor($input-color);
+    border-radius: $input-raduis;
+    font-size: $fs;
+  }
+  label{
+    vertical-align: top;
+  }
+  &:not(:last-of-type) {
+    margin-bottom: $input-gutter;
+  }
+}

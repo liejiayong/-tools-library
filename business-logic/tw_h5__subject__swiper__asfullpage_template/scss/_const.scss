@@ -1,0 +1,28 @@
+// font-size
+$fs-primary: .24rem;
+
+// 背景宽度
+$bg-width: 7.5rem;
+
+// 主要内容宽度
+$main-width: 100%;
+$main-width-x: 5.92rem;
+
+// color
+// 主题色定义
+$color-theme-bg: #e5e4e9; // 默认主题背景颜色
+$color-theme-txt: #6871ab; // 默认主题字体颜色,与$color-primary一样
+
+// 默认颜色定义
+$color-primary: $color-theme-txt; // 默认字体颜色
+$color-btn-txt: #a1b5fa; // 默认按钮字体颜色
+$color-btn-bg: #ffc949; // 默认按钮字体颜色
+
+$color-yellow: yellow;
+$color-orange: #ffb535;
+$color-green: #cdffa8;
+$color-grey: #666;
+$color-deep-grey: #333;
+$color-red: #ff3636;
+$color-pink: pink;
+$color-blue: blue;

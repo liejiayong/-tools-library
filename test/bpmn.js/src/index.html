@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- BPMN 流程图容器 -->
+  <div id="canvas"></div>
+  <!-- 使用 CDN 路径 或者本地 bpmn-js 路径 -->
+  <script src="https://unpkg.com/bpmn-js@0.27.0-1/dist/bpmn-viewer.development.js"></script>
+  <script>
+
+    // 你即将要展示的流程图
+
+    var bpmnXML;
+
+
+    // BpmnJS是BPMN查看器实例
+
+    var viewer = new BpmnJS({ container: '#canvas' });
+
+
+    // 导入BPMN 2.0流程图
+
+    viewer.importXML(bpmnXML, function (err) {
+
+      if (err) {
+
+        //导入失败 ！
+
+      } else {
+
+        // 导入成功！
+
+
+        var canvas = viewer.get('canvas');
+
+        canvas.zoom('fit-viewport');
+
+      }
+
+    });
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+@import '../mixin.scss';
+
+$panel-width: 7.1rem;
+$panel-height: 4.1rem;
+$panel-gutter: 0.12rem;
+$msg-height: 0.5rem;
+$msg-gutter: 0.1rem;
+$msg-fs: 0.24rem;
+$msg-color: #dab791;
+$danmu-fs:.3rem;
+
+@import "../_const.scss";
+@import "../_mixin.scss";
+
+.danmu_stage {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: $panel-gutter;
+  right: $panel-gutter;
+  top: $panel-gutter;
+  height: ($panel-height - $msg-gutter * 2);
+  -moz-border-radius: 0.12rem;
+  border-radius: 0.12rem;
+  overflow: hidden;
+  z-index: 10;
+  .danmu_item {
+    display: block;
+    position: absolute;
+    background-color: transparent;
+    padding: 0;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+    left: 100%;
+    overflow: hidden;
+    font-size: $danmu-fs;
+    z-index: 10;
+  }
+}
+.danmu_input {
+  margin-top: 0.2rem;
+  width: 100%;
+  line-height: $msg-height;
+  input {
+    padding: 0 $msg-gutter;
+    height: $msg-height;
+    outline: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: $msg-color;
+    font-size: $msg-fs;
+    -moz-border-radius: $msg-gutter;
+    border-radius: $msg-gutter;
+    vertical-align: top;
+    @include inputcolor($msg-color);
+  }
+  .danmu-submit {
+    vertical-align: top;
+    z-index: 1;
+  }
+}

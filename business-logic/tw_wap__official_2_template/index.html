@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui,viewport-fit=cover" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <meta name="format-detection" content="address=no" />
+  <meta name="applicable-device" content="mobile" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="HandheldFriendly" content="true" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="full-screen" content="yes" />
+  <meta name="x5-fullscreen" content="true" />
+  <meta name="browsermode" content="application" />
+  <meta name="x5-page-mode" content="app" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="author" content="f_liejy,d_,b_" />
+  <meta name="copyright" content="tanwan" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>最强王者</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <script>var jyBus = { activeCls: 'active', initial: function () { this.font() }, font: function () { var docEl = document.documentElement || document.body; var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'; var reCalc = function () { var clientWidth = docEl.clientWidth, PIX = 750; clientWidth = clientWidth > PIX ? PIX : clientWidth; var fontSize = 100 * (clientWidth / PIX); window.baseFontSize = fontSize; docEl.style.fontSize = fontSize + 'px' }; reCalc(); window.addEventListener(resizeEvt, reCalc, false); document.addEventListener('DOMContentLoaded', reCalc, false) }, winReset: function () { document.querySelector('body').style.overflow = ''; document.querySelector('body').style.overflow = '' }, winFixed: function () { document.querySelector('body').style.overflow = 'hidden'; document.querySelector('body').style.overflow = 'hidden' }, getRandom: function (min, max) { return Math.floor(Math.random() * (max - min + 1) + min) }, shuffle: function (arr) { var _arr = arr.slice(); for (var i = 0; i < _arr.length; i++) { var j = this.getRandom(0, i); var n = _arr[i]; _arr[i] = _arr[j]; _arr[j] = n } return _arr }, debounce: function (fn, delay) { var timer = null; return function () { var context = this, arg = arguments; if (timer) clearTimeout(timer); timer = setTimeout(function () { fn.apply(context, arg) }, delay) } }, throttle: function (fn, delay) { if (!delay) delay = 160; var timer = null; var start = Date.now(); return function () { var context = this, arg = arguments, curr = Date.now(); if (curr - start >= delay) { fn.apply(context, arg); start = Date.now() } else { timer = setTimeout(function () { fn.apply(context, arg) }, delay) } } }, trim: function (str) { return str.replace(/^\s+|\s+$/g, '') }, getQueryString: function (key, type) { type = type ? type : 'search'; const regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)'); const value = window.location[type].match(regExp); return value && decodeURIComponent(value[1]) }, isNumber: function (number) { return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]' }, lottery(index, total, cbCurrent, cbEnd) { if (!this.isNumber(index)) return new Error('the arguments of index must number!'); if (typeof cbEnd !== 'function') return new Error('the arguments of cbEnd must function!'); if (typeof cbCurrent !== 'function') return new Error('the arguments of cbCurrent must function!'); var TYPE_SPEED = 0; var TYPE_ADD_SPEED = 20; var TYPE_LAST_SPEED = 500; var TYPE_MAX_INDEX = total; var currSpeed = 0; var totalIndex = 0; var currentIndex = 0; var animate = function () { var timer = setTimeout(function () { totalIndex += 1; currSpeed += TYPE_ADD_SPEED; if (currSpeed > TYPE_LAST_SPEED) { if (currentIndex === index) { clearTimeout(timer); cbEnd(currentIndex) } else { currentIndex = totalIndex % TYPE_MAX_INDEX; clearTimeout(timer); cbCurrent(currentIndex); animate() } } else { currentIndex = totalIndex % TYPE_MAX_INDEX; clearTimeout(timer); cbCurrent(currentIndex); animate() } }, TYPE_SPEED + currSpeed) }; animate() }, language: (navigator.browserLanguage || navigator.language).toLowerCase() }; jyBus.initial();</script>
+</head>
+
+<body>
+  <!-- 主要内容 -->
+  <div class="jy-wrapper">
+    <!-- nav -->
+    <div class="jy-nav">
+      <div class="jy-nav_wrapper">
+        <div class="jy-nav_logo logo"></div>
+        <div class="jy-nav_profile">
+          <div class="jy-nav_profile_name">最强王者</div>
+          <div class="jy-nav_profile_subname">正版小说授权官方手游</div>
+        </div>
+        <div class="jy-nav_extra">
+          <a href="javascript:;" class="jybtn btn-g-dl"></a>
+          <div class="jy-nav_btn__menu" id="btnNavMenu">
+            <div class="jy-nav_btn__menu--line"></div>
+            <div class="jy-nav_btn__menu--line"></div>
+            <div class="jy-nav_btn__menu--line"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- navbar -->
+    <div class="jy-navbar " id="navbar">
+      <ul class="jy-navbar_wrapper">
+        <li class="jy-navbar__item"><a href="./news.html" class="jy-navbar__item--link">新闻资讯</a></li>
+        <li class="jy-navbar__item"><a href="./psp.html" class="jy-navbar__item--link">游戏攻略</a></li>
+        <li class="jy-navbar__item"><a href="./weface.html" class="jy-navbar__item--link">福利中心</a></li>
+        <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">玩家社区</a></li>
+        <li class="jy-navbar__item"><a href="" class="jy-navbar__item--link">客服中心</a></li>
+      </ul>
+    </div>
+
+    <div class="jy-content">
+      <div class="jy-section section-1">
+        <div class="jy-sectionmain">
+          <div class="bg-dl jy-flex jy-flex-c mauto">
+            <a href="javascript:;" class="jybtn btn-dl-ios"></a>
+            <a href="javascript:;" class="jybtn btn-dl-android ml-20"></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="jy-section section-2">
+        <div class="jy-sectionmain">
+
+          <div class="jy-news-banner swiper-container" id="pSNewsBanner">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="bg-banner-new b11"></div>
+              </div>
+              <div class="swiper-slide">
+                <div class="bg-banner-new b11"></div>
+              </div>
+            </div>
+            <div class="swiper-pagination-banner"></div>
+          </div>
+
+          <div class="mt-20 jy-news-container">
+
+            <div class="jy-news-tabs-content">
+              <div class="jy-news-tabs" id="newsTabs">
+                <a href="javascript:;" class="news-tab active">
+                  最新
+                </a>
+                <a href="javascript:;" class="news-tab ">
+                  公告
+                </a>
+                <a href="javascript:;" class="news-tab ">
+                  活动
+                </a>
+                <a href="javascript:;" class="news-tab ">
+                  攻略
+                </a>
+              </div>
+            </div>
+
+            <div class="jy-news-list swiper-container" id="pSNewsList">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <ul class="news-list-item">
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[最新]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[最新]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[最新]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[最新]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+                <div class="swiper-slide">
+                  <ul class="news-list-item">
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[公告]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[公告]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[公告]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[公告]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+                <div class="swiper-slide">
+                  <ul class="news-list-item">
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[活动]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[活动]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[活动]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[活动]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+                <div class="swiper-slide">
+                  <ul class="news-list-item">
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[攻略]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[攻略]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[攻略]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[攻略]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <a href="javascript:;" class="news-more">查看更多>></a>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="jy-section section-3">
+
+        <div class="jy-roles">
+          <div class="jy-roles-panel active">
+            <div class="jy-roles-panel-figure i-role-zgl-figure"></div>
+            <div class="jy-roles-panel-profile">
+              <div class="i-role-zgl-desc"></div>
+              <ul class="mt-50">
+                <li class="jy-roles-panel-profile-txt">若智力高于对手，我方发起的武力、魅力、统帅比拼亦算胜出</li>
+                <li class="jy-roles-panel-profile-txt">每提升1点智力，所有伤害+1%，免伤+1% (最多35%)</li>
+                <li class="jy-roles-panel-profile-txt">每提升1级[落雷]，步兵基础攻防+4,方士基础攻防+5</li>
+                <li class="jy-roles-panel-profile-txt">每提升1级[天命]，步兵兵力+15，方士兵力+10</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jy-roles-panel">
+            <div class="jy-roles-panel-figure i-role-zy-figure"></div>
+            <div class="jy-roles-panel-profile">
+              <div class="i-role-zy-desc"></div>
+              <ul class="mt-50">
+                <li class="jy-roles-panel-profile-txt">战斗中每回合攻击和防御都会累积提高7% (最多提升49%)</li>
+                <li class="jy-roles-panel-profile-txt">每提升1级[坚守]伤害提升1%</li>
+                <li class="jy-roles-panel-profile-txt">步兵攻防+3，英雄主动技能伤害提升1%</li>
+              </ul>
+            </div>
+          </div>
+          <div class="jy-roles-panel">
+            <div class="jy-roles-panel-figure i-role-gy-figure"></div>
+            <div class="jy-roles-panel-profile">
+              <div class="i-role-gy-desc"></div>
+              <ul class="mt-50">
+                <li class="jy-roles-panel-profile-txt">发动[武圣]时，若武力高于对手且剩余兵力大于对手，有70%的几率直接斩杀敌方英雄</li>
+                <li class="jy-roles-panel-profile-txt">每提升1级[武圣]，骑兵基础攻击+6，弓兵兵力+20</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="i-nav-b2-border"></div>
+        <div class="roles-tabs">
+          <div class="roles-tabs-item roles-tabs-zgl  active">
+            <div class="roles-tabs-item-icon i-nav-b2 mauto"></div>
+            <div class="roles-tabs-item-txt">诸葛亮</div>
+          </div>
+          <div class="roles-tabs-item roles-tabs-zy  ">
+            <div class="roles-tabs-item-icon i-nav-b2 mauto"></div>
+            <div class="roles-tabs-item-txt">赵云</div>
+          </div>
+          <div class="roles-tabs-item roles-tabs-gy ">
+            <div class="roles-tabs-item-icon i-nav-b2 mauto"></div>
+            <div class="roles-tabs-item-txt">关羽</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 20191231 start -->
+      <div class="jy-section section-psp">
+        <div class="jy-sectionmain">
+          <ul class="raiders">
+            <li class="r1"><a href="#">主城建设</a></li>
+            <li class="r2"><a href="#">资源获取</a></li>
+            <li class="r3"><a href="#">武将获取</a></li>
+            <li class="r4"><a href="#">战力提升</a></li>
+            <li class="r5"><a href="#">野外探索</a></li>
+            <li class="r6"><a href="#">将魂获取</a></li>
+          </ul>
+  
+          <div class="jy-psp-container">
+  
+            <div class="jy-news-tabs-content">
+              <div class="jy-news-tabs" id="pspTabs">
+                <a href="javascript:;" class="news-tab active">
+                  最新
+                </a>
+                <a href="javascript:;" class="news-tab ">
+                  入门
+                </a>
+                <a href="javascript:;" class="news-tab ">
+                  进阶
+                </a>
+                <a href="javascript:;" class="news-tab ">
+                  高手
+                </a>
+              </div>
+            </div>
+  
+            <div class="jy-news-list swiper-container" id="pspList">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <ul class="news-list-item">
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[最新]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[最新]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[最新]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[最新]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+                <div class="swiper-slide">
+                  <ul class="news-list-item">
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[公告]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[公告]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[公告]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[公告]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+                <div class="swiper-slide">
+                  <ul class="news-list-item">
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[活动]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[活动]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[活动]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[活动]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+                <div class="swiper-slide">
+                  <ul class="news-list-item">
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[攻略]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[攻略]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[攻略]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                    <a href="./detail.html">
+                      <li class="news-list-item--link">
+                        <span class="sign">[攻略]</span>
+                        <span class="content nowrap">《不朽凡人》10月12日苹果端下载异常公告xxxxxxxxxx</span>
+                        <span class="time">09/13</span>
+                      </li>
+                    </a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+  
+            <a href="javascript:;" class="psp-more">查看更多>></a>
+  
+          </div>
+        </div>
+      </div>
+      <!-- 20191231 end -->
+
+      <div class="jy-section section-4">
+
+        <div class="jy-feture">
+          <div class="swiper-container" id="gFeture">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b31.png"></div>
+              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b32.png"></div>
+              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b33.png"></div>
+              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b34.png"></div>
+              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b35.png"></div>
+            </div>
+            <div class="jy-feture-nav"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- menu -->
+    <div class="jy-menu">
+      <ul class="jy-menu_wrapper">
+        <li class="jy-menu_wrapper_item active"><a href="./index.html" class="jy-menu_wrapper_item__link">首页</a></li>
+        <li class="jy-menu_wrapper_item"><a href="./news.html" class="jy-menu_wrapper_item__link">资讯</a></li>
+        <li class="jy-menu_wrapper_item"><a href="./psp.html" class="jy-menu_wrapper_item__link">攻略</a></li>
+        <li class="jy-menu_wrapper_item"><a href="./weface.html" class="jy-menu_wrapper_item__link">福利</a></li>
+        <li class="jy-menu_wrapper_item"><a href="" class="jy-menu_wrapper_item__link">社区</a></li>
+        <li class="jy-menu_wrapper_item"><a href="" class="jy-menu_wrapper_item__link">客服</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- js -->
+  <script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script type="text/javascript" src="./js/swiper.min.js?v=5.2.0"></script>
+  <script>
+    $(function () {
+      var activeCls = 'active';
+
+      // 弹窗
+      // 关闭弹窗
+      $('.jy-btn_pop_close,.jy-pop_mask--clickable').on('click', function () {
+        jyBus.winReset();
+        $(this).parents('.jy-pop').fadeOut();
+      });
+
+      // 游戏资讯
+      new Swiper('#pSNewsBanner', {
+        autoplay: true,
+        pagination: {
+          el: '.swiper-pagination-banner',
+          clickable: true
+        }
+      });
+      var $newsTabs = $('#newsTabs');
+      var pSNewsList = new Swiper('#pSNewsList', {
+        autoplay: false,
+        on: {
+          slideChange: function () {
+            var currIndex = this.activeIndex;
+            var $curr = $($newsTabs.find('.news-tab').get(currIndex));
+            $curr.addClass(activeCls).siblings().removeClass(activeCls);
+          }
+        }
+      });
+      $newsTabs.on('click', '.news-tab', function () {
+        var currIndex = $(this).index();
+        pSNewsList.slideTo(currIndex);
+      });
+
+      /**
+        攻略
+        20191231 start
+      **/
+      var $pspTabs = $('#pspTabs');
+      var pspList = new Swiper('#pspList', {
+        autoplay: false,
+        on: {
+          slideChange: function () {
+            var currIndex = this.activeIndex;
+            var $curr = $($pspTabs.find('.news-tab').get(currIndex));
+            $curr.addClass(activeCls).siblings().removeClass(activeCls);
+          }
+        }
+      });
+      $pspTabs.on('click', '.news-tab', function () {
+        var currIndex = $(this).index();
+        pspList.slideTo(currIndex);
+      });
+      /**
+        攻略
+        20191231 end
+      **/
+
+      // 人物简介
+      $('.roles-tabs-item').on('click', function () {
+        var index = $(this).index();
+        $(this).addClass(activeCls).siblings().removeClass(activeCls);
+        $('.jy-roles-panel').eq(index).addClass(activeCls).siblings().removeClass(activeCls);
+      })
+
+      // 游戏特色
+      var pside = new Swiper('#gFeture', {
+        // loop: true,
+        initialSlide: 1,
+        grabCursor: true,
+        pagination: {
+          el: ".jy-feture-nav",
+          clickable: true
+        },
+        lazy: {
+          loadPrevNext: true,
+          loadPrevNextAmount: 3,
+          loadOnTransitionStart: true
+        },
+        effect: "coverflow",
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+          // rotate: 30,
+          // stretch: 10,
+          // depth: 60,
+          // modifier: 2,
+          // slideShadows: true
+          rotate: 30,
+          stretch: 64,
+          depth: 60,
+          modifier: 1,
+          slideShadows: true,
+        },
+      });
+
+    });
+  </script>
+</body>
+
+</html>

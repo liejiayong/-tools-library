@@ -15,7 +15,7 @@ $width: 1.6rem;
   position: fixed;
   top: 1.2rem;
   right: 0;
-  z-index: 100;
+  z-index: 200;
   overflow: hidden;
   &.active {
     display: block;
@@ -42,7 +42,6 @@ $width: 1.6rem;
   text-align: center;
   background: $bg;
   -webkit-animation: rtol 0.3s ease-in;
-  -moz-animation: rtol 0.3s ease-in;
   animation: rtol 0.3s ease-in;
   margin-right: -1.6rem;
   // -webkit-transform: translate3d(-100%, 0, 0);
@@ -109,26 +108,13 @@ $width: 1.6rem;
   }
 }
 
-@-moz-keyframes rtol {
-  from {
-    -moz-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-  to {
-    -moz-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 @keyframes rtol {
   from {
     -webkit-transform: translate3d(-100%, 0, 0);
-    -moz-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0);
   }
   to {
     -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }

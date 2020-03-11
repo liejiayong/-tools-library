@@ -1,0 +1,53 @@
+// <div class="jy-navbar_other">
+// <a onclick="history.back()" href="javascript:;" class="return">返回首页</a> 新闻中心
+// </div>
+
+
+// navbar
+.jy-navbar_other {
+  font-size: 0.26rem;
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  background: #000;
+  height: 0.9rem;
+  line-height: 0.9rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+}
+.jy-navbar_other .return {
+  position: absolute;
+  padding-left: 0.5rem;
+  top: 0;
+  left: 0;
+  color: #c7c7c7;
+  font-size: 0.2rem;
+  font-weight: lighter;
+}
+.jy-navbar_other .return::before {
+  content: "";
+  display: inline-block;
+  height: 0.14rem;
+  width: 0.14rem;
+  border-width: 1px 1px 0 0;
+  border-color: rgb(201, 196, 196);
+  border-style: solid;
+  -webkit-transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
+  transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -0.07rem;
+  left: 0.3rem;
+}
+.jy-navbar_other::before {
+  content: "";
+  display: block;
+  width: 100%;
+  border: 0.01rem solid #ccc;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

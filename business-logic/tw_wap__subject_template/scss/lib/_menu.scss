@@ -14,19 +14,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 200;
   overflow: hidden;
 }
 .jy-menu_wrapper {
   display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   @include lh(0.9rem);
   background: url("../img/bg-menu.png") no-repeat center / 100% 100%;
@@ -35,9 +29,6 @@
   $width: (100%/6);
   position: relative;
   -webkit-box-flex: 0;
-  -webkit-flex: 0 0 $width;
-     -moz-box-flex: 0;
-      -ms-flex: 0 0 $width;
           flex: 0 0 $width;
   width: $width;
   text-align: center;

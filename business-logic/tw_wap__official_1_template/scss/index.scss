@@ -1,0 +1,1127 @@
+/**
+  * @name: index.css
+  * @description: page style
+  * @author: liejiayong(809206619@qq.com)
+  * @data: 2018-12-18
+*/
+@import "./_const.scss";
+@import "./_mixin.scss";
+@import "./_reset.scss";
+@import "./_font.scss";
+@import "./_sprite.scss";
+@import "./_util.scss";
+@import "./_lib.scss";
+
+/**
+*  business css
+**/
+.logo {
+  position: relative;
+  display: inline-block;
+  width: 1.28rem;
+  height: 0.33rem;
+  background: url("../img/logo.png") no-repeat center / 1.28rem auto;
+}
+
+.bhome {
+  margin: 0 auto;
+  position: relative;
+  width: 7.5rem;
+  height: 3.28rem;
+  overflow: hidden;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.jy-profile {
+  position: relative;
+  padding: 0.3rem;
+  display: -webkit-box;
+  display: flex;
+  align-items: center;
+  -webkit-box-align: center;
+  align-items: center;
+  &-avatar {
+    display: block;
+    -webkit-box-flex: 0;
+    flex: 0 0 1.18rem;
+    width: 1.18rem;
+    overflow: hidden;
+    border-radius: 0.12rem;
+  }
+  &-extral {
+    margin-left: 0.3rem;
+    -webkit-box-flex: 1;
+    flex: 1;
+    &--name {
+      font-size: 0.3rem;
+      color: #454545;
+    }
+    &--desc {
+      margin-top: 0.2rem;
+      font-size: 0.26rem;
+      color: #8f8f8f;
+      max-width: 3.6rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .btn-dl {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.3rem;
+    z-index: 100;
+  }
+}
+
+.jy-hswiper {
+  padding: 0.55rem 0 0.66rem;
+  .jy-hgame {
+    margin: 0 auto;
+    width: 6.1rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    $width: 1.42rem;
+    &-item {
+      width: $width;
+      overflow: hidden;
+    }
+    &-avatar {
+      display: block;
+      width: $width;
+      height: $width;
+      border-radius: 0.3rem;
+    }
+    &-name {
+      margin-top: 0.24rem;
+      font-size: 0.26rem;
+      color: #1e1b1e;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .i-btn-red {
+      margin-top: 0.24rem;
+    }
+  }
+}
+
+.jy-footer {
+  padding: 0.5rem 0;
+  font-size: 0.18rem;
+  background: #29262a;
+  color: #636164;
+  text-align: center;
+  line-height: 1.5;
+  // .item{
+  //   margin-top:
+  // }
+}
+
+.jy-footer-code {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0;
+  font-size: 0.25rem;
+  background: #f5f5f5;
+  color: #c3c3c3;
+  text-align: center;
+  line-height: 1.5;
+  // .item{
+  //   margin-top:
+  // }
+}
+
+/** 搜索中心 **/
+.jy-search {
+  padding: 0.25rem 0.3rem;
+  background: #fff;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  overflow: hidden;
+  &-box {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 0.25rem;
+    -webkit-box-flex: 1;
+    flex: 1;
+    font-size: 0.28rem;
+    color: #b2b2b2;
+    background: #f5f5f5;
+    border-radius: 0.12rem;
+  }
+  &-inp {
+    margin-left: 0.25rem;
+    -webkit-box-flex: 1;
+    flex: 1;
+    background: transparent;
+    @include inputcolor(#b2b2b2);
+  }
+  .btn-findwd {
+    margin-left: 0.25rem;
+    display: block;
+    font-size: 0.3rem;
+    color: #ff0000;
+    text-align: center;
+    font-family: PingFang SC;
+    cursor: pointer;
+  }
+}
+
+.jy-record {
+  padding: 0.35rem 0.3rem;
+  border-top: 0.2rem solid #f0f0f0;
+  background: #fff;
+  &-tit {
+    padding-left: 0.12rem;
+    border-left: 0.08rem solid #fc5534;
+    line-height: 1.15;
+    font-size: 0.3rem;
+    color: #373737;
+  }
+  &-panel {
+    position: relative;
+  }
+  &-item {
+    margin-top: 0.2rem;
+    padding: 0.2rem 0.3rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    background: #f5f5f5;
+    font-size: 0.3rem;
+    color: #373737;
+    &:nth-of-type(1) {
+      margin-top: 0.35rem;
+    }
+  }
+  &-avatar {
+    display: block;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 0.16rem;
+    -o-object-fit: cover;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  &-content {
+    margin-left: 0.2rem;
+  }
+  &-tag {
+    margin-left: 0.15rem;
+    padding: 0.1rem;
+    display: inline-block;
+    font-size: 0.2rem;
+    background: #fc5534;
+    color: #fff;
+    text-align: center;
+    line-height: 1.15;
+    border-radius: 0 0.15rem 0 0.15rem;
+  }
+}
+
+.btn-scrollTop {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.3rem;
+  z-index: 100;
+}
+
+.btn-search {
+  position: fixed;
+  bottom: 1.65rem;
+  right: 0.3rem;
+  z-index: 100;
+}
+
+.jy-banner {
+  position: relative;
+  width: 100%;
+  height: 1.7rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  font-size: 0.34rem;
+  // font-weight: bold;
+  color: #ffffff;
+  overflow: hidden;
+}
+/**新闻中心**/
+.jy-new-banner-sty {
+  border-top: 0.02rem solid #ececec;
+  display: block;
+  padding: 0.3rem;
+  background: #fff;
+  .link {
+    display: block;
+  }
+  .tag {
+    display: inline-block;
+    width: 0.8rem;
+    @include lh(0.4rem);
+    color: #fff;
+    border-radius: 0.04rem;
+    text-align: center;
+    &-hot {
+      background: #ff0000;
+    }
+    &-psp {
+      background: #25cf4d;
+    }
+  }
+}
+.jy-new-banner {
+  a {
+    position: relative;
+    display: block;
+    height: 3.07rem;
+    overflow: hidden;
+  }
+  img {
+    display: block;
+    height: inherit;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 0.012rem;
+  }
+  .desc {
+    position: absolute;
+    bottom: 0.3rem;
+    left: 0.3rem;
+    right: 0.3rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.3rem;
+    color: #ffffff;
+  }
+}
+
+.jy-new-thumb {
+  .link {
+    display: -webkit-box;
+    display: flex;
+  }
+  .avatar {
+    $width: 2.5rem;
+    width: $width;
+    -webkit-box-flex: 0;
+    flex: 0 0 $width;
+    height: 1.6rem;
+    overflow: hidden;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 0.12rem;
+  }
+  .profile {
+    margin-left: 0.2rem;
+    -webkit-box-flex: 1;
+    flex: 1;
+  }
+  .tit {
+    font-size: 0.3rem;
+    color: #000000;
+    line-height: 1.5;
+  }
+  .time {
+    margin-top: 0.25rem;
+    font-size: 0.24rem;
+    color: #b7b7b7;
+  }
+}
+.jy-new-simple {
+  .tit {
+    font-size: 0.3rem;
+    color: #000000;
+    line-height: 1.5;
+  }
+  .time {
+    margin-top: 0.3rem;
+    font-size: 0.24rem;
+    text-align: right;
+    color: #b7b7b7;
+  }
+  .content {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.3rem;
+    font-size: 0.26rem;
+    line-height: 1.5;
+    color: #8c8c8c;
+  }
+}
+
+.jy-new-swiper {
+  position: relative;
+  &-tabs {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.32rem;
+  }
+  &-tab {
+    border-top: 0.02rem solid #ececec;
+    -webkit-box-flex: 1;
+    flex: 1;
+    width: 50%;
+    @include lh(0.85rem);
+    color: #9e9e9e;
+    &.active {
+      color: #ff1c0b;
+      border-bottom: 0.02rem solid #ff1c0b;
+    }
+  }
+  &-content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  &-item {
+    display: none;
+    &.active {
+      display: block;
+      -webkit-animation: nones 0.4s ease-in;
+      animation: nones 0.4s ease-in;
+    }
+  }
+}
+
+/* 分页 */
+.pagination-container {
+  position: relative;
+  margin: 0 auto;
+  padding: 0.6rem 0;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.pagination-container .pagite {
+  font-size: 0;
+  line-height: 1;
+}
+.pagination-container .pagite a {
+  display: inline-block;
+  padding: 0.14rem 0.15rem;
+  margin-left: 0.06rem;
+  color: #fff;
+  background-color: #c7c7c7;
+  font-size: 0.2rem;
+}
+.pagination-container .pagite a:first-of-type {
+  margin-left: 0;
+}
+.pagination-container .pagite a.cur {
+  background-color: #636363;
+}
+.pagination-container .page-desc {
+  color: #636363;
+}
+.pagination-container .page-desc span {
+  margin-left: 0.06rem;
+}
+
+/**内页**/
+.jy-ny {
+  position: relative;
+  padding: 0.4rem 0.3rem;
+  line-height: 1.5;
+  background: #fff;
+  &-tit {
+    font-size: 0.36rem;
+    text-align: center;
+    font-weight: bold;
+    color: #323232;
+    span {
+      display: inline-block;
+      text-align: left;
+    }
+  }
+  &-time {
+    margin-top: 0.3rem;
+    text-align: center;
+    font-size: 0.28rem;
+    color: #696969;
+    i,
+    span {
+      vertical-align: top;
+    }
+  }
+  &-content {
+    margin-top: 0.3rem;
+    padding: 0.4rem 0;
+    word-break: break-all;
+    border-top: 0.02rem solid #f5f4fb;
+    p {
+      margin-bottom: 0.2rem;
+    }
+  }
+  &-img {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    &-full {
+      margin-bottom: 0.2rem;
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.jy-game-list {
+  position: relative;
+  .item {
+    position: relative;
+    padding: 0.3rem;
+    display: -webkit-box;
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-bottom: 0.02rem solid #ececec;
+    .avatar {
+      display: block;
+      -webkit-box-flex: 0;
+      flex: 0 0 1.18rem;
+      width: 1.18rem;
+      overflow: hidden;
+      border-radius: 0.12rem;
+    }
+    .extral {
+      margin-left: 0.3rem;
+      -webkit-box-flex: 1;
+      flex: 1;
+      &-name {
+        font-size: 0.3rem;
+        color: #454545;
+      }
+      &-desc {
+        margin-top: 0.2rem;
+        font-size: 0.26rem;
+        color: #8f8f8f;
+        max-width: 3.6rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+/**个人中心**/
+.jy-account {
+  &-login {
+    padding: 0.3rem 0.6rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    .avatar {
+      display: block;
+      -webkit-box-flex: 0;
+      flex: 0 0 1.03rem;
+      width: 1.03rem;
+      height: 1.03rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .profile {
+      margin-left: 0.8rem;
+      font-size: 0.32rem;
+      color: #323232;
+      max-width: 4.3rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.jy-cells-l {
+  position: relative;
+  font-size: 0.3rem;
+  color: #323232;
+  &.jy-cells-l--border {
+    border-top: 0.08rem solid #e7e7e7;
+  }
+  .head {
+    padding: 0 0.4rem;
+    @include lh(0.9rem);
+    font-size: 0.3rem;
+    font-weight: bold;
+    color: #212121;
+    border-bottom: 0.08rem solid #f2f4f5;
+  }
+  .item {
+    position: relative;
+    border-bottom: 0.02rem solid #e7e7e7;
+  }
+  .link {
+    padding: 0.4rem 0.3rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
+  .link {
+    padding: 0.4rem 0.4rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+  }
+  .label {
+    -webkit-box-flex: 1;
+    flex: 1;
+    max-width: 4.8rem;
+  }
+  .extral {
+    text-align: right;
+    &-txt {
+      display: inline-block;
+      color: #919191;
+    }
+    &-icon {
+      display: inline-block;
+    }
+  }
+}
+
+/**礼包中心**/
+.jy-gifts {
+  position: relative;
+  padding: 0.3rem 0.3rem 0.35rem;
+  border-bottom: 0.15rem solid #f5f5f5;
+  .profile {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    .avatar {
+      $width: 1.2rem;
+
+      display: block;
+      -webkit-box-flex: 0;
+      flex: 0 0 $width;
+      width: $width;
+      height: $width;
+      border-radius: 0.1rem;
+      overflow: hidden;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+    .extral {
+      margin-left: 0.2rem;
+      -webkit-box-flex: 1;
+      flex: 1;
+      .name {
+        font-size: 0.38rem;
+        color: #000000;
+      }
+      .desc {
+        margin-top: 0.2rem;
+        font-size: 0.26rem;
+        color: #767979;
+      }
+    }
+  }
+  .gift-item {
+    position: relative;
+    margin-top: 0.25rem;
+    padding: 0.25rem 0 0;
+    border-top: 0.02rem solid #f5f5f5;
+    color: #bababa;
+  }
+  .gift-head {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    .icon {
+      display: block;
+    }
+  }
+  .gift-name {
+    margin-left: 0.16rem;
+    font-size: 0.36rem;
+    color: #000000;
+  }
+  .gift-fqas {
+    margin-left: 0.16rem;
+    font-size: 0;
+    .i-qes {
+      display: inline-block;
+      width: 0.29rem;
+      height: 0.29rem;
+      overflow: hidden;
+      background: url("../img/i-qes.png") no-repeat center / 0.29rem auto;
+      vertical-align: middle;
+    }
+    span {
+      display: inline-block;
+      margin-left: 0.1rem;
+      font-size: 0.22rem;
+      vertical-align: middle;
+    }
+  }
+  .gift-content {
+    margin-top: 0.2rem;
+    line-height: 1.5;
+    font-size: 0.28rem;
+    width: 5.4rem;
+  }
+  .gift-btn {
+    position: absolute;
+    top: 0.24rem;
+    right: 0;
+    text-align: center;
+  }
+}
+
+/**二维码**/
+.jy-rqcode {
+  margin: 20% auto 0;
+  display: block;
+  text-align: center;
+  &-icon {
+    margin: 0 auto;
+    padding-top: 30%;
+    display: block;
+    width: 3.21rem;
+    height: 3.21rem;
+  }
+  &-tip {
+    margin-top: 0.24rem;
+    text-align: center;
+    font-size: 0.34rem;
+    color: #000000;
+  }
+}
+
+/** faqs page**/
+.jy-faqs {
+  position: relative;
+  font-size: 0.3rem;
+  color: #323232;
+  line-height: 2;
+  .tit {
+    padding: 0.4rem 0.4rem;
+  }
+  .content {
+    border-top: 0.08rem solid #e7e7e7;
+    padding: 0.4rem 0.4rem;
+  }
+  .item {
+    margin-bottom: 0.2rem;
+  }
+}
+
+/**我的提问**/
+.jy-issue {
+  position: relative;
+  padding: 0.45rem 0.3rem;
+  border-bottom: 0.02rem solid #dbdbdb;
+  .content {
+    font-size: 0.28rem;
+    color: #323232;
+    line-height: 1.5;
+  }
+  .extral {
+    margin-top: 0.35rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    .time {
+      font-size: 0.24rem;
+      color: #919191;
+    }
+  }
+}
+
+/**bind style**/
+.jy-bind {
+  position: relative;
+  .title {
+    padding: 0.7rem 0.5rem;
+    font-size: 0.5rem;
+    color: #212121;
+  }
+  &-content {
+    border-top: 0.02rem solid #e7e7e7;
+  }
+  &-cell {
+    position: relative;
+    padding: 0 0.3rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    @include lh(1.2rem);
+    font-size: 0.3rem;
+    color: #212121;
+    border-bottom: 0.02rem solid #e7e7e7;
+    input {
+      display: block;
+      padding: 0 0.2rem;
+      width: 100%;
+      height: inherit;
+      @include inputcolor(#cccccc);
+    }
+    &-lt-sim {
+      padding: 0 0.2rem;
+      -webkit-box-flex: 1;
+      flex: 1;
+      position: relative;
+    }
+    &-lt {
+      -webkit-box-flex: 1;
+      flex: 1;
+      position: relative;
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: -0.1rem;
+        border-right: 0.02rem solid #ccc;
+      }
+    }
+    &-rt {
+      $width: 2.1rem;
+      -webkit-box-flex: 0;
+      flex: 0 0 $width;
+      width: $width;
+      text-align: right;
+    }
+  }
+  &-btn {
+    padding: 0.1rem 0 0.1rem 0.2rem;
+    display: inline-block;
+    color: #25cf4d;
+    cursor: pointer;
+    &.disable {
+      color: #cccccc;
+      &:hover {
+        color: #cccccc;
+      }
+    }
+    &:hover {
+      color: #25cf4d;
+      -webkit-filter: none;
+      filter: none;
+    }
+  }
+  &-tip {
+    margin: 0.1rem auto 0;
+    width: 6.4rem;
+    color: #ccc;
+    font-size: 0.26rem;
+    line-height: 1.5;
+  }
+}
+.jy-bind-submit {
+  display: block;
+  margin: 2rem auto 0;
+  width: 6.86rem;
+  @include lh(0.8rem);
+  text-align: center;
+  border-radius: 0.06rem;
+  font-size: 0.34rem;
+  background: #e84228;
+  color: #fff;
+}
+.jy-bind-submit-s {
+  display: block;
+  margin: 1rem auto 0;
+  width: 6.86rem;
+  @include lh(0.8rem);
+  text-align: center;
+  border-radius: 0.06rem;
+  font-size: 0.34rem;
+  background: #e84228;
+  color: #fff;
+}
+
+/**forgot style**/
+.jy-forgot {
+  position: relative;
+  padding: 0.3rem;
+  &-content {
+    padding-top: 0.4rem;
+  }
+  &-cell {
+    position: relative;
+    padding: 0 0.3rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    @include lh(0.7rem);
+    font-size: 0.3rem;
+    color: #1d1d1d;
+    &:not(:first-of-type) {
+      margin-top: 0.4rem;
+    }
+    input {
+      display: block;
+      padding: 0 0.2rem;
+      width: 100%;
+      height: inherit;
+      @include inputcolor(#cdcdcd);
+      background: #f5f5f5;
+      border-radius: 0.06rem;
+    }
+    .label {
+      $width: 1.5rem;
+      -webkit-box-flex: 0;
+      flex: 0 0 $width;
+      width: $width;
+      position: relative;
+    }
+    .content {
+      position: relative;
+      height: inherit;
+      -webkit-box-flex: 1;
+      flex: 1;
+    }
+  }
+  &-btn {
+    margin-left: 0.14rem;
+    display: inline-block;
+    width: 1.8rem;
+    text-align: center;
+    font-size: 0.28rem;
+    color: #ffffff;
+    background: #ff5a4e;
+    border-radius: 0.12rem;
+    cursor: pointer;
+    &:hover {
+      color: #ff5a4e;
+      -webkit-filter: none;
+      filter: none;
+    }
+    &.disable {
+      -webkit-filter: grayscale(1);
+      filter: grayscale(1);
+      color: #fff;
+    }
+  }
+}
+
+/** service style **/
+.jy-service {
+  position: relative;
+  padding: 0.3rem 0;
+  &-cell {
+    position: relative;
+    padding: 0 0.3rem;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 0.7rem;
+    font-size: 0.3rem;
+    color: #383838;
+    &:not(:first-of-type) {
+      margin-top: 0.25rem;
+    }
+    input {
+      display: block;
+      padding: 0 0.2rem;
+      width: 100%;
+      @include lh(0.7rem);
+      @include inputcolor(#b2b2b2);
+      border: 0.02rem solid #b2b2b2;
+      border-radius: 0.06rem;
+    }
+    select {
+      display: block;
+      padding: 0 0.2rem;
+      width: 100%;
+      @include lh(0.7rem);
+      color: #b2b2b2;
+      border: 0.02rem solid #b2b2b2;
+      border-radius: 0.06rem;
+    }
+    textarea {
+      display: block;
+      padding: 0.2rem;
+      width: 100%;
+      color: #b2b2b2;
+      border: 0.02rem solid #b2b2b2;
+      border-radius: 0.06rem;
+    }
+    .label {
+      $width: 1.5rem;
+      -webkit-box-flex: 0;
+      flex: 0 0 $width;
+      width: $width;
+      position: relative;
+      font-size: 0.26rem;
+      &-start {
+        align-self: flex-start;
+      }
+    }
+    .content {
+      position: relative;
+      min-height: 0.7rem;
+      -webkit-box-flex: 1;
+      flex: 1;
+      font-size: 0.32rem;
+    }
+    .extral {
+      $width: 1.5rem;
+      -webkit-box-flex: 0;
+      flex: 0 0 $width;
+      width: $width;
+      position: relative;
+      font-size: 0.26rem;
+      text-align: right;
+      .auth-code {
+        display: inline-block;
+        width: 1.2rem;
+      }
+    }
+  }
+  &-tip {
+    padding: 0.3rem;
+    font-size: 0.24rem;
+    color: #bebebe;
+    line-height: 1.5;
+  }
+}
+.jy-upload {
+  position: relative;
+  padding: 0 0.3rem;
+  &-head {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    .label {
+      font-size: 0.28rem;
+      color: #333333;
+    }
+    .extral {
+      font-size: 0.24rem;
+      color: #bebebe;
+    }
+  }
+  &-content {
+    position: relative;
+    padding: 0.2rem 0;
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &-btn {
+    margin: 0.1rem 0.05rem;
+  }
+  &-icon {
+    position: relative;
+    margin: 0.1rem 0.05rem;
+    width: 2.13rem;
+    height: 2.13rem;
+    &--url {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .btn-upload-del {
+      position: absolute;
+      top: -0.2rem;
+      right: -0.2rem;
+      width: 0.4rem;
+      @include lh(0.4rem);
+      text-align: center;
+      display: block;
+      color: red;
+      border: 0.02rem solid red;
+      border-radius: 50%;
+      z-index: 100;
+      box-sizing: border-box;
+      text-transform: capitalize;
+    }
+  }
+}
+
+/** reply style**/
+.jy-reply {
+  position: relative;
+  padding: 0.3rem;
+  font-size: 0.3rem;
+  &-cell {
+    padding: 0.3rem 0.25rem;
+    border: 0.02rem solid #b3b3b3;
+    border-radius: 0.06rem;
+    &:not(:first-of-type) {
+      margin-top: 0.25rem;
+    }
+  }
+  &-content {
+    line-height: 1.5;
+    color: #333333;
+    &.support {
+      color: #e84228;
+    }
+  }
+  &-time {
+    margin-top: 0.35rem;
+    font-size: 0.24rem;
+    color: #919191;
+  }
+  &-tip {
+    @include lh(0.7rem);
+    text-align: center;
+    font-size: 0.28rem;
+    &.off {
+      color: #474747;
+      background: #eff0f5;
+    }
+    &.on {
+      color: #fff;
+      background: #4dc369;
+    }
+  }
+}

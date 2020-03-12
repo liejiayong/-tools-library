@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<title>一品官老爷</title>
+<link rel="stylesheet" type="text/css" href="swiper.min.css">
+<style type="text/css">
+body,html,a,div{ margin: 0px; padding: 0px;}
+body{background:#fff;}
+a{text-decoration: none; display:block; color:#000;}
+.wrap{width: 100%;margin: 0 auto;position: relative;}
+.headMove{width:100%}
+.swiper-container img{width:100%}
+.copyr{width:100%;position:fixed;bottom:0;max-width:640px;z-index:10000000000000;min-width:320px;text-align:center}
+.swiper-container{width:100%;padding-top:2%;padding-bottom:2%}
+.swiper-slide{background-position:center;border-radius:10px;width:52%}
+.swiper-slide img{border-radius:10px;height:290px}
+.swiper-slide div{background:0 0!important}
+.gameI{padding:5% 5% 0 5%}
+.gameI .ms p{font-size:20px;margin:0}
+.clearfix{overflow:hidden}
+.clearfix::after{content:'';display:block;width:100%;height:1px;clear:both;visibility:hidden}
+.ms{padding-left:90px;margin-top:6px}
+.mainP .ms p{font-size:14px;color:#b4b4b4}
+.icon{float:left}
+.pf{float:right;height:28px}
+.xx{margin:1px 0}
+.xx div{float:left}
+.xx div:last-child{color:#303030;font-size:14px;margin-left:4px}
+.xx img{width:12px;margin:0 -1px;height:12px}
+.downC{color:#7d7d7d;width:100%;font-size:14px}
+.downD{color:#000000;width:100%;font-size:16px;font-family:"Microsoft YaHei"}
+.pf div:last-child{font-size:35px;color:#fe5936}
+.pf div:first-child{color:#303030;font-size:19px}
+.aq,.oneD{width:90%;border-bottom:1px solid #EEE;margin:0 auto;margin-bottom:-1px}
+.oneD img{width:80%;display:block;margin:2% auto}
+.aq{border-bottom:none;margin:1% auto}
+.aq img{width:80%}
+.ib{background:#f1f1f1;height:10px}
+.hot{padding:10px 0}
+.hot p{margin:0 auto;padding-left:10px;line-height:25px;box-sizing:border-box;-webkit-box-sizing:border-box;width:90%;font-size:19px;border-left:3px solid #ea4421}
+.mainP{width:90%;margin:0 auto;border-top:1px solid #eee}
+.pinL{width:100%;margin:2% auto 4% auto;padding:1PX 0}
+.tx{border-radius:50%}
+.tx img{width:30px;height:30px;border-radius:50%}
+.mainP .downC{color:#303030}
+.mainP .ms{padding-left:35px}
+.mainP .xx div{margin:0!important}
+.zan{line-height:20px}
+.zan a,.zan span{float:left}
+.zan a{margin-top:2px}
+.zan span{color:#b4b4b4;font-size:12px;padding-top:3px;margin-right:5px}
+.dowBx{position:fixed;bottom:0;border-top:1px solid #eee;max-width:640px;min-width:320px;width:100%;background:#fff}
+.dowBx div{display:block;color:#fff;text-decoration:none;background:#ea4421;width:50%;margin:0 auto;height:40px;line-height:40px;text-align:center;border-radius:40px}
+.more{width:100%;text-align:center;margin-bottom:70PX}
+.more a{color:#ea4421;text-decoration:underline}
+.pic_c div{vertical-align:middle}
+.pic_c{z-index:100000;width:1px;height:1px;max-width:640px;padding:10px 0;box-sizing:border-box;position:absolute}
+.cc{height:100%}
+#pic_one img{width:100%;border:none;height:100%;line-height:0}
+#pic_one{background:#000;position:fixed;top:0;display:none;z-index:9999;width:100%;max-width:640px;height:100%}
+.pages{position:absolute;bottom:3%;z-index:10000000;width:16%;left:50%;margin-left:-8%}
+.pages div{width:10px;height:10px;float:left;margin-left:10%;background:#999;border-radius:50%}
+.cur{background:#ed2727!important}
+.juzhong{text-align:center}
+</style>
+</head>
+<body>
+<a href="javascript:gourl();">
+
+	<div class="headMove">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide" ><img src="1.jpg"/></div>
+				<div class="swiper-slide" ><img src="2.jpg"/></div>
+				<div class="swiper-slide" ><img src="3.jpg"/></div>
+				<div class="swiper-slide" ><img src="4.jpg"/></div>
+				<div class="swiper-slide" ><img src="5.jpg"/></div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="gameI clearfix" style="font-size: 12px;margin-bottom: 10px">
+		<div class="icon"><img width="55" height="55" src="icon.png"/></div>
+		<div class="pf" >
+			<div style="font-size: 18px">评分</div>
+			<div style="font-size: 18px;font-weight: bold">9.8</div>
+		</div>
+		<div class="ms" style="padding-left: 60px;margin-top: 0px">
+			<p style="font-size: 24px">一品官老爷</p>
+			<div class="clearfix xx">
+				<div>
+					<img src="qx.png" style="width: 8px;height: 8px">
+					<img src="qx.png" style="width: 8px;height: 8px"/>
+					<img src="qx.png" style="width: 8px;height: 8px"/>
+					<img src="qx.png" style="width: 8px;height: 8px"/>
+					<img src="bx.png" style="width: 8px;height: 8px"/>
+				</div>
+				<div style="font-size: 12px">(15327)</div>
+			</div>
+			<div class="downC" style="font-size: 12px">113MB 附近有213名女性玩家</div>
+		</div>
+	</div>
+
+	<div class="txt-intro">
+		<div class="txt">
+			<span style="float: left;"><img src="up_quote.jpg" style="width: 1rem;height: 1rem"></span>
+			<div style="float:left;font-weight:bold;font-size: 16px;width:84%;margin: 0 2% 0 2%">《一品官老爷》开局布衣状元，十年寒窗无人问，一举成名天下知！娇妻相伴，锦衣玉食，门客如云，谈笑间谁与争锋；驰骋朝堂，一统天下！       </div>
+			<span style="float: left;"><img src="down_quote.jpg" style="width: 1rem;height: 1rem"></span>		 
+		</div>
+	</div>
+	<div class="aq">
+		<img src="aq.png">
+	</div>
+	<div class="ib"></div>
+	<div class="hot">
+		<p>热门评论</p>
+	</div>
+	<div class="mainP">
+		<div class="pinL clearfix">
+			<div class="icon tx"><img width="30" height="30" src="touxiang1.png"></div>
+			<div class="pf zan">
+				<span>（5897）</span>
+				<a><img width="15" height="17" src="zan.png"></a>
+			</div>
+			<div class="ms">
+				<p>请叫我大人</p>
+				<div class="clearfix xx">
+					<div>
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+					</div>
+				</div>
+				<div class="downD">公堂判案，智商180三天就当上一品大员，求超越！！</div>
+				<div class="juzhong{text-align">
+				<img src="tu1.jpg">
+				</div>
+			</div>
+		</div>
+		
+		<!--2-->
+		<div class="pinL clearfix">
+			<div class="icon tx"><img width="30" height="30" src="touxiang2.png"></div>
+			<div class="pf zan">
+				<span>（5134）</span>
+				<a><img width="15" height="17" src="zan.png"></a>
+			</div>
+			<div class="ms">
+				<p>小姐姐在此</p>
+				<div class="clearfix xx">
+					<div>
+					  
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="wu.png">
+					</div>
+				</div>
+				<div class="downD">又娶了一房小妾，哈哈真的美女如云呢，小妾要给我生猴子，有联姻的吗？</div>
+				<div class="juzhong{text-align">
+				<img src="tu2.jpg">
+				</div>
+			</div>
+		</div>
+
+		<!--3-->
+		<div class="pinL clearfix">
+			<div class="icon tx"><img width="30" height="30" src="touxiang3.png"></div>
+			<div class="pf zan">
+				<span>（3268）</span>
+				<a><img width="15" height="17" src="zan.png"></a>
+			</div>
+			<div class="ms">
+				<p>大清闲人</p>
+				<div class="clearfix xx">
+					<div>
+					   
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+					</div>
+				</div>
+				<div class="downD">实力派明星代言的游戏就是不一样，剧情耐看，游戏好玩，古色古香地还原大清官场的风云变幻，好评！</div>
+				<div class="juzhong{text-align">
+				<img src="tu3.jpg">
+				</div>
+			</div>
+		</div>
+		
+		<!--4-->
+		<!--<div class="pinL clearfix">
+			<div class="icon tx"><img width="30" height="30" src="touxiang4.png"></div>
+			<div class="pf zan">
+				<span>285</span>
+				<a><img width="15" height="17" src="zan.png"></a>
+			</div>
+			<div class="ms">
+				<p>彳尾</p>
+				<div class="clearfix xx">
+					<div>
+					   
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="wu.png">
+					</div>
+				</div>
+				<div class="downC">下了这个游戏又荒废一天。。。</div>
+			</div>
+		</div>
+              -->
+		<!--5-->
+		<!--<div class="pinL clearfix">
+		
+			<div class="icon tx"><img width="80" height="80" src="touxiang5.png"></div>
+			<div class="pf zan">
+				<span>99</span>
+				<a><img width="15" height="17" src="zan.png"></a>
+			</div>
+			<div class="ms">
+				<p>桀818</p>
+				<div class="clearfix xx">
+					<div>
+					   
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+						<img src="qx.png">
+					</div>
+				</div>
+				<div class="downC">还原度很高，所以一下子就上手了，而且这个版本很不错，不会让一些普通玩家没有容身之地，有钱没钱都可以玩的比较公平</div>
+			</div>
+		</div>
+		-->
+	</div>
+	
+	<div class="more">
+        <p>点击查看更多精华评论</p>
+        <p></p><p style="margin-top: 0;background-color: #000;color: #fff;padding: 20px;font-size: 14px;text-align: center;"></p><p></p>
+    </div>
+
+	<div class="dowBx" style="padding: 0px">
+		<div><a href="javascript:gourl();">免费下载</a></div>
+	</div>
+</a>
+<script type="text/javascript" src="jquery1.42.min.js"></script>
+<script type="text/javascript" src="swiper.min.js"></script>
+<script type="text/javascript">
+var mySwiper = new Swiper ('.swiper-container', {
+	effect: 'coverflow',
+	initialSlide :1,
+	slidesPerView: 2,
+	grabCursor: true,
+	loop: true,
+	centeredSlides: true,
+	coverflow: {
+		rotate: 50,
+		stretch: 5,
+		depth: 120,
+		modifier: 1,
+		slideShadows : true
+	}
+});
+</script>
+<script src="/wap/inc.js" type="text/javascript"></script>
+</body>
+</html>

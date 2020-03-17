@@ -5,7 +5,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   min-width: 1200px;
-  font: #{$fs-primary}/ 1 "fcustom", "微软雅黑";
+  font: #{$fs-primary}/ 1 "fcustom","微软雅黑";
   color: $color-primary;
   background: $color-theme-bg;
 }
@@ -33,7 +33,7 @@ body {
 .clearfix {
   zoom: 1;
 }
-.clearfix::after {
+.clearfix:after {
   content: "\0020";
   clear: both;
   display: block;
@@ -65,10 +65,10 @@ body {
 .tr {
   text-align: right;
 }
-.select-tc {
+.select-tc{
   text-align: center;
-  -moz-text-align-last: center;
-  text-align-last: center;
+  -moz-text-align-last:center;
+       text-align-last:center;
 }
 
 .flighter {
@@ -145,10 +145,10 @@ body {
 .fs-12 {
   font-size: 12px;
 }
-.fs-10 {
+.fs-10{
   font-size: 10px;
 }
-.fs-0 {
+.fs-0{
   font-size: 0;
 }
 
@@ -312,10 +312,10 @@ body {
 .prelative {
   position: relative;
 }
-.pabsolute {
+.pabsolute{
   position: absolute;
 }
-.pfixed {
+.pfixed{
   position: fixed;
 }
 .absolute-0 {
@@ -354,7 +354,7 @@ body {
 }
 .jy-flex-hspace {
   -webkit-box-pack: justify;
-  justify-content: space-between;
+          justify-content: space-between;
 }
 .jy-flex-g5 {
   width: 50%;
@@ -440,14 +440,12 @@ body {
 .jy-wrapper {
   position: relative;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   overflow: hidden;
 }
 .jy-headermain {
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 1200px;
   height: 100%;
   zoom: 1;
@@ -455,8 +453,7 @@ body {
 }
 .jy-section {
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: $w-main;
   background: no-repeat top center;
   box-sizing: border-box;
@@ -464,8 +461,7 @@ body {
 }
 .jy-sectionmain {
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 1200px;
   height: 100%;
   zoom: 1;
@@ -474,8 +470,7 @@ body {
 }
 .jy-sectionmain-x {
   position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 1000px;
   height: 100%;
   zoom: 1;

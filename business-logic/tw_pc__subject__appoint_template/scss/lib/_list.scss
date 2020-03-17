@@ -1,0 +1,75 @@
+@import "../_const.scss";
+@import "../_mixin.scss";
+
+$width-padding: 40px;
+$width-label: 16px;
+
+.jy-list-msg {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1160px;
+  .tit {
+    display: inline-block;
+    // font-size: 18px;
+    // padding: 0 15px;
+    // border: 1px solid #b3905d;
+    // border-radius: 30px;
+    // @include lh(30px);
+    // background: #25272a;
+    // padding-bottom: 10px;
+  }
+  .msg-content {
+    // margin-top: 14px;
+    position: relative;
+    // color: #949494;
+    li {
+      position: relative;
+      // margin: 7px 0;
+      font-size: inherit;
+      color: inherit;
+      padding-left: $width-padding;
+      line-height: 1.3;
+      &::before {
+        // content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        -webkit-transform: translateY(-50%) rotate(45deg);
+        transform: translateY(-50%) rotate(45deg);
+        @include lh($width-label);
+        width: $width-label;
+        text-align: center;
+        background-color: #b4a16a;
+      }
+      i,
+      span {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      i {
+        position: absolute;
+        left: 0;
+        text-align: center;
+        width: $width-label;
+        // font-size: 14px;
+        // color: #111214;
+      }
+      span {
+        -webkit-box-flex: 1;
+        flex: 1;
+      }
+    }
+  }
+}
+
+// <div class="jy-list-msg">
+// <div class="tit fb">活动规则：	</div>
+// <ol class="msg-content">
+//   <li><i>1</i>被邀玩家只能在每日新开的区服中创角才算成功参与活动。</li>
+//   <li><i>2</i>参与活动需要登录账号并绑定手机号，一个手机号只能参与一次活动。	</li>
+// </ol>
+// </div>
+
+

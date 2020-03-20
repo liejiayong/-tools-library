@@ -277,8 +277,46 @@
     }
   }
 }
-
+.jy-tel {
+  position: relative;
+  padding: 0.48rem 0.12rem 0;
+  display: flex;
+  @include lh(0.66rem);
+  select {
+    $width: 1.4rem;
+    flex: 0 0 $width;
+    width: $width;
+    height: inherit;
+    background: transparent;
+    color: #83cee7;
+  }
+  input {
+    padding: 0 1em;
+    flex: 1;
+    height: inherit;
+    background: transparent;
+    @include inputcolor(#83cee7);
+  }
+}
 .jy-btn-sd {
-  margin-top: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
   padding-bottom: 0.5rem;
+}
+
+.pop_video {
+  display: block;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  video {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+  video::-internal-media-controls-download-button {
+    display: none;
+  }
 }

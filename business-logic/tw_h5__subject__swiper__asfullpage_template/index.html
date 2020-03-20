@@ -52,15 +52,22 @@
             <div class="jy-sectionmain tc">
               <div class="logo mauto"></div>
               <div class="mt-10 ">
-                <a class="btn-like fb-like  vf_hide"
-                  data-href="https://www.facebook.com/Wow-Samkok-112335613516301/" data-layout="button_count"
-                  data-action="like" data-size="large" data-show-faces="false" data-share="false"></a>
+                <a class="btn-like fb-like  vf_hide" data-href="https://www.facebook.com/Wow-Samkok-112335613516301/"
+                  data-layout="button_count" data-action="like" data-size="large" data-show-faces="false"
+                  data-share="false"></a>
+              </div>
+                            <div class="mauto mt-30 i-tel">
+                <div class="jy-tel">
+                  <select name="" id="">
+                    <option value="">xxx</option>
+                  </select>
+                  <input type="text">
+                </div>
               </div>
               <a href="javascript:;" class="jy-btn btn-login mt-50"></a>
               <div class="jy-txt jy-txt-sty mt-30">事前登錄可在遊戲上架當天獲得超值大禮 </div>
               <div class="mt-20 bg-1-gift"></div>
-              <div class="jy-btn-sd animated animated-infinite jy-animate-floating"><i data-count="1"
-                  class="mauto btn-sd"></i></div>
+              <div class="jy-btn-sd animated animated-infinite jy-animate-floating"><i class="mauto btn-sd"></i></div>
             </div>
           </div>
         </div>
@@ -85,7 +92,6 @@
                   </div>
                 </div>
                 <div class="jy-progress">
-                  <!-- 三段类名： progress-1\progress-2\progress-3 -->
                   <i class="i-progress " id="progress"></i>
                 </div>
               </div>
@@ -93,8 +99,8 @@
               <div class="bg-2-gift">
               </div>
               <a href="javascript:;" class="jy-btn btn-appoint"></a>
-              <div class="jy-btn-sd mt-50 pt-50"><i data-count="2"
-                  class="mauto btn-sd  animated animated-infinite jy-animate-floating"></i></div>
+              <div class="jy-btn-sd animated animated-infinite jy-animate-floating mt-50"><i class="mauto btn-sd  "></i>
+              </div>
             </div>
           </div>
         </div>
@@ -138,6 +144,15 @@
   </div>
 
   <!-- 弹窗 -->
+    <!-- 视频 -->
+<div class="jy-pop " id="J_vidPop">
+    <div class="jy-pop_mask--clickable"></div>
+    <div class="pop_video">
+      <video src="./media/vm.mp4" controls preload="auto" x5-playsinline playsinline webkit-playsinline
+        x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen x5-video-orientation="portraint"
+        controlsList="nodownload" id="vid"></video>
+    </div>
+  </div>
   <!-- pop 填写个人信息  -->
   <div class="jy-pop " id="J_ownPop">
     <div class="jy-pop_mask"></div>
@@ -201,7 +216,7 @@
   <script type="text/javascript" src="./js/swiper.min.js?v=5.2.0"></script>
   <script>
     $(function () {
-      
+
       var activeCls = 'active';
       function showTip(str) {
         var $tip = $('#J_tipPop');
@@ -213,9 +228,8 @@
       $('.jy-btn_pop_close,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel').on('click', function () {
         $(this).parents('.jy-pop').fadeOut();
       });
-      $('.btn-sd').on('click', function () {
-        var count = +$(this).attr('data-count');
-        logic.psw.slideTo(count);
+      $('.jy-btn-sd').on('click', function () {
+        logic.psw.slideNext();
       });
       // 预约
       $('.btn-appoint').on('click', function () {
@@ -230,35 +244,6 @@
         $('#J_sucPop').fadeIn();
 
       });
-
-      function initGift(num) {
-        var $gift = $('.i-gift');
-        var $cur = $gift.eq(num);
-        $cur.addClass(activeCls);
-        $cur.prevAll().addClass(activeCls)
-        $cur.nextAll().removeClass(activeCls);
-      }
-      function setProgress(person) {
-        var $progress = $('#progress');
-
-        if (person < 20000) {
-          $progress.attr('class', ' i-progress');
-          $('.i-gift').siblings().removeClass(activeCls);
-        }
-        else if (person >= 20000 & person < 40000) {
-          $progress.attr('class', ' i-progress progress-1');
-          initGift(0);
-        }
-        else if (person >= 40000 & person < 60000) {
-          $progress.attr('class', ' i-progress progress-2');
-          initGift(1);
-        }
-        else if (person >= 60000) {
-          $progress.attr('class', ' i-progress progress-3');
-          initGift(2);
-        }
-      }
-      setProgress(20000);
 
       var logic = {
         psw: null,

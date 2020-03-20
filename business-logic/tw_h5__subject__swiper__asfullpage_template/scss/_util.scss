@@ -407,6 +407,8 @@ body {
   z-index: 100;
   text-indent: -9999px;
   font-size: 0;
+  line-height: 1;
+  overflow: hidden;
 }
 .jy-btn-txt {
   cursor: pointer;
@@ -455,7 +457,7 @@ body {
 
 // bg home page
 .jy-section {
-  display: none;
+  // display: none;
   position: relative;
   width: 100%;
   height: 100%;

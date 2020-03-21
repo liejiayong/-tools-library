@@ -3,225 +3,208 @@
 
 $bg: #a3e0ff;
 $bg-tit: linear-gradient(#656a9b, #747aae);
-$bg-border: #a3e0ff;
+
 $color: #d0eefd;
 $color-tit: #d0eefd;
-$fs-tit: 0.35rem;
-$fs-content: 0.3rem;
-$main-border-radius: 0.18rem;
 
-$main-gutter: 0 0 0.4rem 0;
+$fs: 0.3rem;
+$fs-tit: 0.35rem;
+
 $width: 6.3rem;
 $max-height: 7rem;
-$max-height-s: 5rem;
-$input-select-height: 0.6rem;
+$main-border-radius: 0.18rem;
 
-.jy-pop {
+$input-select-height: 0.6rem;
+$input-select-cell-gutter: 0.16rem;
+
+// 外框
+.#{$prefix}-pop {
   display: none;
   position: fixed;
-  z-index: 1000;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
+  z-index: 1000;
   overflow: hidden;
   box-sizing: border-box;
   -ms-scroll-chaining: none;
   overscroll-behavior: contain;
+  // 激活态
   &.active {
     display: block;
     opacity: 1;
   }
-  .jy-pop_mask,
-  .jy-pop_mask--clickable {
+  // 屏罩
+  &_mask,
+  &_mask--clickable {
     position: fixed;
-    z-index: 10;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
+    z-index: 10;
     background: rgba(0, 0, 0, 0.8);
   }
-  .jy-pop_main--filter {
-    -webkit-filter: grayscale(1);
-    filter: grayscale(1);
-  }
-  .jy-pop_main {
+  // 主体
+  &_main {
     position: fixed;
     margin-left: -($width / 2);
     left: 50%;
     top: 20%;
+    z-index: 20;
     width: $width;
     max-height: $max-height;
-    color: $color;
-    background: $bg;
     // border: 0.03rem solid $bg-border;
     border-radius: $main-border-radius;
-    z-index: 20;
-  }
-  .jy-pop_main--mini {
-    position: fixed;
-    margin-left: -($width / 2);
-    left: 50%;
-    top: 20%;
-    width: $width;
-    max-height: $max-height;
+    font-size: $fs;
     color: $color;
     background: $bg;
-    // border: 0.03rem solid $bg-border;
-    border-radius: $main-border-radius;
-    z-index: 20;
-  }
-  .jy-pop_main_header {
-    @include lh(0.85rem);
-    text-align: center;
-    font-size: 0.36rem;
-    background: #3f94d4;
-    border-radius: $main-border-radius $main-border-radius 0 0;
-  }
-  .jy-pop_main--header {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    text-align: center;
-    // font-weight: bold;
-    font-size: 0.32rem;
-    color: #02294e;
-    @include lh(0.34rem);
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    // background: $bg-tit;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 5.2rem;
-      border-bottom: 0.015rem solid #02294e;
-      -webkit-transform: translateX(-50%);
-      transform: translateX(-50%);
+    &.grayscale {
+      filter: grayscale(1.1);
+    }
+    &.brightness {
+      filter: brightness(1.1);
     }
   }
-  .jy-pop_main--header-sty {
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background: $bg;
-    padding: 0.05rem 0.1rem;
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   top: 50%;
-    //   left: -0.45rem;
-    //   display: block;
-    //   background: url("../img/i-ball-l.png") no-repeat center / 0.37rem auto;
-    //   width: 0.37rem;
-    //   height: 0.43rem;
-    //   -webkit-transform: translate(0, -50%);
-    //   transform: translate(0, -50%);
-    // }
-    // &::after {
-    //   content: "";
-    //   position: absolute;
-    //   top: 50%;
-    //   right: -0.45rem;
-    //   display: block;
-    //   background: url("../img/i-ball-l.png") no-repeat center / 0.37rem auto;
-    //   width: 0.37rem;
-    //   height: 0.43rem;
-    //   -webkit-transform: translate(0, -50%);
-    //   transform: translate(0, -50%);
-    // }
-  }
-  .jy-pop_header {
+  // 主体标题
+  &_main_header {
+    margin-top: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
+    padding-top: 0;
+    width: inherit;
+    @include lh(0.8rem);
+    // line-height: 0.6rem;
     text-align: center;
-    font-weight: bold;
     font-size: $fs-tit;
     color: $color-tit;
-    @include lh(0.6rem);
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    // background: $bg-tit;
+    background: $bg-tit;
+    @include nowrap();
+    // border-radius: $main-border-radius $main-border-radius 0 0;
   }
-  .jy-btn_pop_close {
-    $width: 0.31rem;
-    position: absolute;
-    top: 0.3rem;
-    right: 0.4rem;
-    // width: $width;
-    // height: $width;
-    // background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAA9klEQVRIicXXUQ6DIAwG4N/dxRdvwtmnu4TeowtZNYwgtIXGJnuYYr+/Cy5hIiJwTQCuL451OS82FgArgNkZjv3f7AFEFKf/0K92Iprjr+Hwmbl/rC26JxJvHI4BUvg4++cLPAIU4Rz3CHALl/CRAarwHT4iQBOu4T0BRHALtwRI4eZ66SSSACpYiksCqGENXgtggrV4KUCwwhY8D0BW2IqDJ04rWPpYJ9+fmDzfXKHnn7AHTne7KUAvXNqEQ99z6XusDjAKNgUYCaufGw2rnveAxX28YFE/T7jZ1xuu9gefWDZHuBTg78Sy8AUvOA2wsofnTqkAvo4w0Hzsm9+kAAAAAElFTkSuQmCC")
-    //   no-repeat center / $width auto;
-    z-index: 30;
+  &_main_header__pad {
+    position: relative;
+    display: inline-block;
+    $width: 0.4rem;
+    $height: 0.4rem;
+    &::before {
+      content: "★";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -($width + 0.06rem);
+      width: $width;
+      height: $height;
+      z-index: 1;
+    }
+    &::after {
+      content: "★";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -($width + 0.06rem);
+      width: $width;
+      height: $height;
+      z-index: 1;
+    }
   }
-  .jy-pop_body {
+  &_body {
     margin-left: auto;
     margin-right: auto;
-    // width: 5.57rem;
-    padding: $main-gutter;
-    font-size: $fs-content;
+    width: ($width - 0.6rem);
+    padding: 0.3rem 0 0.4rem;
+    // font-size: inherit;
+    // color: inherit;
     // background: #fff0d6;
-    border-radius: 0 0 0.3rem 0.3rem;
+    // border-radius: 0 0 0.3rem 0.3rem;
     box-sizing: border-box;
   }
-  .jy-pop_body--sty {
-    margin: 0.4rem auto 0;
-    padding: 0.3rem;
-    width: 5.7rem;
-    background: #3f94d4;
-    border-radius: 0.12rem;
-    box-sizing: border-box;
-  }
-  .jy-pop_txt {
-    margin: 0.35rem auto 0;
-  }
-  .jy-pop_btn-ok {
-    $height: 0.62rem;
+  // 按钮
+  &_btn_close {
+    $width: 0.32rem;
+
     display: block;
-    margin: 0.4rem auto 0;
-    width: 2.4rem;
-    padding: 0;
+    padding: 0.1rem;
+    position: absolute;
+    top: 0.16rem;
+    right: 0.16rem;
+    z-index: 30;
+    width: $width;
+    height: $width;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAA9klEQVRIicXXUQ6DIAwG4N/dxRdvwtmnu4TeowtZNYwgtIXGJnuYYr+/Cy5hIiJwTQCuL451OS82FgArgNkZjv3f7AFEFKf/0K92Iprjr+Hwmbl/rC26JxJvHI4BUvg4++cLPAIU4Rz3CHALl/CRAarwHT4iQBOu4T0BRHALtwRI4eZ66SSSACpYiksCqGENXgtggrV4KUCwwhY8D0BW2IqDJ04rWPpYJ9+fmDzfXKHnn7AHTne7KUAvXNqEQ99z6XusDjAKNgUYCaufGw2rnveAxX28YFE/T7jZ1xuu9gefWDZHuBTg78Sy8AUvOA2wsofnTqkAvo4w0Hzsm9+kAAAAAElFTkSuQmCC")
+      no-repeat center / $width auto;
+    border-radius: 50%;
+    border: 0.02rem solid #fff;
+    cursor: pointer;
+  }
+  &_btn-ok {
+    $height: 0.62rem;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0.24rem;
+    width: 2.2rem;
     @include lh($height);
     text-align: center;
-    font-size: 0.36rem;
-    // font-weight: bold;
-    color: #a3e0ff;
-    background: #3f94d4;
-    // border: 0.015rem solid #3f94d4;
+    font-size: 0.28rem;
+    font-weight: bold;
+    color: #fff;
+    background: #d67029;
+    border: 0.02rem solid #d67029;
     border-radius: $height;
+    cursor: pointer;
   }
-  .jy-pop_btn-ok-or {
-    $height: 0.62rem;
-    display: block;
-    margin: 0.4rem auto 0;
-    width: 2.4rem;
-    padding: 0;
-    @include lh($height);
-    text-align: center;
-    font-size: 0.36rem;
-    // font-weight: bold;
-    color: #3f94d4;
-    background: #a3e0ff;
-    // border: 0.015rem solid #3f94d4;
-    border-radius: $height;
+  &_btn-link {
+    $width: 1.3rem;
+    $height: 0.36rem;
+
+    display: inline-block;
+    padding: 0 0.1rem;
+    min-width: $width;
+    // @include lh($height);
+    // font-size: 0.22rem;
+    color: #d67029;
+    // border: 0.02rem solid #fff;
+    // border-radius: $height;
+    text-decoration: underline;
+    &:hover {
+      -webkit-filter: brightness(1.1);
+      filter: brightness(1.1);
+    }
   }
-  .jy-pop_scrollbar {
-    position: relative;
+  //
+  &_list-decimal {
+    margin: 0 auto;
+    width: 4.44rem;
+    li {
+      list-style: decimal;
+    }
+  }
+  // 滚动态
+  &_scrollbar {
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
     max-height: 5rem;
     overflow-x: hidden;
     overflow-y: auto;
+    @include scroll_chaining();
+  }
+  // 激活码
+  &_cdkey {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.1rem 0.2rem;
+    text-align: center;
+    @include lh(0.4rem);
+    @include nowrap();
+    overflow-x: auto;
+    color: #ff0000;
   }
   // select
-  .jy-pop_select {
+  &_select {
     $width: 4.4rem;
     $radius: 0;
 
@@ -238,41 +221,35 @@ $input-select-height: 0.6rem;
     border: 0.02rem solid #3f94d4;
     border-radius: $radius;
     overflow: hidden;
+    cursor: pointer;
     &:not(:last-of-type) {
-      margin-bottom: 0.12rem;
+      margin-bottom: $input-select-cell-gutter;
     }
     option {
       text-align: center;
+      color: #333;
     }
   }
   // input
-  .jy-pop_input {
-    margin: 0.2rem auto 0;
-  }
-  .jy-pop_input_cell {
+  &_input_cell {
     $width: 5.2rem;
 
-    display: -webkit-box;
     display: flex;
-    // -webkit-box-pack: justify;
-    // -webkit-justify-content: space-between;
-    //    -moz-box-pack: justify;
-    //     -ms-flex-pack: justify;
-    //         justify-content: space-between;
-    -webkit-box-align: center;
     align-items: center;
-    margin-bottom:0.2rem;
+
     margin-left: auto;
     margin-right: auto;
     width: $width;
+    // @include lh($input-select-height);
     height: $input-select-height;
-    // background: #be8c56;
     border-radius: 0.1rem;
+    &:not(:last-of-type) {
+      margin-bottom: 0.2rem;
+    }
   }
-  .jy-pop_input_cell-label {
+  &_input_cell-label {
     $width: 1.5rem;
 
-    // -webkit-box-flex: 0;
     // flex: 0 0 #{$width};
     // width: $width;
     @include lh($input-select-height);
@@ -280,15 +257,13 @@ $input-select-height: 0.6rem;
     font-weight: bold;
     color: #3f94d4;
   }
-  .jy-pop_input_cell-inp {
+  &_input_cell-inp {
     $width: 2.9rem;
     $radius: 0;
 
     position: relative;
-    // -webkit-box-flex: 0;
     // flex: 0 0 #{$width};
     // width: $width;
-    -webkit-box-flex: 1;
     flex: 1;
     @include lh($input-select-height);
     input {
@@ -301,31 +276,27 @@ $input-select-height: 0.6rem;
       height: 100%;
       outline: none;
       border: none;
-      -webkit-appearance: none;
-      -moz-appearance: none;
       appearance: none;
       color: $color;
       padding: 0 0.2rem;
       background: #3f94d4;
+      @include inputcolor($color);
       // border: 0.02rem solid $color;
       border-radius: 0.12rem;
       box-sizing: border-box;
-      &::-webkit-input-placeholder {
-        color: $color;
-      }
     }
   }
   // table
   $table-border: #a3e0ff;
   $tabel-cell-height: 0.7rem;
-  .jy-pop_table {
+  &_table {
     margin-left: auto;
     margin-right: auto;
     width: 4.9rem;
     border: 0.02rem solid $table-border;
     overflow: hidden;
   }
-  .jy-pop_table_head {
+  &_table_head {
     .jy-pop_table_cell {
       &:not(:last-of-type) {
         border-bottom: 0.02rem solid $table-border;
@@ -336,7 +307,7 @@ $input-select-height: 0.6rem;
       }
     }
   }
-  .jy-pop_table_body {
+  &_table_body {
     // border-radius: 0.1rem;
     .jy-pop_table_cell {
       &:not(:last-of-type) {
@@ -350,11 +321,9 @@ $input-select-height: 0.6rem;
       }
     }
   }
-  .jy-pop_table_head,
-  .jy-pop_table_item {
-    display: -webkit-box;
+  &_table_head,
+  &_table_item {
     display: flex;
-    -webkit-box-align: center;
     align-items: center;
     overflow: hidden;
     background: #3f94d4;
@@ -368,7 +337,7 @@ $input-select-height: 0.6rem;
     //   color: #3f94d4;
     // }
   }
-  .jy-pop_table_cell {
+  &_table_cell {
     height: $tabel-cell-height;
     line-height: $tabel-cell-height;
     padding: 0 0.04rem;
@@ -380,13 +349,11 @@ $input-select-height: 0.6rem;
     // font-weight: bold;
     &:nth-of-type(1) {
       $width: 60%;
-      -webkit-box-flex: 0;
       flex: 0 0 $width;
       width: $width;
     }
     &:nth-of-type(2) {
       $width: 40%;
-      -webkit-box-flex: 0;
       flex: 0 0 $width;
       width: $width;
     }
@@ -400,84 +367,102 @@ $input-select-height: 0.6rem;
     //   width: $width;
     // }
   }
-  .jy-pop_table_cell5 {
+  &_table_cell5 {
     $width: 50%;
     &:nth-of-type(1) {
-      -webkit-box-flex: 0;
       flex: 0 0 $width;
       width: $width;
     }
     &:nth-of-type(2) {
-      -webkit-box-flex: 0;
       flex: 0 0 $width;
       width: $width;
     }
   }
-  .jy-pop_table_cell1 {
+  &_table_cell1 {
     &:nth-of-type(1),
     &:nth-of-type(2) {
       width: 100%;
-      -webkit-box-flex: 1;
       flex: 1;
     }
   }
-  .jy-pop-table-link {
-    $width: 1.3rem;
-    $height: 0.36rem;
-
-    display: inline-block;
-    width: $width;
-    @include lh($height);
-    font-size: 0.22rem;
-    color: #fff;
-    border: 0.02rem solid #fff;
-    border-radius: $height;
-    &:hover {
-      -webkit-filter: brightness(1.1);
-      filter: brightness(1.1);
-    }
+  // muti grid
+  $mgrid-border: 0.02rem solid #666;
+  &_mgrid {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 5.2rem;
+    border-right: $mgrid-border;
+    border-bottom: $mgrid-border;
   }
-  // 兑换码
-  .jy-pop_txt {
-    text-align: center;
-    .txt-code {
-      padding: 0 0.09rem;
-      // margin-right: 0.02rem;
-      // -webkit-box-flex: 1;
-      // -webkit-flex: 1;
-      // -moz-box-flex: 1;
-      // -ms-flex: 1;
-      // flex: 1;
-      // height: 0.49rem;
-      line-height: 0.49rem;
+  &_mgrid-cell {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    align-items: center;
+    @include lh(0.6rem);
+    // overflow: hidden;
+    border-top: $mgrid-border;
+    // &:not(:last-of-type) {
+    //   margin-bottom: 0.3rem;
+    // }
+  }
+  &_mgrid-td {
+    border-left: $mgrid-border;
+    overflow: auto;
+    &:nth-of-type(1) {
+      $width: 30%;
+      flex: 0 0 $width;
+      width: $width;
     }
-    .jy-popcodetxt {
-      max-width: 6rem;
-      overflow-x: auto;
-      overflow-y: hidden;
+    &:nth-of-type(2) {
+      $width: 30%;
+      flex: 0 0 $width;
+      width: $width;
+    }
+    &:nth-of-type(3) {
+      $width: 40%;
+      flex: 0 0 $width;
+      width: $width;
     }
   }
   // picker
-  .jy-pop_picker_main {
+  &_picker_main {
     position: fixed;
     width: 100%;
     left: 0;
     bottom: 0;
-    z-index: 5000;
-    -webkit-backface-visibility: hidden;
+    z-index: 20;
     backface-visibility: hidden;
-    -webkit-transform: translate(0, 100%);
     transform: translate(0, 100%);
-    -webkit-transition: -webkit-transform 0.3s;
-    transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
-    transition: transform 0.3s, -webkit-transform 0.3s;
-    -webkit-animation: pickerSlide ease 0.3s forwards;
     animation: pickerSlide ease 0.3s forwards;
     background-color: #fff;
+    @-webkit-keyframes pickerSlide {
+      from {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+      }
+
+      to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes pickerSlide {
+      from {
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+      }
+
+      to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+    }
   }
-  .jy-pop_picker_hd {
-    display: -webkit-box;
+  &_picker_hd {
     display: flex;
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -488,22 +473,20 @@ $input-select-height: 0.6rem;
     border-bottom: 0.02rem solid #e5e5e5;
     box-shadow: 0 0 0.15rem #ccc;
   }
-  .jy-pop_picker_btn {
+  &_picker_btn {
     display: block;
-    // -webkit-box-flex: 1;
-    // flex: 1;
     cursor: pointer;
     &--cancel {
       color: #a9a9a9;
-      padding-right: .5rem;
+      padding-right: 0.5rem;
     }
     &--confirm {
       color: #1aad19;
       text-align: right;
-      padding-left: .5rem;
+      padding-left: 0.5rem;
     }
   }
-  .jy-pop_picker__body {
+  &_picker__body {
     position: relative;
     background-color: #fff;
     height: 238px;
@@ -524,26 +507,328 @@ $input-select-height: 0.6rem;
   }
 }
 
-@-webkit-keyframes pickerSlide {
-  from {
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
+// <!-- 弹窗 -->
+// <!-- pop 概率公示  -->
+// <div class="jy-pop " id="J_adverPop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main">
+//     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
+//     <div class="jy-pop_main_header">
+//       <div class="jy-pop_main_header__pad">概率公示</div>
+//     </div>
+//     <div class="jy-pop_body">
+//       <div style="color:#22619c;width:5.2rem;" class="mauto jy-pop_scrollbar mt-30 lh-20 fs-24">
+//         <p>亲爱的玩家朋友们：</p>
+//         <p>应国家有关法律规定，现对活动内各玩法中物品产出概率公布如下：</p>
+//         <p>一、怦然心动</p>
+//         <p>活动期间首次心动可获得【怦然心动游戏大礼包】*1，100%概率获得。另外，每天心动即可获得随机【心动值】，100%概率获得。</p>
+//         <p>二、爱要有“礼”</p>
+//         <p>活动期间，消耗【心动值】*5可进行一次采摘，奖品概率公示如下</p>
+//         <div class="jy-pop_table mt-30">
+//           <div class="jy-pop_table_head">
+//             <div class="jy-pop_table_cell">奖 品</div>
+//             <div class="jy-pop_table_cell">概率</div>
+//           </div>
+//           <div class="jy-pop_table_body">
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">华为Mate 20</div>
+//               <div class="jy-pop_table_cell">0.01%</div>
+//             </div>
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">黄金礼盒</div>
+//               <div class="jy-pop_table_cell">5%</div>
+//             </div>
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">屠龙刀外型U盘</div>
+//               <div class="jy-pop_table_cell">5%</div>
+//             </div>
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">膳魔师保温杯</div>
+//               <div class="jy-pop_table_cell">5%</div>
+//             </div>
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">记忆棉U型枕</div>
+//               <div class="jy-pop_table_cell">5%</div>
+//             </div>
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">白色长柄雨伞</div>
+//               <div class="jy-pop_table_cell">5%</div>
+//             </div>
 
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
+//           </div>
+//         </div>
 
-@keyframes pickerSlide {
-  from {
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
-  }
+//         <div class=" mt-20 lh-20">温馨提示：文中所有概率均是在大样本（大量用户）下的统计数值，与单个玩家的少量测试数据之间可能会存在一定差异。</div>
+//       </div>
 
-  to {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-}
+//     </div>
+//   </div>
+// </div>
+
+// <!-- pop 游戏规则  -->
+// <div class="jy-pop active" id="J_rulePop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main bg-pop">
+//     <!-- <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a> -->
+//     <div class="jy-pop_main_header">
+//       <div class="jy-pop_main_header__pad">游戏规则</div>
+//     </div>
+//     <div class="jy-pop_body">
+//       <ul class="lh-15 jy-pop_list-decimal">
+//         <li>游戏限时30秒，翻出相同的牌子，花朵一样即可消除</li>
+//         <li>活动期间，首次赏花成功可获【繁花似锦游戏礼包】*1</li>
+//         <li>每天有5次赏花机会，赏花成功即可获得风筝*1，风筝可用于【春风十里不如"礼"】</li>
+//       </ul>
+
+//       <div class="mt-20 tc">
+//         <a href="javascript:;" class="jy-btn-txt btn-pop-start-game">开始赏花</a>
+//       </div>
+//       <div class="mt-10 tc">
+//         <a href="javascript:;" class="jy-btn-txt btn-pop-nav-home">返回首页</a>
+//       </div>
+//       <div class="mt-10 color-red tc">我的赏花机会：X次</div>
+//     </div>
+//   </div>
+// </div>
+
+// <!-- pop 我的奖励  -->
+// <div class="jy-pop " id="J_recordPop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main ">
+//     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
+//     <div class="jy-pop_main_header">
+//       <div class="jy-pop_main_header__pad">我的奖励</div>
+//     </div>
+//     <div class="jy-pop_body tc">
+//       <div class="pt-40">
+
+//         <!-- 多栏 mgrid -->
+//         <!-- <div class="jy-pop_mgrid">
+//           <div class="jy-pop_mgrid-cell text-deep-grey">
+//             <div class="jy-pop_mgrid-td">奖品</div>
+//             <div class="jy-pop_mgrid-td">奖品数量</div>
+//             <div class="jy-pop_mgrid-td">详细</div>
+//           </div>
+//           <div class=" jy-pop_scrollbar mauto">
+//             <div class="jy-pop_mgrid-cell ">
+//               <div class="jy-pop_mgrid-td">礼包码</div>
+//               <div class="jy-pop_mgrid-td">x1</div>
+//               <div class="jy-pop_mgrid-td">4564654643132</div>
+//             </div>
+//             <div class="jy-pop_mgrid-cell ">
+//               <div class="jy-pop_mgrid-td">公仔</div>
+//               <div class="jy-pop_mgrid-td">x12</div>
+//               <div class="jy-pop_mgrid-td">
+//                 <a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-get">打开宝箱</a>
+//               </div>
+//             </div>
+//             <div class="jy-pop_mgrid-cell ">
+//               <div class="jy-pop_mgrid-td">游戏宝箱</div>
+//               <div class="jy-pop_mgrid-td">x1</div>
+//               <div class="jy-pop_mgrid-td">
+//                 <a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-address">填写地址</a>
+//               </div>
+//             </div>
+//             <div class="jy-pop_mgrid-cell ">
+//               <div class="jy-pop_mgrid-td">礼包码</div>
+//               <div class="jy-pop_mgrid-td">x1</div>
+//               <div class="jy-pop_mgrid-td">
+//                 <a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-code">查看</a>
+//               </div>
+//             </div>
+//           </div>
+//         </div> -->
+
+//         <!-- 两栏 table -->
+//         <div class="jy-pop_table">
+//           <div class="jy-pop_scrollbar">
+//             <div class="jy-pop_table_body">
+//               <div class="jy-pop_table_item">
+//                 <div class="jy-pop_table_cell">怦然心动游戏礼包*1</div>
+//                 <div class="jy-pop_table_cell ">
+//                   <a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-code">查看</a>
+//                 </div>
+//               </div>
+//               <div class="jy-pop_table_item">
+//                 <div class="jy-pop_table_cell">抱枕被*1</div>
+//                 <div class="jy-pop_table_cell ">
+//                   <a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-address">填写地址</a>
+//                 </div>
+//               </div>
+//               <div class="jy-pop_table_item">
+//                 <div class="jy-pop_table_cell">怦然心动游戏礼包*1</div>
+//                 <div class="jy-pop_table_cell ">
+//                   <a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-get">待领取</a>
+//                 </div>
+//               </div>
+
+//             </div>
+//           </div>
+//         </div>
+
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+// <!-- pop 奖品展示  -->
+// <div class="jy-pop " id="J_awardPop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main ">
+//     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
+//     <div class="jy-pop_main_header">
+//       <div class="jy-pop_main_header__pad">奖品展示</div>
+//     </div>
+//     <div class="jy-pop_body tc">
+//       <!-- 图片控制 -->
+//       <!-- <div class="jy-pop_body--sty">
+//         <div class="bg-pop-gift mauto"></div>
+//       </div> -->
+
+//       <!-- 代码控制 -->
+//       <div class="pt-20">
+//         <div class="jy-pop_table">
+//           <div class="jy-pop_table_body">
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">5万银两</div>
+//               <div class="jy-pop_table_cell">9朵玫瑰花</div>
+//             </div>
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">试炼玉佩*1</div>
+//               <div class="jy-pop_table_cell">50绑定元宝*1</div>
+//             </div>
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">坐骑祝福丹*1</div>
+//               <div class="jy-pop_table_cell">灵兽祝福卡</div>
+//             </div>
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">橙色异兽自选盒</div>
+//               <div class="jy-pop_table_cell">50元京东卡</div>
+//             </div>
+//             <div class="jy-pop_table_item">
+//               <div class="jy-pop_table_cell">定制折扇</div>
+//               <div class="jy-pop_table_cell">谢谢参与</div>
+//             </div>
+
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+// <!-- pop 填写个人信息  -->
+// <div class="jy-pop " id="J_ownPop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main ">
+//     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
+//     <div class="jy-pop_main_header">
+//       <div class="jy-pop_main_header__pad">填写个人信息</div>
+//     </div>
+//     <div class="jy-pop_body tc">
+//       <p>恭喜你！获得XXX !</p>
+//       <div class="pt-30">
+//         <div class="jy-pop_input_cell">
+//           <div class="jy-pop_input_cell-label tr">姓名:</div>
+//           <div class="jy-pop_input_cell-inp">
+//             <input placeholder="" type="text" class="ff-normal">
+//           </div>
+//         </div>
+//         <div class="jy-pop_input_cell">
+//           <div class="jy-pop_input_cell-label tr">手机:</div>
+//           <div class="jy-pop_input_cell-inp">
+//             <input placeholder="" type="text" class="ff-normal">
+//           </div>
+//         </div>
+//         <div class="jy-pop_input_cell">
+//           <div class="jy-pop_input_cell-label tr">地址:</div>
+//           <div class="jy-pop_input_cell-inp">
+//             <input placeholder="" type="text" class="ff-normal">
+//           </div>
+//         </div>
+//       </div>
+//       <a href="javascript:;" class="jy-btn-txt jy-pop_btn-ok mt-30">确认提交</a>
+//     </div>
+
+//   </div>
+// </div>
+
+// <!-- pop 填写游戏信息  -->
+// <div class="jy-pop " id="J_gamePop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main ">
+//     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
+//     <div class="jy-pop_main_header">
+//       <div class="jy-pop_main_header__pad">填写游戏信息</div>
+//     </div>
+//     <div class="jy-pop_body tc">
+
+//       <!-- 低版本兼容 -->
+//       <!-- <div class="mt-20 jy-pop_select ff-normal" id="jyCallPicker">请选择区服</div> -->
+
+//       <!-- 现代浏览器 -->
+//       <select name="" id="" class="mt-20 jy-pop_select ff-normal">
+//         <option value="">请选择区服</option>
+//       </select>
+
+//       <a href="javascript:;" class="jy-btn-txt jy-pop_btn-ok mt-30">确认</a>
+//     </div>
+//   </div>
+// </div>
+
+// <!-- pop selector  -->
+// <div style="z-index:1001;" class="jy-pop " id="J_selectorPop">
+//   <div class="jy-pop_mask jy-pop_mask--clickable"></div>
+//   <div class="jy-pop_picker_main">
+//     <div class="jy-pop_picker_hd">
+//       <a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--cancel">取消</a>
+//       <a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--confirm">确定</a>
+//     </div>
+//     <div class="jy-pop_picker__body">
+//       <ul id="jyPopPicker">
+//         <li class="active">xxx</li>
+//         <li>123</li>
+//         <li>xxx</li>
+//         <li>123</li>
+//         <li>xxx</li>
+//         <li>123</li>
+//         <li>xxx</li>
+//         <li>123</li>
+//         <li>xxx</li>
+//         <li>123</li>
+//       </ul>
+//     </div>
+//   </div>
+// </div>
+
+// <!-- pop 礼包码  -->
+// <div class="jy-pop " id="J_codePop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main ">
+//     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
+//     <div class="jy-pop_main_header">
+//       <div class="jy-pop_main_header__pad">礼包码</div>
+//     </div>
+//     <div class="jy-pop_body tc">
+//       <div class="jy-pop_cdkey btn-popcode">fgheuofbpghxwoag</div>
+//       <a href="javascript:;" data-clipboard-text="fgheuofbpghxwoag"
+//         class="jy-btn-txt jy-pop_btn-ok mt-30 btnpopcode">一键复制</a>
+//     </div>
+
+//   </div>
+// </div>
+
+// <!-- pop tip  -->
+// <div class="jy-pop " id="J_tipPop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main ">
+//     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
+//     <div class="jy-pop_main_header">
+//       <div class="jy-pop_main_header__pad">温馨提示</div>
+//     </div>
+//     <div class="jy-pop_body tc">
+//       <div class="pt-20 fs-36 lh-20 jy-pop-tiptxt">您的心动值不足哦~</div>
+//       <a href="javascript:;" class="jy-btn-txt jy-pop_btn-ok mt-30">确认</a>
+//     </div>
+//   </div>
+// </div>

@@ -1,13 +1,11 @@
 @import "./_const.scss";
 @import "./_mixin.scss";
 
-
 body {
   margin-left: auto;
   margin-right: auto;
-  font: #{$fs-primary}/1.15 "fcustom","微软雅黑";
+  font: #{$fs-primary}/ 1.15 "fcustom", "微软雅黑";
   color: $color-primary;
-  background: $color-theme-bg;
 }
 
 .lh-15 {
@@ -65,10 +63,10 @@ body {
 .tr {
   text-align: right;
 }
-.select-tc{
+.select-tc {
   text-align: center;
-  -moz-text-align-last:center;
-       text-align-last:center;
+  -moz-text-align-last: center;
+  text-align-last: center;
 }
 
 .flighter {
@@ -86,13 +84,13 @@ body {
 }
 .text-underline {
   text-decoration: underline;
-  &:hover{
+  &:hover {
     text-decoration: none;
   }
 }
 .text-none {
   text-decoration: none;
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 }
@@ -142,10 +140,10 @@ body {
 .fs-12 {
   font-size: 0.12rem;
 }
-.fs-10{
-  font-size: .1rem;
+.fs-10 {
+  font-size: 0.1rem;
 }
-.fs-0{
+.fs-0 {
   font-size: 0;
 }
 
@@ -309,10 +307,10 @@ body {
 .prelative {
   position: relative;
 }
-.pabsolute{
+.pabsolute {
   position: absolute;
 }
-.pfixed{
+.pfixed {
   position: fixed;
 }
 .absolute-0 {
@@ -351,7 +349,7 @@ body {
 }
 .jy-flex-hspace {
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 .jy-flex-g5 {
   width: 50%;
@@ -445,6 +443,7 @@ body {
   height: 100%;
   max-width: 750px;
   overflow: hidden;
+  background: $color-theme-bg;
 }
 
 .jy-content {
@@ -461,7 +460,7 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 16rem;
+  min-height: 15.6rem;
   overflow: hidden;
   background: no-repeat top center / $bg-width auto;
   box-sizing: border-box;
@@ -498,7 +497,7 @@ body {
   bottom: 0;
   background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
-  &.active{
+  &.active {
     display: block;
   }
 }

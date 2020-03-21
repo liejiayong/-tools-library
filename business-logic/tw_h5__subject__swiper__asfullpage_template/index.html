@@ -51,12 +51,16 @@
           <div class="jy-section section-1">
             <div class="jy-sectionmain tc">
               <div class="logo mauto"></div>
+              <div class="btn-vid">
+                <i class="i-player-bg animated-infinite jy-animate-rotate"></i>
+                <i class="i-player-btn"></i>
+              </div>
               <div class="mt-10 ">
                 <a class="btn-like fb-like  vf_hide" data-href="https://www.facebook.com/Wow-Samkok-112335613516301/"
                   data-layout="button_count" data-action="like" data-size="large" data-show-faces="false"
                   data-share="false"></a>
               </div>
-                            <div class="mauto mt-30 i-tel">
+              <div class="mauto mt-30 i-tel">
                 <div class="jy-tel">
                   <select name="" id="">
                     <option value="">xxx</option>
@@ -92,7 +96,7 @@
                   </div>
                 </div>
                 <div class="jy-progress">
-                  <i class="i-progress " id="progress"></i>
+                  <i style="width: 60%" class="i-progress " id="progress"></i>
                 </div>
               </div>
 
@@ -110,10 +114,6 @@
               <div class="tc jy-txt-tit bg-3-tit"></div>
               <div class="swiper-container feture-container" id="pfeture">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt=""
-                      class="swiper-lazy feture-image"></div>
-                  <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt=""
-                      class="swiper-lazy feture-image"></div>
                   <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt=""
                       class="swiper-lazy feture-image"></div>
                   <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt=""
@@ -144,8 +144,8 @@
   </div>
 
   <!-- 弹窗 -->
-    <!-- 视频 -->
-<div class="jy-pop " id="J_vidPop">
+  <!-- 视频 -->
+  <div class="jy-pop " id="J_vidPop">
     <div class="jy-pop_mask--clickable"></div>
     <div class="pop_video">
       <video src="./media/vm.mp4" controls preload="auto" x5-playsinline playsinline webkit-playsinline
@@ -153,6 +153,7 @@
         controlsList="nodownload" id="vid"></video>
     </div>
   </div>
+
   <!-- pop 填写个人信息  -->
   <div class="jy-pop " id="J_ownPop">
     <div class="jy-pop_mask"></div>
@@ -243,6 +244,10 @@
       $('.btn-submit').on('click', function () {
         $('#J_sucPop').fadeIn();
 
+      });
+      // 视频
+      $('.btn-vid').on('click', function () {
+        $('#J_vidPop').fadeIn();
       });
 
       var logic = {

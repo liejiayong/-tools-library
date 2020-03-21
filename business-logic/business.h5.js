@@ -20,10 +20,8 @@ var jyBus = {
   },
   winReset: function () {
     document.querySelector('body').style.overflow = '';
-    document.querySelector('body').style.overflow = '';
   },
   winFixed: function () {
-    document.querySelector('body').style.overflow = 'hidden';
     document.querySelector('body').style.overflow = 'hidden';
   },
   getRandom: function (min, max) {
@@ -80,6 +78,18 @@ var jyBus = {
   },
   isNumber: function (number) {
     return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]'
+  },
+  elementCopy: function (btnCopyCls) {
+    btnCopyCls = btnCopyCls || '.btnpopcode';
+    var $tip = $('<div class="jy-copytips" style="display: none; padding: 10px; position: fixed; top: 30%; left: 50%; transform: translateX(-50%); background-color: rgb(0, 0, 0); color: rgb(255, 255, 255); box-shadow: rgb(0, 0, 0) 0px 0px 5px; white-space: nowrap; z-index: 2001;"></div>');
+    $('body').append($tip);
+    var clipboard = new ClipboardJS(btnCopyCls);
+    clipboard.on('success', function () {
+      $tip.text('复制成功').fadeIn(500).fadeOut(1000);
+    });
+    clipboard.on('error', function () {
+      $tip.text('您的手机不支持点击复制，请长按复制！').fadeIn(500).fadeOut(1000);
+    });
   },
   /**
    * deprecated

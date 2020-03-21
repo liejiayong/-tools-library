@@ -201,9 +201,9 @@
   }
 }
 .jy-animate-rotate {
-  -webkit-animation: rotate 3s infinite alternate;
-  -moz-animation: rotate 3s infinite alternate;
-  animation: rotate 3s infinite alternate;
+  -webkit-animation: rotate 3s infinite linear;
+  -moz-animation: rotate 3s infinite linear;
+  animation: rotate 3s infinite linear;
 }
 
 @-webkit-keyframes opacity {

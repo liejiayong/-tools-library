@@ -1,7 +1,7 @@
 /**
  * canvas 刮刮卡
  * 支持ie9及以上浏览器
- * 
+ *
  * canvas 设置this.ctx.scale(scale, scale)之后，canvas上像素图像的坐标位置及长宽会根据scale倍数来缩放图像。
  * 本做法用来适配移动端的高清屏，在pc端时pixelRatio默认为像素 1，无需手动设置；在移动端时，图片需设置则可按需设置，刮刮卡封面图片的长宽原则根据 width = canvas的width * pixelRatio，height = canvas 的height * pixelRatio即可
  * 支持加锁解锁
@@ -9,15 +9,15 @@
  * 支持随机设置奖品与覆盖面
  *
  * 存在问题，当鼠标移开canvas元素后，touchend事件 与touchleave事件没有正常触发，在解决中
- * 
+ *
  * author: liejiayong(809206619@qq.com)
- * version: 0.1.0
+ *
  */
 
-// import './lib/Promise.ployfill.js'
-import '../lib/simulateTouch.js'
+require('@/lib/simulateTouch.js')
+var pkg = require('@/package.json')
 
-export default class CanvasScraping {
+class CanvasScraping {
 	constructor(element = null, config) {
 		const DEFAULT_CONFIG = {
 			width: 300, // canvas 宽
@@ -36,6 +36,7 @@ export default class CanvasScraping {
 			containerClass: 'scraping-container', // 装载刮卡的父元素类名
 			mode: 'default' // 刮刮卡刮开卡片模式。default:默认模式，一个个像素点刮开；sector:快速模式，以鼠标按下点开始到结束点形成扇形消除像素
 		}
+		this.version = pkg.version
 		this.config = this._extend(DEFAULT_CONFIG, config)
 		this.ctx = null // canvas画板对象
 		this.isDown = false // 手指按下
@@ -356,3 +357,6 @@ export default class CanvasScraping {
 		}
 	}
 }
+
+module.exports = CanvasScraping;
+module.exports.default = CanvasScraping;

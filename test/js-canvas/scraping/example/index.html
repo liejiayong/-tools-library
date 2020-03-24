@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>刮刮卡</title>
+</head>
+
+<body>
+	<style>
+		.card {
+			position: relative;
+			margin: 500px 50px;
+		}
+
+		.card canvas {
+			margin: 0 auto;
+			border: 1px solid #000;
+		}
+	</style>
+	<p>dfffsdf</p>
+	<p>dfffsdf</p>
+	<p>dfffsdf</p>
+	<p>dfffsdf</p>
+	<p>dfffsdf</p>
+	<p>dfffsdf</p>
+	<div class="card"> </div>
+	<button>再来一次</button>
+</body>
+
+<script src="../build/scraping.js"></script>
+<script>
+	console.log(CanvasScraping)
+	var card = document.querySelector('.card')
+	var scraping = new CanvasScraping(card, {
+		coverColor: '#eff7ff',
+		coverImg: '../scratch-2x.jpg',
+		pixelRatio: 2,
+		// mode: 'sector',
+		doneCallback: function () {
+			// scraping.setCover('./scratch-2x.jpg')
+			console.log('end')
+			scraping.setLock(true)
+		}
+	})
+
+	scraping.setLock(false)
+	scraping.setAward('../award.jpg')
+	// setInterval(() => {
+
+	// }, 2000);
+	console.log(scraping)
+	document.querySelector('button').addEventListener('click', function () {
+		scraping.reset()
+	});
+</script>
+
+</html>

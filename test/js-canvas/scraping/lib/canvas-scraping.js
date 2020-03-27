@@ -13,6 +13,7 @@
  * author: liejiayong(809206619@qq.com)
  *
  */
+"use strict"
 
 require('@/lib/simulateTouch.js')
 var pkg = require('@/package.json')

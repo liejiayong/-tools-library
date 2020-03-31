@@ -15,8 +15,8 @@
  */
 "use strict"
 
-require('@/lib/simulateTouch.js')
-var pkg = require('@/package.json')
+// require('@/lib/simulateTouch.js')
+// var pkg = require('@/package.json')
 
 class CanvasScraping {
 	constructor(element = null, config) {
@@ -24,7 +24,7 @@ class CanvasScraping {
 			width: 300, // canvas 宽
 			height: 150, // canvas 高
 			awardImg: '', // 奖品图片
-			x: '', // 覆盖层图片
+			coverImg: '', // 覆盖层图片
 			coverColor: '#ccc', // 纯色覆盖层
 			radius: 20, // 擦除手势半径
 			pixelRatio: 1, // 屏幕倍数
@@ -37,7 +37,7 @@ class CanvasScraping {
 			containerClass: 'scraping-container', // 装载刮卡的父元素类名
 			mode: 'default' // 刮刮卡刮开卡片模式。default:默认模式，一个个像素点刮开；sector:快速模式，以鼠标按下点开始到结束点形成扇形消除像素
 		}
-		this.version = pkg.version
+		// this.version = pkg.version
 		this.config = this._extend(DEFAULT_CONFIG, config)
 		this.ctx = null // canvas画板对象
 		this.isDown = false // 手指按下
@@ -359,5 +359,5 @@ class CanvasScraping {
 	}
 }
 
-module.exports = CanvasScraping;
-module.exports.default = CanvasScraping;
+// module.exports = CanvasScraping;
+// module.exports.default = CanvasScraping;

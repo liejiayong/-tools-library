@@ -1,12 +1,3 @@
-/*
- * Description: 
- * version: 
- * Author: liejiayong(809206619@qq.com)
- * Date: 2020-03-29 15:31:44
- * LastEditors: liejiayong(809206619@qq.com)
- * LastEditTime: 2020-03-29 21:53:28
- */
-
 import resolve from 'rollup-plugin-node-resolve'; // 帮助寻找node_modules里的包
 import commonjs from 'rollup-plugin-commonjs'; // 将非ES6语法的包转为ES6可用
 import babel from 'rollup-plugin-babel'; // rollup 的 babel 插件，ES6转ES5

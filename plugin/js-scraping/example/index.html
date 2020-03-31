@@ -30,13 +30,12 @@
 	<button>再来一次</button>
 </body>
 
-<script src="../build/scraping.js"></script>
+<script src="../src/scraping.js"></script>
 <script>
-	console.log(CanvasScraping)
 	var card = document.querySelector('.card')
-	var scraping = new CanvasScraping(card, {
+	var scraping = new Scratchers(card, {
 		coverColor: '#eff7ff',
-		coverImg: '../scratch-2x.jpg',
+		// coverImg: './scratch-2x.jpg',
 		pixelRatio: 2,
 		// mode: 'sector',
 		doneCallback: function () {
@@ -45,16 +44,17 @@
 			scraping.setLock(true)
 		}
 	})
+	console.log(Scratchers, scraping)
 
-	scraping.setLock(false)
-	// scraping.setAward('../award.jpg')
-	// setInterval(() => {
+	// scraping.setLock(false)
+	scraping.setAward({ url: './award.jpg' })
+	// // setInterval(() => {
 
-	// }, 2000);
-	console.log(scraping)
-	document.querySelector('button').addEventListener('click', function () {
-		scraping.reset()
-	});
+	// // }, 2000);
+	// console.log(scraping)
+	// document.querySelector('button').addEventListener('click', function () {
+	// 	scraping.reset()
+	// });
 </script>
 
 </html>

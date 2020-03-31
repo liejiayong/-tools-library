@@ -37,8 +37,8 @@ class Scratchers {
     this.parent = null // canvas挂载点
     this.cCover = null // canvas涂层
     this.cDisplayer = null // canvas奖品
-    this.width = 0 // canvas width
-    this.height = 0 // canvas height
+    this.width = this.config.width // canvas width
+    this.height = this.config.height // canvas height
     this.offsetTop = 0
     this.offsetLeft = 0
     this.pixelRatio = 1
@@ -52,19 +52,18 @@ class Scratchers {
     this._init();
   }
   setAward(params) {
-    const { ctx } = this.cDisplayer,
-      { width, height } = this,
+    const self = this, { ctx, widthReal, heightReal, pixelRatio } = this.cDisplayer,
       { url = "", msg = "" } = params
     // 图片
     if (url) {
-      this.loadImg(url, function ({ image, width: cw, height: ch }) {
-        let left = (cw - width) / 2,
-          top = (ch - height) / 2
-        console.log(image, top, left)
-        ctx.save()
-        ctx.globalCompositeOperation = 'source-over'
-        ctx.drawImage(image, left, top, width, height)
-        ctx.restore()
+      this.loadImg(url, function ({ image, width, height }) {
+        let left = (widthReal - width) / 2,
+          top = (heightReal - height) / 2
+        console.log(image, top, left, width, height, self.cDisplayer)
+        // ctx.save()
+        // ctx.globalCompositeOperation = 'source-over'
+        ctx.drawImage(image, 0, 0, width, height, 0, 0, widthReal, heightReal)
+        // ctx.restore()
       },
         function () {
           console.log('the award image load error.')
@@ -120,7 +119,7 @@ class Scratchers {
       el = this.el, parent = document.createElement('div')
     let cCover = null, cDisplayer = null
 
-    parent.style.cssText = `;margin:0 auto;text-align:center;width:${width}${unit};height:${height}${unit};overflow:hidden;`
+    parent.style.cssText = `position:relative;margin:0 auto;text-align:center;width:${width}${unit};height:${height}${unit};overflow:hidden;`
     parent.className = containerClass
     cCover = this._createCanvas()
     cDisplayer = this._createCanvas()

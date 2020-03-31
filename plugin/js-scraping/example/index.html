@@ -35,6 +35,8 @@
 	var card = document.querySelector('.card')
 	var scraping = new Scratchers(card, {
 		coverColor: '#eff7ff',
+		width: 500,
+		height: 500,
 		// coverImg: './scratch-2x.jpg',
 		pixelRatio: 2,
 		// mode: 'sector',
@@ -48,6 +50,7 @@
 
 	// scraping.setLock(false)
 	scraping.setAward({ url: './award.jpg' })
+	scraping.setAward({ url: './scratch-2x.jpg' })
 	// // setInterval(() => {
 
 	// // }, 2000);

@@ -18,20 +18,20 @@ const config = [
 	{
 		input: 'src/main.js',
 		output: {
-			name: 'plugin', // 浏览器引用时插件名称
+			name: 'Scratchers', // 浏览器引用时插件名称
 			file: pkg.browser,
-			format: 'umd',
+			format: 'iife',
 			// sourcemap: true  //生成bundle.map.js文件，方便调试
 		},
 		plugins: [
 			resolve(), // 这样 Rollup 能找到 `ms`
 			commonjs(), // 这样 Rollup 能转换 `ms` 为一个ES模块
-			eslint({
-				throwOnError: true,
-				throwOnWarning: true,
-				include: ['src/**'],
-				exclude: ['node_modules/**']
-			}),
+			// eslint({
+			// 	throwOnError: true,
+			// 	throwOnWarning: true,
+			// 	include: ['src/**'],
+			// 	exclude: ['node_modules/**']
+			// }),
 			babel({
 				exclude: 'node_modules/**', // 防止打包node_modules下的文件
 				runtimeHelpers: true, // 使plugin-transform-runtime生效

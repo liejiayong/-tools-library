@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
 var eventTarget;
-var supportTouch = "ontouchstart" in window;
+var supportTouch = 'ontouchstart' in window;
 
 if (!document.createTouch) {
   document.createTouch = function (view, target, identifier, pageX, pageY, screenX, screenY) {
@@ -45,11 +45,11 @@ var Touch = function Touch(target, identifier, pos, deltaX, deltaY) {
 function TouchList() {
   var touchList = [];
 
-  touchList["item"] = function (index) {
+  touchList['item'] = function (index) {
     return this[index] || null;
   };
 
-  touchList["identifiedTouch"] = function (id) {
+  touchList['identifiedTouch'] = function (id) {
     return this[id + 1] || null;
   };
 
@@ -58,7 +58,7 @@ function TouchList() {
 
 function fakeTouchSupport() {
   var objs = [window, document.documentElement];
-  var props = ["ontouchstart", "ontouchmove", "ontouchcancel", "ontouchend"];
+  var props = ['ontouchstart', 'ontouchmove', 'ontouchcancel', 'ontouchend'];
 
   for (var o = 0; o < objs.length; o++) {
     for (var p = 0; p < props.length; p++) {
@@ -75,20 +75,20 @@ function onMouse(touchType) {
       return;
     }
 
-    if (ev.type === "mousedown" || !eventTarget || eventTarget && !eventTarget.dispatchEvent) {
+    if (ev.type === 'mousedown' || !eventTarget || eventTarget && !eventTarget.dispatchEvent) {
       eventTarget = ev.target;
     }
 
     triggerTouch(touchType, ev);
 
-    if (ev.type === "mouseup") {
+    if (ev.type === 'mouseup') {
       eventTarget = null;
     }
   };
 }
 
 function triggerTouch(eventName, mouseEv) {
-  var touchEvent = document.createEvent("Event");
+  var touchEvent = document.createEvent('Event');
   touchEvent.initEvent(eventName, true, true);
   touchEvent.altKey = mouseEv.altKey;
   touchEvent.ctrlKey = mouseEv.ctrlKey;
@@ -107,7 +107,7 @@ function createTouchList(mouseEv) {
 }
 
 function getActiveTouches(mouseEv) {
-  if (mouseEv.type === "mouseup") {
+  if (mouseEv.type === 'mouseup') {
     return TouchList();
   }
 
@@ -116,15 +116,14 @@ function getActiveTouches(mouseEv) {
 
 function TouchEmulator() {
   fakeTouchSupport();
-  window.addEventListener("mousedown", onMouse("touchstart"), true);
-  window.addEventListener("mousemove", onMouse("touchmove"), true);
-  window.addEventListener("mouseup", onMouse("touchend"), true);
+  window.addEventListener('mousedown', onMouse('touchstart'), true);
+  window.addEventListener('mousemove', onMouse('touchmove'), true);
+  window.addEventListener('mouseup', onMouse('touchend'), true);
 }
 
-TouchEmulator["multiTouchOffset"] = 75;
+TouchEmulator['multiTouchOffset'] = 75;
 
 if (!supportTouch) {
   new TouchEmulator();
 }
 
-;

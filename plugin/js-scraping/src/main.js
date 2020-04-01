@@ -1,5 +1,7 @@
-import { sleep } from './time';
+import Scratchers from './scraping'
 
 export {
-  sleep
+  Scratchers
 }
+
+export default Scratchers

@@ -1,9 +1,9 @@
 {
-  "name": "rollup-plugin-v1s",
+  "name": "scratchers",
   "version": "1.0.0",
-  "main": "npm/plugin.cjs.js",
-  "module": "npm/plugin.esm.js",
-  "browser": "npm/plugin.umd.js",
+  "main": "dist/scratchers.cjs.js",
+  "module": "dist/scratchers.esm.js",
+  "browser": "dist/scratchers.umd.js",
   "dependencies": {
     "core-js": "^3.6.4"
   },

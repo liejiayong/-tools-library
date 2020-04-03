@@ -21,6 +21,7 @@ const config = [
 			name: 'Scratchers', // 浏览器引用时插件名称
 			file: pkg.browser,
 			format: 'iife',
+			plugins: [terser()]
 			// sourcemap: true  //生成bundle.map.js文件，方便调试
 		},
 		plugins: [
@@ -36,6 +37,7 @@ const config = [
 				exclude: 'node_modules/**', // 防止打包node_modules下的文件
 				runtimeHelpers: true, // 使plugin-transform-runtime生效
 			}),
+			terser(),
 			uglify({
 				compress: {
 					pure_getters: true,
@@ -43,8 +45,7 @@ const config = [
 					unsafe_comps: true,
 				},
 				warnings: false
-			}),
-			terser()
+			})
 		]
 	},
 
@@ -58,8 +59,17 @@ const config = [
 		input: 'src/main.js',
 		external: [],
 		output: [
-			{ file: pkg.main, format: 'cjs' },
+			// { file: pkg.main, format: 'cjs' },
 			{ file: pkg.module, format: 'es' }
+		],
+		plugins: [
+			resolve(), // 这样 Rollup 能找到 `ms`
+			commonjs(), // 这样 Rollup 能转换 `ms` 为一个ES模块
+			// babel({
+			// 	exclude: 'node_modules/**', // 防止打包node_modules下的文件
+			// 	runtimeHelpers: true, // 使plugin-transform-runtime生效
+			// }),
+			terser()
 		]
 	}
 ];

@@ -24,10 +24,10 @@ title: canvas精粹
 则需要在图片源设置的时候加时间戳清除缓存，并且在后端 header 设置跨域：Access-Control-Allow-Origin: '\* '
 
 ```js
-var img = new Image()
-img.src = "./win.png?timestamp=" + Date.now()
-img.setAttribute("crossOrigin", "Anonymous")
-img.onload = function() {}
+var img = new Image();
+img.src = "./win.png?timestamp=" + Date.now();
+img.setAttribute("crossOrigin", "Anonymous");
+img.onload = function() {};
 ```
 
 #### canvas.getBoundingClientRect()
@@ -63,27 +63,84 @@ img.onload = function() {}
 ```js
 // 填充三角形
 // 路径使用填充（filled）时，路径自动闭合
-ctx.beginPath()
-ctx.moveTo(25, 25)
-ctx.lineTo(105, 25)
-ctx.lineTo(25, 105)
-ctx.lineCap = "round"
-ctx.lineJoin = "round"
-ctx.strokeStyle = "#ff0000"
-ctx.lineWidth = 8
-ctx.fill()
+ctx.beginPath();
+ctx.moveTo(25, 25);
+ctx.lineTo(105, 25);
+ctx.lineTo(25, 105);
+ctx.lineCap = "round";
+ctx.lineJoin = "round";
+ctx.strokeStyle = "#ff0000";
+ctx.lineWidth = 8;
+ctx.fill();
 // 描边三角形
 // 路径使用填充（filled）时，路径自动闭合 使用描边（stroked）则不会闭合路径
-ctx.beginPath()
-ctx.moveTo(125, 125)
-ctx.lineTo(125, 45)
-ctx.lineTo(45, 125)
-ctx.closePath()
-ctx.lineCap = "round"
-ctx.lineJoin = "round"
-ctx.strokeStyle = "#ff0000"
-ctx.lineWidth = 8
-ctx.stroke()
+ctx.beginPath();
+ctx.moveTo(125, 125);
+ctx.lineTo(125, 45);
+ctx.lineTo(45, 125);
+ctx.closePath();
+ctx.lineCap = "round";
+ctx.lineJoin = "round";
+ctx.strokeStyle = "#ff0000";
+ctx.lineWidth = 8;
+ctx.stroke();
+```
+
+## 画柔顺线条
+
+在画柔顺线条的时候，需要注意 lintTo 的时候位置复位
+
+```js
+var point = { x: 0, y: 0, prevX: 0, prevY: 0, tap: false };
+
+function getPosition(touches) {
+  if (!touches || (touches && !touches.clientX))
+    return { x: 0, y: 0, radius: 0 };
+
+  var bc = canvas.getBoundingClientRect();
+  let x = Math.abs(touches.clientX - bc.left),
+    y = Math.abs(touches.clientY - bc.top);
+  x = x.toFixed(2);
+  y = y.toFixed(2);
+
+  if (!point.tap) {
+    point.prevX = x;
+    point.prevY = y;
+  }
+  // console.log(touches, x, y)
+
+  return { x, y };
+}
+
+canvas.addEventListener("touchstart", function(e) {
+  e.preventDefault();
+  point.tap = true;
+
+  var pos = getPosition(e.touches[0]);
+  point.x = pos.x;
+  point.y = pos.y;
+});
+canvas.addEventListener(
+  "touchmove",
+  function(e) {
+    e.preventDefault();
+    if (!tap) return;
+    var pos = t.getPos(e.touches[0]),
+      x = pos.x,
+      y = pos.y;
+
+    ctx.beginPath(); // 开始新的路径
+    ctx.moveTo(point.prevX, point.prevY); // 复位到最后一个像素点
+    ctx.lineTo(x, y); // 画像素点
+
+    ctx.closePath(); // 关闭路径
+    ctx.stroke(); // 画线条
+
+    point.prevX = x;
+    point.prevY = y;
+  },
+  false
+);
 ```
 
 ## retina 高清显示方案
@@ -166,17 +223,17 @@ var canvasRatio = {
 //设置请求头
 app.all("*", function(req, res, next) {
   //允许所有来源访问
-  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Origin", "*");
   //用于判断request来自ajax还是传统请求
-  res.header("Access-Control-Allow-Headers", "X-Requested-With")
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
   //允许访问的方式
-  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS")
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
   //修改程序信息与版本
-  res.header("X-Powered-By", " 3.2.1")
+  res.header("X-Powered-By", " 3.2.1");
   //内容类型：如果是post请求必须指定这个属性
-  res.header("Content-Type", "application/json;charset=utf-8")
-  next()
-})
+  res.header("Content-Type", "application/json;charset=utf-8");
+  next();
+});
 ```
 
 ### php 跨域允许
@@ -255,10 +312,10 @@ public class CORSFilter implements Filter {
 解决办法： 设置 Image.setAttribute('crossOrigin', 'anonymous')来告诉浏览器，我允许跨域！
 
 ```js
-var img = new Image()
-img.src = "./win.png"
-img.setAttribute("crossOrigin", "Anonymous")
-img.onload = function() {}
+var img = new Image();
+img.src = "./win.png";
+img.setAttribute("crossorigin", "anonymous");
+img.onload = function() {};
 ```
 
 **图片添加了 setAttribute("crossOrigin", "Anonymous")，实际就是图片请求变成了 CORS 请求，就要受同源策略的限制了，图片源请求 request header 上就会自动添加 Origin 与 referer 并设置图片源出处地址 ** ， 如下：
@@ -272,8 +329,8 @@ Referer: http://hd.693975.com/huodong/2020identity/
 跨域到这里基本问题也要解决了，然鹅有时候为了网站相应性能，开发者喜欢将域外图片放在 cdn 的域外，像这种高缓存高性能的巨无霸，若前端对频发更新的图片画在 canvas，那么只能骚一波，消除缓存，给图片源添加时间戳即可，如下：
 
 ```js
-var img = new Image()
-img.src = "./win.png?timestamp=" + Date.now()
-img.setAttribute("crossOrigin", "Anonymous")
-img.onload = function() {}
+var img = new Image();
+img.src = "./win.png?timestamp=" + Date.now();
+img.setAttribute("crossorigin", "anonymous");
+img.onload = function() {};
 ```

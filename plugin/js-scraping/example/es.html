@@ -12,7 +12,7 @@
 	<style>
 		.card {
 			position: relative;
-			margin: 500px auto;
+			margin: 100px auto;
 			border: 1px solid #000;
 			width: 375px;
 			height: 140px;
@@ -25,38 +25,38 @@
 	<p>dfffsdf</p>
 	<p>dfffsdf</p>
 	<div class="card"> </div>
-	<button>再来一次</button>
+	<button id="btnAgain">再来一次</button>
+	<button id="btnStart">点击刮卡</button>
 </body>
 
-
 <script type="module">
-	import { Scratchers } from '../dist/scratchers.esm.js'
-	var card = document.querySelector('.card')
-	var scraping = new Scratchers(card, {
+	import Scratchers from '../dist/scratchers.esm.js'
+	var scraping = new Scratchers(document.querySelector('.card'), {
 		coverColor: '#eff7ff',
 		width: 375,
 		height: 140,
-		// coverImg: './scratch-2x.jpg',
-		// mode: 'sector',
-		doneCallback: function () {
-			// scraping.setCover('./scratch-2x.jpg')
-			console.log('end')
-			scraping.setLock(true)
+		coverImg: './scratch-2x.jpg',
+		mode: 'sector',
+		onReady: function () {
+			console.log('ready')
+		},
+		onProgress: function (rate) {
+			console.log('progress:', rate)
+		},
+		onSuccess: function () {
 		}
 	})
-	console.log(Scratchers, scraping)
 
-	scraping.setLock(false)
-	scraping.setAward({ url: './award.jpg' })
-	// scraping.setAward({ msg: '一等奖', url: './award.jpg' })
-	// scraping.setCover('./scratch-2x.jpg')
-	// // setInterval(() => {
-
-	// // }, 2000);
-	// console.log(scraping)
-	// document.querySelector('button').addEventListener('click', function () {
-	// 	scraping.reset()
-	// });
+	document.querySelector('#btnAgain').addEventListener('click', function () {
+		scraping.setCover('./scratch-2x.jpg')
+		scraping.setAward({ url: './award.jpg' })
+		scraping.setLock(false)
+	});
+	document.querySelector('#btnStart').addEventListener('click', function () {
+		scraping.setAward({ msg: '一等奖', url: './award.jpg' })
+		// scraping.setCover('./scratch-2x.jpg')
+		scraping.setLock(false)
+	});
 </script>
 
 </html>

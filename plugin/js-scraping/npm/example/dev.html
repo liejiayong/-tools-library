@@ -29,7 +29,7 @@
 	<button id="btnStart">点击刮卡</button>
 </body>
 
-<script src="../dist/scratchers.umd.js"></script>
+<script src="../scratchers.umd.js"></script>
 <script>
 	var scraping = new Scratchers(document.querySelector('.card'), {
 		coverColor: '#eff7ff',
@@ -54,7 +54,7 @@
 	});
 	document.querySelector('#btnStart').addEventListener('click', function () {
 		scraping.setAward({ msg: '一等奖', url: './award.jpg' })
-		// scraping.setCover('./scratch-2x.jpg')
+		scraping.setCover('./scratch-2x.jpg')
 		scraping.setLock(false)
 	});
 </script>

@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta content="email=no" name="format-detection">
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<title>蓝月高爆版</title>
+<script>
+  (function (doc, win) {
+	  var docEl = doc.documentElement,
+		  resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		  recalc = function () {
+			  var clientWidth = docEl.clientWidth;
+			  if (!clientWidth) return;
+
+			  docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+			  if(document.getElementById("preLoader")){
+				  setTimeout(function () {
+					  document.getElementById("preLoader").style.display="none";
+					  document.getElementById("common-container").style.visibility="visible";
+				  },1)
+			  }
+		  };
+
+	  if (!doc.addEventListener) return;
+	  win.addEventListener(resizeEvt, recalc, false);
+	  win.addEventListener('resize', recalc, false);
+	  doc.addEventListener('DOMContentLoaded', recalc, false);
+  })(document, window);
+</script>
+<style type="text/css">
+*{-webkit-box-sizing: border-box; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent;}
+body,html,a,div{ margin: 0px; padding: 0px;}
+body{background:#000;}
+img{border:none; display:block; width:100%;}
+a{color:#ff;text-decoration: none; display:block;}
+#wrap{width: 100%;padding-top:17%;}
+.pr{position:relative;}
+.top{width: 100%;position:fixed; top:0;z-index:999;left:0;}
+.rotate,.click,.trigger,.popout,.button{position:absolute;z-index: 100;}
+.rotate{bottom: 0.1rem; left: 2%; width: 96%;}
+.click {top: -1.1rem;width: 8%;left: 45%;}
+.trigger {bottom: 1.6rem; left: 25%; width: 50%; height: 3.2rem;}
+.popout{display: none;bottom: 0.35rem;left: 5.5%;width: 89%;}
+.button{left: 0;width: 100%;bottom: 0.5rem;height: 2.5rem; display:block;}
+</style>
+</head>
+<body>
+<a href="javascript:gourl();" class="top"><img  src="top.gif"></a>
+<div id="wrap">
+	<img src="1.gif" alt="">
+	<div class="pr">
+		<img src="2.jpg" alt="">
+		<div class="rotate"><img src="rotate.png" /></div>
+		<div class="click"><img src="click.png" /></div>
+		<div class="trigger"></div>
+		<div class="popout">
+			<img src="gift.png" />
+			<div id="start" class="button"></div>
+		</div>
+	</div>
+	<img src="3.gif" alt="">
+	<img src="4.jpg" alt="">
+	<img src="5.jpg" alt="">
+</div>
+<script src="/wap/inc.js" type="text/javascript"></script>
+<script type="text/javascript">;
+	var initDeg = 36;
+    $('.trigger').on('click', function () {
+        if (!$(this).hasClass('active')) {
+          $(this).addClass('active');
+            var t = setInterval(function() {
+                initDeg += 4;
+                $('.rotate').css({
+                    transform: 'rotate(' + initDeg + 'deg)',
+                    webkitTransform: 'rotate(' + initDeg +'deg)'
+                });
+                if (initDeg % 720 === 136 && initDeg > 360) {
+                    clearInterval(t);
+                    $('.trigger').removeClass('active');
+                    $('.popout').fadeIn();
+                }
+            }, 4);
+        }
+
+    });	
+	function copy(text, callback) {
+		var tag = document.createElement('input');
+		tag.setAttribute('id', 'cp_hgz_input');
+		tag.value = text;
+		document.getElementsByTagName('body')[0].appendChild(tag);
+		document.getElementById('cp_hgz_input').select();
+		document.execCommand('copy');
+		document.getElementById('cp_hgz_input').remove();
+		if(callback) {callback(text)}
+	}
+	function comboboxWindow() {
+		var gift_value = 'Tanwan666';
+		setTimeout(function() {
+			var closeBtn = document.getElementById('start');
+			if (closeBtn != null && closeBtn != '' && typeof (closeBtn) != 'undefined') {
+				closeBtn.addEventListener("click", function(){
+					if(gift_value){
+						copy(gift_value, function() {
+							alert('礼包码复制成功!');
+						});
+					}
+					gourl();					
+				});
+			}
+		}, 2000);
+	}
+	comboboxWindow();
+	
+	
+	function updateQueryStringParameter(uri, key, value) {
+		if (!value) {
+			return uri;
+		}
+		var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+		var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+		if (uri.match(re)) {
+			return uri.replace(re, '$1' + key + "=" + value + '$2');
+		} else {
+			return uri + separator + key + "=" + value;
+		}
+	}
+	var _mtac = {"senseQuery": 1};
+	(function () {
+		Date.prototype.format = function (fmt) {
+			var o = {
+				"M+": this.getMonth() + 1,                 //月份
+				"d+": this.getDate(),                    //日
+				"h+": this.getHours(),                   //小时
+				"m+": this.getMinutes(),                 //分
+				"s+": this.getSeconds(),                 //秒
+				"q+": Math.floor((this.getMonth() + 3) / 3), //季度
+				"S": this.getMilliseconds()             //毫秒
+			};
+			if (/(y+)/.test(fmt)) {
+				fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+			}
+			for (var k in o) {
+				if (new RegExp("(" + k + ")").test(fmt)) {
+					fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+				}
+			}
+			return fmt;
+		}
+		var today = new Date();   // 获取当前时间
+		var time = today.format('yyyyMMdd');  //格式化时间
+		var newurl = updateQueryStringParameter(window.location.href, 't', time);
+		//向当前url添加参数，没有历史记录
+		window.history.replaceState({
+			path: newurl
+		}, '', newurl);
+
+		var mta = document.createElement("script");
+		mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+		mta.setAttribute("name", "MTAH5");
+		mta.setAttribute("sid", "500689827");
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(mta, s);
+	})();
+</script>
+</body>
+</html>

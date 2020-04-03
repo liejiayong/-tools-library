@@ -1,0 +1,21 @@
+{
+  "name": "scratchers",
+  "version": "0.6.0",
+  "main": "dist/scratchers.cjs.js",
+  "module": "dist/scratchers.esm.js",
+  "browser": "dist/scratchers.umd.js",
+  "homepage": "",
+  "directories": {
+    "example": "example"
+  },
+  "keywords": [
+    "tools",
+    "javascript",
+    "library",
+    "scratchers",
+    "刮刮卡",
+    "scratch card"
+  ],
+  "author": "liejiayong",
+  "license": "MIT"
+}

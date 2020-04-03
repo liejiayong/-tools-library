@@ -14,9 +14,9 @@ class Scratchers {
       font: 'bold 30px Arial', // 奖品字体样式
       fontColor: '#ffffff', // 奖品字体颜色
       coverImg: '', // 覆盖层图片
-      coverColor: '#ccc', // 纯色覆盖层
+      coverColor: '#cccccc', // 纯色覆盖层
       radius: 28, // 擦除手势半径
-      duration: 2000, // 展现全部的淡出效果时间（ms）
+      duration: 500, // 展现全部的淡出效果时间（ms）
       percent: 60, // 刮开面积 占 整张刮卡的百分比
       unit: 'px', // 宽高css单位
       containerClass: 'jy-scraping-container', // 装载刮卡的父元素类名
@@ -52,7 +52,6 @@ class Scratchers {
  */
   setCover(url = this.config.coverImg) {
     const self = this, { ctx, widthReal, heightReal } = this.cCover
-
     // 图层背景
     if (url) {
       self.loadImg(url, function ({ image, width, height }) {
@@ -166,9 +165,7 @@ class Scratchers {
 	 * 清除覆盖层所有像素，无动画直接清除
 	 */
   _clearAll() {
-    const { ctx, canvas } = this.cCover, transition = preStyle('transition')
-
-    ctx.fillRect(0, 0, this.width, this.height)
+    const { canvas } = this.cCover, transition = preStyle('transition')
     canvas.style[transition] = 'none'
 
     this.isDone = false
@@ -301,7 +298,7 @@ class Scratchers {
     ctx.scale(pixelRatio, pixelRatio)
     canvas.setAttribute('width', widthReal);
     canvas.setAttribute('height', heightReal);
-    canvas.style.cssText = `position:absolute;top:0;left:0;width:100%;height:100%`;
+    canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%';
 
     this.pixelRatio = pixelRatio
 

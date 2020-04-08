@@ -50,11 +50,8 @@
 	document.querySelector('#btnAgain').addEventListener('click', function () {
 		scraping.setCover('./scratch-2x.jpg')
 		scraping.setAward({ url: './award.jpg' })
-		scraping.setLock(false)
 	});
 	document.querySelector('#btnStart').addEventListener('click', function () {
-		scraping.setAward({ msg: '一等奖', url: './award.jpg' })
-		// scraping.setCover('./scratch-2x.jpg')
 		scraping.setLock(false)
 	});
 </script>

@@ -1,6 +1,13 @@
-# WaterMark.js
+# scratchers.js
 
-A lightweight WaterMarks for html background
+经典刮刮卡库， [效果预览](https://codepen.io/liejiayong/pen/eYpOypR)
+
+## 特性
+
+- 兼容 pc ie9+ 及现代浏览器
+- 支持移动端，且图片比例自适应
+- 支持可定制化
+- 用 rollup 压缩打包，支持 es 模式与立即执行模式
 
 # Usage
 
@@ -8,34 +15,57 @@ A lightweight WaterMarks for html background
 
 ```bash
 
-npm i js-watermarks
+npm i scratchers -S
 
 ```
 
-## Example
-
-默认调用
+### use
 
 ```js
-new WaterMark()
+import Scratchers from 'scratchers'
+// 实例化:el 为挂载点
+const install = new Scratchers(el, {
+	width: 300, // canvas 宽
+	height: 150, // canvas 高
+	awardUrl: '', // 奖品图片
+	awardColor: '#ffffff', // 奖品默认背景，默认为透明：transparent
+	awardMsg: '特等奖', // 奖品文字
+	font: 'bold 30px Arial', // 奖品字体样式
+	fontColor: '#ffffff', // 奖品字体颜色
+	coverUrl: '', // 覆盖层图片
+	coverColor: '#cccccc', // 纯色覆盖层
+	radius: 28, // 擦除手势半径
+	duration: 500, // 展现全部的淡出效果时间（ms）
+	percent: 60, // 刮开面积 占 整张刮卡的百分比
+	unit: 'px', // 宽高css单位
+	containerClass: 'jy-scraping-container', // 装载刮卡的父元素类名
+	mode: 'default', // 刮刮卡刮开卡片模式。default:默认模式，一个个像素点刮开；sector:快速模式，以鼠标按下点开始到结束点形成扇形消除像素
+	onReady: function() {
+		console.log('scratchers ready')
+	},
+	onProgress: function(rate) {
+		console.log('scratchers progress', rate)
+	},
+	onSuccess: () => {
+		console.log('scratchers done')
+	} // 全部刮开回调
+})
 ```
 
-或可传参
+### API
+
+- 设置可刮
 
 ```js
-new WaterMark(document.body, {
-  msg: "内部文档，请勿外传", // 水印内容
-  wmCls: ".jy_wm", // 水印主件类名
-  width: "100", // canvas元素宽
-  height: "100", // canvas元素高
-  textAlign: "left", // 文字对齐
-  textBaseline: "bottom", // 基准线
-  font: "16px Microsoft Yahei", // 字体大小及样式
-  fillStyle: "#000", // 自定义水印的颜色
-  globalAlpha: 0.1, // 设置图形和图像透明度的值
-  rotate: 16, // 文字旋转角度
-  zIndex: 1000, // 元素堆叠顺序
-  x: 50, // 文字位置x
-  y: 50 // 文字位置y
+install.setLock(false)
+```
+
+- 设置奖品
+
+```js
+install.set({
+	coverUrl: 'https://img.zcool.cn/community/01dbd25e8c7128a801216518adf279.jpg@1280w_1l_2o_100sh.jpg',
+	awardUrl: 'https://img.zcool.cn/community/01f9485e8af38da801216518361916.jpg@260w_195h_1c_1e_1o_100sh.jpg',
+	msg: '特等奖'
 })
 ```

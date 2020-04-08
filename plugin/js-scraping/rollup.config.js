@@ -59,7 +59,7 @@ const config = [
 		input: 'src/main.js',
 		external: [],
 		output: [
-			// { file: pkg.main, format: 'cjs' },
+			{ file: pkg.main, format: 'cjs' },
 			{ file: pkg.module, format: 'es' }
 		],
 		plugins: [

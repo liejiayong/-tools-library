@@ -1,7 +1,7 @@
 {
   "name": "scratchers",
-  "version": "0.6.0",
-  "main": "scratchers.cjs.js",
+  "version": "0.7.0",
+  "main": "scratchers.esm.js",
   "module": "scratchers.esm.js",
   "browser": "scratchers.umd.js",
   "homepage": "",

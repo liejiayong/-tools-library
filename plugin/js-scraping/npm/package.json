@@ -1,9 +1,9 @@
 {
   "name": "scratchers",
   "version": "0.6.0",
-  "main": "dist/scratchers.cjs.js",
-  "module": "dist/scratchers.esm.js",
-  "browser": "dist/scratchers.umd.js",
+  "main": "scratchers.cjs.js",
+  "module": "scratchers.esm.js",
+  "browser": "scratchers.umd.js",
   "homepage": "",
   "directories": {
     "example": "example"

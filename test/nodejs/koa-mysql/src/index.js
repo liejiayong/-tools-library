@@ -7,6 +7,7 @@ const staticCache = require('koa-static-cache')
 const session = require('koa-session-minimal')
 const MysqlStore = require('koa-mysql-session')
 const router = require('./router')
+const authentication = require('./middlewares/authentication')
 const { HTTP_SERVER_PORT, database } = require('./config/default')
 const staticPath = '/cachefile'
 
@@ -31,6 +32,9 @@ app.use(
         })
     })
 )
+
+// 权鉴
+app.use(authentication)
 
 // 路由
 router(app)

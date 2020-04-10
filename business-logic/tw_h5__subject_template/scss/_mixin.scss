@@ -56,6 +56,12 @@
   overflow: hidden;
 }
 
+// 文字行数
+@mixin nowrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 @mixin ellipsis($count) {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -63,4 +69,18 @@
   overflow: hidden;
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
+}
+
+// 滚动卡顿
+@mixin scroll {
+  -webkit-overflow-scrolling: touch;
+}
+@mixin scroll_static {
+  position: static;
+  -webkit-overflow-scrolling: touch;
+}
+@mixin scroll_chaining {
+  -ms-scroll-chaining: none;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }

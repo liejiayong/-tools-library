@@ -5,6 +5,7 @@ const model = require('../models/table/index')
 // 创建连接池
 const pool = mysql.createPool({
     host: database.HOST,
+    port: database.PORT,
     user: database.USERNAME,
     password: database.PASSWORD,
     database: database.DATABASE

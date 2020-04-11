@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>拖拽</title>
+	<style>
+		html,body{height: 100%;overflow: hidden;}
+		.jy-section { display: none; position: relative; width: 100%; height: 100%; overflow: hidden; background: no-repeat top center/7.5rem auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+		.jy-section.active { display: block; -webkit-animation: nones 0.3s ease-in; -moz-animation: nones 0.3s ease-in; animation: nones 0.3s ease-in; }
+
+.jy-sectionmain { position: relative; margin: 0 auto; width: 100%; height: inherit; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.section-2 .jy-sectionmain { padding-top: 1.1rem; }
+
+.section-2 .i-time { display: block; margin: 0 auto; width: 2.4rem; height: 0.6rem; line-height: 0.6rem; text-align: center; font-size: 0.3rem; color: #fff; background: rgba(0, 0, 0, 0.5); border-radius: 0.6rem; }
+
+.section-2 .jy-drager { position: absolute; top: 1.9rem; left: 0; right: 0; bottom: 0; }
+
+.section-2 .jy-drappanel { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 20; }
+
+.section-2 .jy-drappanel .i-rubbish { position: absolute; will-change: transform; }
+
+.section-2 .jy-drappanel .i-rubbish:nth-of-type(1) { left: 0.4rem; top: 0; }
+
+.section-2 .jy-drappanel .i-rubbish:nth-of-type(2) { left: 4.4rem; top: 0.6rem; }
+
+.section-2 .jy-drappanel .i-rubbish:nth-of-type(3) { left: 1.4rem; top: 1.8rem; }
+
+.section-2 .jy-drappanel .i-rubbish:nth-of-type(4) { left: 3.8rem; top: 2.4rem; }
+
+.section-2 .jy-drappanel .i-rubbish:nth-of-type(5) { left: 0; top: 4rem; }
+
+.section-2 .jy-drappanel .i-rubbish:nth-of-type(6) { left: 4.8rem; top: 5rem; }
+
+@media screen and (min-height: 800px) { .section-2 .jy-drappanel .i-rubbish:nth-of-type(1) { left: 0.4rem; top: .4rem; }
+  .section-2 .jy-drappanel .i-rubbish:nth-of-type(2) { left: 4.4rem; top: 1.6rem; }
+  .section-2 .jy-drappanel .i-rubbish:nth-of-type(3) { left: 1.4rem; top: 2.8rem; }
+  .section-2 .jy-drappanel .i-rubbish:nth-of-type(4) { left: 3.5rem; top: 4.4rem; }
+  .section-2 .jy-drappanel .i-rubbish:nth-of-type(5) { left: 0; top: 6rem; }
+  .section-2 .jy-drappanel .i-rubbish:nth-of-type(6) { left: 4.8rem; top: 7.4rem; } }
+
+.section-2 .jy-dropzone { display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -moz-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; bottom: 0; left: 0; right: 0; height: 2.8rem; z-index: 10; background: rgba(0, 0, 0, 0.5); }
+
+.section-2 .dropzone-item { position: relative; -webkit-box-flex: 25%; -webkit-flex: 25%; -moz-box-flex: 25%; -ms-flex: 25%; flex: 25%; height: 100%; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -moz-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.section-2 .dropzone-item:not(:last-of-type) { border-right: 0.015rem solid #525b64; }
+
+.section-2 .dropzone-item .i-tip { position: absolute; top: 0; left: 50%; -webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%); opacity: 0; }
+
+.section-2 .dropzone-item .i-tip.active { opacity: 1; -webkit-transition: opacity 0.4s ease-in; -o-transition: opacity 0.4s ease-in; -moz-transition: opacity 0.4s ease-in; transition: opacity 0.4s ease-in; }
+.i-rubbish-oilp{width: 100px;height: 100px;color: #ccc;background:red;}
+	</style>
+	<script>var jyBus = { activeCls: 'active', initial: function () { this.font() }, font: function () { var docEl = document.documentElement || document.body; var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'; var reCalc = function () { var clientWidth = docEl.clientWidth, PIX = 750; clientWidth = clientWidth > PIX ? PIX : clientWidth; var fontSize = 100 * (clientWidth / PIX); window.baseFontSize = fontSize; docEl.style.fontSize = fontSize + 'px' }; reCalc(); window.addEventListener(resizeEvt, reCalc, false); document.addEventListener('DOMContentLoaded', reCalc, false) }, winReset: function () { document.querySelector('body').style.overflow = ''; document.querySelector('body').style.overflow = '' }, winFixed: function () { document.querySelector('body').style.overflow = 'hidden'; document.querySelector('body').style.overflow = 'hidden' }, getRandom: function (min, max) { return Math.floor(Math.random() * (max - min + 1) + min) }, shuffle: function (arr) { var _arr = arr.slice(); for (var i = 0; i < _arr.length; i++) { var j = this.getRandom(0, i); var n = _arr[i]; _arr[i] = _arr[j]; _arr[j] = n } return _arr }, debounce: function (fn, delay) { var timer = null; return function () { var context = this, arg = arguments; if (timer) clearTimeout(timer); timer = setTimeout(function () { fn.apply(context, arg) }, delay) } }, throttle: function (fn, delay) { if (!delay) delay = 160; var timer = null; var start = Date.now(); return function () { var context = this, arg = arguments, curr = Date.now(); if (curr - start >= delay) { fn.apply(context, arg); start = Date.now() } else { timer = setTimeout(function () { fn.apply(context, arg) }, delay) } } }, trim: function (str) { return str.replace(/^\s+|\s+$/g, '') }, getQueryString: function (key, type) { type = type ? type : 'search'; const regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)'); const value = window.location[type].match(regExp); return value && decodeURIComponent(value[1]) }, isNumber: function (number) { return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]' }, lottery(index, total, cbCurrent, cbEnd) { if (!this.isNumber(index)) return new Error('the arguments of index must number!'); if (typeof cbEnd !== 'function') return new Error('the arguments of cbEnd must function!'); if (typeof cbCurrent !== 'function') return new Error('the arguments of cbCurrent must function!'); var TYPE_SPEED = 0; var TYPE_ADD_SPEED = 20; var TYPE_LAST_SPEED = 500; var TYPE_MAX_INDEX = total; var currSpeed = 0; var totalIndex = 0; var currentIndex = 0; var animate = function () { var timer = setTimeout(function () { totalIndex += 1; currSpeed += TYPE_ADD_SPEED; if (currSpeed > TYPE_LAST_SPEED) { if (currentIndex === index) { clearTimeout(timer); cbEnd(currentIndex) } else { currentIndex = totalIndex % TYPE_MAX_INDEX; clearTimeout(timer); cbCurrent(currentIndex); animate() } } else { currentIndex = totalIndex % TYPE_MAX_INDEX; clearTimeout(timer); cbCurrent(currentIndex); animate() } }, TYPE_SPEED + currSpeed) }; animate() }, language: (navigator.browserLanguage || navigator.language).toLowerCase() }; jyBus.initial();</script>
+</head>
+
+<body>
+	<div class="jy-section section-2 active">
+		<div class="jy-sectionmain">
+			<div class="jy-drager">
+				<div class="jy-drappanel">
+					<div class="i-rubbish i-rubbish-oilp"></div>
+					<div class="i-rubbish i-rubbish-oilp"></div>
+					<div class="i-rubbish i-rubbish-oilp"></div>
+					<div class="i-rubbish i-rubbish-oilp"></div>
+					<div class="i-rubbish i-rubbish-oilp"></div>
+					<div class="i-rubbish i-rubbish-oilp"></div>
+				</div>
+
+				<div class="jy-dropzone">
+					<div data-type="dry" class="dropzone-item dropzone-dry"><i class="i-tip i-tip-err"></i><i
+							class="i-bucket i-bucket-dry"></i>
+					</div>
+					<div data-type="wet" class="dropzone-item dropzone-wet"><i class="i-tip i-tip-err"></i><i
+							class="i-bucket i-bucket-wet"></i>
+					</div>
+					<div data-type="harmful" class="dropzone-item dropzone-harmful"><i class="i-tip i-tip-err"></i><i
+							class="i-bucket i-bucket-harmful"></i></div>
+					<div data-type="recyc" class="dropzone-item dropzone-recyc"><i class="i-tip i-tip-err"></i><i
+							class="i-bucket i-bucket-recyc"></i></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+
+<script src="../dist/drag.umd.js"></script>
+<script type="module">
+	// import Drag from "../src/drag.js";
+	const d = new Drag(document.querySelector('.jy-drager'), {
+		childCls: '.i-rubbish',
+		zoneCls: '.dropzone-item',
+		onSuccess: function (el, zone, params) {
+			console.log('contain cb', el, zone, params)
+		}
+	});
+	console.log(d)
+	d.activate();
+	console.log(d)
+</script>
+
+</html>

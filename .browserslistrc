@@ -1,0 +1,13 @@
+# https://github.com/browserslist/browserslist#readme
+
+>= 1%
+last 12 version
+not dead
+Chrome >= 35
+Firefox >= 38
+Edge >= 12
+Explorer >= 8
+iOS >= 7
+Safari >= 6
+Android >= 4.0
+Opera >= 30

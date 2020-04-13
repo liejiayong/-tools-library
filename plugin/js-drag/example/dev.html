@@ -86,9 +86,9 @@
 	</div>
 </body>
 
-<script src="../dist/drag.umd.js"></script>
+<!-- <script src="../dist/drag.umd.js"></script> -->
 <script type="module">
-	// import Drag from "../src/drag.js";
+	import Drag from "../src/drag.js";
 	const d = new Drag(document.querySelector('.jy-drager'), {
 		childCls: '.i-rubbish',
 		zoneCls: '.dropzone-item',
@@ -98,7 +98,6 @@
 	});
 	console.log(d)
 	d.activate();
-	console.log(d)
 </script>
 
 </html>

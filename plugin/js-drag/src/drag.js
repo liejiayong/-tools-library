@@ -8,7 +8,7 @@ import './simulateTouch.js'
  * Author: liejiayong(809206619@qq.com)
  * Date: 2020-04-10 16:29:08
  * LastEditors: liejiayong(809206619@qq.com)
- * LastEditTime: 2020-04-11 16:41:17
+ * LastEditTime: 2020-04-11 21:30:03
  */
 /* control class */
 function hasClass(el, cls) {
@@ -114,6 +114,8 @@ const DEFAULT_CONFIG = {
   childCls: '.jy-drag-child',
   zoneCls: '.jy-drag-zone',
   gutter: 10,
+  onReady: () => { },
+  onMove: () => { },
   onSuccess: () => { }
 }
 
@@ -134,6 +136,9 @@ class Drag {
 
     this._initial()
   }
+  update() {
+    this._initDOM()
+  }
   activate() {
     this.isplay = true
     this.istap = false
@@ -146,11 +151,14 @@ class Drag {
     const { top, left, width, height } = this.childrenPos[this.current]
     // console.log(this.childrenPos[this.current])
 
-    const x = clientX - left - width / 2,
-      y = clientY - top - height / 2
+    const x = clientX - left - width / 2
+      , y = clientY - top - height / 2
+    // top = clientY -  
+
     return {
-      x: parseInt(x),
-      y: parseInt(y)
+      x: parseInt(x)
+      , y: parseInt(y)
+      // top: 
     }
   }
   zoneContain(touches) {
@@ -158,20 +166,21 @@ class Drag {
       curChild = this.childrenPos[this.current],
       { el: dragEl } = curChild
     this.zonePos.forEach(({ gtop, gleft, gxEnd, gyEnd, el }) => {
-      // 包含
-      if (clientY > gtop && clientY < gyEnd && clientX > gleft && clientX < gxEnd) {
-        curChild.isContain = true
-        curChild.containZone = el
-      }
-
       // 移动
       const { x, y } = this.getOffset(clientX, clientY),
         pixel = `translate(${x}px, ${y}px)`,
         transform = preStyle('transform')
 
       dragEl.style[transform] = pixel
-
+      dragEl.style.cursor = 'grabbing'
       // console.log(x, y, pixel)
+
+      // 包含
+      if (clientY > gtop && clientY < gyEnd && clientX > gleft && clientX < gxEnd) {
+        curChild.isContain = true
+        curChild.containZone = el
+      }
+
     })
   }
   _precisePos(child, index, siblings) {
@@ -188,8 +197,8 @@ class Drag {
       right: parseInt(right),
       top: parseInt(top),
       bottom: parseInt(bottom),
-      gxEnd: parseInt(x + width - gutter),
-      gyEnd: parseInt(y + height - gutter),
+      gxEnd: parseInt(right - gutter),
+      gyEnd: parseInt(bottom - gutter),
       gleft: parseInt(left + gutter),
       gright: parseInt(right - gutter),
       gtop: parseInt(top + gutter),
@@ -213,85 +222,65 @@ class Drag {
     // console.table(origins)
     return origins
   }
-  _evChild() {
-    const children = this.children
+  _evStart(e) {
+    // console.log('start', this.isplay, e)
+    if (!this.isplay) return;
 
-    children.forEach((child) => {
-      child.addEventListener('touchstart', (e) => {
-        // console.log('touchstart', e)
-      }, true)
-    })
+    const touches = e.touches[0]
+    let { clientX, clientY } = touches,
+      childrenPos = this.childrenPos, current = -1
 
-    children.forEach((child) => {
-      child.addEventListener('touchmove', (e) => {
-        const touches = e.touches[0]
-        // let { clientX, clientY } = touches
-        // console.log('touchmove', clientX, clientY)
-        this.zoneContain(touches)
-      }, true)
-    })
-    children.forEach((child) => {
-      child.addEventListener('touchend', (e) => {
-        // console.log('touchend', e)
-      }, true)
-    })
-  }
-  _evDoc() {
-    document.addEventListener('touchstart', (e) => {
-      if (!this.isplay) return;
-
-      const touches = e.touches[0]
-      let { clientX, clientY } = touches,
-        childrenPos = this.childrenPos, current = -1
-
-      childrenPos.forEach(({ top, left, xEnd, yEnd }, index) => {
-        if (clientY > top && clientY < yEnd && clientX > left && clientX < xEnd) {
-          current = index
-        }
-      })
-
-      if (~current) {
-        this.current = current
-        this.istap = true
-      } else {
-        this.current = -1
-        this.istap = false
+    childrenPos.forEach(({ top, left, xEnd, yEnd }, index) => {
+      if (clientY > top && clientY < yEnd && clientX > left && clientX < xEnd) {
+        current = index
       }
-    }, true)
-    document.addEventListener('touchmove', (e) => {
-      if (!this.isplay) return;
-      if (!this.istap) return
+    })
 
-      const touches = e.touches[0]
-      // let { clientX, clientY } = touches
-
-      this.zoneContain(touches)
-
-
-    }, true)
-    document.addEventListener('touchend', (e) => {
-      if (!this.isplay) return;
-
-      const curChild = this.childrenPos[this.current]
-
-      if (curChild && curChild.isContain) {
-        this.options.onSuccess(curChild.el, curChild.containZone, curChild)
-      } else {
-        // console.log(curChild)
-        if (curChild && curChild.el) {
-          const transform = preStyle('transform')
-          curChild.el.style[transform] = 'translate(0px, 0px)'
-          curChild.isContain = false
-          curChild.containZone = null
-        }
-      }
-      // console.log('curChild', curChild)
+    if (~current) {
+      this.childrenPos[current]['el'].style.zIndex = 10
+      this.childrenPos[current]['el'].style.cursor = 'grab'
+      this.current = current
+      this.istap = true
+    } else {
       this.current = -1
       this.istap = false
-    }, true)
+    }
+  }
+  _evMove(e) {
+    if (!this.isplay) return
+    if (!this.istap) return
+
+    const touches = e.touches[0]
+    this.zoneContain(touches)
+  }
+  _evEnd(e) {
+    if (!this.isplay) return;
+
+    const curChild = this.childrenPos[this.current]
+
+    if (curChild && curChild.isContain) {
+      this.options.onSuccess(curChild.el, curChild.containZone, curChild)
+    } else {
+      // console.log(curChild)
+      if (curChild && curChild.el) {
+        const transform = preStyle('transform')
+        curChild.el.style[transform] = 'translate(0px, 0px)'
+        curChild.el.style.zIndex = null
+        curChild.el.style.cursor = null
+        curChild.isContain = false
+        curChild.containZone = null
+      }
+    }
+    // console.log('curChild', curChild)
+    this.current = -1
+    this.istap = false
+  }
+  _evDoc() {
+    document.addEventListener('touchstart', this._evStart.bind(this), true)
+    document.addEventListener('touchmove', this._evMove.bind(this), true)
+    document.addEventListener('touchend', this._evEnd.bind(this), true)
   }
   _event() {
-    // this._evChild()
     this._evDoc()
   }
   _setDOMAttr(el, index, siblings) {
@@ -331,6 +320,5 @@ class Drag {
   }
 
 }
-
 
 export default Drag

@@ -11,7 +11,7 @@
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="renderer" content="webkit" />
   <meta name="HandheldFriendly" content="true" />
   <meta name="MobileOptimized" content="320" />
@@ -24,7 +24,7 @@
   <meta name="copyright" content="tanwan" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
-  <title>最强王者</title>
+  <title></title>
   <link rel="stylesheet" href="./css/index.css">
   <script>var jyBus = { activeCls: 'active', initial: function () { this.font() }, font: function () { var docEl = document.documentElement || document.body; var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize'; var reCalc = function () { var clientWidth = docEl.clientWidth, PIX = 750; clientWidth = clientWidth > PIX ? PIX : clientWidth; var fontSize = 100 * (clientWidth / PIX); window.baseFontSize = fontSize; docEl.style.fontSize = fontSize + 'px' }; reCalc(); window.addEventListener(resizeEvt, reCalc, false); document.addEventListener('DOMContentLoaded', reCalc, false) }, winReset: function () { document.querySelector('body').style.overflow = ''; document.querySelector('body').style.overflow = '' }, winFixed: function () { document.querySelector('body').style.overflow = 'hidden'; document.querySelector('body').style.overflow = 'hidden' }, getRandom: function (min, max) { return Math.floor(Math.random() * (max - min + 1) + min) }, shuffle: function (arr) { var _arr = arr.slice(); for (var i = 0; i < _arr.length; i++) { var j = this.getRandom(0, i); var n = _arr[i]; _arr[i] = _arr[j]; _arr[j] = n } return _arr }, debounce: function (fn, delay) { var timer = null; return function () { var context = this, arg = arguments; if (timer) clearTimeout(timer); timer = setTimeout(function () { fn.apply(context, arg) }, delay) } }, throttle: function (fn, delay) { if (!delay) delay = 160; var timer = null; var start = Date.now(); return function () { var context = this, arg = arguments, curr = Date.now(); if (curr - start >= delay) { fn.apply(context, arg); start = Date.now() } else { timer = setTimeout(function () { fn.apply(context, arg) }, delay) } } }, trim: function (str) { return str.replace(/^\s+|\s+$/g, '') }, getQueryString: function (key, type) { type = type ? type : 'search'; const regExp = new RegExp('[?&#]{1}' + key + '=(.*?)([&/#]|$)'); const value = window.location[type].match(regExp); return value && decodeURIComponent(value[1]) }, isNumber: function (number) { return Object.prototype.toString.call(number).toLocaleLowerCase() === '[object number]' }, lottery(index, total, cbCurrent, cbEnd) { if (!this.isNumber(index)) return new Error('the arguments of index must number!'); if (typeof cbEnd !== 'function') return new Error('the arguments of cbEnd must function!'); if (typeof cbCurrent !== 'function') return new Error('the arguments of cbCurrent must function!'); var TYPE_SPEED = 0; var TYPE_ADD_SPEED = 20; var TYPE_LAST_SPEED = 500; var TYPE_MAX_INDEX = total; var currSpeed = 0; var totalIndex = 0; var currentIndex = 0; var animate = function () { var timer = setTimeout(function () { totalIndex += 1; currSpeed += TYPE_ADD_SPEED; if (currSpeed > TYPE_LAST_SPEED) { if (currentIndex === index) { clearTimeout(timer); cbEnd(currentIndex) } else { currentIndex = totalIndex % TYPE_MAX_INDEX; clearTimeout(timer); cbCurrent(currentIndex); animate() } } else { currentIndex = totalIndex % TYPE_MAX_INDEX; clearTimeout(timer); cbCurrent(currentIndex); animate() } }, TYPE_SPEED + currSpeed) }; animate() }, language: (navigator.browserLanguage || navigator.language).toLowerCase() }; jyBus.initial();</script>
 </head>
@@ -479,10 +479,10 @@
           <div class="swiper-container" id="gFeture">
             <div class="swiper-wrapper">
               <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b31.png"></div>
-              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b32.png"></div>
-              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b33.png"></div>
-              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b34.png"></div>
-              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b35.png"></div>
+              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b31.png"></div>
+              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b31.png"></div>
+              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b31.png"></div>
+              <div class="swiper-slide"><img class="swiper-lazy " data-src="./img/b31.png"></div>
             </div>
             <div class="jy-feture-nav"></div>
           </div>
@@ -593,11 +593,6 @@
         centeredSlides: true,
         slidesPerView: 'auto',
         coverflowEffect: {
-          // rotate: 30,
-          // stretch: 10,
-          // depth: 60,
-          // modifier: 2,
-          // slideShadows: true
           rotate: 30,
           stretch: 64,
           depth: 60,

@@ -371,3 +371,4 @@ export const inertiaScroll = {
   open: function () { window.addEventListener('touchmove', this.fn, { passive: false }); },
   off: function () { window.removeEventListener('touchmove', this.fn, { passive: false }); }
 }
+

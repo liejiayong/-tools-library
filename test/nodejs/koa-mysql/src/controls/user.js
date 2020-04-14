@@ -1,6 +1,10 @@
+const app = require('koa')
 const { findDataByUId } = require('../models/user')
+const { authentication } = require('../middlewares/authentication')
 
 exports.postUserInfo = async ctx => {
+    await authentication(ctx)// 权鉴
+
     try {
         let { id } = ctx.request.body
         await findDataByUId(id).then(res => {
@@ -19,10 +23,12 @@ exports.postUserInfo = async ctx => {
                 console.log('用户名不存在!')
             }
         })
-    } catch {}
+    } catch { }
 }
 
 exports.getUserInfo = async ctx => {
+    app.use(require('./middlewares/authentication'))// 权鉴
+
     try {
         let { id } = ctx.query
         await findDataByUId(id).then(res => {
@@ -41,5 +47,5 @@ exports.getUserInfo = async ctx => {
                 console.log('用户名不存在!')
             }
         })
-    } catch {}
+    } catch { }
 }

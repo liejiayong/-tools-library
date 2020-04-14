@@ -1,0 +1,15 @@
+@hostname = 192.168.10.31
+@port = 3888
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@createdAt = {{$datetime 20200414}}
+
+
+POST http://{{host}}/auth/signin HTTP/1.1
+Content-Type: {{contentType}}
+token: a4UIK78e5RdvHhTCOk4QSlULSzMrZ5Ia
+
+{
+    "user": "ss",
+    "password": "123"
+}

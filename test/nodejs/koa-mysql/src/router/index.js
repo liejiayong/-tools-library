@@ -3,9 +3,8 @@ module.exports = function (app) {
     app.use(require('koa-router')().get('/', ctx => {
         ctx.body = 'hello world'
     }).routes())
-    app.use(require('./signup').routes())
-    // 登录
-    app.use(require('./signin').routes())
+    // 登录注册认证检查
+    app.use(require('./auth').routes())
     // 用户中心
     app.use(require('./user').routes())
 }

@@ -7,8 +7,8 @@ const staticCache = require('koa-static-cache')
 const session = require('koa-session-minimal')
 const MysqlStore = require('koa-mysql-session')
 const router = require('./router')
-const authentication = require('./middlewares/authentication')
 const { HTTP_SERVER_PORT, database } = require('./config/default')
+const { sidPrefix } = require('./models/session')
 const staticPath = '/cachefile'
 
 const app = new Koa()
@@ -23,7 +23,7 @@ app.use(bodyParser({ formLimit: '1mb' }))
 // session
 app.use(
     session({
-        key: 'USER_SID',
+        key: sidPrefix,
         store: new MysqlStore({
             user: database.USERNAME,
             password: database.PASSWORD,
@@ -33,11 +33,10 @@ app.use(
     })
 )
 
-// 权鉴
-app.use(authentication)
-
 // 路由
 router(app)
+
+
 
 // 创建服务
 const server = http.createServer(app.callback())

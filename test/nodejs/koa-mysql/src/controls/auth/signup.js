@@ -1,9 +1,13 @@
+const app = require('koa')
 const moment = require('moment')
 const fs = require('fs')
 const path = require('path')
-const { findDataByName, registerUser } = require('../models/user')
+const { findDataByName, registerUser } = require('../../models/user')
+const { authentication } = require('../../middlewares/authentication')
 
 exports.postSignup = async ctx => {
+    await authentication(ctx)// 权鉴
+
     try {
         let { name, password, repeatpass, avator } = ctx.request.body
         await findDataByName(name).then(async res => {

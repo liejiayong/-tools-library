@@ -1,23 +1,23 @@
 const { getSession, sidPrefix } = require("../models/session")
 
-async function authentication(ctx) {
+exports.authentication = async function authentication(ctx) {
   let url = ctx.request.url;
-  // 登录 不用检查
-  if (url == "/auth/login") {
-    return true;
-  }
+  // // 登录 不用检查
+  // if (url == "/auth/login") {
+  //   return true;
+  // }
 
-  // 验证token
-  let tokenId = ctx.request.headers["token"];
+  // // 验证token
+  // let tokenId = ctx.request.headers["token"];
 
-  // 判断token存在
-  if (!tokenId) {
-    ctx.body = {
-      status: 50013,
-      message: 'token 不能为空'
-    }
-    return false
-  }
+  // // 判断token存在
+  // if (!tokenId) {
+  //   ctx.body = {
+  //     status: 50013,
+  //     message: 'token 不能为空'
+  //   }
+  //   return true
+  // }
 
   tokenId = `${sidPrefix}:${tokenId}`
   getSession(tokenId).then(async (res) => {
@@ -48,5 +48,3 @@ async function authentication(ctx) {
 
   })
 }
-
-module.exports = authentication

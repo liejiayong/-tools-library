@@ -3,8 +3,8 @@ const { findDataByName } = require('../../models/user')
 const { authentication } = require('../../middlewares/authentication')
 
 exports.postSignin = async ctx => {
-    await authentication(ctx)// 权鉴
-
+    const auth = await authentication(ctx)// 权鉴
+console.log('aaaa',auth)
     let { name, password } = ctx.request.body
     console.log('signin', name, password)
     await findDataByName(name).then(res => {

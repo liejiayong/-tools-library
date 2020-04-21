@@ -8,7 +8,7 @@ import './simulateTouch.js'
  * Author: liejiayong(809206619@qq.com)
  * Date: 2020-04-10 16:29:08
  * LastEditors: liejiayong(809206619@qq.com)
- * LastEditTime: 2020-04-11 21:30:03
+ * LastEditTime: 2020-04-21 16:21:09
  */
 /* control class */
 function hasClass(el, cls) {
@@ -165,6 +165,7 @@ class Drag {
     const { clientY, clientX } = touches,
       curChild = this.childrenPos[this.current],
       { el: dragEl } = curChild
+
     this.zonePos.forEach(({ gtop, gleft, gxEnd, gyEnd, el }) => {
       // 移动
       const { x, y } = this.getOffset(clientX, clientY),
@@ -173,7 +174,7 @@ class Drag {
 
       dragEl.style[transform] = pixel
       dragEl.style.cursor = 'grabbing'
-      // console.log(x, y, pixel)
+      console.log(x, y, clientX, clientY, pixel, this.current, curChild, this.istap, this.isplay)
 
       // 包含
       if (clientY > gtop && clientY < gyEnd && clientX > gleft && clientX < gxEnd) {
@@ -245,11 +246,15 @@ class Drag {
       this.current = -1
       this.istap = false
     }
+
+    console.log('111', this.current, this.istap)
   }
   _evMove(e) {
+    console.log('2222222')
     if (!this.isplay) return
     if (!this.istap) return
 
+    console.log('223333333333')
     const touches = e.touches[0]
     this.zoneContain(touches)
   }
@@ -264,7 +269,7 @@ class Drag {
       // console.log(curChild)
       if (curChild && curChild.el) {
         const transform = preStyle('transform')
-        curChild.el.style[transform] = 'translate(0px, 0px)'
+        curChild.el.style[transform] = 'translate(0, 0)'
         curChild.el.style.zIndex = null
         curChild.el.style.cursor = null
         curChild.isContain = false
@@ -274,11 +279,15 @@ class Drag {
     // console.log('curChild', curChild)
     this.current = -1
     this.istap = false
+
+    // console.log(e.type, 'end', this.istap, curChild)
   }
   _evDoc() {
+    var doc = document.body || document
     document.addEventListener('touchstart', this._evStart.bind(this), true)
     document.addEventListener('touchmove', this._evMove.bind(this), true)
     document.addEventListener('touchend', this._evEnd.bind(this), true)
+    document.addEventListener('mouseleave', this._evEnd.bind(this), true)
   }
   _event() {
     this._evDoc()

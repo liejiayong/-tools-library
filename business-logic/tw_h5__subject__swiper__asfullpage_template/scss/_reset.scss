@@ -5,9 +5,6 @@ body {
   // box-sizing: border-box;
   // -ms-scroll-chaining: none;
   // overscroll-behavior: contain;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   scroll-behavior: smooth;
 }
 // *:before,
@@ -160,7 +157,7 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color: inherit;
+  // color: inherit;
 }
 
 /**

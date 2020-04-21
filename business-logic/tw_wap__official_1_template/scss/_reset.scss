@@ -35,7 +35,8 @@ html {
    ========================================================================== */
 
 body {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   font: 50px / 1.15 -apple-system, system-ui, BlinkMacSystemFont, Helvetica,
     Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑",
     Arial, sans-serif;
@@ -156,9 +157,7 @@ a {
 }
 a:hover {
   text-decoration: none;
-  color: unset;
-  // -webkit-filter: brightness(1.2);
-  //         filter: brightness(1.2);
+  // color: inherit;
 }
 
 /**
@@ -288,17 +287,17 @@ textarea {
   border: 0;
   outline: 0;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   box-sizing: border-box;
 }
 
 select {
-  // text-align: center;
-  // -moz-text-align-last: center;
-  // text-align-last: center;
-  background: url("../img/i-select.png")
-    no-repeat right 10px center/ .3rem auto;
+  text-align: center;
+  -moz-text-align-last:center;
+       text-align-last:center;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC")
+    no-repeat right 10px center/ 8px auto;
 }
 
 /**
@@ -427,7 +426,7 @@ textarea {
 [type="search"] {
   -webkit-appearance: textfield; /* 1 */
   -moz-appearance: textfield;
-  appearance: textfield;
+       appearance: textfield;
   outline-offset: -2px; /* 2 */
 }
 

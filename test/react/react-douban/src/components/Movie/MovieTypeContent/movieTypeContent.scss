@@ -1,0 +1,30 @@
+@import '../../../assets/styles/mixin';
+
+.display-header {
+  @include main-header;
+  margin-bottom: 16px;
+}
+
+.display-title {
+  display: inline-block;
+}
+
+.type-link {
+  @include common-link;
+  cursor: default;
+  margin-left: 12px;
+  outline: none;
+}
+
+.in-active {
+  @include in-active;
+}
+
+.not-active {
+  @include not-active;
+}
+
+.slider-component {
+  float: right;
+  margin-top: 5px;
+}

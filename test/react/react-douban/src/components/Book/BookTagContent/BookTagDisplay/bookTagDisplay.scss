@@ -1,0 +1,19 @@
+@import '../../../../assets/styles/mixin';
+
+.display-header {
+  @include main-header;
+}
+
+.display-title {
+  display: inline-block;
+}
+
+.nav-link {
+  @include common-link;
+  margin-left: 15px;
+}
+
+.slider-component {
+  float: right;
+  margin-top: 5px;
+}

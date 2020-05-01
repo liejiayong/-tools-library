@@ -1,20 +1,19 @@
 import { observable, action, runInAction } from 'mobx'
-import { apiGetPosts } from '@/api/post'
+import { apiGetPosts } from '@/api/index'
 
 class PostStore {
-  @observable
-  list = []
+  @observable list = []
 
   @action
-  getPosts = async () => {
+  getPost = async () => {
     try {
       const data = await apiGetPosts()
-      console.log('get posts', data)
+      console.log('mobx get post', data)
       runInAction(() => {
         this.list = data
       })
-    } catch (err) {
-      console.error(err)
+    } catch (error) {
+      console.error(error)
     }
   }
 }

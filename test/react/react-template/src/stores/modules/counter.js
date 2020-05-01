@@ -1,4 +1,5 @@
 import { observable, action, runInAction } from 'mobx'
+import { delay } from '@/utils/index'
 
 class CounterStore {
   @observable count = 0
@@ -20,14 +21,6 @@ class CounterStore {
   sub = () => {
     this.count--
   }
-}
-
-function delay(ms = 1000) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve()
-    }, ms)
-  })
 }
 
 export default CounterStore

@@ -1,3 +1,9 @@
+/**
+ * @name Button
+ * @author darcrand
+ * @desc
+ */
+
 import React, { Component } from 'react'
 import styles from './styles.module.less'
 

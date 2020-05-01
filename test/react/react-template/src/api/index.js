@@ -5,7 +5,7 @@ export async function apiGetPosts(args = {}) {
   const params = { page: 1, pageSize: 10, ...args }
   const res = await get(url, params)
   if (res.success) {
-    return res.data
+    return Promise.resolve(res.data)
   } else {
     return Promise.reject()
   }

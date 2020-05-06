@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {Provider} from 'react-redux'
+import { Provider } from 'mobx-react'
 import { BrowserRouter } from 'react-router-dom'
 import App from '@/App'
-import store from '@/stores-redux'
+import store from '@/stores'
 import * as serviceWorker from '@/utils/serviceWorker'
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider {...store}>
     <React.StrictMode>
       <BrowserRouter>
         <App />

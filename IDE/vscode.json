@@ -1,0 +1,256 @@
+{
+    // default start
+    "editor.tabSize": 2,
+    "editor.lineHeight": 20,
+    "editor.renderLineHighlight": "none",
+    "editor.renderWhitespace": "none",
+    "editor.fontSize": 16,
+    "editor.cursorBlinking": "smooth",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "editor.snippetSuggestions": "top",
+    // 使用vscode的自动格式化时，有时会把一行过长的代码折行。200表示200个字符处折行
+    "editor.wordWrapColumn": 20000000,
+    "editor.wordWrap": "off",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": false
+    },
+    "editor.suggestSelection": "first",
+    "window.zoomLevel": 0,
+    "workbench.iconTheme": "vscode-icons",
+    "files.eol": "\n",
+    "files.autoSave": "onFocusChange",
+    "files.enableTrash": false,
+    // 在文件底部添加新代码行时，强制所有文件都有一行空格。
+    "files.insertFinalNewline": true,
+    // 比如小程序中的 .wxss 这种文件，会把它作为css文件来处理，提供对应的css的语法提示，css的格式化等等。
+    "files.associations": {
+      "*.cjson": "jsonc",
+      "*.wxss": "css",
+      "*.wxs": "javascript",
+      "*.wpy": "vue"
+    },
+    // VScode进行文件搜索时，不搜索这些区域。注意：vs已经贴心的默认设置了 node_modules 和 bower_components 文件夹
+    "search.exclude": {
+      "**/.git": true,
+      "**/.gitignore": true,
+      "**/.svn": true,
+      "**/.DS_Store": true,
+      "**/.idea": true,
+      "**/.vscode": false,
+      "**/yarn.lock": true,
+      "**/tmp": true,
+      "**/dist": true,
+      "**/build": true,
+    },
+    // 断点调试时，遇到断点，自动显示调试视图。
+    "debug.openDebug": "openOnDebugBreak",
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // default end
+    // emmet start
+    // 这一设置最大作用是：当输入的文本不属于Emmet定义的缩写规则时，依然允许使用Tab键进行缩进。此时会提示我自定义的缩写语句，以及各插件自定义的缩写语句.
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.showSuggestionsAsSnippets": true,
+    // 配置emmet对哪种文件类型支持
+    "emmet.syntaxProfiles": {
+      "vue-html": "html",
+      "vue": "html",
+      "xml": {
+        "attr_quotes": "single"
+      }
+    },
+    "emmet.includeLanguages": {
+      "jsx-sublime-babel-tags": "javascriptreact",
+      "wxml": "html"
+    },
+    // emmet end
+    // eslint start
+    // 格式化快捷键 shirt+alt+F，有时可能需要多按几次
+    // 因为使用 shirt+alt+F进行格式化时，先执行编辑器的格式化规则，然后才会按照eslint和tslit这样的其他插件去格式化。
+    // 是否开启eslint检测
+    "eslint.enable": true,
+    // 是否启用根据eslint配置文件。文件保存时，根据配置文件进行格式化
+    "eslint.autoFixOnSave": true,
+    // eslint配置文件 ,修改为你自己电脑上的文件位置，或者直接删除
+    // "eslint.options": {
+    //   "configFile": "D:/worksapce/youxiang-mobile-master/.eslintrc.js",
+    //   "plugins": [
+    //     "html"
+    //   ]
+    // },
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      {
+        "language": "html",
+        "autoFix": true
+      },
+      {
+        "language": "vue",
+        "autoFix": true
+      },
+      "typescript",
+      "typescriptreact"
+    ],
+    // eslint end
+    // vetur start
+    // 自定义高亮
+    "vetur.grammar.customBlocks": {
+      "docs": "md",
+      "i18n": "json"
+    },
+    "vetur.format.options.tabSize": 4,
+    "vetur.format.options.useTabs": true,
+    "vetur.format.defaultFormatter.html": "prettier",
+    "vetur.format.defaultFormatter.js": "prettier",
+    "vetur.format.defaultFormatterOptions": {
+      "wrap_attributes": "auto",
+      "prettier": {
+        "semi": true,
+        "jsxSingleQuote": false,
+        "singleQuote": false,
+        "proseWrap": "never",
+        "printWidth": 1200,
+        "useTabs": true,
+        "wrap_line_length": 120,
+        "wrap_attributes": "auto",
+        "end_with_newline": false,
+      }
+    },
+    // vetur end
+    // prettier start
+    // // 由于使用了vetur插件，因此在上述配置中设置prettier选项即可，下面prettier配置可注释
+    // // 单引号
+    // "prettier.singleQuote": false,
+    // // 结尾分号
+    // "prettier.semi": false,
+    // "prettier.proseWrap": "never",
+    // "prettier.printWidth": 1200,
+    // "prettier.useTabs": true,
+    // "prettier.jsxSingleQuote": false,
+    // prettier end
+    // stylus start
+    "stylusSupremacy.insertColons": false, // 是否插入冒号
+    "stylusSupremacy.insertSemicolons": false, // 是否插入分好
+    "stylusSupremacy.insertBraces": false, // 是否插入大括号
+    "stylusSupremacy.insertNewLineAroundImports": false, // import之后是否换行
+    "stylusSupremacy.insertNewLineAroundBlocks": false, // 两个选择器中是否换行
+    // stylus end
+    // fileheader start
+    "fileheader.configObj": {
+      "autoAdd": false, // 默认开启
+      "atSymbol": "@", // 默认为@。
+      "atSymbolObj": {
+        "js": "", // .js文件 去掉@
+        "java": "#" // .java文件 @改为#
+      },
+      // 所有注释的冒号默认为": "
+      "colon": ": ",
+      "colonObj": {
+        "js": ": ", // .js文件 去掉: 留一个空格
+      }
+    },
+    // 文件头部注释 快捷键：window：ctrl+alt+i,mac：ctrl+cmd+i
+    "fileheader.customMade": {
+      "Description": "",
+      "version": "",
+      "Author": "liejiayong(809206619@qq.com)",
+      "Date": "Do not edit",
+      "LastEditors": "liejiayong(809206619@qq.com)",
+      "LastEditTime": "Do not Edit"
+    },
+    // 函数注释 快捷键：window：ctrl+alt+t,mac：ctrl+cmd+t
+    "fileheader.cursorMode": {
+      "msg": "",
+      "param": "",
+      "return": ""
+    },
+    // fileheader end
+    "autoprefixer.formatOnSave": true,
+    "autoprefixer.browsers": [
+      "last 8 versions",
+      "> 0.01%"
+    ],
+    // 设置autoprefixer 为zhi有.css 情况下才能保存生成兼容前缀
+    "autoprefixer.ignoreFilesOnSave": [
+      "**/src/**.scss",
+      "**/scss/**.scss",
+      "**/css/**.scss",
+      "**/style/**.scss",
+      "**/assets/**.scss",
+      "**/common/**.scss",
+      "**/src/**.less",
+      "**/scss/**.less",
+      "**/css/**.less",
+      "**/style/**.less",
+      "**/assets/**.less",
+      "**/common/**.less",
+      "**/src/**.sass",
+      "**/scss/**.sass",
+      "**/css/**.sass",
+      "**/style/**.sass",
+      "**/assets/**.sass",
+      "**/common/**.sass",
+      "**/src/**.styl",
+      "**/scss/**.styl",
+      "**/css/**.styl",
+      "**/style/**.styl",
+      "**/assets/**.styl",
+      "**/common/**.styl"
+    ],
+    "minapp-vscode.disableAutoConfig": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "vsicons.dontShowNewVersionMessage": true,
+    "yaml.format.singleQuote": false,
+    "liveServer.settings.CustomBrowser": "chrome",
+    // liveSassCompile start
+    "liveSassCompile.settings.showOutputWindow": true, // 热更新
+    "liveSassCompile.settings.generateMap": false, // 编译map
+    "liveSassCompile.settings.formats": [
+      // This is Default.
+      {
+        "format": "expanded",
+        "extensionName": ".css", // 指定编译完的文件后缀名，.css为普通代码，.min.css为压缩代码
+        "savePath": "/css" // 指定编译完的css文件路径
+      },
+      // You can add more
+      // {
+      //   "format": "compressed",
+      //   "extensionName": ".min.css",
+      //   "savePath": "/css"
+      // }
+    ], //指定编译css的样式类型，有这四种 expanded（默认）, compact, compressed or nested
+    "liveSassCompile.settings.excludeList": [
+      "**/node_modules/**",
+      ".vscode/**",
+      "**/_*.scss"
+    ], // 指定忽略的文件,支持正则
+    "liveSassCompile.settings.includeItems": [
+      "**/_index.scss",
+      "**/index.scss"
+    ],
+    "liveSassCompile.settings.autoprefix": [
+      "> 0.01%",
+      "last 8 versions"
+    ], // 添加浏览器兼容性前缀，ie5.5及以上
+    // liveSassCompile end
+    // python
+    "python.jediEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+    // python end
+  }

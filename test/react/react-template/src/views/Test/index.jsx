@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { observer, inject } from 'mobx-react'
 import { Button } from '@/components'
-// import './style.module.less'
 import styles from './style.module.less'
 
 @inject('counter', 'post', 'input')

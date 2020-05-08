@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { add } from '@/stores-redux/action/couter'
+import counterAction from '@/stores-redux/action/couter'
+import { Button } from '@/components/index'
 
 class ReduxTest extends Component {
   // construtor() {
@@ -8,30 +9,26 @@ class ReduxTest extends Component {
   // }
   render() {
     const { count } = this.props
-    const { countAdd } = this.props
+    const { add, descrease, addAsync } = this.props
 
     return (
       <Fragment>
         <div>ReduxTest</div>
         <p>count is: {count}</p>
-        <button onClick={() => countAdd(count+1)}>add</button>
+        <Button onClick={() => add(1)}>add</Button>
+        <Button onClick={() => descrease(1)}>descrease</Button>
+        <Button onClick={() => addAsync(1)}>addAsync</Button>
       </Fragment>
     )
   }
 }
 
-function mapState(state) {
+function mapStateToProps(state) {
+  // state代表的store.getState()
   console.log('redux page mapState:', state)
   return {
-    count: state.count,
+    count: state.counter.count,
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  console.log('redux page mapDispatchToProps:')
-  return {
-    countAdd: (count) => {
-      dispatch(add(count))
-    },
-  }
-}
-export default connect(mapState, mapDispatchToProps)(ReduxTest)
+
+export default connect(mapStateToProps, counterAction)(ReduxTest)

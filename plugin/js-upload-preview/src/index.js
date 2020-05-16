@@ -13,7 +13,7 @@ ImagesPreview._init = function () {
   this._event();
 }
 
-ImagesPreview._event = function () {
+ImagesPreview._event = function () {x`
   var t = this, _upload = t._upload;
   on(_upload, 'change', function () {
 

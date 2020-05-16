@@ -54,3 +54,8 @@ max_line_length = 120
 
 [*.md]
 trim_trailing_whitespace = false
+# http://editorconfig.org
+root = true
+
+[Makefile]
+indent_style = tab

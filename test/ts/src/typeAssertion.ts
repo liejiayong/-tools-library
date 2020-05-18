@@ -14,7 +14,7 @@ function getLength(something: string | number): number {
   }
 }
 // 或 tsx版本
-function getLength(something: string | number): number {
+function getLengthJSX(something: string | number): number {
   if ((something as string).length) {
     return (<string>something).length
   } else {

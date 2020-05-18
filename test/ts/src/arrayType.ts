@@ -20,7 +20,7 @@ let numberArray: NumberArray = [1, 1, 2, 3, 5]
 
 // 类数组（Array-like Object）不是数组类型，比如 arguments
 // 可参考内置对象，如：IArguments
-function sum() {
+function jY() {
   let args: IArguments = arguments
   return args
 }

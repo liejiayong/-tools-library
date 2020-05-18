@@ -13,17 +13,10 @@ declarationFn(1, 2) // 3
 // declarationFn(1) // 编译报错,小于声明长度
 
 // 函数表达式
-// 下面是 错误示范 。因为代码只对等号右侧的匿名函数进行了类型定义，
-// 而等号左边的 mySum，是通过赋值操作进行类型推论而推断出来的。
-let expErrFn = function(x: number, y: number): number {
+let expSucFn = function(x: number, y: number, symbol?:string): number {
   return x + y
 }
-// 正确示范
-// 注意不要混淆了 TypeScript 中的 => 和 ES6 中的 =>
-// 在 TypeScript 的类型定义中，=> 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。
-let expSucFn:(x: number, y: number) => number = (x:number, y:number):number {
-    return x + y
-}
+// 箭头函数示范
 
 // 用接口定义函数的形状
 interface SearchFunc {

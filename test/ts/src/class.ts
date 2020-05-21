@@ -15,9 +15,9 @@
  * 派生类 通过使用 extends 来继承基类的 成员属性 与 成员方法
  *
  * 修饰符：
- * public: 公共修饰符，允许成员被访问。默认模式，可以不写。
- * private: 私有修饰符，不能在声明它的类的外部访问
- * protected: 保护修饰符，跟private相似，却别是protected成员在派生类中仍然可以访问。
+ * public 修饰的属性或方法是公有的，可以在任何地方被访问到，默认所有的属性和方法都是 public 的
+ * private: 修饰的属性或方法是私有的，不能在声明它的类的外部访问(只能在类内，通过this.xxx访问与赋值),也不能被派生类访问,也不能被extends
+ * protected: 修饰的属性或方法是受保护的，跟private相似。区别是protected的属性与方法可以通过extends,在派生类内部仍然可以访问，派生类外部不可访问（此特性可以用于修饰constructor，类不能new创建，从而起到保护作用）。
  * readonly修饰符：将属性设置为只读的。 只读属性必须在声明时或构造函数里被初始化。
  * static: 静态属性，被声明的 变量和方法 只能使用其构造函数来调用
  *
@@ -66,7 +66,8 @@ console.log(snake.name);
 // 模板
 class Persion {
   age: number;
-  constructor(age: number) {
+  // 构造函数也可以被标记为protected。这意味着这个类不能再包含它的类外被实例化，但是能被继承，也就是可以在派生类中被super执行
+  protected constructor(age: number) {
     this.age = age;
   }
   behavior(style: string) {
@@ -74,11 +75,13 @@ class Persion {
   }
 }
 class Employee extends Persion {
-  readonly birthdate: Date;
+  readonly birthdate: Date = new Date();
+
+  public tel: string;
 
   protected IQ: number;
 
-  private uid: string;
+  private uid: symbol = Symbol('uid');
 
   private _nickname: string;
   get nickname(): string {
@@ -100,3 +103,15 @@ class Employee extends Persion {
     return `Your information is loading.`;
   }
 }
+const employee = new Employee(18);
+// getter/setter
+employee.nickname;
+employee.nickname = "boss";
+// public
+employee.tel;
+employee.tel = "18820785794";
+// protected
+// new Persion() // 报错，constructor被protected修饰，外部不可访问，不能被实例化
+// employee.IQ // 报错，可用被派生类访问设置，不能被实例访问
+// private
+// employee.uid // 报错，因为private只能在构造函数内使用

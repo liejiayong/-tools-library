@@ -11,22 +11,6 @@ var username = "Gene";
 var sentence = "Hello, my name is " + username + ".\nI'll be " + (decLiteral + 1) + " years old next month.";
 var tuple1;
 tuple1 = ['ljy', 18];
-var Color;
-(function (Color) {
-    Color[Color["blue"] = 0] = "blue";
-    Color[Color["red"] = 1] = "red";
-    Color[Color["green"] = 2] = "green";
-})(Color || (Color = {}));
-var blue = Color.blue;
-console.log('color:', blue);
-var pcSys;
-(function (pcSys) {
-    pcSys[pcSys["window"] = 1] = "window";
-    pcSys[pcSys["imac"] = 3] = "imac";
-    pcSys[pcSys["linux"] = 8] = "linux";
-})(pcSys || (pcSys = {}));
-var win10 = pcSys.window;
-console.log('pcSys:', pcSys, win10);
 var anyTest = 4;
 anyTest = true;
 anyTest = Object;

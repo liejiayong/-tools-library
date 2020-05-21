@@ -1,7 +1,11 @@
 {
     "compilerOptions": {
       "target": "es5",
-      "module": "amd",
+      "lib": [
+        "dom",
+        "esnext"
+      ],
+      "module": "esnext",
       "outDir": "./build",
       "sourceMap": true,
       "noImplicitAny": true,

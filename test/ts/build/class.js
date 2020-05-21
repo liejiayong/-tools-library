@@ -58,7 +58,10 @@ var Persion = (function () {
 var Employee = (function (_super) {
     __extends(Employee, _super);
     function Employee(age) {
-        return _super.call(this, age) || this;
+        var _this = _super.call(this, age) || this;
+        _this.birthdate = new Date();
+        _this.uid = Symbol('uid');
+        return _this;
     }
     Object.defineProperty(Employee.prototype, "nickname", {
         get: function () {
@@ -80,4 +83,9 @@ var Employee = (function (_super) {
     };
     return Employee;
 }(Persion));
+var employee = new Employee(18);
+employee.nickname;
+employee.nickname = "boss";
+employee.tel;
+employee.tel = "18820785794";
 //# sourceMappingURL=class.js.map

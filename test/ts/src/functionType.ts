@@ -22,7 +22,6 @@ let expSucFn = function(x: number, y: number, symbol?:string): number {
 interface SearchFunc {
     (source: string, subString: string): boolean;
 }
-
 let searchFn: SearchFunc;
 searchFn = function(source: string, subString: string) {
     return source.search(subString) !== -1;

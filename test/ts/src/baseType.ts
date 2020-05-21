@@ -33,24 +33,6 @@ tuple1 = ['ljy', 18] // success
 // tuple1 = [1, 1] // error
 // 当访问越界时会使用联合类型替代
 
-// 枚举：定义一组指定数值。默认情况下标从0开始。
-// 枚举可以生成键值互转的对象，如Color,可以通过Color.blue获取下标为0，可以Color[0]获取值为blue
-enum Color {
-  blue,
-  red,
-  green
-}
-let blue: Color = Color.blue
-console.log('color:', blue)
-// 可以自定义赋值下标
-enum pcSys {
-  window = 1,
-  imac = 3,
-  linux = 8
-}
-let win10: pcSys = pcSys.window
-console.log('pcSys:', pcSys, win10)
-
 /**
  * any任意类型，表示允许赋值为任意类型，包括属性和方法。
  * 一般用于用户输入和第三方代码库，

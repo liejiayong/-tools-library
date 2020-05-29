@@ -1,0 +1,42 @@
+{
+	"name": "qiankun-template",
+	"version": "1.0.0",
+	"description": "qiankun microfront micro-front",
+  "main": "index.js",
+  "scripts": {
+    "examples:install": "npm-run-all --serial install:*",
+    "examples:start": "npm-run-all --parallel start:*",
+    "install:main": "cd app-main && yarn",
+    "start:main": "cd app-main && yarn serve",
+    "install:vue": "cd app-vue && yarn",
+    "start:vue": "cd app-vue && yarn serve"
+  },
+	"tempscripts": {
+		"examples:install": "npm-run-all --serial install:*",
+		"examples:start": "npm-run-all --parallel start:*",
+		"install:main": "cd app-main && yarn",
+		"start:main": "cd app-main && yarn serve",
+		"install:react": "cd app-react && yarn",
+		"start:react": "cd app-react && yarn start",
+		"install:vue": "cd app-vue && yarn",
+		"start:vue": "cd app-vue && yarn serve",
+		"install:angular": "cd app-angular && yarn",
+		"start:angular": "cd app-angular && yarn start",
+		"install:static": "cd app-static && yarn",
+		"start:static": "cd app-static && yarn start"
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"author": "JyLie",
+	"email": "809206619@qq.com",
+	"license": "ISC",
+	"bugs": {
+		"url": ""
+	},
+	"homepage": "",
+	"devDependencies": {
+		"npm-run-all": "^4.1.5"
+	}
+}

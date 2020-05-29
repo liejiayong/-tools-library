@@ -1,1 +1,45 @@
-.body { margin: 0; padding: 0; }
+:global html { color: #2c3e50; font-family: 'Avenir', Helvetica, Arial, sans-serif; font-size: 62.5%; }
+
+:global body { font-size: 1.2rem; margin: 0; padding: 0; }
+
+:global ul, :global ol, :global h1, :global h2, :global h3, :global h4, :global h5, :global h6, :global p { margin: 0; padding: 0; }
+
+:global a { text-decoration: none; }
+
+:global li { list-style: none; }
+
+:global input, :global button { background: none; border: 0; margin: 0; outline: none; padding: 0; }
+
+:global .book-tag-active { background: #f6f6f1; }
+
+:global .book-tag-hover:hover { background: #f6f6f1; }
+
+:global .movie-tag-active { background: #f0f3f5; }
+
+:global .movie-tag-hover:hover { background: #f0f3f5; }
+
+:global .slider-right-enter { -webkit-transform: translateX(100%); -moz-transform: translateX(100%); -ms-transform: translateX(100%); -o-transform: translateX(100%); transform: translateX(100%); }
+
+:global .slider-right-enter-active { -webkit-transform: translateX(0%); -moz-transform: translateX(0%); -ms-transform: translateX(0%); -o-transform: translateX(0%); transform: translateX(0%); -webkit-transition: -webkit-transform 0.5s ease; transition: -webkit-transform 0.5s ease; -o-transition: -o-transform 0.5s ease; -moz-transition: transform 0.5s ease, -moz-transform 0.5s ease; transition: transform 0.5s ease; transition: transform 0.5s ease, -webkit-transform 0.5s ease, -moz-transform 0.5s ease, -o-transform 0.5s ease; }
+
+:global .slider-right-exit { -webkit-transform: translateX(0%); -moz-transform: translateX(0%); -ms-transform: translateX(0%); -o-transform: translateX(0%); transform: translateX(0%); }
+
+:global .slider-right-exit-active { -webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); -ms-transform: translateX(-100%); -o-transform: translateX(-100%); transform: translateX(-100%); -webkit-transition: -webkit-transform 0.5s ease; transition: -webkit-transform 0.5s ease; -o-transition: -o-transform 0.5s ease; -moz-transition: transform 0.5s ease, -moz-transform 0.5s ease; transition: transform 0.5s ease; transition: transform 0.5s ease, -webkit-transform 0.5s ease, -moz-transform 0.5s ease, -o-transform 0.5s ease; }
+
+:global .slider-left-enter { -webkit-transform: translateX(-100%); -moz-transform: translateX(-100%); -ms-transform: translateX(-100%); -o-transform: translateX(-100%); transform: translateX(-100%); }
+
+:global .slider-left-enter-active { -webkit-transform: translateX(0%); -moz-transform: translateX(0%); -ms-transform: translateX(0%); -o-transform: translateX(0%); transform: translateX(0%); -webkit-transition: -webkit-transform 0.5s ease; transition: -webkit-transform 0.5s ease; -o-transition: -o-transform 0.5s ease; -moz-transition: transform 0.5s ease, -moz-transform 0.5s ease; transition: transform 0.5s ease; transition: transform 0.5s ease, -webkit-transform 0.5s ease, -moz-transform 0.5s ease, -o-transform 0.5s ease; }
+
+:global .slider-left-exit { -webkit-transform: translateX(0%); -moz-transform: translateX(0%); -ms-transform: translateX(0%); -o-transform: translateX(0%); transform: translateX(0%); }
+
+:global .slider-left-exit-active { -webkit-transform: translateX(100%); -moz-transform: translateX(100%); -ms-transform: translateX(100%); -o-transform: translateX(100%); transform: translateX(100%); -webkit-transition: -webkit-transform 0.5s ease; transition: -webkit-transform 0.5s ease; -o-transition: -o-transform 0.5s ease; -moz-transition: transform 0.5s ease, -moz-transform 0.5s ease; transition: transform 0.5s ease; transition: transform 0.5s ease, -webkit-transform 0.5s ease, -moz-transform 0.5s ease, -o-transform 0.5s ease; }
+
+:global .modal-enter { opacity: 0; }
+
+:global .modal-exit-active { opacity: 0; }
+
+:global .modal-container { background-color: #fff; -webkit-border-radius: 2px; border-radius: 2px; -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33); font-family: Helvetica, Arial, sans-serif; font-size: 1.3rem; line-height: 1.8rem; margin: 0 auto; overflow: auto; padding: 20px 30px; -webkit-transition: all 0.3s ease; -o-transition: all 0.3s ease; -moz-transition: all 0.3s ease; transition: all 0.3s ease; width: 300px; zoom: 1; }
+
+:global .modal-enter .modal-container { -webkit-transform: scale(1.1); -moz-transform: scale(1.1); -ms-transform: scale(1.1); -o-transform: scale(1.1); transform: scale(1.1); }
+
+:global .modal-exit-active .modal-container { -webkit-transform: scale(1.1); -moz-transform: scale(1.1); -ms-transform: scale(1.1); -o-transform: scale(1.1); transform: scale(1.1); }

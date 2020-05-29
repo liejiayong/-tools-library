@@ -262,7 +262,7 @@
   ],
   "liveSassCompile.settings.autoprefix": [
     "> 0.01%",
-    "last 8 versions"
+    "last 12 versions"
   ], // 添加浏览器兼容性前缀，ie5.5及以上
   // liveSassCompile end
   // python

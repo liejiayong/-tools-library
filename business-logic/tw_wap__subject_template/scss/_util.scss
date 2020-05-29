@@ -407,10 +407,16 @@ body {
   font-size: 0;
   line-height: 1;
   overflow: hidden;
+  &:active{
+    filter: brightness(1.1);
+  }
 }
 .jy-btn-txt {
   cursor: pointer;
   z-index: 100;
+  &:active{
+    filter: brightness(1.1);
+  }
 }
 .jy-btn-brightness {
   &:hover {

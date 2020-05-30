@@ -1,6 +1,9 @@
 const path = require('path');
 
 module.exports = {
+  // publicPath: process.env.NODE_ENV === 'production'
+  //   ? '/vue'
+  //   : './vue',
   devServer: {
     // 监听端口
     port: 10200,

@@ -3,6 +3,7 @@ import VueRouter from "vue-router"
 import App from "./App.vue"
 import routes from "./router"
 import store from "./store"
+import "./public-path"
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)

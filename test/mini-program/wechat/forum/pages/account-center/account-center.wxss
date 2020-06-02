@@ -1,0 +1,43 @@
+.center-header{
+    position: relative;
+    padding: 65rpx 40rpx;
+    align-items: center;
+    height: 124rpx;
+    overflow: hidden;
+}
+.account-avatar{
+    flex: 0 0 124rpx;
+    width: 124rpx;
+    height: 124rpx;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+}
+.account-profile{
+    position: relative;
+    margin-left: 40rpx;
+    flex: 1;
+    max-width:calc(100% - 184rpx);
+}
+.account-name{
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 40rpx;
+    line-height: 1;
+}
+.account-medal{
+    margin-top: 20rpx;
+    width: 76rpx;
+    height: 36rpx;
+    /* background-color: #f5f5f5; */
+}
+.account-arrow{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 13rpx;
+    height: 23rpx;
+}
+

@@ -1,0 +1,134 @@
+.medalcard{
+    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 1;
+    z-index: 100;
+    transition: opacity .3s ease linear;
+    will-change: opacity;
+}
+.medalcard.active {
+    display: block;
+    opacity: 1;
+    transition: opacity .3s ease linear;
+}
+.card-mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    background-color: rgba(0,0,0,.7);
+}
+.btn-close{
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 50rpx;
+    transform: translateX(-50%);
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    z-index: 110;
+}
+.card-container{
+    position: absolute;
+    top: 48rpx;
+    left: 40rpx;
+    right: 40rpx;
+    bottom: 140rpx;
+    background-color: #fff;
+    border-radius: 25rpx;
+    z-index: 100;
+    overflow: hidden;
+}
+.cicle-1{
+    position: relative;
+    width: 580rpx;
+    height: 580rpx;
+    background-color: #fff1b2;
+    transform: translate(-290rpx, -290rpx);
+    border-radius: 50%;
+}
+.cicle-2{
+    position: relative;
+    width: 540rpx;
+    height: 540rpx;
+    background-color: #FFD100;
+    border-radius: 50%;
+}
+.icon-medal{
+    position: absolute;
+    margin-left: -255rpx;
+    top: 80rpx;
+    left: 50%;
+    width: 510rpx;
+    height: 240rpx;
+    z-index: 10;
+}
+.bg-modal1{
+    position: absolute;
+    margin-left: -285rpx;
+    top: 80rpx;
+    left: 50%;
+    width: 570rpx;
+    height: 324rpx;
+    z-index: 20;
+}
+.icon-line{
+    position: absolute;
+    margin-left: -25rpx;
+    top: 466rpx;
+    left: 50%;
+    width: 50rpx;
+    height: 10rpx;
+    border-radius: 10rpx;
+    background-color: #FFD100;
+}
+.jy-profile{
+    position: absolute;
+    padding: 0 70rpx;
+    top: 536rpx;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+.medal-name{
+    font-size: 40px;
+    font-weight: bold;
+}
+.medal-intro{
+    margin-top: 30rpx;
+    line-height: 1.5;
+    color: #999;
+}
+.medal-time,.medal-tip{
+    font-size: 24rpx;
+    color: #999;
+}
+.medal-time{
+    margin-top: 52rpx;
+}
+.jy-medaltip{
+    position: absolute;
+    bottom: 80rpx;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.btn-medal{
+    display: inline-block;
+    width: 480rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 28rpx;
+    border-radius: 80rpx;
+    background-color: #FFD100;
+    cursor: pointer;
+}

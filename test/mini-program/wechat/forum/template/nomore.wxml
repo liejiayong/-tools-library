@@ -1,0 +1,5 @@
+<template name="nomore">
+  <view style="text-align:center;margin: 35rpx 35rpx;font-size:24rpx;color:#ccc;">
+    -------  {{nomoreVal?nomoreVal+'提供技术支持':'我是有底线的'}}  -------
+  </view>
+</template>

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "comment-list-video": "/components/comment-list-video/comment-list-video"
+  }
+}

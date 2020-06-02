@@ -1,0 +1,36 @@
+.jy-search {
+  padding: 16rpx 40rpx;
+  box-sizing: border-box;
+}
+.jy-cat{
+  padding: 16rpx 40rpx 0;
+  border-bottom: 12rpx solid #f7f8f9;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.jy-recommend{
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.jy-recommend .title{
+  padding: 30rpx 0;
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+}
+.btn-scrolltop{
+  position: fixed;
+  bottom: 60rpx;
+  right: 40rpx;
+  width: 90rpx;
+  height: 90rpx;
+  z-index: 100;
+}
+.btn-community-post{
+  position: fixed;
+  bottom: 180rpx;
+  right: 40rpx;
+  width: 90rpx;
+  height: 90rpx;
+  z-index: 100;
+}

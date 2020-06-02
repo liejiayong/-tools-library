@@ -1,0 +1,89 @@
+<view class="commentindex">
+  <view
+    wx:for="{{ list }}"
+    wx:key="i"
+    wx:for-index="i"
+    wx:for-item="item"
+    class="jy-comment bt-1"
+  >
+    <view class="jy-profile">
+      <view class="jy-image">
+          <navigator url="/pages/account-center/user-home/user-home?userid={{item.user_id}}" class="avatar">
+            <image src="{{ item.avatar }}" class="avatar"></image>
+          </navigator>
+      </view>
+      <view class="cell cls">
+        <text decode class="author">{{ item.nickname }}</text>
+        <!-- 等级 -->
+        <!-- <image wx:if="{{item.level < 10}}" src="../../../common/images/LV{{item.level}}@2x.png" mode="aspectFill|aspectFit" lazy-load class="icon-level"></image>
+        <image wx:else src="../../../common/images/LVMAX@2x.png" mode="aspectFill|aspectFit" lazy-load class="icon-level"></image> -->
+        <image src="{{item.medal_icon}}" mode="aspectFill|aspectFit" lazy-load class="icon-medal"></image>
+        <view class="date">{{ item.time }}</view>
+        <tab-simple
+          catchtap="handleCommentto"
+          data-comment="{{item}}"
+          data-bussinessid="{{item.business_id}}"
+          icon="icom-comment"
+          class="btn-reply"
+        ></tab-simple>
+      </view>
+    </view>
+    <view class="jy-content">
+      <view
+        catchlongpress="handleComment"
+        data-comment="{{ item }}"
+        data-bussinessid="{{ item.business_id }}"
+        class="content"
+      >
+        {{ item.content }}
+      </view>
+    </view>
+    <view
+      wx:if="{{ item.images && item.images.length > 0 }}"
+      class="jy-imageview"
+    >
+      <image-view list="{{ item.images }}"></image-view>
+    </view>
+    <view class="jy-content-child">
+      <view
+        wx:if="{{ item.child_reply && item.child_reply.length > 0 }}"
+        wx:for="{{ item.child_reply }}"
+        wx:for-item="replyitem"
+        wx:for-index="replyindex"
+        wx:key="replyindex"
+        class="content-child"
+      >
+        <view
+          wx:if="{{ replyitem.reply_user_id == 0 }}"
+          catchlongpress="handleComment"
+          data-comment="{{ replyitem }}"
+          data-bussinessid="{{ item.business_id }}"
+        >
+          <text decode class="reply_hover">
+            <text class="repy-name" decode>{{ replyitem.nickname }} : </text
+            ><text decode>{{ replyitem.content }}</text>
+          </text>
+        </view>
+        <view
+          wx:else
+          catchlongpress="handleComment"
+          data-comment="{{ replyitem }}"
+          data-bussinessid="{{ item.business_id }}"
+        >
+          <text decode class="reply_hover">
+            <text decode class="repy-name">{{ replyitem.nickname }}</text><text>回复</text><text decode class="repy-name">{{ replyitem.reply_nickname }}</text> :<text decode>{{ replyitem.content }}</text>
+          </text>
+        </view>
+      </view>
+    </view>
+    <view
+      wx:if="{{ item.replys > item.reply_limit }}"
+      bindtap="handleShowMore"
+      data-replyid="{{ item.id }}"
+      class="jy-reply-more"
+    >
+      <text decode>查看全部评论（{{ item.replys }}）</text>
+    </view>
+  </view>
+  <view wx:if="{{ list.length == 0 }}" class="nocomment">{{ nocomment }}</view>
+</view>

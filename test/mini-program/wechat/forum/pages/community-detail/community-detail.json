@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "热帖详情",
+  "usingComponents": {
+    "input-reply": "/components/input-reply/input-reply",
+    "modal-popup": "/components/modal-popup/modal-popup",
+    "btn-home": "/components/btn-home/btn-home",
+    "comment-tab": "/pages/community-detail/comment-tab/comment-tab",
+    "comment": "/pages/community-detail/comment-list/comment-list",
+    "image-view": "/pages/community-detail/image-style/image-style"
+  }
+}

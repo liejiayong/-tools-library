@@ -1,0 +1,16 @@
+.gamebannerindex{
+    position: relative;
+    width:100%;
+    height:260rpx;    
+    border-radius:12rpx;
+    overflow: hidden;
+}
+.gamebannerswiper{
+    width: 100%;
+    height: 100%;
+}
+.gamebannerimg{
+    width: 100%;
+    height: 100%;
+    border-radius:12rpx;
+}

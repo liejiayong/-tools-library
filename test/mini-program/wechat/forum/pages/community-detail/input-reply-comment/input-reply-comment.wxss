@@ -1,0 +1,20 @@
+.commnetreplyindex{
+    padding: 0 40rpx;
+}
+.y_reply_tit{
+    padding: 30rpx 0;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid #F2F2F2;
+}
+.btn-list{
+    flex: 0 0 400rpx;
+    width: 400rpx;
+    text-align: right;
+}
+.btncancel{
+    margin-left: 49rpx;
+}
+.btnsend,.btncancel{
+    padding: 10rpx;
+}

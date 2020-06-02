@@ -1,0 +1,34 @@
+<view vw:if="{{list && list.length}}" class="account-post">
+    <block wx:for="{{list}}" wx:key="index">
+        <view wx:if="{{item.id}}"  class="account-post-item">
+            <view class="jy-header jy-flex">
+                <navigator url="../user-home/user-home?userid={{item.user_id}}" class="avatar">
+                    <image mode="{{mode}}" src="{{item.avatar ? item.avatar : '../../../../common/images/icon-avatar.png'}}" lazy-load class="avatar"></image>
+                </navigator>
+                <view class="jy-name">
+                    <view class="nametxt">
+                    <text decode class='nickname'>{{item.nickname}}</text>
+                    <!-- 等级 -->
+                    <!-- <image wx:if="{{item.level < 10}}" src="../../../../common/images/LV{{item.level}}@2x.png" mode="aspectFill|aspectFit" lazy-load class="icon-level"></image>
+                    <image wx:else src="../../../../common/images/LVMAX@2x.png" mode="aspectFill|aspectFit" lazy-load class="icon-level"></image> -->
+                    <image src="{{item.medal_icon}}" mode="aspectFill|aspectFit" lazy-load class="icon-medal"></image>
+                    </view>
+                    <view class="timetxt">{{item.create_time}}</view>
+                </view>
+            </view>
+            <navigator url="../../community-detail/community-detail?id={{item.id}}" class="title">{{item.title}}</navigator>
+            <navigator url="../../community-detail/community-detail?id={{item.id}}" class="content">{{item.content}}</navigator>
+            <view class="mt-20">
+                <image-view list="{{item.images}}"></image-view>
+            </view>
+            <view class="mt-20 jy-flex jy-desc">
+                <navigator url="../../community-post-classify/community-post-classify?type=app&id={{item.source_id}}&name={{item.source_name}}" class="searchtxt">#{{item.source_name}}</navigator>
+                <view class="btnlist">
+                    <tab-simple count="{{item.views}}" is-count icon="icon-eye" mode="horizontal" class="btntab"></tab-simple>
+                    <tab-simple count="{{item.comments}}" is-count icon="icom-comment" mode="horizontal" class="btntab"></tab-simple>
+                    <tab-like-no isliked="{{item.is_liked === 1}}" count="{{item.likes}}" icon="icon-like-g" mode="horizontal" class="btntab"></tab-like-no>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

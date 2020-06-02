@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "grid": "./grid/grid",
+        "listview": "./listview/listview"
+    }
+}

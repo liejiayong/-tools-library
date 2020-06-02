@@ -1,0 +1,8 @@
+<view class="loginindex tc">
+  <image src="../../common/images/icon-brand.png" lazy-load alt="" class="brand"></image>
+  <view class="color-999 fs-24 mt-40">
+    <view>一个号等于所用号</view>
+    <view>微信账号可登录贪玩旗下所有产品</view>
+  </view>
+  <button wx:if="{{isBtn}}" bindgetuserinfo="handleLogin" lang="zh_CN" open-type="getUserInfo"	class="btn-login">授权登录</button>
+</view>

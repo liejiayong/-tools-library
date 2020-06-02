@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "post-list": "post-list/post-list"
+  },
+  "navigationBarTitleText": "我的评论"
+}

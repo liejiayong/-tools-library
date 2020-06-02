@@ -1,0 +1,18 @@
+.jy-recommend {
+  border-top: 12rpx solid #f7f8f9;
+  box-sizing: border-box;
+}
+.jy-recommend .title {
+  padding: 30rpx 0;
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.btn-scrolltop {
+  position: fixed;
+  bottom: 60rpx;
+  right: 40rpx;
+  width: 90rpx;
+  height: 90rpx;
+  z-index: 100;
+}

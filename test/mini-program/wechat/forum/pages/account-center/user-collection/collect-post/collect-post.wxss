@@ -1,0 +1,100 @@
+.account-post {
+}
+.account-post-item {
+  padding: 30rpx 0;
+  border-top: 1rpx solid #f2f2f2;
+}
+.jy-flex {
+  display: flex;
+  align-items: center;
+}
+
+.jy-header {
+  height: 80rpx;
+  overflow: hidden;
+}
+.jy-header .avatar {
+  margin-right: 20rpx;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 80rpx;
+  -moz-box-flex: 0;
+  -ms-flex: 0 0 80rpx;
+  flex: 0 0 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.jy-name {
+  position: relative;
+  flex: 1;
+  /* overflow: hidden; */
+  font-size: 0;
+  line-height: 1;
+}
+.nametxt {
+  position: relative;
+}
+.timetxt {
+  margin-top: 15rpx;
+  font-size: 20rpx;
+  color: #999;
+}
+.nickname {
+  font-size: 26rpx;
+  color: #1a1a1a;
+  vertical-align: middle;
+}
+.icon-level {
+  display: inline-block;
+  margin-left: 10rpx;
+  width: 48rpx;
+  height: 28rpx;
+  vertical-align: middle;
+}
+.icon-medal {
+  margin-left: 20rpx;
+  vertical-align: middle;
+  max-width: 76rpx;
+  height: 36rpx;
+}
+
+.icon-dot {
+  padding: 20rpx;
+  width: 20rpx;
+  height: 20rpx;
+}
+.title {
+  margin-top: 20rpx;
+  font-weight: bold;
+  font-size: 34rpx;
+  color: #1a1a1a;
+  word-break: break-all;
+}
+.content {
+  margin-top: 10rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  color: #666666;
+  max-height: 90rpx;
+  word-break: break-all;
+}
+.mt-20 {
+  margin-top: 20rpx;
+}
+.jy-desc {
+  justify-content: space-between;
+  font-size: 24rpx;
+  color: #999;
+}
+.searchtxt {
+}
+.btnlist {
+}
+.btntab {
+  display: inline-block;
+  margin-right: 30rpx;
+}

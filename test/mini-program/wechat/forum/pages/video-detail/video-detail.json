@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "comment-list-video": "/components/comment-list-video/comment-list-video",
+    "btn-home": "/components/btn-home/btn-home",
+    "txv-video": "plugin://tencentvideo/video"
+  },
+  "enablePullDownRefresh": true
+}

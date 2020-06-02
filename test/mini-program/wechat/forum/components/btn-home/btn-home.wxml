@@ -1,0 +1,8 @@
+<navigator url="{{homePageUrl}}" open-type="switchTab" class="btn-home">
+  <image
+    mode="aspectFit"
+    src="../../common/images/icon-home.png"
+    lazy-load
+    class="icon-home"
+  ></image>
+</navigator>

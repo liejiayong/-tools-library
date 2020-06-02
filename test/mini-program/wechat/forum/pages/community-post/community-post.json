@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "tab-cat": "/pages/community-post/tab-cat/tab-cat",
+    "search": "/components/search/search",
+    "modal-popup": "/components/modal-popup/modal-popup",
+    "recommend-list": "/components/community-recommend-list/community-recommend-list"
+  },
+  "enablePullDownRefresh": true
+}

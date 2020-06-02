@@ -1,0 +1,5 @@
+<template name="loading">
+  <view style="text-align:center;margin: 30rpx 0;">
+    <image style="width: 30rpx;height: 30rpx" src="/common/images/loading.gif"></image>
+  </view>
+</template>

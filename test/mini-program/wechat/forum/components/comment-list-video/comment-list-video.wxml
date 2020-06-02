@@ -1,0 +1,21 @@
+<view class="commentindex">
+  <view bindtap="" wx:if="{{item}}" data-comment="{{item}}" wx:for="{{list}}" wx:key="i" wx:for-index="i" wx:for-item="item" class="jy-comment bt-1">
+    <view class="jy-profile">
+      <view class="jy-image">
+        <image src="{{item.img}}" class="image"></image>
+      </view>
+      <view class="cell cls">
+        <text class="author">{{item.rolename}}</text>
+        <view class="date">{{item.logtime}}</view>
+        <tab-simple bindchange="handleComment" data-comment="{{item}}" icon="icom-comment" class="btn-reply"></tab-simple>
+      </view>
+    </view>
+    <view class="jy-content">
+      <view wx:if="{{item.reply_id != 0}}" class="content">
+        回复<text class="repy-name"> {{item.ext2}} </text>: {{item.content}}
+      </view>
+      <view wx:else class="content">{{item.content}}</view>
+    </view>
+  </view>
+  <view wx:if="{{list.length == 0}}" class="nocomment">{{nocomment}}</view>
+</view>

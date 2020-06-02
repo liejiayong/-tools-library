@@ -1,0 +1,42 @@
+<import  src="../../../template/loading.wxml" />
+<import  src="../../../template/nomore.wxml" />
+<view class="commentdetailindex">
+  <text decode class='post-title title'>{{postInfo.title}}</text>
+  <view class="jy-desc jy-flex">
+    <view class="jy-image">
+      <navigator url="/pages/account-center/user-home/user-home?userid={{postInfo.user_id}}" class="avatar">
+        <image src="{{postInfo.avatar}}" class="avatar"></image>
+      </navigator>
+    </view>
+    <view class="jy-profile">
+      <view class="cell cls">
+        <text decode class="author color-1a fs-26 fw-bold">{{postInfo.nickname}}</text>
+        <!-- 等级 -->
+        <!-- <image src="{{levelImg}}" class="level {{levelCls}}"></image> -->
+        <image src="{{postInfo.medal_icon}}" mode="aspectFill|aspectFit" lazy-load class="icon-medal"></image>
+      </view>
+      <view class="mt-5 fs-20 color-999">{{postInfo.time}}</view>
+    </view>
+  </view>
+  <view class="jy-content">
+    <view class="color-666">{{postInfo.content}}</view>
+    <view wx:if="{{postInfo && postInfo.images.length > 0}}" style="margin-top: 20rpx">
+      <image-view list="{{postInfo.images}}"></image-view>
+    </view>
+    <view bindtap="handleGoback" class="jy-origin">我的帖子：<text class="origin_txt color-999">{{postInfo.source_name}}</text></view>
+    <view class="group_reply_list_detail" >
+        <block wx:for="{{commentList}}" wx:key="{{index}}">
+            <view wx:if="{{item.reply_user_id == 0}}" bindlongpress="handleReplyComment" data-reply="{{item}}"  class="comment_item">
+                <text decode class="name">{{item.nickname}}</text>：<text decode>{{item.content}}</text>
+            </view>
+            <view wx:else bindlongpress="handleReplyComment" data-reply="{{item}}"  class="comment_item">
+                <text decode class="name">{{item.nickname}}</text><text>回复</text><text decode class="name">{{item.reply_nickname}}</text> ：<text decode>{{item.content}}</text>
+            </view>
+        </block>
+      </view>
+      <template wx:if="{{commentLoading}}" is="loading"></template>
+      <template wx:if="{{commentNomore}}" is="nomore"></template>
+  </view>
+  <image bindtap="handleGoHome" wx:if="{{type === 'share'}}" mode="aspectFit" src="../../../common/images/icon-home.png" lazy-load class="btn-home"></image>
+</view>
+<modal-popup bindselect="handleSelectPopup" bindchange="handleClosePopup" is-del="{{isPopupDelAction}}" is-show="{{isPopupShow}}"></modal-popup>

@@ -1,0 +1,12 @@
+<import src="../../../template/nomore.wxml" />
+<import src="../../../template/empty.wxml" />
+<import src="../../../template/loading.wxml" />
+<scroll-view bindscroll="handlePageScroll" bindscrolltolower="onReachBottom" scroll-top="{{scrollTop}}" scroll-with-animation scroll-y style='height:100%'>
+    <view class="jy-video">
+      <video-player wx:if="{{!isEmpty}}" binddigestchange="handledigestchange" bindcommentchange="handleChooseComment" bindsharechange="handleShareChange" list="{{videoList}}"></video-player>
+      <template wx:else is="empty"></template>
+      <template wx:if="{{isPullUp}}" is="loading"></template>
+      <template wx:if="{{nomore}}" is="nomore"></template>
+    </view>
+  </scroll-view>
+  <image bindtap="handleScrollTop" wx:if="{{isScrollTop}}" mode="aspectFit" src="../../../common/images/icon-scrolltop.png" lazy-load class="btn-scrolltop"></image>

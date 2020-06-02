@@ -1,0 +1,9 @@
+<web-view src="{{postInfo.url}}" class="webview"></web-view>
+<image
+  bindtap="handleGoHome"
+  wx:if="{{type === 'share'}}"
+  mode="aspectFit"
+  src="../../common/images/icon-home.png"
+  lazy-load
+  class="btn-home"
+></image>

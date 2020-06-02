@@ -1,0 +1,12 @@
+<view class="pagerel">
+  <navigator url="user-home/user-home?userid={{accountList.id}}" class="center-header jy-flex">
+    <image src="{{accountList.avatar}}" mode="aspectFill|aspectFit" lazy-load class="account-avatar"></image>
+    <view class="account-profile">
+      <view class="account-name color-333">{{accountList.nickname}}</view>
+      <image src="{{accountList.medal_icon}}" mode="aspectFill|aspectFit" lazy-load class="account-medal"></image>
+      <image src="../../common/images/icon-arrow-right.png" mode="aspectFill|aspectFit" lazy-load class="account-arrow"></image>
+    </view>
+  </navigator>
+  <grid bindselect="handleSelectGrid" list="{{gridList}}" ></grid>
+  <listview bindselect="handleSelectListview" list="{{listviewList}}"></listview>
+</view>

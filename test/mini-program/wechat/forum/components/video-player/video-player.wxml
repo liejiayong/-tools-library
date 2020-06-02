@@ -1,0 +1,21 @@
+<view class="videoplayer">
+  <view wx:if="{{list && list.length}}" wx:for="{{list}}" wx:for-item="video" wx:for-index="i" wx:key="i" class="list" id="{{'list-' + i}}">
+    <view class="txvvideo">
+      <txv-video wx:if="{{video.vid}}" bindplay="handlePlay" bindpause="handlePause" data-index="{{i}}" data-playerid="{{video.vid}}" playerid="{{video.vid}}" vid="{{video.vid}}" poster="{{video.cover}}" autoplay="{{true}}" isHiddenStop="{{true}}" usePoster="{{true}}" enablePlayGesture="{{true}}" showMuteBtn="{{true}}" controls="{{true}}" isNeedMutex="{{true}}"></txv-video>
+      <view wx:else bindtap="handleinitPlay" data-id="{{video.id}}" class="video-cover">
+        <image src="{{video.cover}}" lazy-load class="bg"></image>
+        <view class="title">{{video.title}}</view>
+        <image src="../../common/images/icon-play.png" lazy-load class="icon-play"></image>
+      </view>
+    </view>
+    <view class="jy-desc" style="{{!video.digest ? 'justify-content:flex-end' : ''}}">
+      <view wx:if="{{video.digest}}" bindtap="handleSearch" data-search="{{video.digest}}" class="digest" > #{{video.digest}} </view>
+      <view class="btn-list">
+        <tab-simple icon="icon-video-count" count="{{video.views}}" is-count class="btn"></tab-simple>
+        <tab-like bindchange="handleLike" postid="{{video.id}}" isliked="{{video.already_parise}}" icon="icon-like-g" count="{{video.praises}}" class="btn"></tab-like>
+        <tab-simple bindchange="hanlleComment" data-id="{{video.id}}" icon="icom-comment" count="{{video.comments}}" is-count class="btn"></tab-simple>
+        <tab-opentype bindtouchstart="handleShare" data-video="{{video}}" open-type="share" icon="icon-share-1" class="btn"></tab-opentype>
+      </view>
+    </view>
+  </view>
+</view>

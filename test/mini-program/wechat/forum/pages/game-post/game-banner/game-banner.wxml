@@ -1,0 +1,5 @@
+<swiper wx:if="{{list && list.length > 0}}" autoplay interval="{{interval}}" current="{{current}}" duration="{{duration}}" class="gamebannerindex">
+    <swiper-item wx:for="{{list}}" bindtap="handleChoose" data-type="{{item.type}}" data-path="{{item.path}}" data-appid="{{item.appid}}" data-version="{{item.version}}" current="{{current}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" wx:key="index" class="gamebannerswiper">
+        <image src="{{item.cover}}" mode="aspectFill|aspectFit" class="gamebannerimg"/>
+    </swiper-item>
+</swiper>

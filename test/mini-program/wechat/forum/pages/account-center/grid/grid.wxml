@@ -1,0 +1,6 @@
+<view class="jy-flex jy-grid">
+    <view wx:if="{{list}}" wx:for="{{list}}" bindtap="handleSelect" data-type="{{item.type}}" wx:key="index" class="jy-flex-item-25 jy-grid-item jy-flex-c tc">
+        <view class="grid-count font-bebasneue color-333">{{item.count}}</view>
+        <view class="grid-text color-999">{{item.text}}</view>
+    </view>
+</view>

@@ -1,0 +1,23 @@
+.pageroot{
+    font-size: 0;
+    line-height: 1;
+}
+.new-tab{
+    position: relative;
+    z-index: 1;
+}
+.newtab-swiper{
+    position: absolute;
+    top: 108rpx;
+    /* top: 0; */
+    bottom: 0;
+    left: 40rpx;
+    right: 40rpx;
+    height: initial;
+    z-index: 100;
+}
+.newtab-swiper-item{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}

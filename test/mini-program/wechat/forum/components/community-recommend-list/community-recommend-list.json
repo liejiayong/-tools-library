@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "image-view": "/components/image-view/image-view",
+    "tab-simple": "/components/tab-simple/tab-simple"
+  }
+}

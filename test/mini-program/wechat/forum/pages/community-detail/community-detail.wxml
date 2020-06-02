@@ -1,0 +1,39 @@
+<import src="../../template/loading.wxml" />
+<import  src="../../template/nomore.wxml" />
+<scroll-view bindscrolltolower="handleLower" scroll-into-view="{{scrollIntoView}}" scroll-y style="height: 100%">
+  <view class="detailindex">
+    <text class='post-title title'>{{postInfo.title}}</text>
+    <view class="jy-desc jy-flex">
+      <view class="jy-image">
+        <navigator url="/pages/account-center/user-home/user-home?userid={{postInfo.user_id}}" class="avatar">
+          <image src="{{postInfo.avatar}}" class="avatar"></image>
+        </navigator>
+      </view>
+      <view class="jy-profile">
+        <view class="cell cls">
+          <text class="author color-1a fs-26 fw-bold">{{postInfo.nickname}}</text>
+          <!-- 等级 -->
+          <!-- <image src="{{levelImg}}" class="level {{levelCls}}"></image> -->
+          <image src="{{postInfo.medal_icon}}" mode="aspectFill|aspectFit" lazy-load class="icon-medal"></image>
+        </view>
+        <view class="mt-5 fs-20 color-999">{{postInfo.time}}</view>
+      </view>
+    </view>
+    <view class="jy-content">
+      <view class="color-666"><text decode>{{postInfo.content}}</text></view>
+      <view wx:if="{{postInfo && postInfo.images.length > 0}}" style="margin-top: 20rpx">
+        <image-view list="{{postInfo.images}}"></image-view>
+      </view>
+      <view class="jy-origin color-999 fs-24"><text>帖子来自贪玩</text><text decode class="color-orange">{{postInfo.source_name}}</text><text decode>圈子，{{postInfo.club_subscribes}}人热议中……</text></view>
+    </view>
+  </view>
+  <view id="JyComment" class="jy-comment">
+    <text class="color-1a fw-bold">评论</text>
+    <comment bindreplychange="handleReplyComment" bindcomment="handleCommentTo" bindshowmore="handleshowmore" list="{{commentList}}" class="comment-cls comment-hover"></comment>
+    <template wx:if="{{commentLoading}}" is="loading"></template>
+    <template wx:if="{{nomore}}" is="nomore"></template>
+  </view>
+  <comment-tab catchcomment="handleComment" postid="{{postId}}" comment-info="{{commentTabInfo}}" class="jy-comment-tabs"></comment-tab>
+</scroll-view>
+<btn-home wx:if="{{type === 'share'}}"></btn-home>
+<modal-popup bindselect="handleSelectPopup" bindchange="handleClosePopup" is-del="{{isPopupDelAction}}" is-show="{{isPopupShow}}"></modal-popup>

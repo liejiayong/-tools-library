@@ -1,0 +1,24 @@
+.tw-item{
+    position: relative;
+    padding: 30rpx 0;
+}
+.tw-item::before{
+    content: '';
+    display:block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 1rpx solid #f3f4f5;
+}
+.tw-item-tit{
+    font-size: 38rpx;
+    font-weight: bold;
+}
+.tw-item-txt{
+    font-size: 24rpx;
+    line-height: 2;
+}
+.color-red{
+    color: #FE2F43;
+}

@@ -1,0 +1,12 @@
+{
+    "desc": "请爬出自觉遵守协议，否则(✪ω✪)~",
+    "rules": [{
+    "action": "allow",
+    "page": "*"
+    },
+    {
+      "action": "disallow",
+      "page": "/pages/login/index"
+    }]
+  }
+  

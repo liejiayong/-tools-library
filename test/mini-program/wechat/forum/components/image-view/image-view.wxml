@@ -1,0 +1,75 @@
+<view wx:if="{{list && list.length}}" class="imageviewindex">
+  <block wx:if="{{list && list.length == 1}}">
+    <image
+      catchtap="handleImgWX"
+      data-index="0"
+      data-url="{{list[0].url}}"
+      src="{{list[0].url}}"
+      mode="aspectFill"
+      class="img-single"
+    ></image>
+  </block>
+
+  <block wx:elif="{{list && list.length > 1}}">
+    <div class="jy-flex">
+      <block wx:for="{{list}}" wx:key="index">
+        <div class="jy-flex-item">
+          <image
+            catchtap="handleImgsWX"
+            data-index="{{index}}"
+            src="{{item.url}}"
+            mode="aspectFill"
+            class="img"
+          ></image>
+        </div>
+      </block>
+    </div>
+  </block>
+
+  <view wx:if="{{list && list.length > 3}}" class="count">{{list.length}}  张</view>
+</view>
+
+<!--
+  <swiper
+    current="0"
+
+    display-multiple-items="{{displayNum}}"
+
+    previous-margin="6rpx"
+
+    next-margin="6rpx"
+
+    class="imageviewindex"
+
+  >
+
+    <block wx:for="{{list}}" wx:key="index">
+
+      <swiper-item class="swiper-item">
+
+        <image
+
+          current="{{current}}"
+
+          catchtouchstart="handleImgsWX"
+
+          data-index="{{i}}"
+
+          data-src="{{item.url}}"
+
+          url="{{item.url}}"
+
+          mode="aspectFill"
+
+          class="img"
+
+          style="overflow:visible"
+
+        ></image>
+
+      </swiper-item>
+
+    </block>
+
+  </swiper>
+-->

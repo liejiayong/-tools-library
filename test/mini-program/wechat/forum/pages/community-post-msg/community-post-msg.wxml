@@ -1,0 +1,22 @@
+<view class="jy-bordersizing-40 jy-communitypostmsgindex color-999">
+    <form bindsubmit="handleFormSubmit">
+        <view class="jy-groupfrom">
+            <input name="title" focus placeholder="输入标题(必填)" placeholder-style="color:#999999;" class="group-wrapper" />
+        </view>
+        <view class="jy-groupfrom">
+            <picker bindchange="handlePickerChange" value="{{currentOfficialIndex}}" range="{{officialNameList}}" class="group-wrapper">
+                <view class="picker">{{ currentOfficialIndex > -1 ? '#' + officialNameList[currentOfficialIndex] : '#选择圈子分类(必填,点击可选择)'}}</view>
+            </picker>
+        </view>
+        <view class="jy-groupfrom-textarea pt-20 pb-20">
+            <textarea name="content" cursor-spacing="20" placeholder="输入帖子内容（必填，不能少于4个字）" maxlength="-1"
+                placeholder-style="color:#999999;line-height:1.2;" class="group-wrapper" />
+            </view>
+            <view class="jy-uploadimage">
+                <upload-image bindchange="handleGetUploadImg"></upload-image>
+            </view>
+        <view class="btn-area">
+            <button formType="submit" class="btn-submit">发表</button>
+        </view>
+    </form>
+</view>

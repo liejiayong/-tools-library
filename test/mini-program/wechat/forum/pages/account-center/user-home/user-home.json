@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "account-post": "../account-post/account-post",
+    "modal-popup": "../modal-popup/modal-popup",
+    "btn-focus": "../btn-focus/btn-focus"
+  },
+  "navigationBarTitleText": "个人主页"
+}

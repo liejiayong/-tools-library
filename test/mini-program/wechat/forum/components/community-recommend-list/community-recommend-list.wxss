@@ -1,0 +1,141 @@
+.list {
+  padding: 30rpx 0;
+  border-top: 1rpx solid #f2f2f2;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.jy-flex-c {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.jy-navigator {
+  margin-top: 25rpx;
+  /* border-bottom: 1rpx solid #f2f2f2; */
+}
+.jy-navigator:first-of-type {
+  margin-top: 0;
+}
+.jy-navigator:last-of-type {
+  /* margin-bottom: 20rpx; */
+  border-bottom: none;
+}
+.jy-name {
+  position: relative;
+  flex: 1;
+  /* overflow: hidden; */
+  font-size: 0;
+  line-height: 1;
+}
+.nametxt {
+  position: relative;
+}
+.timetxt {
+  margin-top: 15rpx;
+  font-size: 20rpx;
+  color: #999;
+}
+.title {
+  font-size: 26rpx;
+  color: #1a1a1a;
+  vertical-align: middle;
+}
+.icon-level {
+  display: inline-block;
+  margin-left: 10rpx;
+  width: 48rpx;
+  height: 28rpx;
+  vertical-align: middle;
+}
+.icon-medal {
+  margin-left: 20rpx;
+  vertical-align: middle;
+  max-width: 76rpx;
+  height: 36rpx;
+}
+.jy-header {
+  height: 80rpx;
+  overflow: hidden;
+}
+.jy-header .avatar {
+  margin-right: 20rpx;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 80rpx;
+  -moz-box-flex: 0;
+  -ms-flex: 0 0 80rpx;
+  flex: 0 0 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.jy-content {
+  /* margin: 10rpx 0 0 100rpx; */
+  margin: 10rpx 0 0;
+}
+.mt-25{
+  margin-top: 25rpx;
+}
+.jy-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.jy-profile {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  max-height: 84rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.jy-desc {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  line-height: 32rpx;
+  font-size: 26rpx;
+  color: #999;
+  zoom: 1;
+}
+.jy-desc::after {
+  display: block;
+  content: '';
+  overflow: hidden;
+  height: 0;
+  clear: both;
+}
+.jy-desc::before {
+  content: '';
+  display: table;
+}
+.jy-desc .desc-item{
+  flex: 1;
+}
+.jy-desc .icon-item {
+  float: right;
+  margin-right: 20rpx;
+}
+.jy-desc .icon-item.no-mt{
+  margin-right: 0;
+}
+.jy-desc .icon-item .icon,
+.jy-desc .icon-item .count {
+  vertical-align: top;
+}
+.jy-desc .icon {
+  display: inline-block;
+  margin-right: 5rpx;
+  width: 32rpx;
+  height: 32rpx;
+}

@@ -1,0 +1,22 @@
+<import src="../../template/nomore.wxml" />
+<import src="../../template/empty.wxml" />
+<import src="../../template/loading.wxml" />
+<!-- <view hidden="{{!isPullDown}}" class="tc">
+  <template is="loading"></template>
+</view> -->
+<view class="jy-search">
+  <search bindsearch="handleSearch" bindautoblur="handleAutoBlur" scroll="{{scrollView.scroll}}" searchs="{{keyword}}" placeholder="{{searchPlaceholder}}"></search>
+</view>
+<view id="category" class="jy-cat">
+  <tab-cat bindchange="handleSelectOfficial" list="{{officialList}}"></tab-cat>
+</view>
+<view class="jy-recommend">
+  <view class="title">热帖推荐</view>
+  <recommend-list  wx:if="{{!isEmpty}}" list="{{recommendList}}" show-app></recommend-list>
+  <template wx:else is="empty"></template>
+  <template wx:if="{{isPullUp}}" is="loading"></template>
+  <template wx:if="{{nomore}}" is="nomore" />
+</view>
+<image bindtap="handlePostMsg" mode="aspectFit" src="../../common/images/icon-community-post.png" lazy-load class="btn-community-post"></image>
+<image bindtap="handleScrollTop" wx:if="{{isScrollTop}}" mode="aspectFit" src="../../common/images/icon-scrolltop.png" lazy-load class="btn-scrolltop"></image>
+<!-- <modal-popup></modal-popup> -->

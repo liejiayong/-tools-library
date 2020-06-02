@@ -1,0 +1,7 @@
+<view class="jy-bordersizing-40 color-1a">
+    <navigator wx:for="{{officialList}}" url="../community-post-classify/community-post-classify?type=app&id={{item.community_id}}&name={{item.community_name}}" class="jy-flex jy-community-tab-classify" wx:key="index">
+        <image src="{{item.icon}}" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="" class="tab-avatar"></image>
+        <text class="tab-txt">{{item.community_name}}</text>
+    </navigator>
+</view>
+<image bindtap="handlePostMsg" mode="aspectFit" src="../../common/images/icon-community-post.png" lazy-load class="btn-community-post"></image>

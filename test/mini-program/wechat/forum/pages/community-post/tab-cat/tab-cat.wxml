@@ -1,0 +1,11 @@
+<view class="tabcatindex jy-flex">
+  <view wx:if="{{list && list.length> 0 && i < 5}}" wx:for="{{list}}" wx:for-item="item" wx:for-index="i" bindtap="handleSelect" data-id="{{item.community_id}}"
+    data-name="{{item.community_name}}" wx:key="i" class="jy-flex jy-flex-item-50 list">
+    <image mode="aspectFill|aspectFit" src="{{item.icon}}" lazy-load class="avatar"></image>
+    <view class="text">{{item.community_name}}</view>
+  </view>
+  <view wx:if="{{ list.length >= 5 }}" bindtap="handleMore" class="jy-flex jy-flex-item-50 list">
+    <image mode="aspectFill|aspectFit" src="../../../common/images/icon-add.png" lazy-load class="avatar"></image>
+    <view class="text text-more">更多游戏</view>
+  </view>
+</view>

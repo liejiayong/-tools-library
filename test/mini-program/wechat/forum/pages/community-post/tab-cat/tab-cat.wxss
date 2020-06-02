@@ -1,0 +1,40 @@
+.tabcatindex{
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.jy-flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.jy-flex-item-50 {
+  margin-bottom: 32rpx;
+  flex: 0 0 50%;
+  width: 50%;
+  text-align: center;
+  font-size:0;
+  cursor: pointer;
+}
+.list{
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.avatar{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+}
+.text{
+  text-indent: 15rpx;
+  max-width: 200rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+}
+.text-more{
+  color: #C5C5C5
+}

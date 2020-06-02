@@ -1,0 +1,76 @@
+.jy-flex {
+  padding: 25rpx 0;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.jy-list:not(:last-child) {
+  padding: 30rpx 0;
+  border-top: 1rpx solid #f7f8f9;
+}
+.title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.jy-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding-right: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  color: #666;
+  max-width: 500rpx;
+  max-height: 90rpx;
+}
+.jy-app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 2rpx;
+  bottom: 32rpx;
+  width: 422rpx;
+  line-height: 32rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.appname,.apptime{
+  flex: auto;
+}
+.apptime{
+  text-align: right;
+}
+.jy-image {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 211rpx;
+  -moz-box-flex: 0;
+  -ms-flex: 0 0 211rpx;
+  flex: 0 0 211rpx;
+  width: 211rpx;
+  height: 141rpx;
+  overflow: hidden;
+}
+.jy-image image {
+  width: inherit;
+  height: inherit;
+  -moz-border-radius: 10rpx;
+  border-radius: 10rpx;
+}
+.jy-image.hidden {
+  display: none;
+}
+
+.pt-30 {
+  padding-top: 30rpx;
+}

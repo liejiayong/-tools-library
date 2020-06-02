@@ -1,0 +1,6 @@
+<swiper wx:if="{{list && list.length > 0}}" display-multiple-items="4" class="tabcatindex">
+  <swiper-item bindtap="handleSelect" data-id="{{item.app_id}}" data-name="{{item.name}}" wx:for="{{list}}" wx:for-item="item" wx:for-index="i" wx:key="i" lazy-load class="jy-flex-item-25">
+    <image mode="aspectFit" src="{{item.img}}" lazy-load class="avatar"></image>
+    <view class="text">{{item.name}}</view>
+  </swiper-item>
+</swiper>

@@ -1,0 +1,1 @@
+<view bindtap="handleFocus" class="{{focusCls}} btn-focus">{{text}}</view>

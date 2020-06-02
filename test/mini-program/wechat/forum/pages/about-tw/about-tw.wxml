@@ -1,0 +1,26 @@
+<view class="pageroot-40">
+    <view class="tw-item">
+        <view class="tw-item-tit">A.论坛说明</view>
+        <view class="tw-item-txt mt-30">
+            <view>1、 游戏圈：汇集了贪玩旗下众多的游戏圈，包括<text class="color-red">贪玩蓝月手游、贪玩蓝月页游、魔域来了、玛法英雄、星际舰队</text>等，玩家们能在论坛中进行讨论。</view>
+            <view>2、游戏圈内容：看到精彩的攻略、玩家精彩发言也可以选择将<text class="color-red">帖子收藏</text>或者<text class="color-red">分享给好友</text>哦。</view>
+            <view>3、志同道合的玩家也可以选择<text class="color-red">关注</text>，在列表中直接查看他的最新动态。</view>
+            <view>4、勋章，可以通过<text class="color-red">圈子活动</text>获得，彰显和他人不一样的身份哦，记得实时关注圈子动态。</view>
+            <view>5、还有更多论坛的功能正在开发中，如果你有什么好的建议也可以进入“论坛-更多游戏-安全区”进行发帖，运营小姐姐看到会第一时间反馈给策划的哟。</view>
+        </view>
+    </view>
+    <view class="tw-item">
+        <view class="tw-item-tit">B.资讯说明</view>
+        <view class="tw-item-txt mt-30">
+            <view>1、资讯：跟游戏相关的最新消息都在这里啦。不同游戏的玩家老爷们可以选择进入到不同的分类中查看详情。</view>
+            <view>2、视频：这里有<text class="color-red">游戏攻略、明星代言人、戏精101</text>多种主题的素材供你观看。</view>
+        </view>
+    </view>
+    <view class="tw-item">
+        <view class="tw-item-tit">C.个人中心说明</view>
+        <view class="tw-item-txt mt-30">
+            <view>1、查看你的个人信息，包括：发帖情况、收到评论点赞、关注的好友等。</view>
+            <view>2、管理个人主页，帖子查询、帖子删除、收藏查看、勋章查询、勋章佩戴等。</view>
+        </view>
+    </view>
+</view>

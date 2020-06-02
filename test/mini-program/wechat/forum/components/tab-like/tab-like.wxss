@@ -1,0 +1,51 @@
+.tabsindex {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0;
+  line-height: 1;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border-radius: 0;
+}
+button::after{ border: none; }
+.zindex {
+  z-index: -1;
+}
+/* vertical模式 */
+.index-v {
+  width: 100%;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.jy-image {
+}
+.jy-image-v {
+  text-align: center;
+  width: 100%;
+}
+.jy-image image {
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+}
+.jy-text {
+  font-size: 24rpx;
+}
+.jy-text.active {
+  color: #FE2F43;
+}
+.jy-text-v {
+  margin-top: 12rpx;
+  width: 100%;
+}
+/* horizontal模式 */
+.jy-text-h {
+  margin-left: 12rpx;
+}

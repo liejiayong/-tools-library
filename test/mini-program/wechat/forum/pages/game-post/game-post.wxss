@@ -1,0 +1,35 @@
+.jy-search {
+  padding: 16rpx 40rpx;
+  box-sizing: border-box;
+}
+.jy-cat {
+  overflow: hidden;
+}
+.jy-recommend {
+  padding: 0 40rpx;
+  border-top: 12rpx solid #f7f8f9;
+  box-sizing: border-box;
+}
+.jy-recommend .title {
+  padding: 30rpx 0;
+  font-size: 38rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.btn-scrolltop {
+  position: fixed;
+  bottom: 60rpx;
+  right: 40rpx;
+  width: 90rpx;
+  height: 90rpx;
+  z-index: 100;
+}
+.jy-guidemask {
+  /* position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.4);
+  z-index: 10000; */
+}

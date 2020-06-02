@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "image-view": "/components/image-view/image-view",
+    "tab-like-no": "/components/tab-like-no/tab-like-no",
+    "tab-simple": "/components/tab-simple/tab-simple"
+  }
+}

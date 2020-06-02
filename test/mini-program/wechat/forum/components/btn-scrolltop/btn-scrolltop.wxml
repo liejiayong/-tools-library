@@ -1,0 +1,8 @@
+<view wx:if="{{isShow}}" class="btn-scrolltop">
+  <image
+    mode="aspectFit"
+    src="../../common/images/icon-scrolltop.png"
+    lazy-load
+    class="icon-scrolltop"
+  ></image>
+</view>

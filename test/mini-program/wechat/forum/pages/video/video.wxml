@@ -1,0 +1,17 @@
+<import src="../../template/nomore.wxml" />
+<import src="../../template/empty.wxml" />
+<import src="../../template/loading.wxml" />
+<!-- <view hidden="{{!isPullDown}}" class="tc">
+  <template is="loading"></template>
+</view> -->
+<view class="jy-search">
+  <search bindsearch="handleSearch" bindautoblur="handleAutoBlur" scroll="{{scrollView.scroll}}" searchs="{{keyword}}" placeholder="{{searchPlaceholder}}"></search>
+</view>
+<view class="jy-video">
+  <video-player wx:if="{{!isEmpty}}" bindlikechange="handlelikechange" binddigestchange="handledigestchange" bindcommentchange="handleChooseComment" bindsharechange="handleShareChange" list="{{videoList}}"></video-player>
+  <template wx:else is="empty"></template>
+  <template wx:if="{{isPullUp}}" is="loading"></template>
+  <template wx:if="{{nomore}}" is="nomore" />
+</view>
+<comment-modal bindchange="handleCommentModalChange" videoid="{{selectVideoid}}" ismodal="{{isModalComment}}"></comment-modal>
+<image bindtap="handleScrollTop" wx:if="{{isScrollTop}}" mode="aspectFit" src="../../common/images/icon-scrolltop.png" lazy-load class="btn-scrolltop"></image>

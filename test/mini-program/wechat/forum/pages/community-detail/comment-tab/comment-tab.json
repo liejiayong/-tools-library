@@ -1,0 +1,10 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tab": "/components/tab-simple/tab-simple",
+    "tab-opentype": "/components/tab-opentype/tab-opentype",
+    "tab-like": "/components/tab-like/tab-like",
+    "tab-like-no": "/components/tab-like-no/tab-like-no",
+    "btn-more": "/components/btn-more/btn-more"
+  }
+}

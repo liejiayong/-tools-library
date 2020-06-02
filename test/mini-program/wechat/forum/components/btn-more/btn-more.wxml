@@ -1,0 +1,10 @@
+<button bindtap="handletab" class="tabsindex" style="height:100%">
+  <view class="tabsindex zindex {{mode === 'vertical' ? 'index-v' : ''}}">
+    <view class="jy-image {{mode === 'vertical' ? 'jy-image-v' : 'jy-image-h'}}">
+      <image src="{{iconUrl}}" style="{{style}}"></image>
+    </view>
+    <view class="jy-text {{mode === 'vertical' ? 'jy-text-v' : 'jy-text-h'}}">
+      <text class="text">{{active ? moretxt : packuptxt}}</text>
+    </view>
+  </view>
+</button>

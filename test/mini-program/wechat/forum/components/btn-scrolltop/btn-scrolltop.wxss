@@ -1,0 +1,12 @@
+.btn-scrolltop {
+  position: fixed;
+  bottom: 60rpx;
+  right: 40rpx;
+  width: 90rpx;
+  height: 90rpx;
+  z-index: 2000;
+}
+.icon-scrolltop{
+    width: inherit;
+    height: inherit;
+}

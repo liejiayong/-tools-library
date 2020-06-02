@@ -1,0 +1,11 @@
+<view class="jy-search-bar">
+  <label bindtap="handleModal" wx:if="{{isModal}}" class="search-label">
+    <icon type="search" size="14" color="#999999" />
+    <text>{{placeholder}}</text>
+  </label>
+  <view wx:if="{{!isModal}}" class="search-input">
+    <input bindfocus="handleFocus" bindinput="handleInput" bindconfirm="handleSubmit" value="{{value}}" placeholder-style="{{placeholderStyle}}" auto-focus focus confirm-type="search" placeholder="{{placeholder}}" placeholder-class="tc" type="text" id="searchId"></input>
+    <!-- 测试 -->
+    <!-- <input bindinput="handleInput" bindconfirm="handleInput" value="{{value}}" auto-focus focus confirm-type="search" placeholder="请搜索关键词..." placeholder-class="tc" type="text"></input> -->
+  </view>
+</view>

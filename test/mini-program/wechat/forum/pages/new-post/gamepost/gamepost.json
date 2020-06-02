@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "recommend-list": "/components/post-recommend-list/post-recommend-list",
+    "game-banner": "./game-banner/game-banner",
+    "tab-cat": "./tab-cat/tab-cat"
+  }
+}

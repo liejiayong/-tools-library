@@ -1,0 +1,15 @@
+<import src="../../../template/nomore.wxml" />
+<import src="../../../template/empty.wxml" />
+<import src="../../../template/loading.wxml" />
+<scroll-view bindscroll="handlePageScroll" bindscrolltolower="onReachBottom" scroll-top="{{scrollTop}}" scroll-with-animation scroll-y style='height:100%'>
+<tab-cat id="category"></tab-cat>
+<game-banner></game-banner>
+<view class="jy-recommend">
+  <view class="title">推荐资讯</view>
+  <recommend-list  wx:if="{{!isEmpty}}" bindsearchchange="handleSearchChange" list="{{recommendList}}" show-app></recommend-list>
+  <template wx:else is="empty"></template>
+  <template wx:if="{{isPullUp}}" is="loading"></template>
+  <template wx:if="{{nomore}}" is="nomore"></template>
+</view>
+</scroll-view>
+<image bindtap="handleScrollTop" wx:if="{{isScrollTop}}" mode="aspectFit" src="../../../common/images/icon-scrolltop.png" lazy-load class="btn-scrolltop"></image>

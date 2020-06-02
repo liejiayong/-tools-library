@@ -1,0 +1,44 @@
+<import src="../../../template/nomore.wxml" />
+<import src="../../../template/unconnect.wxml" />
+<import src="../../../template/empty.wxml" />
+<import src="../../../template/loading.wxml" />
+<view class="pagerel">
+  <view class="center-header">
+    <image
+      src="{{userInfo.avatar}}"
+      mode="aspectFill|aspectFit"
+      lazy-load
+      class="account-avatar"
+    ></image>
+    <view class="account-profile">
+      <text decode class="account-name color-333">{{userInfo.nickname}}</text>
+      <image
+        src="{{userInfo.medal_icon}}"
+        mode="aspectFill|aspectFit"
+        lazy-load
+        class="account-medal"
+      ></image>
+    </view>
+
+    <view class="jy-desc jy-flex">
+        <view class="desc-item"><text class="desc-count color-333 font-bebasneue">{{userInfo.likes}}</text> 获赞</view>
+        <view class="desc-item"><text class="desc-count color-333 font-bebasneue">{{userInfo.subscribe}}</text> 关注</view>
+        <view class="desc-item"><text class="desc-count color-333 font-bebasneue">{{userInfo.by_subscribe}}</text> 粉丝</view>
+    </view>
+
+    <view wx:if="{{isMine}}" class="jy-focus">
+      <btn-focus userid="{{userId}}" focus="{{userInfo.is_subscribe}}"></btn-focus>
+    </view>
+  </view>
+
+  <view class="jy-post">
+    <view class="post-count">{{postList && postList.length}} 个帖子</view>
+    <template wx:if="{{isPullDown}}" is="loading"></template>
+    <account-post wx:if="{{!isEmpty}}" bindoporation="handleOporation" list="{{postList}}" is-oporate="{{!isMine}}"></account-post>
+    <template wx:else data="{{...nomoreTxt}}" is="empty"></template>
+    <template wx:if="{{isUnConnect}}" is="unconnect" ></template>
+    <template wx:if="{{isPullUp && !isPullDown}}" is="loading"></template>
+    <template wx:if="{{nomore}}" is="nomore" ></template>
+  </view>
+</view>
+<modal-popup bindchange="handlePopup" binddelete="handleDel" is-oporate="{{isDel}}" postid="{{delPostId}}" is-show="{{isActionSheet}}"></modal-popup>

@@ -1,0 +1,75 @@
+.commentindex {
+  /* width: inherit; */
+}
+.jy-comment {
+  padding: 30rpx 0;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+.jy-comment:last-of-type{
+  border-bottom: none;
+}
+.jy-profile {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.jy-image {
+  flex: 0 0 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.jy-image .image {
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.jy-profile .cell {
+  position: relative;
+  margin-left: 18rpx;
+  flex: 1;
+  height: 80rpx;
+  overflow: hidden;
+}
+.btn-reply{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80rpx;
+  height: 80rpx;
+}
+.jy-profile .author {
+  display: inline-block;
+  max-width: 540rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.jy-profile .date {
+  font-size: 20rpx;
+  color: #999;
+}
+.repy-name{
+  display: inline-block;
+  color: #456098;
+}
+.jy-content {
+  padding: 10rpx 0 0 96rpx;
+}
+.jy-content .content {
+  /* word-break: break-all; */
+}
+.nocomment {
+  margin: 220rpx 0 120rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #888;
+}

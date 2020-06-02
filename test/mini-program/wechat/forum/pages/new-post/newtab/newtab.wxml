@@ -1,0 +1,6 @@
+<view class="jy-newtab">
+    <view wx:if="{{isShow}}" animation="{{newtabAnimate}}" class="tabnew" id="newtab">
+        <div bindtap="handleChoseTab" wx:for="{{newtab}}" data-index="{{item.id}}" wx:key="index" class="{{ item.id === currentTab ? 'active': '' }} tabnew-item">{{item.nickname}}</div>
+    </view>
+    <search wx:if="{{isShow}}" bindsearch="handleSearch" placeholder="{{placeholder}}" class="jy-search"></search>
+</view>

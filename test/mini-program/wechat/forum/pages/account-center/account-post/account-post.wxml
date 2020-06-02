@@ -1,0 +1,21 @@
+<view vw:if="{{list && list.length}}" class="account-post">
+    <view wx:for="{{list}}" wx:key="index" class="account-post-item">
+        <view class="jy-flex jy-oporation">
+            <view class="post-time">{{item.create_time}}</view>
+            <image wx:if="{{isOporate}}" bindtouchstart="handleOporation" data-postid="{{item.id}}" src="../../../common/images/icon-oporation-dot.png" mode="aspectFill|aspectFit" class="icon-dot"></image>
+        </view>
+        <navigator url="../../community-detail/community-detail?type=&id={{item.id}}" class="title"> <text decode>{{item.title}}</text></navigator>
+        <navigator url="../../community-detail/community-detail?type=&id={{item.id}}" class="content"><text decode>{{item.content}}</text></navigator>
+        <view class="mt-20">
+            <image-view list="{{item.images}}"></image-view>
+        </view>
+        <view class="mt-20 jy-flex jy-desc">
+            <navigator url="../../community-post-classify/community-post-classify?type=app&id={{item.source_id}}&name={{item.source_name}}" class="searchtxt">#{{item.source_name}}</navigator>
+            <view class="btnlist">
+                <tab-simple count="{{item.views}}" is-count icon="icon-eye" mode="horizontal" class="btntab"></tab-simple>
+                <tab-simple count="{{item.comments}}" is-count icon="icom-comment" mode="horizontal" class="btntab"></tab-simple>
+                <tab-like-no bindchange="handleLike" postid="{{item.id}}" isliked="{{item.is_liked === 1}}" count="{{item.likes}}" icon="icon-like-g" mode="horizontal" class="btntab"></tab-like-no>
+            </view>
+        </view>
+    </view>
+</view>

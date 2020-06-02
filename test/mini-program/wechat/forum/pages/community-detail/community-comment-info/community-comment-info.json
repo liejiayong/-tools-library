@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "评论详情",
+    "usingComponents": {
+      "input-reply": "/components/input-reply/input-reply",
+      "modal-popup": "/components/modal-popup/modal-popup",
+      "image-view": "/pages/community-detail/image-style/image-style"
+    }
+  }
+  

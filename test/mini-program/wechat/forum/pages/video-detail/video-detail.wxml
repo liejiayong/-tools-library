@@ -1,0 +1,26 @@
+<import src="../../template/nomore.wxml" />
+<import src="../../template/loading.wxml" />
+<view bindtap="handleClearReply" class="videodetail">
+  <view class="txvvideo">
+    <txv-video wx:if="{{vid !== ''}}" bindplay="handlePlay" bindended="handleEnded" bindpause="handlePause" data-playerid="{{'player' + videoDetail.id}}" vid="{{vid}}" poster="{{videoDetail.cover}}" playerid="{{'player' + videoDetail.id}}"></txv-video>
+    <view wx:else bindtap="handleinitPlay" data-playerid="{{'player' + videoDetail.id}}" class="video-cover">
+      <image src="{{videoDetail.cover}}" lazy-load class="bg"></image>
+      <image src="../../common/images/icon-play.png" lazy-load class="icon-play"></image>
+    </view>
+  </view>
+  <view class="title">{{videoDetail.title}}</view>
+</view>
+<view class="jy-comment">
+  <view class="comment-tit">评论</view>
+  <comment-list-video bindreplychange="handleReplyComment" list="{{commentList}}" nocomment="目前还没有评论哟，到首页看看其他内容吧~"></comment-list-video>
+  <template wx:if="{{isPullUp}}" is="loading"></template>
+  <template wx:if="{{nomore}}" is="nomore" />
+</view>
+<view class="jy-input">
+  <view class="input-mask"></view>
+  <input bindconfirm="handleSend" bindinput="initBtnActiveCls" bindfocus="handleFoucs" value="{{comment}}" focus="{{autoFocus}}" confirm-type="send" placeholder="{{commentPlaceholder}}" selection-start="{{selectionNum}}" selection-end="{{selectionNum}}" type="text" class="input_content">
+  </input>
+  <view bindtap="handleSend" class="{{btnActiveCls}} input_btn_send">发送</view>
+</view>
+<view wx:if="{{autoFocus}}" catchtouchstart="handleClearReply" class="input_reply_mask"></view>
+<btn-home wx:if="{{type === 'share'}}"></btn-home>

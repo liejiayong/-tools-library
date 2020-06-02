@@ -1,0 +1,81 @@
+.videoplayer{
+  position: relative;
+  width: inherit;
+}
+.list:not(:last-child){
+  position: relative;
+  width: inherit;
+  margin: 0 auto 40rpx;
+  padding-bottom: 40rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #F2F2F2;
+}
+.txvvideo{
+  position: relative;
+  width: 670rpx;
+  height: 377rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  z-index: 0;
+}
+.video-cover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+.bg{
+  width: inherit;
+  height: inherit;
+}
+.title{
+  position: absolute;
+  padding: 20rpx 70rpx 10rpx 22rpx;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 36rpx;
+  color: #fff;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,.3);
+}
+.icon-play{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80rpx;
+  height: 80rpx;
+  transform: translate(-50%, -50%);
+}
+.jy-desc{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 40rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #999999;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.digest{
+  flex: 0 0 240rpx;
+  width: 240rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.btn-list{
+  flex: 1;
+  text-align: center;
+  max-width: 430rpx;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn:not(:first-child){
+  margin-left: 40rpx;
+}

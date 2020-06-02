@@ -1,0 +1,11 @@
+<view class="focus-list">
+    <view wx:if="{{list && list.length}}" wx:for="{{list}}" wx:key="index" class="focus-list-item">
+        <view class="jy-profile">
+            <navigator url="../user-home/user-home?userid={{item.user_id}}" class="avatar">
+                <image src="{{item.avatar}}" class="avatar"></image>
+            </navigator>
+            <view decode class="nickname">{{item.nickname}}</view>
+        </view>
+        <btn-focus userid="{{item.user_id}}" focus="{{item.is_subscribe === 1}}"></btn-focus>
+    </view>
+</view>

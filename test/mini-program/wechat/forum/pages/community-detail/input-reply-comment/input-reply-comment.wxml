@@ -1,0 +1,12 @@
+<view class="commnetreplyindex">
+    <view class="y_reply_tit jy-flex">
+        <view class="fs-38 fw-bold color-1a"> 回复评论</view>
+        <view class="btn-list">
+            <text bindtap="handleSend" decode class="color-1a jybtn btnsend">发送</text>
+            <text bindtap="handleClose" decode class="color-999 jybtn btncancel">取消</text>
+        </view>
+    </view>
+    <view class="ptb-30">
+        <textarea  bindconfirm="handleSend" bindinput="handleinput" value="{{content}}" focus="{{autoFocus}}" auto-focus="{{autoFocus}}" confirm-type="send" placeholder="{{placeholder}}" maxlength="-1"  placeholder-style="color:#999999;"  />
+    </view>
+</view>

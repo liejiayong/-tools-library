@@ -1,0 +1,32 @@
+.tabcatindex{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-height:252rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.jy-flex-item-25 {
+  padding: 22rpx 0;
+  -webkit-box-flex: 0 0 25%;
+  -webkit-flex: 0 0 25%;
+  -moz-box-flex: 0;
+   -ms-flex: 0 0 25%;
+       flex: 0 0 25%;
+  width: 25%;
+  text-align: center;
+  font-size:0;
+  cursor: pointer;
+}
+.avatar{
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 10rpx;
+}
+.text{
+  margin-top: 24rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #1A1A1A;
+}

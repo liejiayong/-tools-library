@@ -1,0 +1,29 @@
+<view class="commentindex">
+  <view
+    wx:for="{{ list }}"
+    wx:key="i"
+    wx:for-index="i"
+    class="jy-comment bt-1"
+  >
+    <view class="jy-profile">
+      <navigator url="../user-home/user-home?userid={{item.user_id}}" class="jy-image">
+        <image src="{{ item.avatar }}" class="avatar"></image>
+      </navigator>
+      <view class="cell cls">
+        <text decode class="author">{{ item.nickname }}</text>
+        <view class="date">{{ item.create_time }}</view>
+      </view>
+    </view>
+    <view class="jy-content">
+      <view class="title">赞了你</view>
+      <view class="mt-20">
+        <image-view wx:if="{{ item.images && item.images.length > 0 }}" list="{{ item.images }}"></image-view>
+      </view>
+      <!-- jump_value 为帖子id -->
+      <navigator url="../../community-detail/community-detail?id={{item.jump_value}}" class="nav-post mt-20">
+        <text class="nav-post-title">我的获赞：</text><text>{{item.tip_referer_content}}</text>
+      </navigator>
+    </view>
+  </view>
+  <!-- <view wx:if="{{ list.length == 0 }}" class="nocomment">{{ nocomment }}</view> -->
+</view>

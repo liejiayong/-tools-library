@@ -1,0 +1,12 @@
+<import src="../../../template/nomore.wxml" />
+<import src="../../../template/unconnect.wxml" />
+<import src="../../../template/empty.wxml" />
+<import src="../../../template/loading.wxml" />
+<view class="pageroot">
+    <template wx:if="{{isPullDown}}" is="loading"></template>
+    <focus-list wx:if="{{!isEmpty}}" list="{{focusList}}"></focus-list>
+    <template wx:else data="{{...nomoreTxt}}" is="empty"></template>
+    <template wx:if="{{isUnConnect}}" is="unconnect" />
+    <template wx:if="{{isPullUp && !isPullDown}}" is="loading"></template>
+    <template wx:if="{{nomore}}" is="nomore" />
+</view>

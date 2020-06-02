@@ -1,0 +1,120 @@
+.commentdetailindex {
+  height: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.jy-desc {
+  padding: 40rpx 0 20rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.jy-image {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 68rpx;
+  -moz-box-flex: 0;
+  -ms-flex: 0 0 68rpx;
+  flex: 0 0 68rpx;
+  width: 68rpx;
+  height: 68rpx;
+}
+.jy-image .avatar {
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+}
+.icon-medal {
+  margin-left: 20rpx;
+  max-width: 76rpx;
+  height: 36rpx;
+  vertical-align: top;
+}
+.jy-profile {
+  margin-left: 18rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  line-height: 1;
+}
+
+.jy-profile .cell {
+  display: inline-block;
+  overflow: hidden;
+}
+.btn-reply{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80rpx;
+  height: 80rpx;
+}
+.jy-profile .author,
+.jy-profile .level {
+  vertical-align: top;
+}
+.jy-profile .level {
+  display: inline-block;
+  margin-left: 10rpx;
+  width: 48rpx;
+  height: 28rpx;
+  float: right;
+}
+.jy-profile .level.level-10 {
+  width: 60rpx;
+}
+.jy-profile .level.level-max {
+  width: 80rpx;
+}
+.jy-profile .author {
+  display: inline-block;
+  max-width: 470rpx;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jy-content {
+  padding: 0 0 30rpx 90rpx;
+  height:100%;
+}
+.jy-origin {
+  padding: 20rpx 30rpx;
+  margin-top: 20rpx;
+  background: #f7f8f9;
+  border-radius: 10rpx;
+}
+.jy-origin .origin_txt {
+  width: 400rpx;
+}
+.group_reply_list_detail {
+  padding: 20rpx 30rpx;
+  margin-top: 20rpx;
+  border-left: 2px solid #e6e6e6;
+  border-radius: 10rpx;
+}
+.group_reply_list_detail .name {
+  color: #6f749a;
+}
+.comment_item {
+  padding: 6rpx;
+  border-radius: 2rpx;
+}
+.comment_item:hover {
+  background-color: #ebebeb;
+}
+.btn-home {
+  position: fixed;
+  bottom: 150rpx;
+  right: 40rpx;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 100;
+}

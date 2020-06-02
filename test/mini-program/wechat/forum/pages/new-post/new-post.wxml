@@ -1,0 +1,17 @@
+<view class="pagerel">
+  <newtab bindsearch="handleSearch" bindtabchange="handleChoseTab" placeholder="{{placeholder}}" currentTab="{{ currentTab }}" is-show="{{isNewtab}}" newtabHeight="{{newtabHeight}}" class="new-tab" id="newtab"></newtab>
+  <swiper
+    bindchange="handleTabSwiper"
+    current="{{ currentTab }}"
+    animation="{{swiperAnimate}}"
+    class="newtab-swiper"
+  >
+    <swiper-item class="newtab-swiper-item">
+      <gamepost  bindchange="handleIsPullDown" bindplaceholder="handlePostPlaceholder" searchs="{{postSearch}}" isPullDown="{{isPullDown}}" newtabHeight="{{newtabHeight}}" currentTab="{{currentTab}}"></gamepost>
+    </swiper-item>
+    <swiper-item class="newtab-swiper-item">
+      <videopost bindchange="handleIsPullDown" bindplaceholder="handleVideoPlaceholder" searchs="{{videoSearch}}" isPullDown="{{isPullDown}}" newtabHeight="{{newtabHeight}}" currentTab="{{currentTab}}" bindsharechange="handleShareChange"></videopost>
+    </swiper-item>
+  </swiper>
+</view>
+<btn-scrolltop></btn-scrolltop>

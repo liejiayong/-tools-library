@@ -1,0 +1,10 @@
+<import src="../../template/nomore.wxml" />
+<import src="../../template/loading.wxml" />
+<view class="jy-recommend">
+  <video-player bindcommentchange="handleChooseComment" bindsharechange="handleShareChange" list="{{recommendList}}"></video-player>
+  <template wx:if="{{isPullUp}}" is="loading"></template>
+  <template wx:if="{{nomore}}" is="nomore" />
+</view>
+<comment-modal bindchange="handleCommentModalChange" videoid="{{selectVideoid}}" ismodal="{{isModalComment}}"></comment-modal>
+<image bindtap="handleScrollTop" wx:if="{{isScrollTop}}" mode="aspectFit" src="../../common/images/icon-scrolltop.png" lazy-load class="btn-scrolltop"></image>
+<btn-home wx:if="{{type === 'share'}}"></btn-home>

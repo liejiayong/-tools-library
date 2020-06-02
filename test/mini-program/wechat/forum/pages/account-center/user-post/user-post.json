@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "modal-popup": "../modal-popup/modal-popup",
+    "account-post": "../account-post/account-post"
+  },
+  "navigationBarTitleText": "我的帖子"
+}

@@ -1,0 +1,27 @@
+<view class="jy-listview">
+  <view
+    wx:if="{{list}}"
+    wx:for="{{ list }}"
+    bindtap="handleSelect"
+    data-type="{{ item.type }}"
+    wx:key="index"
+    class="listview-item"
+  >
+    <view class="jy-lt">
+      <image
+        src="../../../common/images/{{item.avatorIcon}}"
+        mode="aspectFit|aspectFill"
+        class="avatar"
+      ></image>
+      <view class="text">{{item.text}}</view>
+    </view>
+    <!-- <view wx:if="{{item.isCount&&item.type === '0'}}" class="jy-rt">{{item.count}}</view> -->
+    <view wx:if="{{item.isCount&&item.type === '2'}}" class="jy-rt">
+      <view class="jy-desc">拥有{{item.count}}枚勋章</view>
+      <image src="../../../common/images/icon-arrow-right.png" mode="aspectFit|aspectFill" class="icon-arrow"></image>
+    </view>
+    <view wx:else class="jy-rt">
+        <image src="../../../common/images/icon-arrow-right.png" mode="aspectFit|aspectFill" class="icon-arrow"></image>
+    </view>
+  </view>
+</view>

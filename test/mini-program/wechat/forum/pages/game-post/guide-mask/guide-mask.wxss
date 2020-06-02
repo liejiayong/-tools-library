@@ -1,0 +1,17 @@
+.guidemaskindex{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    /* background: rgba(255,255,255,0.3) url('../../../common/images/bg-guide-mask.png') no-repeat  center bottom / 750rpx auto; */
+    background-color: rgba(255,255,255,0.85);
+}
+.mask__img{
+    position: absolute;
+    bottom: 0;
+    right: 10rpx;
+    width: 516rpx;
+    height: 206rpx;
+}

@@ -1,0 +1,7 @@
+<view class="{{popcls}} jy-popup">
+    <view bindtap="handleclose" class="mask"></view>
+    <view bindtap="handleOporate" animation="{{popupAnimate}}" class="container" id="popup">
+        <view class="header">要删除这个帖子吗？</view>
+        <view wx:for="{{oporation}}" data-type="{{item.type}}" wx:key="index" class="oporate">{{item.text}}</view>
+    </view>
+</view>

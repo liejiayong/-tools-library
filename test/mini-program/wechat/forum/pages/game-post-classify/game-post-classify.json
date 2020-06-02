@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "recommend-list": "/components/post-recommend-list/post-recommend-list"
+  },
+  "enablePullDownRefresh": true
+}

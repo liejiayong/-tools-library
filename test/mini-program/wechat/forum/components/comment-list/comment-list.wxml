@@ -1,0 +1,23 @@
+<view class="commentindex">
+  <block wx:for="{{list}}" wx:key="i" wx:for-index="i" wx:for-item="item">
+    <view class="jy-comment bt-1">
+      <view class="jy-profile">
+        <view class="jy-image">
+          <image src="{{item.avatar}}" class="image"></image>
+        </view>
+        <view class="cell cls">
+          <text class="author">{{item.nickname}}</text>
+          <view class="jy-like {{item.is_liked ? 'liked' : ''}}">
+            <image bindtap="handleLike" data-liked="{{item.is_liked}}" data-total="{{item.likes}}" data-index="{{i}}" src="{{item.is_liked == 1 ? likedLink : likeLink}}" class="btn-like"></image>
+            <text>{{item.likes}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="jy-content">
+        <view class="content">{{item.content}}</view>
+        <view class="date">{{item.time}}</view>
+      </view>
+    </view>
+  </block>
+  <view wx:if="{{list.length == 0}}" class="nocomment">来一起讨论吧....</view>
+</view>

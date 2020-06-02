@@ -1,0 +1,8 @@
+<import src="../../template/nomore.wxml" />
+<import src="../../template/loading.wxml" />
+<view class="jy-recommend">
+  <recommend-list list="{{recommendList}}"></recommend-list>
+  <template wx:if="{{isPullUp}}" is="loading"></template>
+  <template wx:if="{{nomore}}" is="nomore"></template>
+</view>
+<image bindtap="handleScrollTop" wx:if="{{isScrollTop}}" mode="aspectFit" src="../../common/images/icon-scrolltop.png" lazy-load class="btn-scrolltop"></image>

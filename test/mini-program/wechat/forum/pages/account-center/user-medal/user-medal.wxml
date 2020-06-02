@@ -1,0 +1,19 @@
+<import src="../../../template/nomore.wxml" />
+<import src="../../../template/unconnect.wxml" />
+<import src="../../../template/empty.wxml" />
+<import src="../../../template/loading.wxml" />
+<view class="jy-medal">
+    <template wx:if="{{isPullDown}}" is="loading"></template>
+    <view wx:if="{{!isEmpty}}" wx:for="{{medalList}}" bindtap="handleSelect" data-medalid="{{item.medal_id}}" data-time="{{item.create_time}}" data-icon="{{item.icon}}" data-name="{{item.medal_name}}" data-intro="{{item.medal_intro}}" data-wear="{{item.is_wear}}" wx:key="index" class="medal-item">
+        <image src="{{item.icon}}" mode="aspectFill|aspectFit" class="icon-medal"></image>
+        <view class="jy-profile">
+            <view class="name">{{item.medal_name}} <text wx:if="{{item.is_wear == TYPE_CONFIG_MEDAL_WEAR}}" class="weattxt">已佩戴</text><text wx:if="{{item.is_wear === TYPE_CONFIG_MEDAL_GET}}" class="weattxt">未佩戴</text></view>
+            <view class="desc">{{item.medal_intro}}</view>
+        </view>
+    </view>
+    <template wx:if="{{isEmpty}}" data="{{...nomoreTxt}}" is="empty"></template>
+    <template wx:if="{{isUnConnect}}" is="unconnect" ></template>
+    <template wx:if="{{isPullUp && !isPullDown}}" is="loading"></template>
+    <template wx:if="{{nomore}}" is="nomore" ></template>
+</view>
+<medal-card bindclose="handleMedal" medalid="{{medalId}}" is-show="{{isModalMedal}}" wear="{{MedalWear}}" name="{{medalName}}" intro="{{medalIntro}}" time="{{medalTime}}" icon="{{medalIcon}}"></medal-card>

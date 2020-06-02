@@ -1,0 +1,36 @@
+.jy-uploadimage{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.uploadimage_item{
+    position: relative;
+    margin: 0 18rpx 18rpx 0;
+    flex: 0 0 154rpx;
+    width: 154rpx;
+    height: 154rpx;
+    border-radius: 6rpx;
+    /* background: #ccc; */
+}
+.uploadimage_item:nth-of-type(4n){
+    margin-right: 0;
+}
+.uploadimage_item_image{
+    display: inline-block;
+    width: 154rpx;
+    height: 154rpx;
+    z-index: 100;
+}
+.uploadimage_item_btnclose{
+    padding:10rpx;
+    position:absolute;
+    top:-12rpx;
+    right:-12rpx;
+    width:41rpx;
+    height:41rpx;
+    background-color:#E6E6E6;
+    border:2rpx solid #fff;
+    border-radius:50%;
+    box-sizing:border-box;
+    z-index: 100;
+}

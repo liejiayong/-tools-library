@@ -1,0 +1,68 @@
+{
+	"description": "循循渐进",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.4",
+	"appid": "wxbb29a8131c5d1457",
+	"projectname": "JyLie forum",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "从贪玩蓝月进入，带home",
+					"pathName": "pages/community-post-classify/community-post-classify",
+					"query": "type=app&id=18&name=贪玩蓝月&pagetype=share",
+					"scene": 1035,
+					"referrerInfo": {}
+				},
+				{
+					"id": -1,
+					"name": "从贪玩蓝月进入",
+					"pathName": "pages/community-post-classify/community-post-classify",
+					"query": "type=app&id=18&name=贪玩蓝月",
+					"scene": null
+				}
+			]
+		}
+	}
+}

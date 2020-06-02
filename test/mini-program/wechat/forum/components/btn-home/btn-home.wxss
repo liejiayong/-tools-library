@@ -1,0 +1,12 @@
+.btn-home {
+  position: fixed;
+  bottom: 150rpx;
+  right: 40rpx;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 2000;
+}
+.icon-home{
+    width: inherit;
+    height: inherit;
+}

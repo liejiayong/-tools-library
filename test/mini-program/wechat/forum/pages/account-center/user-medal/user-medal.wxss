@@ -1,0 +1,47 @@
+.jy-medal {
+  padding: 0 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.medal-item {
+  display: flex;
+  position: relative;
+  align-items: center;
+  height: 156rpx;
+}
+.medal-item::before {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1rpx solid #f3f4f5;
+}
+.icon-medal {
+  flex: 0 0 200rpx;
+  width: 200rpx;
+  height: 94rpx;
+}
+.jy-profile {
+  padding-left: 10rpx;
+  flex: 1;
+  max-width: calc(100% - 200rpx);
+  box-sizing: border-box;
+}
+.name {
+}
+.weattxt {
+  padding: 5rpx 10rpx;
+  font-size: 20rpx;
+  border-radius: 30rpx;
+  background-color: #f2f2f2;
+}
+.desc {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 24rpx;
+  color: #999;
+}

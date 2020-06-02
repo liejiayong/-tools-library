@@ -1,0 +1,74 @@
+{
+    "pages": [
+        "pages/community-post/community-post",
+        "pages/new-post/new-post",
+        "pages/login/login",
+        "pages/account-center/account-center",
+        "pages/about-tw/about-tw",
+        "pages/account-center/user-medal/user-medal",
+        "pages/account-center/user-post/user-post",
+        "pages/account-center/user-collection/user-collection",
+        "pages/account-center/user-comment/user-comment",
+        "pages/community-detail/community-comment-info/community-comment-info",
+        "pages/account-center/user-fans/user-fans",
+        "pages/account-center/user-home/user-home",
+        "pages/game-post-classify/game-post-classify",
+        "pages/game-detail/game-detail",
+        "pages/video-classify/video-classify",
+        "pages/video-detail/video-detail",
+        "pages/community-detail/community-detail",
+        "pages/community-post-msg/community-post-msg",
+        "pages/community-post-classify/community-post-classify",
+        "pages/community-tab-classify/community-tab-classify",
+        "pages/community-detail/input-reply-comment/input-reply-comment",
+        "pages/account-center/user-focus/user-focus",
+        "pages/account-center/user-get-praise/user-get-praise",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "贪玩游戏",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#FE8C13",
+        "backgroundColor": "#fff",
+        "list": [
+            {
+                "pagePath": "pages/community-post/community-post",
+                "text": "论坛",
+                "iconPath": "common/images/icon-community.png",
+                "selectedIconPath": "common/images/icon-community_active.png"
+            },
+            {
+                "pagePath": "pages/new-post/new-post",
+                "text": "资讯",
+                "iconPath": "common/images/icon-post.png",
+                "selectedIconPath": "common/images/icon-post_active.png"
+            },
+            {
+                "pagePath": "pages/account-center/account-center",
+                "text": "个人中心",
+                "iconPath": "common/images/icon-account.png",
+                "selectedIconPath": "common/images/icon-account_active.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 90000,
+        "downloadFile": 90000
+    },
+    "navigateToMiniProgramAppIdList": [
+        "wx81231866dd38ad22",
+        "wx879e831cabbaa1e2"
+    ],
+    "plugins": {
+        "tencentvideo": {
+            "version": "1.3.7",
+            "provider": "wxa75efa648b60994b"
+        }
+    },
+    "sitemapLocation": "sitemap.json"
+}

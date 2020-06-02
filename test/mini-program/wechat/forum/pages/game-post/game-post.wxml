@@ -1,0 +1,21 @@
+<import src="../../template/nomore.wxml" />
+<import src="../../template/empty.wxml" />
+<import src="../../template/loading.wxml" />
+<view class="jy-search">
+  <search bindsearch="handleSearch" bindautoblur="handleAutoBlur" scroll="{{scrollView.scroll}}" searchs="{{keyword}}" placeholder="{{searchPlaceholder}}"></search>
+</view>
+<view id="category" class="jy-cat jy-bordersizing-40">
+  <tab-cat bindchange="handleSelectOfficial" list="{{officialList}}"></tab-cat>
+</view>
+<view class="jy-bordersizing-40 mb-30">
+  <game-banner list="{{bannerList}}"></game-banner>
+</view>
+<view class="jy-recommend">
+  <view class="title">推荐资讯</view>
+  <recommend-list  wx:if="{{!isEmpty}}" bindsearchchange="handleSearchChange" list="{{recommendList}}" show-app></recommend-list>
+  <template wx:else is="empty"></template>
+  <template wx:if="{{isPullUp}}" is="loading"></template>
+  <template wx:if="{{nomore}}" is="nomore"></template>
+</view>
+<image bindtap="handleScrollTop" wx:if="{{isScrollTop}}" mode="aspectFit" src="../../common/images/icon-scrolltop.png" lazy-load class="btn-scrolltop"></image>
+<guide-mask class="jy-guidemask"></guide-mask>

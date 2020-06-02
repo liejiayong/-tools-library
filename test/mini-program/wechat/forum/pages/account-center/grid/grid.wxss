@@ -1,0 +1,22 @@
+.jy-grid{
+    position: relative;
+    padding: 0 40rpx;
+}
+.jy-grid::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 40rpx;
+    right: 40rpx;
+    border-top: 1rpx solid #f2f2f2;
+}
+.jy-grid-item{
+    padding: 38rpx 0;
+}
+.grid-count{
+    font-size: 40rpx;
+}
+.grid-text{
+    font-size: 24rpx;
+}

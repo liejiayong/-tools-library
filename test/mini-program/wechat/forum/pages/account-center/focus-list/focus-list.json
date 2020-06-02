@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "btn-focus": "../btn-focus/btn-focus"
+  }
+}

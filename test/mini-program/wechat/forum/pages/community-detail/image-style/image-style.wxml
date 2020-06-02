@@ -1,0 +1,12 @@
+<block wx:if="{{list.length == 1}}">
+  <image bindtap="handleImgWX" data-index="0" data-src="{{list[0].url}}" src="{{list[0].url}}" mode="aspectFill" class="img"></image>
+</block>
+<block wx:elif="{{list.length > 1}}">
+  <div class="jy-flex">
+    <block wx:for="{{list}}" wx:for-index="i" wx:key="i" wx:for-item="item">
+      <div class="jy-flex-item">
+        <image bindtap="handleImgsWX" data-index="{{i}}" src="{{item.url}}" mode="aspectFill" class="img"></image>
+      </div>
+    </block>
+  </div>
+</block>

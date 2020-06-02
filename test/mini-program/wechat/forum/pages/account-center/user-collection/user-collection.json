@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "collect-post": "collect-post/collect-post"
+  },
+  "navigationBarTitleText": "我的收藏"
+}

@@ -1,0 +1,22 @@
+.loginindex{
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+}
+.brand{
+  margin-top: 235rpx;
+  width: 180rpx;
+  height: 180rpx;
+}
+.btn-login{
+  display: block;
+  margin-top: 434rpx;
+  width: 451rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+  background-color: #FFD100;
+  border-radius: 80rpx;
+}

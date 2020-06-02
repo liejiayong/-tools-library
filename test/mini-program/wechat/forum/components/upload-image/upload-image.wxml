@@ -1,0 +1,37 @@
+<view class="jy-uploadimage">
+  <view
+    wx:if="{{urlList && urlList.length > 0 && index < 9}}"
+    wx:for="{{urlList}}"
+    bindtap="handlePreview"
+    wx:key="*this"
+    data-order="{{index}}"
+    class="uploadimage_item"
+  >
+    <image
+      src="../../common/images/icon-close.png"
+      mode="aspectFit|aspectFill|widthFix"
+      catchtap="handleDel"
+      data-order="{{index}}"
+      lazy-load
+      class="uploadimage_item_btnclose"
+    ></image>
+    <image
+      src="{{item}}"
+      mode="aspectFit|aspectFill|widthFix"
+      lazy-load
+      class="uploadimage_item_image"
+    ></image>
+  </view>
+  <view
+    wx:if="{{urlList.length < 9}}"
+    bindtap="handleChooseImage"
+    class="uploadimage_item"
+  >
+    <image
+      src="../../common/images/icon-add.png"
+      mode="aspectFit|aspectFill|widthFix"
+      lazy-load
+      class="uploadimage_item_image"
+    ></image>
+  </view>
+</view>

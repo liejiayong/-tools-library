@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "贪玩资讯",
+    "usingComponents": {
+        "btn-scrolltop": "/components/btn-scrolltop/btn-scrolltop",
+        "newtab": "./newtab/newtab",
+        "gamepost": "./gamepost/gamepost",
+        "videopost": "./videopost/videopost"
+    },
+    "enablePullDownRefresh": true
+}

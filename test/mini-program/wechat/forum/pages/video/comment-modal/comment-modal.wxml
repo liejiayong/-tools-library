@@ -1,0 +1,21 @@
+<import src="../../../template/nomore.wxml" />
+<import src="../../../template/loading.wxml" />
+<view wx:if="{{ismodal}}" class="commentmodalindex">
+  <view bindtap="handleClose" class="mask"></view>
+  <view animation="{{animationData}}" class="commentmodal">
+    <view class="header">
+      <view class="title">{{count}} 条评论</view>
+      <image bindtap="handleClose" src="../../../common/images/icon-close.png" lazy-load class="btn-close"></image>
+    </view>
+    <scroll-view bindscrolltolower="handleScrolltolower" scroll-y class="scroll-view">
+      <comment-list-video bindreplychange="handleReplyComment" list="{{commentList}}"></comment-list-video>
+      <template wx:if="{{isPullUp}}" is="loading"></template>
+      <template wx:if="{{nomore && commentList.length !== 0}}" is="nomore" />
+    </scroll-view>
+    <view class="jy-comment">
+      <input bindconfirm="handleSend" bindfocus="handleFoucs" value="{{comment}}" confirm-type="send" placeholder="{{commentPlaceholder}}" selection-start="{{selectionNum}}" selection-end="{{selectionNum}}" type="text" class="input-send" >
+        <view class="input-mask"></view>
+      </input>
+    </view>
+  </view>
+</view>

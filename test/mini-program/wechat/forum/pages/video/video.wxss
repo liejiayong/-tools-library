@@ -1,0 +1,17 @@
+.jy-search {
+  padding: 16rpx 40rpx 0;
+  box-sizing: border-box;
+}
+.jy-video {
+  position: relative;
+  padding: 40rpx 40rpx 0;
+  box-sizing: border-box;
+}
+.btn-scrolltop{
+  position: fixed;
+  bottom: 60rpx;
+  right: 40rpx;
+  width: 90rpx;
+  height: 90rpx;
+  z-index: 10000;
+}

@@ -1,0 +1,11 @@
+<button bindtap="handletab" open-type="{{openType}}" class="tabsindex" style="height:100%">
+  <view class="tabsindex zindex {{mode === 'vertical' ? 'index-v' : ''}}">
+    <view class="jy-image {{mode === 'vertical' ? 'jy-image-v' : 'jy-image-h'}}">
+      <image src="{{iconUrl}}" style="{{style}}"></image>
+    </view>
+    <view class="jy-text {{mode === 'vertical' ? 'jy-text-v' : 'jy-text-h'}}">
+      <text class="text">{{text}}</text>
+      <text wx:if="{{isCount}}" class="count">{{count}}</text>
+    </view>
+  </view>
+</button>

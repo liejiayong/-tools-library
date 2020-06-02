@@ -1,0 +1,22 @@
+<view class="{{popcls}} medalcard">
+    <view class="card-mask"></view>
+    <image bindtap="handleClose" src="./btn-close.png" mode="aspectFill|aspectFit" class="btn-close"></image>
+    <view animation="{{popupAnimate}}" class="card-container">
+        <view class="cicle-1">
+            <view class="cicle-2"></view>
+        </view>
+        <image src="{{icon}}" mode="aspectFill|aspectFit" class="icon-medal"></image>
+        <image src="./bg-colorful.png" mode="aspectFill|aspectFit" class="bg-modal1"></image>
+        <view class="icon-line"></view>
+        <view class="jy-profile">
+            <view class="medal-name">{{name}}</view>
+            <view class="medal-intro">{{intro}}</view>
+            <view wx:if="{{wearStatus == TYPE_CONFIG_MEDAL_GET || wearStatus == TYPE_CONFIG_MEDAL_WEAR}}" class="medal-time">{{time}} 获得</view>
+        </view>
+        <view class="jy-medaltip">
+            <view wx:if="{{wearStatus == TYPE_CONFIG_MEDAL_NULL}}" class="medal-tip">未获勋章，继续加油吧~</view>
+            <view wx:if="{{wearStatus == TYPE_CONFIG_MEDAL_GET}}" bindtap="handleWear" class="btn-medal">佩戴</view>
+            <view wx:if="{{wearStatus == TYPE_CONFIG_MEDAL_WEAR}}" bindtap="handleDemount" class="btn-medal">卸下</view>
+        </view>
+    </view>
+</view>

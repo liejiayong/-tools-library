@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "txv-video": "plugin://tencentvideo/video",
+    "video-player": "/components/video-player/video-player"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "focus-list": "../focus-list/focus-list"
+  },
+  "navigationBarTitleText": "我的关注"
+}

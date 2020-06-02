@@ -1,0 +1,30 @@
+.commenttabsindex {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  line-height: 1;
+  font-size: 0;
+  transform:translateY(50%);
+  -webkit-box-shadow: 0 0 20rpx #eee;
+  -moz-box-shadow: 0 0 20rpx #eee;
+  box-shadow: 0 0 20rpx #eee;
+  background-color: #fff;
+  z-index: 1000;
+}
+.commenttabsindex.screenXCls{
+  padding-bottom: 68rpx;
+}
+.commenttabsindex .tab {
+  display: inline-block;
+  margin: 18rpx 0;
+  width: 25%;
+  height: 100rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.border {
+  border-right: 1rpx solid #f2f2f2;
+}

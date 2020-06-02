@@ -1,0 +1,15 @@
+.btn-focus{
+    width: 120rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+    border-radius: 64rpx;
+    background-color: #FFD100;
+    font-size: 24rpx;
+    color: #333;
+}
+.btn-focus.active{
+    background-color: #fff;
+    color: #999;
+    border: 1rpx solid #999;
+}

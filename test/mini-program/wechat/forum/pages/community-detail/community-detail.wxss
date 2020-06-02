@@ -1,0 +1,97 @@
+.detailindex {
+  padding: 45rpx 45rpx 0;
+  border-bottom: 22rpx solid #f7f8f9;
+}
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+.jy-desc{
+  padding: 40rpx 0 20rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+.jy-image{
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 68rpx;
+     -moz-box-flex: 0;
+      -ms-flex: 0 0 68rpx;
+          flex: 0 0 68rpx;
+  width: 68rpx;
+  height: 68rpx;
+}
+.jy-image .avatar{
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+}
+.jy-profile{
+  margin-left: 18rpx;
+  -webkit-box-flex:1;
+  -webkit-flex:1;
+     -moz-box-flex:1;
+      -ms-flex:1;
+          flex:1;
+  line-height:1;
+}
+
+.jy-profile .cell{
+  display: inline-block;
+  overflow:hidden;
+}
+
+.jy-profile .author,.jy-profile .level{
+  vertical-align: top;
+}
+.jy-profile .level{
+  display:inline-block;
+  margin-left: 10rpx;
+  width: 48rpx;
+  height: 28rpx;
+  vertical-align: top;
+}
+.icon-medal {
+  margin-left: 20rpx;
+  max-width: 76rpx;
+  height: 36rpx;
+  vertical-align: top;
+}
+.jy-profile .level.level-10{
+  width: 60rpx;
+}
+.jy-profile .level.level-max{
+  width: 80rpx;
+}
+.jy-profile .author{
+  display: inline-block;
+  max-width: 470rpx;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jy-content{
+  padding-bottom: 30rpx;
+}
+.jy-origin{
+  margin-top: 38rpx;
+}
+.jy-comment{
+  padding: 30rpx 45rpx 250rpx;
+}
+.comment-cls{
+  display: block;
+  padding-top: 30rpx;
+}
+.comment-hover{}
+.jy-comment-tabs{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* background-color:#fff; */
+}

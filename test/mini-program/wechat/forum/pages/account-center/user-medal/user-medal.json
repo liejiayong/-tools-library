@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "medal-card": "medal-card/medal-card"
+  },
+  "navigationBarTitleText": "我的勋章"
+}

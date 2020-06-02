@@ -1,0 +1,22 @@
+<view class="gamelistindex">
+  <block wx:if="{{item.digest}}" wx:for="{{list}}" wx:key="i" wx:for-index="i" wx:for-item="item">
+    <view class="jy-list">
+      <navigator url="/pages/game-detail/game-detail?id={{item.id}}">
+        <text decode class='title'>{{item.title}}</text>
+      </navigator>
+      <view class="jy-flex">
+        <!-- <view class="jy-content {{!showApp ? 'pt-30': ''}}"> -->
+        <view class="jy-content">
+          <navigator url="/pages/game-detail/game-detail?id={{item.id}}">{{item.digest}}</navigator>
+        </view>
+        <navigator url="/pages/game-detail/game-detail?id={{item.id}}" wx:if="{{item.thumb_url && item.thumb_url.length > 0}}" class="jy-image">
+          <image mode="{{mode}}" src="{{item.thumb_url}}" lazy-load></image>
+        </navigator>
+        <view bindtap="handleSearch" data-search="{{item}}" class="jy-app">
+          <view wx:if="{{showApp}}" class="appname">#{{item.app_name}}</view>
+          <view style="{{showApp ? '':'text-align:left'}}" class="apptime">{{item.update_time}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

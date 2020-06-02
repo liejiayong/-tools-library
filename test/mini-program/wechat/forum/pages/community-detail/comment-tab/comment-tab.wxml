@@ -1,0 +1,10 @@
+<view animation="{{tabsAnimate}}" class="commenttabsindex {{ screenXCls }}" id="commenttabs">
+  <block wx:for="{{forumTabConfig}}" wx:key="index">
+    <tab-like-no wx:if="{{item.name === 'likeCount'}}" bindchange="handleLike" postid="{{postid}}" isliked="{{item.isLiked}}" icon="{{item.icon}}" text="{{item.text}}" count="{{item.count}}" is-count="{{item.isCount}}" mode="vertical" wx:key="index" class="{{item.isBorder ? 'border': ''}} tab"></tab-like-no>
+    <tab wx:if="{{item.name === 'replyCount'}}" bindchange="handleTab" data-type="{{item.type}}" icon="{{item.icon}}" text="{{item.text}}" count="{{item.count}}" is-count="{{item.isCount}}" mode="vertical" wx:key="index" class="{{item.isBorder ? 'border': ''}} tab"></tab>
+    <tab-opentype wx:if="{{item.name === 'share'}}" bindchange="handleShare" icon="{{item.icon}}" text="{{item.text}}" mode="vertical" wx:key="index" class="{{item.isBorder ? 'border': ''}} tab"></tab-opentype>
+    <btn-more wx:if="{{item.name === 'more'}}" bindchange="handleTab" data-type="{{item.type}}" active="{{item.isMore}}" wx:key="index" class="{{item.isBorder ? 'border': ''}} tab"></btn-more>
+    <tab wx:if="{{item.name === 'delete' && item.isDel}}" bindchange="handleTab" data-type="{{item.type}}" icon="{{item.icon}}" text="{{item.text}}" count="{{item.count}}" is-count="{{item.isCount}}" mode="vertical" wx:key="index" class="{{item.isBorder ? 'border': ''}} tab"></tab>
+    <tab-like wx:if="{{item.name === 'collection'}}" bindchange="handleCollect" videoid="{{postid}}" isliked="{{item.isCollect}}" icon="{{item.icon}}" text="{{item.text}}" is-count="{{false}}" mode="vertical" wx:key="index" class="{{item.isBorder ? 'border': ''}} tab"></tab-like>
+  </block>
+</view>

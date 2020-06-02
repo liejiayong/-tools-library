@@ -1,0 +1,9 @@
+<view class="inputreplyindex">
+    <view class="jy-input">
+        <view class="input-mask"></view>
+        <input bindinput="initBtnActiveCls" bindconfirm="handleSend" bindfocus="handleFoucs" value="{{txt}}" focus="{{autoFocus}}" auto-focus="{{autoFocus}}" confirm-type="send" placeholder="{{placeholder}}" selection-start="20" selection-end="20" type="text" class="input_content">
+        </input>
+        <view bindtap="handleSend" class="{{btnActiveCls}} input_btn_send">发送</view>
+      </view>
+</view>
+<view wx:if="{{autoFocus}}" catchtouchstart="handleClose" class="input_reply_mask"></view>

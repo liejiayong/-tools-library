@@ -1,0 +1,33 @@
+.jy-newtab{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 108rpx;
+}
+.tabnew{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 280rpx;
+}
+.tabnew-item{
+    margin-right: 68rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333;
+}
+.tabnew-item:last-of-type {
+    margin-right: 0;
+}
+.tabnew-item.active{
+    color: #FFB400;
+}
+.jy-search{
+    margin-left: 30rpx;
+    padding: 0 30rpx;
+    flex: 1;
+    box-sizing: border-box;
+}

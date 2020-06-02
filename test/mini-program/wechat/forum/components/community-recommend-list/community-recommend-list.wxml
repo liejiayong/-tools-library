@@ -1,0 +1,44 @@
+<view class="gamelistindex">
+  <view wx:for="{{lists}}" wx:key="i" wx:for-index="i" wx:for-item="item" class="list">
+    <view class="jy-header jy-flex-c">
+      <navigator url="/pages/account-center/user-home/user-home?userid={{item.user_id}}" class="avatar">
+        <image mode="aspectFill|aspectFit" src="{{item.avatar}}" lazy-load class="avatar"></image>
+      </navigator>
+      <view class="jy-name">
+        <view class="nametxt">
+          <text decode class='title'>{{item.nickname}}</text>
+          <!-- 等级 -->
+          <!-- <image wx:if="{{item.level < 10}}" src="../../common/images/LV{{item.level}}@2x.png" mode="aspectFill|aspectFit" lazy-load class="icon-level"></image>
+          <image wx:else src="../../common/images/LVMAX@2x.png" mode="aspectFill|aspectFit" lazy-load class="icon-level"></image> -->
+          <image src="{{item.medal_icon}}" mode="aspectFill|aspectFit" lazy-load class="icon-medal"></image>
+        </view>
+        <view class="timetxt">{{item.create_time}}</view>
+      </view>
+    </view>
+    <view class="jy-content">
+      <navigator url="/pages/community-detail/community-detail?id={{item.id}}" hover-class="navigator-hover" class="jy-navigator">
+        <view class="jy-title mt-25">{{item.title}}</view>
+        <view class="jy-profile mt-25">{{item.content}}</view>
+      </navigator>
+      <view wx:if="{{item.images && item.images.length > 0}}" class="mt-25">
+        <image-view list="{{item.images}}" class=""></image-view>
+      </view>
+      <view  hover-class="navigator-hover" class="jy-desc mt-25">
+        <navigator wx:if="{{showApp}}" url="/pages/community-post-classify/community-post-classify?id={{item.source_id}}&name={{item.source_name}}&type=app" class="desc-item">#{{item.source_name}}</navigator>
+        <navigator url="/pages/community-detail/community-detail?id={{item.id}}"  class="desc-item">
+          <view class="icon-item no-mt">
+            <tab-simple active="{{item.is_liked == 1}}" count="{{item.likes}}" is-count icon="icon-like"></tab-simple>
+          </view>
+          <view class="icon-item">
+            <image src="../../common/images/icon-msg.png" mode="aspectFill|aspectFit" lazy-load class="icon"></image>
+            <text class="count">{{item.comments}}</text>
+          </view>
+          <view class="icon-item">
+            <image src="../../common/images/icon-eye.png" mode="aspectFill|aspectFit" lazy-load class="icon"></image>
+            <text class="count">{{item.views}}</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

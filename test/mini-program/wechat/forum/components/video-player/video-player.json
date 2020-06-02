@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tab-opentype": "/components/tab-opentype/tab-opentype",
+    "tab-like": "/components/tab-like/tab-like",
+    "tab-simple": "/components/tab-simple/tab-simple",
+    "txv-video": "plugin://tencentvideo/video"
+  }
+}

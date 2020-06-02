@@ -36,8 +36,6 @@ app.use(
 // 路由
 router(app)
 
-
-
 // 创建服务
 const server = http.createServer(app.callback())
 

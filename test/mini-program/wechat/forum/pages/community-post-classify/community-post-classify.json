@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "recommend-list": "/components/community-recommend-list/community-recommend-list",
+    "btn-home": "/components/btn-home/btn-home"
+  },
+  "enablePullDownRefresh": true
+}

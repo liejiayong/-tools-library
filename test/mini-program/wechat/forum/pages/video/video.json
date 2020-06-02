@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "search": "/components/search/search",
+    "video-player": "/components/video-player/video-player",
+    "comment-modal": "/pages/video/comment-modal/comment-modal",
+    "txv-video": "plugin://tencentvideo/video"
+  },
+  "enablePullDownRefresh": true
+}

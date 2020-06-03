@@ -17,3 +17,10 @@ exports.registerUser = value => {
     let _sql = 'insert into users set name=?,pass=?,avator=?,moment=?;'
     return query(_sql, value)
 }
+
+// 添加实名认证
+exports.setCerti = value => {
+    let _sql = 'insert into certification set type=?'
+    console.log(_sql)
+    return query(_sql, value)
+}

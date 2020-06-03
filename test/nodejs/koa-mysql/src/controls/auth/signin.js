@@ -4,9 +4,9 @@ const { authentication } = require('../../middlewares/authentication')
 
 exports.postSignin = async ctx => {
     const auth = await authentication(ctx)// 权鉴
-console.log('aaaa',auth)
+    // console.log('aaaa', auth)
     let { name, password } = ctx.request.body
-    console.log('signin', name, password)
+    // console.log('signin', name, password)
     await findDataByName(name).then(res => {
         if (res.length && res[0]['name'] && res[0]['pass'] === password) {
             // ctx.session = {

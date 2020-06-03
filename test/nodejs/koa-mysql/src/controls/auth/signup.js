@@ -3,13 +3,14 @@ const moment = require('moment')
 const fs = require('fs')
 const path = require('path')
 const { findDataByName, registerUser } = require('../../models/user')
-const { authentication } = require('../../middlewares/authentication')
+// const { authentication } = require('../../middlewares/authentication')
 
 exports.postSignup = async ctx => {
-    await authentication(ctx)// 权鉴
+    // await authentication(ctx)// 权鉴
 
     try {
-        let { name, password, repeatpass, avator } = ctx.request.body
+        let { name, password, repassword, avator } = ctx.request.body
+        // console.log(name,password,repassword)
         await findDataByName(name).then(async res => {
             // 用户存在
             if (res.length) {
@@ -19,61 +20,62 @@ exports.postSignup = async ctx => {
                 }
             }
             // 密码
-            else if (password !== repeatpass || password.trim() === '') {
+            else if (password !== repassword || password.trim() === '') {
                 ctx.body = {
                     code: 0,
                     msg: '两次输入的密码不一致'
                 }
             }
-            // 头像
-            else if (avator && avator.trim() === '') {
-                ctx.body = {
-                    code: 0,
-                    msg: '请上传头像'
-                }
-            }
+            // // 头像
+            // else if (avator && avator.trim() === '') {
+            //     ctx.body = {
+            //         code: 0,
+            //         msg: '请上传头像'
+            //     }
+            // }
             // 密码
-            else if (password !== repeatpass || password.trim() === '') {
+            else if (password !== repassword || password.trim() === '') {
                 ctx.body = {
                     code: 0,
                     msg: '两次输入的密码不一致'
                 }
             }
             else {
-                let base64Data = avator.replace(/^data:image\/\w+;base64,/, ''),
-                    dataBuffer = new Buffer.from(base64Data, 'base64'),
-                    avatarName = Number(Math.random().toString().substr(3)).toString(36) + Date.now(),
-                    upload = await new Promise((reslove, reject) => {
-                        const dirpath = path.join(__dirname, '../../cachefile')
-                        if (!fs.existsSync(dirpath)) {
-                            fs.mkdirSync(dirpath)
-                        }
-                        fs.writeFile(`./cachefile/${avatarName}.jpg`, dataBuffer, err => {
-                            if (err) {
-                                reject(false)
-                                throw err
-                            }
-                            reslove(true)
-                            console.log('头像上传成功')
-                        })
-                    })
-                if (upload) {
-                    const val = [name, password, `${avatarName}.jpg`, moment().format('YYYY-MM-DD HH:mm:ss')]
-                    await registerUser(val).then(reg => {
-                        console.log('注册成功', reg)
-                        //注册成功
-                        ctx.body = {
-                            code: 1,
-                            message: '注册成功'
-                        }
-                    })
-                } else {
-                    console.log('头像上传失败')
+                // let base64Data = avator.replace(/^data:image\/\w+;base64,/, ''),
+                //     dataBuffer = new Buffer.from(base64Data, 'base64'),
+                //     avatarName = Number(Math.random().toString().substr(3)).toString(36) + Date.now(),
+                //     upload = await new Promise((reslove, reject) => {
+                //         const dirpath = path.join(__dirname, '../../cachefile')
+                //         if (!fs.existsSync(dirpath)) {
+                //             fs.mkdirSync(dirpath)
+                //         }
+                //         fs.writeFile(`./cachefile/${avatarName}.jpg`, dataBuffer, err => {
+                //             if (err) {
+                //                 reject(false)
+                //                 throw err
+                //             }
+                //             reslove(true)
+                //             console.log('头像上传成功')
+                //         })
+                //     })
+                // if (upload) {
+                // const val = [name, password, `${avatarName}.jpg`, moment().format('YYYY-MM-DD HH:mm:ss')]
+                const val = [name, password, '', moment().format('YYYY-MM-DD HH:mm:ss')]
+                await registerUser(val).then(reg => {
+                    console.log('注册成功', reg)
+                    //注册成功
                     ctx.body = {
-                        code: 0,
-                        message: '头像上传失败'
+                        code: 1,
+                        message: '注册成功'
                     }
-                }
+                })
+                // } else {
+                //     console.log('头像上传失败')
+                //     ctx.body = {
+                //         code: 0,
+                //         message: '头像上传失败'
+                //     }
+                // }
             }
 
         })

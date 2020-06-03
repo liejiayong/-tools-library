@@ -8,7 +8,12 @@ const pool = mysql.createPool({
     port: database.PORT,
     user: database.USERNAME,
     password: database.PASSWORD,
-    database: database.DATABASE
+    database: database.DATABASE,
+    // ssl: {
+    // ca: fs.readFileSync(__dirname + '/mysql-ca.crt')
+    // set up your ca correctly to trust the connection
+    // rejectUnauthorized: false
+    // }
 })
 
 // 查询
@@ -37,6 +42,27 @@ const createTable = sql => query(sql, [])
 
 // 建表
 model(createTable)
+
+/**
+ * 事件监听
+ */
+// when a new connection is made within the pool. 
+// If you need to set session variables on the connection before it gets used
+pool.on('connection', function (connection) {
+    console.log('Connection %d connection', connection);
+});
+// when a connection is acquired from the pool.
+pool.on('acquire', function (connection) {
+    console.log('Connection %d acquired', connection);
+});
+// when a callback has been queued to wait for an available connection.
+pool.on('enqueue', function (connection) {
+    console.log('Waiting for available connection slot', connection);
+});
+// when a connection is released back to the pool.
+pool.on('release', function (connection) {
+    console.log('Connection %d released', connection);
+});
 
 module.exports = {
     query,

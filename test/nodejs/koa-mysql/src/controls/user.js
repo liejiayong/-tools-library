@@ -1,7 +1,7 @@
 const app = require('koa')
-const { findDataByUId } = require('../models/user')
+const { findDataByUId, setCerti } = require('../models/user')
 const { authentication } = require('../middlewares/authentication')
-console.log('aut', authentication, typeof authentication)
+// console.log('aut', authentication, typeof authentication)
 exports.postUserInfo = async ctx => {
     await authentication(ctx)// 权鉴
 

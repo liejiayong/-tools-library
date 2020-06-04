@@ -372,3 +372,25 @@ export const inertiaScroll = {
   off: function () { window.removeEventListener('touchmove', this.fn, { passive: false }); }
 }
 
+Dateinfo = {
+  padZero: function (num) {
+    return num > 9 ? num : '0' + num;
+  },
+  Date: function () {
+    var date = new Date(),
+      year = date.getFullYear(),
+      month = date.getMonth() + 1,
+      day = date.getDate(),
+      hour = date.getHours(),
+      minutes = date.getMinutes();
+    var length = (new Date(year + '/' + (month + 1) + '/1').getTime() - new Date(year + '/' + month + '/1').getTime()) / 86400000;
+    return {
+      year: year,
+      month: this.padZero(month),
+      day: this.padZero(day),
+      hour: this.padZero(hour),
+      minutes: this.padZero(minutes),
+      length: length
+    }
+  }
+}

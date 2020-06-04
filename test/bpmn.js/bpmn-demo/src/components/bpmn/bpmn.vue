@@ -24,27 +24,26 @@
 
 <script>
 // bpmn 相关依赖
-import "bpmn-js/dist/assets/diagram-js.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn.css";
 import "bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css";
-import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
-
 // 左边工具栏以及编辑节点的样式
+import "bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css";
+import "bpmn-js/dist/assets/diagram-js.css";
+// 右边工具栏以及编辑节点的样式:属性栏的作用: 用户在点击图上的节点的时候, 能获取到该节点的属性信息
 import "bpmn-js-properties-panel/dist/assets/bpmn-js-properties-panel.css";
-
-import BpmnModeler from "bpmn-js/lib/Modeler";
-// 工具栏相关
+// 左边工具栏以及节点
 import propertiesProviderModule from "bpmn-js-properties-panel/lib/provider/camunda";
+// 右边的工具栏
 import propertiesPanelModule from "bpmn-js-properties-panel";
 import camundaModdleDescriptor from "camunda-bpmn-moddle/resources/camunda";
-
+import BpmnModeler from "bpmn-js/lib/Modeler";
 // 汉化
 import customTranslate from "./customTranslate";
 
 export default {
 	data() {
 		return {
-			bpmnModeler: null,
+			bpmnModeler: null, // Bpmn对象
 			canvas: null,
 			bpmnTemplate: `
           <?xml version="1.0" encoding="UTF-8"?>
@@ -203,6 +202,8 @@ export default {
 			this.bpmnModeler.importXML(bpmn, err => {
 				if (err) {
 					this.$Message.error("打开模型出错,请确认该模型符合Bpmn2.0规范");
+				} else {
+					this.bpmnModeler.get("canvas").zoom("fit-viewport");
 				}
 			});
 		}

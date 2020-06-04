@@ -412,15 +412,31 @@ body {
   font-size: 0;
   line-height: 1;
   overflow: hidden;
+  &:active {
+    filter: brightness(1.1);
+  }
+  &.disable {
+    &:active {
+      filter: none;
+    }
+  }
 }
 .jy-btn-txt {
   cursor: pointer;
   z-index: 100;
+  &:active {
+    filter: brightness(1.1);
+  }
+  &.disable {
+    &:active {
+      filter: none;
+    }
+  }
 }
 .jy-btn-brightness {
   &:hover {
-    -webkit-filter: brightness(0.8);
-    filter: brightness(0.8);
+    -webkit-filter: brightness(1.1);
+    filter: brightness(1.1);
   }
 }
 .jy-btn-primary {

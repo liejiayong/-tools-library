@@ -38,9 +38,10 @@ Content-Type: {{contentType}}
 ###
 
 # @name certification
-POST http://{{host}}/auth/certi HTTP/1.1
+POST http://{{host}}/auth/certification HTTP/1.1
 Content-Type: {{contentType}}
 
 {
-    "type": 0 
+    "type": 0,
+    "username": "liejy"
 }

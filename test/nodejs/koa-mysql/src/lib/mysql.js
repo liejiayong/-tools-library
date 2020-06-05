@@ -9,6 +9,10 @@ const pool = mysql.createPool({
     user: database.USERNAME,
     password: database.PASSWORD,
     database: database.DATABASE,
+    acquireTimeout: 15000, // 获取超时时间（默认10000）
+    waitForConnections: true, // 连接等待时间（默认true）。true: 连接池会将请求加入队列，待可用之时再触发操作;false:连接池将立即返回错误
+    connectionLimit: 100, // 最大连接数量限制(默认10)
+    queueLimit: 0// 队列数量限制（默认0）。0：不限制
     // ssl: {
     // ca: fs.readFileSync(__dirname + '/mysql-ca.crt')
     // set up your ca correctly to trust the connection
@@ -21,6 +25,7 @@ const query = function (sql, values) {
     return new Promise((resolve, reject) => {
         pool.getConnection((err, conn) => {
             if (err) {
+                console.log(err)
                 reject(err)
             } else {
                 conn.query(sql, values, (err, rows) => {

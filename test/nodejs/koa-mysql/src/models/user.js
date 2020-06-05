@@ -18,9 +18,9 @@ exports.registerUser = value => {
     return query(_sql, value)
 }
 
-// 添加实名认证
-exports.setCerti = value => {
-    let _sql = 'insert into certification set type=?'
-    console.log(_sql)
+// test-添加实名认证
+exports.certiUser = value => {
+    let _sql = 'insert into certification set type=?,username=?;'
+    console.log(_sql, value)
     return query(_sql, value)
 }

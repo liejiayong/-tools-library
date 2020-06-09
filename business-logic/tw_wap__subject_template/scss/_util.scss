@@ -4,7 +4,7 @@
 body {
   margin-left: auto;
   margin-right: auto;
-  font: #{$fs-primary}/1.15 "fcustom","微软雅黑";
+  font: #{$fs-primary}/ 1.15 "fcustom", "微软雅黑";
   color: #333;
 }
 
@@ -63,10 +63,10 @@ body {
 .tr {
   text-align: right;
 }
-.select-tc{
+.select-tc {
   text-align: center;
-  -moz-text-align-last:center;
-       text-align-last:center;
+  -moz-text-align-last: center;
+  text-align-last: center;
 }
 
 .flighter {
@@ -84,13 +84,13 @@ body {
 }
 .text-underline {
   text-decoration: underline;
-  &:hover{
+  &:hover {
     text-decoration: none;
   }
 }
 .text-none {
   text-decoration: none;
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 }
@@ -140,10 +140,10 @@ body {
 .fs-12 {
   font-size: 0.12rem;
 }
-.fs-10{
-  font-size: .1rem;
+.fs-10 {
+  font-size: 0.1rem;
 }
-.fs-0{
+.fs-0 {
   font-size: 0;
 }
 
@@ -307,10 +307,10 @@ body {
 .prelative {
   position: relative;
 }
-.pabsolute{
+.pabsolute {
   position: absolute;
 }
-.pfixed{
+.pfixed {
   position: fixed;
 }
 .absolute-0 {
@@ -349,7 +349,7 @@ body {
 }
 .jy-flex-hspace {
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 .jy-flex-g5 {
   width: 50%;
@@ -410,7 +410,8 @@ body {
   &:active {
     filter: brightness(1.1);
   }
-  &.disable {
+  &.disable,
+  &.active {
     &:active {
       filter: none;
     }
@@ -422,7 +423,8 @@ body {
   &:active {
     filter: brightness(1.1);
   }
-  &.disable {
+  &.disable,
+  &.active {
     &:active {
       filter: none;
     }
@@ -462,7 +464,7 @@ body {
 }
 
 .jy-content {
-  padding: 1.17rem 0 .96rem;
+  padding: 1rem 0 0.96rem;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -493,6 +495,13 @@ body {
   height: 100%;
   box-sizing: border-box;
 }
+.jy-sectionmain-auto {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: $main-width;
+  box-sizing: border-box;
+}
 
 // 旋转屏幕
 .jy-orient_layer {
@@ -506,13 +515,14 @@ body {
   bottom: 0;
   background: rgba(0, 0, 0, 0.8);
   z-index: 1000;
-  &.active{
+  &.active {
     display: block;
   }
 }
 @media screen and (min-aspect-ratio: 13/9) {
   .jy-orient_layer {
     display: block;
+    animation: nones 5s linear;
   }
 }
 .jy-orient_content {
@@ -537,6 +547,16 @@ body {
   margin-top: 20px;
   font-size: 15px;
   color: #fff;
+}
+@keyframes nones {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
 }
 @-webkit-keyframes rotation {
   10% {

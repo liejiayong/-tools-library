@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="address=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="robots" content="follow" />
+  <meta name="author" content="liejy" />
+  <meta name="copyright" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <title>danmu template</title>
+</head>
+
+<body>
+  <style>
+    .jy-lottery {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .lottery-panel {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(#ff0000, #f0f0f0);
+      border-radius: 50%;
+    }
+
+    .btn-lottery {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+  <div class="jy-lottery">
+    <div class="lottery-panel"></div>
+    <a href="javascript:;" class="jy-btn btn-lottery">点击抽奖</a>
+  </div>
+  <script src="./jquery-1.11.2.min.js"></script>
+  <script src="./jquery.rotate.min.js"></script>
+  <script>
+    $('.btn-lottery').rotate({
+      bind: {
+        click: function () {
+          // $.post('/act.php',{},function(){
+          $('.lottery-panel').rotate({
+            angle: 0,
+            animateTo: 360 * 10 + 360 / 15,
+            duration: 3500,
+            center: ['50%', '50%'],
+            callback: function () {
+              console.log('click')
+            },
+            step: function () { },
+            easing: function (x, t, b, c, d) {
+              return c * (t / d) + b;
+            },
+            getRotateAngle: function () { },
+            stopRotate: function () { },
+          });
+          // },'json');
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

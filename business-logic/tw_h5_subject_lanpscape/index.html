@@ -48,16 +48,18 @@
 
 <body ontouchstart>
 	<div id="print">
-		<div class="bg-home"></div>
-		<div id="p1">啦啦啦1</div>
-		<div id="p2">啦啦啦2</div>
-		<div id="p3">啦啦啦3</div>
-		<div class="bg-home"></div>
-		<!-- <img src="./img/bg-home.png" alt="" class=""> -->
-		<div class="bg-tit1 animated"></div>
-		<div class="bg-tit2 animated"></div>
-		<div class="jybtn btn-rule"></div>
-		<div class="jybtn btn-ready animated animated-infinite"></div>
+		<div class="jy-section">
+			<div class="bg-home"></div>
+			<div id="p1">啦啦啦1</div>
+			<div id="p2">啦啦啦2</div>
+			<div id="p3">啦啦啦3</div>
+			<div class="bg-home"></div>
+			<!-- <img src="./img/bg-home.png" alt="" class=""> -->
+			<div class="bg-tit1 animated"></div>
+			<div class="bg-tit2 animated"></div>
+			<div class="jybtn btn-rule"></div>
+			<div class="jybtn btn-ready animated animated-infinite"></div>
+		</div>
 	</div>
 	<style>
 		#p1 {
@@ -139,7 +141,8 @@
 		console.log(ScreenOrient)
 		const xScreen = new ScreenOrient()
 		xScreen.lock({
-			mode: 'landscape',
+			// mode: 'landscape', // 强制横屏
+			mode: 'portrait',
 			$wrapper: document.getElementById('print'),
 			zIndex: 302,
 		})

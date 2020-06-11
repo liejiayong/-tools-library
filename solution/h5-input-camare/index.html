@@ -36,7 +36,7 @@
 				match = match ? match[0] : false
 				return match == 'QQ/'
 			})()
-			if (isQQ) {
+			if (isQQ && (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1)) {
 				document.getElementById('wapInput').setAttribute('capture', 'camera')
 			}
 		</script>

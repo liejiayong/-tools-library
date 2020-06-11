@@ -463,9 +463,14 @@ body {
   box-sizing: border-box;
 }
 .jy-section {
-  position: relative;
+  // position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
-  background: no-repeat top center / $bg-width auto;
+  height: 100%;
+  background: no-repeat center / 100% auto;
   box-sizing: border-box;
 }
 .jy-sectionmain {

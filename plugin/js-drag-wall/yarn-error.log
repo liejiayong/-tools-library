@@ -1,5 +1,5 @@
 Arguments: 
-  E:\Program Files\nodejs\node.exe E:\Program Files (x86)\Yarn\bin\yarn.js build
+  E:\Program Files\nodejs\node.exe E:\Program Files (x86)\Yarn\bin\yarn.js install
 
 PATH: 
   C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_131\bin;C:\Program Files\Java\jdk-11.0.6\bin;C:\Program Files\MongoDB\Server\4.1\bin;E:\Program Files\mysql-5.7.25-winx64\bin;E:\Program Files\python-3.7.2;E:\Program Files (x86)\Yarn\bin\;E:\Program Files\PuTTY\;D:\Program Files\TortoiseSVN\bin;E:\nvm;E:\Program Files\nodejs;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;e:\Program Files\Git\cmd;E:\Program Files\Microsoft VS Code Insiders\bin;E:\Program Files\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Local\Programs\EmEditor;E:\Program Files (x86)\WebStorm 183.4588.47\bin;C:\Users\Administrator\AppData\Local\Yarn\bin;E:\Program Files (x86)\Fiddler;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;E:\nvm;E:\Program Files\nodejs
@@ -14,20 +14,16 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: E:\tanwan-file\tool-library\automation-deployment\rollup\rollup-plugin-v1\package.json: Unexpected token } in JSON at position 1021
-      at JSON.parse (<anonymous>)
-      at E:\Program Files (x86)\Yarn\lib\cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (E:\Program Files (x86)\Yarn\lib\cli.js:304:30)
-      at E:\Program Files (x86)\Yarn\lib\cli.js:315:13
+  Error: connect ETIMEDOUT 104.16.20.35:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1106:14)
 
 npm manifest: 
   {
-    "name": "rollup-plugin-v1s",
-    "version": "1.0.0",
-    "main": "dist/how-long-till-lunch.cjs.js",
-    "module": "dist/how-long-till-lunch.esm.js",
-    "browser": "dist/how-long-till-lunch.umd.js",
+    "name": "js-drag",
+    "version": "0.0.2",
+    "main": "dist/drag.cjs.js",
+    "module": "dist/drag.esm.js",
+    "browser": "dist/drag.umd.js",
     "dependencies": {
       "core-js": "^3.6.4"
     },
@@ -52,7 +48,7 @@ npm manifest:
       "test": "node test/test.js",
       "pretest": "npm run build",
       "buildWindow": "set NODE_ENV=production && rollup -c",
-      "buildUnix": "NODE_ENV=production rollup -c ./rollup.config.js",
+      "buildUnix": "NODE_ENV=production rollup -c ./rollup.config.js"
     },
     "author": "liejy",
     "homepage": "",

@@ -341,7 +341,7 @@ export const is24Hour = value => /^(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d$/g.test(val
  *  验证12小时制时间（hh:mm:ss）
  *  @param { string } value
  */
-export const  is12Hour = value => /^(?:1[0-2]|0?[1-9]):[0-5]\d:[0-5]\d$/g.test(value);
+export const is12Hour = value => /^(?:1[0-2]|0?[1-9]):[0-5]\d:[0-5]\d$/g.test(value);
 
 /**
  * 验证base64格式
@@ -576,3 +576,11 @@ export const isNoWord = value => /^[^A-Za-z]*$/g.test(value);
  * @param { string } value
  */
 export const isJavaPackage = value => /^([a-zA-Z_][a-zA-Z0-9_]*)+([.][a-zA-Z_][a-zA-Z0-9_]*)+$/g.test(value);
+
+/**
+ * 判断是否为函数对象
+ * @param {*} obj Function Object
+ */
+export function isFunction(obj) {
+  return obj && typeof obj === 'function'
+}

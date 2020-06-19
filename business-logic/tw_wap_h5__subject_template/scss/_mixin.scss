@@ -1,0 +1,86 @@
+@mixin bgimg($width, $url) {
+  background: url(#{$url}) no-repeat top center / #{$width} auto;
+}
+@mixin bgimgc($width, $url) {
+  background: url(#{$url}) no-repeat center / #{$width} auto;
+}
+@mixin bgimg-repeat($width, $url) {
+  background: url(#{$url}) repeat / #{$width} auto;
+}
+
+@mixin inputcolor($color) {
+  color: $color;
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &::-ms-input-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+}
+@mixin inputbg($color) {
+  background-color: $color;
+  &::-webkit-input-placeholder {
+    background-color: $color;
+  }
+  &::-moz-placeholder {
+    background-color: $color;
+  }
+  &::-ms-input-placeholder {
+    background-color: $color;
+  }
+  &::-moz-placeholder {
+    background-color: $color;
+  }
+}
+
+@mixin lh($height) {
+  height: $height;
+  line-height: $height;
+}
+
+@mixin triangle($width: 10px) {
+  border-top: $width dashed transparent;
+  border-bottom: $width dashed transparent;
+  border-left: $width dashed transparent;
+  border-right: $width dashed transparent;
+  height: 0;
+  width: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+// 文字行数
+@mixin nowrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+@mixin ellipsis($count) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $count;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+// 滚动卡顿
+@mixin scroll {
+  -webkit-overflow-scrolling: touch;
+}
+@mixin scroll_static {
+  position: static;
+  -webkit-overflow-scrolling: touch;
+}
+@mixin scroll_chaining {
+  -ms-scroll-chaining: none;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}

@@ -1,0 +1,34 @@
+// 样式归属前缀
+$prefix: "jy";
+
+// font-size
+$fs-primary: 0.24rem;
+
+// 背景宽度
+$bg-width: 7.5rem;
+
+// 主要内容宽度
+$main-width: 6.7rem;
+
+// color
+// 主题色定义
+$color-theme-bg: #9a3116 url(); // 默认主题背景颜色
+$color-theme-txt: #ffecd9; // 默认主题字体颜色,与$color-primary一样
+
+// 默认颜色定义
+$color-primary: $color-theme-txt; // 默认字体颜色
+$color-btn-txt: #a70000; // 默认按钮字体颜色
+$color-btn-bg: #ffc949; // 默认按钮字体颜色
+
+$color-yellow: yellow;
+$color-orange: orange;
+$color-brown: brown;
+$color-turquoise: turquoise;
+$color-green: #cdffa8;
+$color-grey: #666;
+$color-deep-grey: #333;
+$color-red: red;
+$color-pink: pink;
+$color-blue: blue;
+$color-indigo: indigo; // 靛蓝
+$color-purple: purple;

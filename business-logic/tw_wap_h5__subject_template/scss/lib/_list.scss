@@ -1,0 +1,91 @@
+@import "../_const.scss";
+@import "../_mixin.scss";
+
+$tit-height: 0.38rem;
+
+.list_panel {
+  padding-top: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 6.44rem;
+  .list_tit {
+    display: inline-block;
+    padding: 0 0.2rem;
+    font-size: 0.24rem;
+    // font-weight: bold;
+    @include lh($tit-height);
+    border-radius: $tit-height;
+    color: #fff;
+    background: #4872a8;
+  }
+  .list_body {
+    position: relative;
+    // padding-left: 0.3rem;
+    li {
+      position: relative;
+      // padding-top: .12rem;
+      margin-top: 0.16rem;
+      line-height: 1.5;
+      list-style: none;
+      // text-indent: .1rem;
+      // &::before{
+      //   content: "1";
+      //   display: block;
+      //   position: absolute;
+      //   top: .09rem;
+      //   left: -.3rem;
+      //   width: .24rem;
+      //   height: .24rem;
+      //   line-height: .24rem;
+      //   text-align: center;
+      //   font-size: .17rem;
+      //   color: #ffecd9;
+      //   background-color: #a33c2f;
+      //   -moz-border-radius: 50%;
+      //        border-radius: 50%;
+      // }
+      $width: 0.3rem;
+      @for $i from 1 through 10 {
+        &:nth-of-type(#{$i}) {
+          &::before {
+            // content: "#{$i}";
+            display: block;
+            position: absolute;
+            top: 0.05rem;
+            left: -0.3rem;
+            width: $width;
+            height: $width;
+            line-height: $width;
+            text-align: center;
+            font-size: 0.24rem;
+            color: #fff;
+            background-color: #7491bc;
+            border-radius: 50%;
+          }
+        }
+      }
+      i {
+        $width: 0.3rem;
+        margin-right: 0.1rem;
+        display: inline-block;
+        width: $width;
+        height: $width;
+        line-height: $width;
+        text-align: center;
+        font-size: 0.24rem;
+        color: #fff;
+        background-color: #7491bc;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+// <div class="list_panel">
+// <div class="list_tit">注意事項</div>
+// <ul class="list_body">
+//   <li><i>1</i>獎勵會在遊戲上線後通過手機簡訊的方式發放</li>
+//   <li><i>2</i>請輸入正確的手機門號，如輸入有誤，將不會獲得事前登錄獎勵。</li>
+//   <li><i>3</i>活動期間如果發生不可抗力因素，我方有保留更改或終止活動的權利。如有出現以上情況，我們將會在Facebook上宣布。</li>
+// </ul>
+// </div>

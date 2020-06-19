@@ -89,6 +89,35 @@ function preStyle(style) {
 
   return vendor + style.charAt(0).toUpperCase() + style.substr(1);
 }
+function preStyleCss(style) {
+  var el = document.createElement('div');
+
+  var vendor = (function () {
+    var transformName = {
+      webkit: 'webkitTransform',
+      moz: 'MozTransform',
+      o: 'OTransform',
+      ms: 'msTransform',
+      standard: 'transform'
+    };
+    for (var key in transformName) {
+      if (el[key] !== 'undefined') {
+        return key;
+      }
+    }
+    return false;
+  })();
+
+  if (vendor === false) {
+    return false;
+  }
+
+  if (vendor === 'standard') {
+    return style;
+  }
+
+  return '-' + vendor + '-' + style;
+}
 
 /**
  * input元素选择兼容性处理
@@ -157,4 +186,14 @@ export const domInfo = {
     }
     return actualLeft
   },
+}
+
+/**
+ * 判断是否DOM元素
+ * @param {*} obj DOM Object
+ */
+export function isElement(obj) {
+  return (typeof HTMLElement === 'object')
+    ? (obj instanceof HTMLElement)
+    : !!(obj && typeof obj === 'object' && (obj.nodeType === 1 || obj.nodeType === 9) && typeof obj.nodeName === 'string');
 }

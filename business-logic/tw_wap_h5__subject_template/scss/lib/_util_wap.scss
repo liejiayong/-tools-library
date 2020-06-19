@@ -1,0 +1,60 @@
+/***
+
+  For wap terminal
+
+**/
+
+.jy-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  color: $color-primary;
+  background: $color-theme-bg;
+}
+
+.jy-content {
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// the banner style only for pc terminal
+.jy-headermain {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  height: 100%;
+  zoom: 1;
+  box-sizing: border-box;
+}
+
+.jy-section {
+  position: relative;
+  width: 100%;
+  background: no-repeat top center / $bg-width auto;
+  box-sizing: border-box;
+}
+
+.jy-sectionmain {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: $main-width;
+  // height: inherit;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.jy-sectionmain-auto {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: $main-width;
+  box-sizing: border-box;
+}

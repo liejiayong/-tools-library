@@ -1,0 +1,142 @@
+/**
+  * @name: index.css
+  * @description: page style
+  * @author: liejiayong(809206619@qq.com)
+  * @data: 2018-12-18
+*/
+@import "./_const.scss";
+@import "./_mixin.scss";
+@import "./_reset.scss";
+@import "./_font.scss";
+@import "./_sprite.scss";
+@import "./_util.scss";
+@import "./_lib.scss";
+
+/**
+*  business css
+**/
+
+/**
+  page preloading
+**/
+.ploading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #c5d5e5 url("../img/bg.jpg") no-repeat top center/auto 100%;
+  color: #fff8de;
+  z-index: 1000;
+  .progress {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    right: 0;
+  }
+}
+
+// logo
+.logo {
+  position: absolute;
+  top: 0.33rem;
+  left: 0.25rem;
+  z-index: 10;
+
+  $width: 1.81rem;
+  width: $width;
+  height: 0.53rem;
+  @include bgimg($width, "../img/logo.png");
+}
+
+// auth status
+.jy-auth {
+  position: fixed;
+  top: 0.3rem;
+  right: 0.3rem;
+  font-size: 0.24rem;
+  white-space: nowrap;
+  color: #333;
+  z-index: 10;
+  .btn-login {
+    vertical-align: middle;
+    text-decoration: underline;
+  }
+  .jy-logout {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    align-items: center;
+    z-index: 1;
+    .btn-logout {
+      padding: 0 0.1rem;
+      display: inline-block;
+      text-decoration: underline;
+      vertical-align: middle;
+      color: #ff0000;
+    }
+    .nickname {
+      padding: 0 0.1rem;
+      vertical-align: middle;
+      display: inline-block;
+      max-width: 3rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: right;
+    }
+    i {
+      display: none;
+      // display: inline-block;
+      // padding: 0 0.04rem;
+      // overflow: hidden;
+      // font-style: normal;
+      // color: #fff;
+    }
+  }
+}
+
+// section-1
+.section-1 {
+  // height: 7.365rem;
+  background-image: url("../img/bg1.jpg");
+  .i-time {
+    position: absolute;
+    top: 6.72rem;
+    left: 0;
+    right: 0;
+    line-height: 0.33rem;
+    text-align: center;
+    color: #f8d596;
+    mask-image: -webkit-gradient(
+      linear,
+      0 0,
+      0 bottom,
+      from(#fef9f2),
+      to(#f8d596)
+    );
+    font-weight: bold;
+    font-size: 0.24rem;
+  }
+}
+
+// section-2
+.section-2 {
+  // height: 7.365rem;
+  background-image: url("../img/bg2.jpg");
+  .jy-sectionmain {
+  }
+}
+
+// section-3
+.section-3 {
+  // height: 7.365rem;
+  background-image: url("../img/bg3.jpg");
+  .jy-sectionmain {
+  }
+}

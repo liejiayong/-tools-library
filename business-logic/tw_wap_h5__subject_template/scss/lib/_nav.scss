@@ -1,0 +1,132 @@
+// <!-- nav -->
+// <div class="jy-nav">
+//   <div class="jy-nav_wrapper">
+//     <div class="jy-nav_logo logo"></div>
+//     <div class="jy-nav_profile">
+//       <div class="jy-nav_profile_name">最强王者</div>
+//       <div class="jy-nav_profile_subname">正版小说授权官方手游</div>
+//     </div>
+//     <div class="jy-nav_extra">
+//       <a href="javascript:;" class="jybtn btn-g-dl"></a>
+//       <div class="jy-nav_btn__menu" id="btnNavMenu">
+//         <div class="jy-nav_btn__menu--line"></div>
+//         <div class="jy-nav_btn__menu--line"></div>
+//         <div class="jy-nav_btn__menu--line"></div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+
+.jy-nav {
+  $nav-height: 1.2rem;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 0.3rem;
+  z-index: 200;
+  background-color: #000;
+  .jy-nav_wrapper {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: $nav-height;
+  }
+  .jy-nav_logo {
+    $width: 1.64rem;
+    margin-bottom: -0.24rem;
+    // -moz-border-radius: 0.3rem;
+    // border-radius: 0.3rem;
+    -webkit-box-flex: 0;
+    flex: 0 0 $width;
+    width: $width;
+  }
+  .jy-nav_profile {
+    // flex: 1;
+    margin-left: 0.15rem;
+    color: #c7c7c7;
+  }
+  .jy-nav_profile_name {
+    font-size: 0.32rem;
+  }
+  .jy-nav_profile_subname {
+    margin-top: 0.08rem;
+  }
+  .jy-nav_extra {
+    -webkit-box-flex: 1;
+    flex: 1;
+    justify-self: flex-end;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+}
+
+// <div class="jy-nav_btn__menu" id="btnNavMenu">
+// <div class="jy-nav_btn__menu--line"></div>
+// <div class="jy-nav_btn__menu--line"></div>
+// <div class="jy-nav_btn__menu--line"></div>
+// </div>
+.jy-nav_btn__menu {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  width: 0.6rem;
+  // height: 0.6rem;
+  margin: 0 0.1rem;
+  line-height: 1;
+  font-size: 0;
+
+  $height: 0.08rem;
+  $gutter: 0.1rem;
+
+  .jy-nav_btn__menu--line {
+    position: relative;
+    display: block;
+    width: 0.62rem;
+    height: $height;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #dbbb7d;
+    // -moz-border-radius: 0.1rem;
+    // border-radius: 0.1rem;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    &:nth-of-type(1) {
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#deca89), to(#c39f61));
+      background-image: linear-gradient(#deca89, #c39f61);
+    }
+    &:nth-of-type(2) {
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#dbba7c), to(#dfbf81));
+      background-image: linear-gradient(#dbba7c, #dfbf81);
+      margin: $gutter auto;
+    }
+    &:nth-of-type(3) {
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#f3d698), to(#f7db9c));
+      background-image: linear-gradient(#f3d698, #f7db9c);
+    }
+  }
+  &.active {
+    .jy-nav_btn__menu--line {
+      will-change: transform, opacity;
+      &:nth-of-type(1) {
+        -webkit-transform: translateY(#{$gutter + $height}) rotate(-45deg);
+        transform: translateY(#{$gutter + $height}) rotate(-45deg);
+      }
+      &:nth-of-type(2) {
+        opacity: 0;
+      }
+      &:nth-of-type(3) {
+        -webkit-transform: translateY(-#{$gutter + $height}) rotate(45deg);
+        transform: translateY(-#{$gutter + $height}) rotate(45deg);
+      }
+    }
+  }
+}

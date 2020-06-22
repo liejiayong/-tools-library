@@ -4,7 +4,7 @@
  * Author: liejiayong(809206619@qq.com)
  * Date: 2020-06-18 17:37:09
  * LastEditors: liejiayong(809206619@qq.com)
- * LastEditTime: 2020-06-19 18:12:21
+ * LastEditTime: 2020-06-22 18:10:44
  */
 
 /**
@@ -91,21 +91,23 @@ export default class Orient {
       , landscape: '横屏'
       , zIndex: 200
     } // 模态框基础
+    // , container:,
+    , mode: Orient.MODE.portrait // 默认：portrait。 portrait|landscape
     , isListen: true
   }
 
   constructor(config) {
-    this.default = Orient._getDefault(config)
-    console.log(this.default, Orient.DEFAULTS, config)
-    this.$parent = isElement(this.default.modal.id) ? this.default.modal.id : typeof this.default.modal.id === 'string' ? document.querySelector(this.default.modal.id) : null
-    this.$modal = null
-    this.mode = Orient.MODE.portrait // 默认：portrait。 portrait|landscape
-    this.modeStat = Orient.MODE.portrait || Orient._detectOrient()
+    this.modeStat = Orient._detectOrient()
     this.icon = {
       portrait: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAADaCAMAAABU68ovAAAAS1BMVEUAAAD09PT5+fn8/Pz////5+fny8vL////5+fn39/f6+vr////x8fH////////+/v7////x8fH39/f////////////////x8fH///+HBPvxAAAAF3RSTlMADSCUBmbWn1c2gvHBvq1uKOpP187lQw7/C7wAAAPMSURBVHja7d3JkpswEIDh1mYWA8Ispt//STNS2XHbcQgkyK0k/R/mMKevRsgGaQrBI1Wa5rJ8qEtjSgU/ps3y8YyG52y9sFRbIOnTwtRJPxTVZWHrUsEtzaAgDg0xdVpYO6nIqBfm6jgkC3saAMzCngFQu4dyULCaGnZfbArK/RfUL1N7HeXuMRlgQ8PuUWl2//02tHekG7jkwLjAksOgLLDkcIl+MXKYsF+MLBKGMIQhjL+f4RR8NOXeMRx8PP+GoeDjqTcMYEgYwhCGMIQhDGF8JQyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCWKvyph3PiHie28JXloFhyy4AaOeuVHBP+w8wtCEGKjEaYmoakzN0gT+viJAOsUrLsDWuV1swiGiSMvoRvzcZf+210v3Vmenx69GEn3NKhsN7rVNAU67Fp67pGAZvFf3bK5cyilQMe782Ow3v0x2ZNioR46aYB/h55cNRpmEYjLUaViJ/ji4Jw2GssOtUkkrA6DFmYC2PNHc8w44bLv8Bn2qPZ9QYai2s1ZemnYlDH83QGJo1/Do91N2IMX8cg87VAbamKl9MOB3M0GQG7qg/mGEiQzPfBNozmSV8jBJDPTeji5OV/c48jonjZlQYUtwMHxQT++NSnK6GndEGhmdnjIFxZWfEidKzM8gnOSejDlnYmzIh9vUNjSF2Rh+fVtgZ18AY2Rk+MFp2hgkM/kt0CgzPzVAYqrgZLk4U9nXRNjA6bkaPoZKbUcQxscwMTZ7/j2P0sLMuMvTBjAmnwlcKtjaQZYgDGR5jY1cPm57q51QLC4/m1pTrg2RbDNVwNANafGrYsAwx2uMZDml+y5JhD8czFFWYLYu4DhIwNi946pZQD2LsX/4dZrJinoChzhjbtmZe2EQMKJBk3kH6glw8qRhXyljfT3GQjgFx1M3T7pK77S75p92lHlIyTFBs2mtLyqgQu007j2kZME5qwz5scobXcE+93ZW2DHv0tvJFO8c9+rE1vvrP/2NBGMK4JwyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAkjafm+JzCTtyZm8g7Jnf3rL/bckTBowqBlx2ictla7hpVxquBWdeJjNAq+pxouxkkBSZ2YGBU8VfEwGnipYWE4eMmxMDS8pFkYFl6yLAyVB6M/clAuy+9Wwkvl8rtdoMlhwjZgcvj4MlDm8GFegsrhq00BGP4vegMA+o9ve1T/h7c9Op/DsHI5GiyTg9JyOTYul0P0cjlSMJcDFrmPm/wGYAznCtxJQgcAAAAASUVORK5CYII='
       , landscape: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAADaCAMAAABU68ovAAAAS1BMVEUAAAD09PT5+fn8/Pz////5+fny8vL////5+fn39/f6+vr////x8fH////////+/v7////x8fH39/f////////////////x8fH///+HBPvxAAAAF3RSTlMADSCUBmbWn1c2gvHBvq1uKOpP187lQw7/C7wAAAPMSURBVHja7d3JkpswEIDh1mYWA8Ispt//STNS2XHbcQgkyK0k/R/mMKevRsgGaQrBI1Wa5rJ8qEtjSgU/ps3y8YyG52y9sFRbIOnTwtRJPxTVZWHrUsEtzaAgDg0xdVpYO6nIqBfm6jgkC3saAMzCngFQu4dyULCaGnZfbArK/RfUL1N7HeXuMRlgQ8PuUWl2//02tHekG7jkwLjAksOgLLDkcIl+MXKYsF+MLBKGMIQhjL+f4RR8NOXeMRx8PP+GoeDjqTcMYEgYwhCGMIQhDGF8JQyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCWKvyph3PiHie28JXloFhyy4AaOeuVHBP+w8wtCEGKjEaYmoakzN0gT+viJAOsUrLsDWuV1swiGiSMvoRvzcZf+210v3Vmenx69GEn3NKhsN7rVNAU67Fp67pGAZvFf3bK5cyilQMe782Ow3v0x2ZNioR46aYB/h55cNRpmEYjLUaViJ/ji4Jw2GssOtUkkrA6DFmYC2PNHc8w44bLv8Bn2qPZ9QYai2s1ZemnYlDH83QGJo1/Do91N2IMX8cg87VAbamKl9MOB3M0GQG7qg/mGEiQzPfBNozmSV8jBJDPTeji5OV/c48jonjZlQYUtwMHxQT++NSnK6GndEGhmdnjIFxZWfEidKzM8gnOSejDlnYmzIh9vUNjSF2Rh+fVtgZ18AY2Rk+MFp2hgkM/kt0CgzPzVAYqrgZLk4U9nXRNjA6bkaPoZKbUcQxscwMTZ7/j2P0sLMuMvTBjAmnwlcKtjaQZYgDGR5jY1cPm57q51QLC4/m1pTrg2RbDNVwNANafGrYsAwx2uMZDml+y5JhD8czFFWYLYu4DhIwNi946pZQD2LsX/4dZrJinoChzhjbtmZe2EQMKJBk3kH6glw8qRhXyljfT3GQjgFx1M3T7pK77S75p92lHlIyTFBs2mtLyqgQu007j2kZME5qwz5scobXcE+93ZW2DHv0tvJFO8c9+rE1vvrP/2NBGMK4JwyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAkjafm+JzCTtyZm8g7Jnf3rL/bckTBowqBlx2ictla7hpVxquBWdeJjNAq+pxouxkkBSZ2YGBU8VfEwGnipYWE4eMmxMDS8pFkYFl6yLAyVB6M/clAuy+9Wwkvl8rtdoMlhwjZgcvj4MlDm8GFegsrhq00BGP4vegMA+o9ve1T/h7c9Op/DsHI5GiyTg9JyOTYul0P0cjlSMJcDFrmPm/wGYAznCtxJQgcAAAAASUVORK5CYII='
       , current: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAADaCAMAAABU68ovAAAAS1BMVEUAAAD09PT5+fn8/Pz////5+fny8vL////5+fn39/f6+vr////x8fH////////+/v7////x8fH39/f////////////////x8fH///+HBPvxAAAAF3RSTlMADSCUBmbWn1c2gvHBvq1uKOpP187lQw7/C7wAAAPMSURBVHja7d3JkpswEIDh1mYWA8Ispt//STNS2XHbcQgkyK0k/R/mMKevRsgGaQrBI1Wa5rJ8qEtjSgU/ps3y8YyG52y9sFRbIOnTwtRJPxTVZWHrUsEtzaAgDg0xdVpYO6nIqBfm6jgkC3saAMzCngFQu4dyULCaGnZfbArK/RfUL1N7HeXuMRlgQ8PuUWl2//02tHekG7jkwLjAksOgLLDkcIl+MXKYsF+MLBKGMIQhjL+f4RR8NOXeMRx8PP+GoeDjqTcMYEgYwhCGMIQhDGF8JQyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCWKvyph3PiHie28JXloFhyy4AaOeuVHBP+w8wtCEGKjEaYmoakzN0gT+viJAOsUrLsDWuV1swiGiSMvoRvzcZf+210v3Vmenx69GEn3NKhsN7rVNAU67Fp67pGAZvFf3bK5cyilQMe782Ow3v0x2ZNioR46aYB/h55cNRpmEYjLUaViJ/ji4Jw2GssOtUkkrA6DFmYC2PNHc8w44bLv8Bn2qPZ9QYai2s1ZemnYlDH83QGJo1/Do91N2IMX8cg87VAbamKl9MOB3M0GQG7qg/mGEiQzPfBNozmSV8jBJDPTeji5OV/c48jonjZlQYUtwMHxQT++NSnK6GndEGhmdnjIFxZWfEidKzM8gnOSejDlnYmzIh9vUNjSF2Rh+fVtgZ18AY2Rk+MFp2hgkM/kt0CgzPzVAYqrgZLk4U9nXRNjA6bkaPoZKbUcQxscwMTZ7/j2P0sLMuMvTBjAmnwlcKtjaQZYgDGR5jY1cPm57q51QLC4/m1pTrg2RbDNVwNANafGrYsAwx2uMZDml+y5JhD8czFFWYLYu4DhIwNi946pZQD2LsX/4dZrJinoChzhjbtmZe2EQMKJBk3kH6glw8qRhXyljfT3GQjgFx1M3T7pK77S75p92lHlIyTFBs2mtLyqgQu007j2kZME5qwz5scobXcE+93ZW2DHv0tvJFO8c9+rE1vvrP/2NBGMK4JwyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAmDJgyaMGjCoAkjafm+JzCTtyZm8g7Jnf3rL/bckTBowqBlx2ictla7hpVxquBWdeJjNAq+pxouxkkBSZ2YGBU8VfEwGnipYWE4eMmxMDS8pFkYFl6yLAyVB6M/clAuy+9Wwkvl8rtdoMlhwjZgcvj4MlDm8GFegsrhq00BGP4vegMA+o9ve1T/h7c9Op/DsHI5GiyTg9JyOTYul0P0cjlSMJcDFrmPm/wGYAznCtxJQgcAAAAASUVORK5CYII='
     } // 预设竖屏与横屏图标
+
+    this.default = Orient._getDefault(config)
+    console.log(this.default, Orient.DEFAULTS, config)
+    this.$parent = isElement(this.default.modal.id) ? this.default.modal.id : typeof this.default.modal.id === 'string' ? document.querySelector(this.default.modal.id) : null
+    this.$modal = null
 
     window.addEventListener('resize', () => {
       this.modeStat = Orient._detectOrient()
@@ -123,7 +125,7 @@ export default class Orient {
    * @param {String} param0 
    */
   setIcon({ mode, portrait, landscape }) {
-    if (mode) this.mode = mode
+    if (mode) this.default.mode = mode
     if (portrait) this.icon.portrait = portrait
     if (landscape) this.icon.landscape = landscape
   }
@@ -163,13 +165,13 @@ export default class Orient {
    */
   orientChange(callback) {
     if (isFunction(callback)) {
-      callback()
+      callback(this)
     } else {
       return new TypeError('callback must be a function!')
     }
   }
   static _detectOrient() {
-    const screen = window.Screen
+    const screen = window.screen
     const clientWidth = docEle.clientWidth
     const min = Math.min(screen.width, screen.height)
     const max = Math.max(screen.width, screen.height)
@@ -334,7 +336,7 @@ export default class Orient {
 
   static _getDefault(config) {
     const modal = Object.assign({}, Orient.DEFAULTS.modal, config.modal)
-    const ret = Object.assign({}, Orient.DEFAULTS, config, config)
+    const ret = Object.assign({}, Orient.DEFAULTS, config)
     ret.modal = modal
     return ret
   }

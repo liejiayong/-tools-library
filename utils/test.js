@@ -9,4 +9,4 @@
   则： 输出s等于1.11万
  */
 
-export const conv = (num = 0, precise = 0, unit = 1e4) => {}
+export const conv = (num = 0, precise = 0, unit = 1e4) => { }

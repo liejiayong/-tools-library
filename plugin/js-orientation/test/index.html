@@ -110,12 +110,16 @@
 		// console.log(xScreen)
 
 		var o = new Orient({
+			mode: Orient.MODE.landscape,
 			modal: {
 				id: '#jyModalOrient'
 			}
 		})
-		o.setMode(Orient.MODE.landscape)
-		console.log('Orient', o, Orient.MODE.landscape)
+		// o.setMode(Orient.MODE.landscape)
+		o.orientChange(function (install) {
+			console.log('install', install)
+		})
+		console.log('Orient', o)
 
 	</script>
 	<script>

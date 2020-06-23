@@ -7,6 +7,7 @@
     "scripts": {
         "dev": "node src/index.js",
         "serve": "nodemon src/index.js",
+        "websocket": "nodemon src/websocket/websocket.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "liejiayong(809206619@qq.com)",
@@ -19,6 +20,7 @@
         "koa-session-minimal": "^3.0.4",
         "koa-static": "^5.0.0",
         "koa-static-cache": "^5.1.2",
+        "koa-websocket": "^6.0.0",
         "md5": "^2.2.1",
         "moment": "^2.24.0",
         "mysql": "^2.17.1",

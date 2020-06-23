@@ -4,8 +4,8 @@
 exports.articles = `CREATE TABLE IF NOT EXISTS \`jy_blog_articles\`(
   \`id\` bigint(255) NOT NULL AUTO_INCREMENT COMMENT '博文ID',
   \`user_id\` INT NOT NULL COMMENT '发表用户ID',
-  \`title\` text CHARACTER SET utf8bm4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '博文标题',
-  \`content\` longtext CHARACTER SET utf8bm4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '博文内容',
+  \`title\` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '博文标题',
+  \`content\` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '博文内容',
   \`views\` bigint(20) NOT NULL COMMENT '浏览量',
   \`comment_count\` bigint(20) NOT NULL COMMENT '评论总数',
   \`like_count\` bigint(20) NOT NULL COMMENT '点赞数',

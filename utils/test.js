@@ -10,3 +10,29 @@
  */
 
 export const conv = (num = 0, precise = 0, unit = 1e4) => { }
+
+
+
+/**
+ * test bind | call
+ */
+
+class BFn {
+   map = []
+   add(cb) {
+      console.log('add', cb)
+      this.map.push(cb)
+   }
+   emit() {
+      const map = [...this.map]
+      console.log('listenimg cb', map)
+      map.forEach(cb => {
+         console.log('emit', cb)
+         cb && typeof cb == 'function' && cb()
+      })
+   }
+}
+var bfn = new BFn()
+bfn.add(function () {
+   console.log('on listen onChange cb')
+})

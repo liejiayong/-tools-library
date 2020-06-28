@@ -1,0 +1,181 @@
+@charset "UTF-8";
+
+/* custom animate style */
+
+// width from 0 to 100%
+@-webkit-keyframes width-100 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@-moz-keyframes width-100 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes width-100 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+// progress bar animate
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 0.8rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@-moz-keyframes progress-bar-stripes {
+  from {
+    background-position: 0.8rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 0.8rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+// fadeIn
+@-webkit-keyframes nones {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes nones {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes nones {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
+}
+
+// 云朵浮动
+@-webkit-keyframes floating {
+  0% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    -moz-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0px, 0);
+    -moz-transform: translate3d(0, 0px, 0);
+    transform: translate3d(0, 0px, 0);
+  }
+}
+
+@-moz-keyframes floating {
+  0% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    -moz-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0px, 0);
+    -moz-transform: translate3d(0, 0px, 0);
+    transform: translate3d(0, 0px, 0);
+  }
+}
+
+@keyframes floating {
+  0% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    -moz-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0px, 0);
+    -moz-transform: translate3d(0, 0px, 0);
+    transform: translate3d(0, 0px, 0);
+  }
+}
+.jy-animate-floating {
+  -webkit-animation: floating 3s infinite alternate;
+  -moz-animation: floating 3s infinite alternate;
+  animation: floating 3s infinite alternate;
+}
+
+// 简单二维码上下扫动
+@keyframes an-qr-scale {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 132px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+// 左右来回滚动
+@keyframes btn-bounce-rcy {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, 0);
+  }
+  90% {
+    transform: translate(-10px, 0);
+  }
+}
+
+// 蹦出效果
+/**
+&:hover {
+  &::before {
+    animation: btn-scale-opacity .6s ease-in-out;
+  }
+}
+**/
+@keyframes btn-scale-opacity {
+  0% {
+    opacity: 0.5;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.8, 1.8);
+  }
+}

@@ -1,5 +1,10 @@
 const router = require('koa-router')()
 
-router.use('/', router.get('/index', (ctx) => {
-  console.log(ctx)
-}).routes())
+router.get('/', async (ctx, next) => {
+  ctx.body = ctx
+  await next()
+}).routes()
+
+
+
+module.exports = router

@@ -15,9 +15,10 @@ const config = require('./config/environment')
 
 // routes
 fs.readdirSync(path.join(__dirname, 'routes')).forEach(function (file) {
-    if (~file.indexOf('.js')) {
-      app.use(require(path.join(__dirname, 'routes', file)).routes());
-    }
+  console.log('route setup', file)
+  if (~file.indexOf('.js')) {
+    app.use(require(path.join(__dirname, 'routes', file)).routes());
+  }
 });
 
 const server = http.createServer(app.callback()).listen(config.port).on('listening', function () {

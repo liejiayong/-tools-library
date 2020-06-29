@@ -1,9 +1,24 @@
 const http = require('http')
 const fs = require('fs')
 const path = require('path')
+const session = require('koa-session2')
 const app = require('./config/koa')
 const config = require('./config/environment')
+const mysqlQuery = require('./utils/mysql')
 
+app.use(session({
+  store: new session.Store(config.db.redis)
+  , ttl: 2 * 60 * 60 * 1000
+}))
+
+// 注入mysql query tool
+app.use(async (ctx, next) => {
+  ctx.exceSql = mysqlQuery
+  ctx.set('Access-Control-Allow-Origin', config.accessControlAllowOrigin)
+  await next()
+
+  console.log('section', ctx.session)
+})
 // app.use(function (ctx, next) {
 //   ctx.redirect('/404.html');
 // });
@@ -15,7 +30,6 @@ const config = require('./config/environment')
 
 // routes
 fs.readdirSync(path.join(__dirname, 'routes')).forEach(function (file) {
-  console.log('route setup', file)
   if (~file.indexOf('.js')) {
     app.use(require(path.join(__dirname, 'routes', file)).routes());
   }

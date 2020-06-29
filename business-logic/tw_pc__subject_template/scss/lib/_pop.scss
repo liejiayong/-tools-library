@@ -3,25 +3,25 @@
 
 /* jy-pop */
 // bg
-$width-pop: 734px;
-$fs-body: 28px;
-$color-bg: #6fa361 linear-gradient(#67b751, #77bb64);
-$color-border: #6fa361;
-$color-txt: #25272a;
+$width-pop: 600px;
+$fs-body: 20px;
+$color-bg: #46291b linear-gradient(#382016, #46291b, #3a2117);
+$color-border: #46291b;
+$color-txt: #ae905d;
 
 // btn-ok
-$color-btn-txt: #fae69a;
-$color-btn-bg: linear-gradient(45deg, #ec4c3c, #e54632, #da3623);
+$color-btn-txt: #fff;
+$color-btn-bg: #b11519 linear-gradient(45deg, #b11519, #b11519, #da3623);
 
 // input
 $input-width: 350px;
 $input-width-label: 90px;
 $input-height: 35px;
-$input-color-bg: #f9d6a4;
-$input-color-txt: #333;
-$input-color-label: #25272a;
-$input-fs-txt: 20px;
-$input-fs-label: 20px;
+$input-color-bg: rgba(0, 0, 0, 0.4);
+$input-color-txt: #ae905d;
+$input-color-label: #ae905d;
+$input-fs-txt: 14px;
+$input-fs-label: 16px;
 
 // table
 $table-color-border: rgba(0, 0, 0, 0.3);
@@ -94,12 +94,13 @@ $table-height-overflow: 200px;
   }
   // 确认按钮
   &_ok {
+    display: inline-block;
     position: relative;
-    // padding: 10px 20px;
-    margin-top: 18px;
-    // background: $color-btn-bg;
-    // color: $color-btn-txt;
-    // border-radius: 6px;
+    padding: 10px 20px;
+    // margin-top: 18px;
+    background: $color-btn-bg;
+    color: $color-btn-txt;
+    border-radius: 6px;
     // border: 1px solid #eec468;
     vertical-align: middle;
     font-size: 16px;
@@ -127,13 +128,13 @@ $table-height-overflow: 200px;
   // 主体标题
   &_head {
     padding-top: 40px;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: bold;
     text-align: center;
   }
   // 内容体
   &_body {
-    padding: 40px 40px ;
+    padding: 40px 40px;
     text-align: center;
     // 内容体标题
     &__tit {
@@ -177,11 +178,13 @@ $table-height-overflow: 200px;
         cursor: pointer;
       }
       &-body {
+        display: block;
         padding: 0 5px;
         width: 358px;
         height: $input-height;
         font-size: 24px;
-        background:#f9d6a4;
+        color: inherit;
+        background: transparent;
       }
     }
   }
@@ -271,7 +274,7 @@ $table-height-overflow: 200px;
         cursor: no-drop;
         color: #adadad;
         -webkit-filter: grayscale(1);
-                filter: grayscale(1);
+        filter: grayscale(1);
       }
     }
   }
@@ -309,7 +312,7 @@ $table-height-overflow: 200px;
       // border-top: 1px solid $table-color-border;
       // border-bottom: 1px solid $table-color-border;
     }
-    tr{
+    tr {
       &:not(:last-of-type) {
         border-bottom: 1px dashed $table-color-border;
       }

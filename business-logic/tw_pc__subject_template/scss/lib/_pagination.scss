@@ -1,0 +1,32 @@
+.paginations {
+  padding: 40px 0;
+  font-size: 0;
+  a {
+    margin: 0 2px;
+    padding: 4px 10px;
+    line-height: 1.15;
+    border-radius: 2px;
+    font-size: 16px;
+    border: 1px solid #b11519;
+    color: #b11519;
+    &:hover,
+    &.active {
+      color:#fff;
+      background-color: #b11519
+    }
+  }
+  .stat{
+    padding: 0 10px;
+  }
+}
+
+// <div class="paginations tr">
+// <a href="javascript:;" class="btn-page-prev" target="_self">上一页</a>
+// <a href="javascript:;" class="active" target="_self">1</a>
+// <a href="javascript:;" target="_self">2</a>
+// <a href="javascript:;" target="_self">3</a>
+// <a href="javascript:;" target="_self">4</a>
+// <a href="javascript:;" target="_self">5</a>
+// <a href="javascript:;" class="btn-page-next" target="_self">下一页</a>
+// <span class="stat">第1页 共8页</span>
+// </div>

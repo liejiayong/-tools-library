@@ -74,7 +74,7 @@
 
         <div class="time tc">活动时间：9月13日-9月17日</div>
       </div>
-      
+
     </div>
 
     <!-- section-1 -->
@@ -99,8 +99,6 @@
 
   </div>
 
-  <div class="jycopytip"></div>
-
   <!-- 弹窗 -->
   <!-- tip -->
   <div class="jy-pop " id="J_tipPop">
@@ -117,22 +115,14 @@
   </div>
 
   <!-- 兑换成功 -->
-  <div class="jy-pop " id="J_rechargePop">
+  <div class="jy-pop active" id="J_rechargePop">
     <div class="jy-pop_mask"></div>
     <div class="jy-pop_main ">
       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
       <div class="jy-pop_head">温馨提示</div>
       <div class="jy-pop_body">
-        <div class="jy-pop_body__tit">内容体标题</div>
-        <div class="lh-20">
-          <p>兑换xxx成功</p>
-        </div>
-        <div class="jy-pop_body__code">sdfasxpswwwww111112sadsa</div>
-        <div class="clearfix jy-pop_body__codetie mt-10">
-          <input class="jy-pop_body__codetie-body btnpopcoptxt float_l" value="sdfasxpswwwww111112sadsa"></input>
-          <div class="jy-pop_body__codetie-label btnpopcop float_l">验证码</div>
-        </div>
-        <a href="javascript:;" class="jy-btn jy-pop_ok">确认</a>
+        <input class="jy-pop_body__codetie-body btnpopcoptxt mauto" value="sdfasxpswwwww111112sadsa"></input>
+        <a href="javascript:;" class="jy-btn-txt jy-pop_ok btnpopcop mt-30">一键复制</a>
       </div>
     </div>
   </div>
@@ -146,20 +136,20 @@
       <div class="jy-pop_body">
         <ul class="jy-pop_inp">
           <li class="jy-pop_inp__cell">
-            <div class="jy-pop_inp__label">手机号码：</div>
+            <div class="jy-pop_inp__label">手机号码</div>
             <input placeholder="请输入手机号码" type="tel" class="jy-pop_inp__body">
           </li>
           <li class="jy-pop_inp__cell">
-            <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码：</div>
+            <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码</div>
             <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__body">
           </li>
           <li class="jy-pop_inp__cell">
-            <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码：</div>
+            <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码</div>
             <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth">
             <a href="javascript:;" class="jy-btn-txt jy-pop_inp__btnauth disable">获取验证码</a>
           </li>
         </ul>
-        <a href="javascript:;" class="jy-btn jy-pop_ok">确认</a>
+        <a href="javascript:;" class="jy-btn-txt jy-pop_ok mt-30">确认</a>
       </div>
     </div>
   </div>
@@ -191,7 +181,7 @@
             <input placeholder="请输入收货地址" type="tel" class="jy-pop_inp__body">
           </li>
         </ul>
-        <a href="javascript:;" class="jy-btn jy-pop_ok">确认</a>
+        <a href="javascript:;" class="jy-btn-txt jy-pop_ok mt-30">确认</a>
       </div>
     </div>
   </div>
@@ -226,7 +216,7 @@
             <a href="javascript:;" class="jy-btn-txt jy-pop_inp__btnauth disable">获取角色</a>
           </li>
         </ul>
-        <a href="javascript:;" class="jy-btn jy-pop_ok">确认</a>
+        <a href="javascript:;" class="jy-btn-txt jy-pop_ok mt-30">确认</a>
       </div>
     </div>
   </div>
@@ -308,20 +298,11 @@
   <!-- <script type="text/javascript" src="./js/swiper.min.js?v=5.2.0"></script> -->
   <!-- <script type="text/javascript" src="./js/jquery.SuperSlide.js?v=2.1.1"></script> -->
   <!-- <script type="text/javascript" src="./js/danmu.js"></script> -->
+  <script type="text/javascript" src="./js/index.js"></script>
   <script type="text/javascript">
     ; $(function () {
       var activeCls = 'active';
-      eval(function (p, a, c, k, e, r) { e = function (c) { return c.toString(36) }; if ('0'.replace(0, e) == 0) { while (c--) r[e(c)] = k[c]; k = [function (e) { return r[e] || e }]; e = function () { return '[1-9a-n]' }; c = 1 }; while (c--) if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]); return p }('2 copysFn=(b(){2 $1=$(\'<c class="jy-copytips" style="display: none; padding: d; position: fixed; top: 30%; left: e%; transform: translateX(-e%); background-f: 3(0, 0, 0); f: 3(4, 4, 4); box-shadow: 3(0, 0, 0) g g 5px; white-space: nowrap;font-size: d; z-index: 2001;"></c>\');$(\'body\').append($1);2 h=b(i){2 j=5.querySelector(i);j.select();try{if(5.k("l",m,n)){5.k("l",m,n);$1.6(\'复制成功\').7(8).9(a)}else{$1.6(\'复制失败，请手动复制！\').7(8).9(a)}}catch(err){$1.6(\'复制失败，请手动复制！\').7(8).9(a)}};return h}());', [], 24, '|tip|var|rgb|255|document|text|fadeIn|500|fadeOut|1000|function|div|20px|50|color|0px|core|cls|cop|execCommand|copy|false|null'.split('|'), 0, {}));
 
-      // jy-pop
-      //关闭
-      $('.jy-pop_close,.jy-pop_submit').on('click', function () {
-        $(this).parents('.jy-pop').fadeOut();
-      });
-      // 领取礼包码
-      $('.btnpopcop').on('click', function () {
-        copysFn('.btnpopcoptxt')
-      });
       // 领取礼包
       $('.btn-get').on('click', function () {
         $('#J_recharge').fadeIn();

@@ -14,7 +14,7 @@ app.use(session({
   ttl: 2 * 60 * 60 * 1000
 }));
 
-app.use(async(ctx, next) => {
+app.use(async (ctx, next) => {
   ctx.execSql = query;
   ctx.set('Access-Control-Allow-Origin', config.accessControlAllowOrigin);
   await next();
@@ -23,13 +23,13 @@ app.use(async(ctx, next) => {
 // routes
 console.log(fs.readdirSync(path.join(__dirname, 'routes')))
 fs.readdirSync(path.join(__dirname, 'routes')).forEach(function (file) {
-    if (~file.indexOf('.js')) {
-      app.use(require(path.join(__dirname, 'routes', file)).routes());
-    }
+  if (~file.indexOf('.js')) {
+    app.use(require(path.join(__dirname, 'routes', file)).routes());
+  }
 });
 
 app.use(function (ctx, next) {
-   ctx.redirect('/404.html');
+  ctx.redirect('/404.html');
 });
 
 app.on('error', (error, ctx) => {
@@ -38,9 +38,9 @@ app.on('error', (error, ctx) => {
 })
 
 const server = http.createServer(app.callback())
-	.listen(config.port)
-	.on('listening', function () {
-	  console.log('server listening on: ' + config.port);
+  .listen(config.port)
+  .on('listening', function () {
+    console.log('server listening on: ' + config.port);
   });
 
 // 初始化websocket

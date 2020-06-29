@@ -1,0 +1,154 @@
+$width: "100%";
+.news {
+  &-menu {
+    position: relative;
+    width: $width;
+    border-bottom: 1px solid #efefef;
+    li {
+      float: left;
+      position: relative;
+      width: 98px;
+      @include lh(50px);
+      overflow: hidden;
+      text-align: center;
+      font-size: 18px;
+      cursor: pointer;
+      a {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      &:hover,
+      &.active,
+      &.on {
+        font-weight: bold;
+        color: #b11519;
+        border-bottom: 5px solid #b11519;
+      }
+    }
+  }
+  &-content {
+    position: relative;
+    font-size: 14px;
+    color: #636363;
+  }
+  &-body {
+    height: 260px;
+    overflow: hidden;
+    .recom {
+      position: relative;
+      margin: 20px 0;
+      padding-left: 80px;
+      @include lh(30px);
+      cursor: pointer;
+      border: 1px solid #efefef;
+      background: #fff;
+      i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 60px;
+        text-align: center;
+        height: inherit;
+        background: #b11519;
+        color: #fff4c1;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%);
+          right: -8px;
+          width: 0;
+          height: 0;
+          line-height: 1;
+          font-size: 0;
+          overflow: hidden;
+          border-width: 4px;
+          border-color: transparent transparent transparent #b11519;
+          border-style: dashed dashed dashed solid;
+        }
+      }
+      &:hover {
+        color: #b11519;
+      }
+    }
+    li {
+      // margin: 10px 0;
+      width: 100%;
+      line-height: 30px;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+      // cursor: pointer;
+      .link {
+        max-width: 426px;
+        @include nowrap();
+      }
+      i {
+        justify-self: flex-end;
+        color: #c9c9c9;
+      }
+      &:hover {
+        color: #b11519;
+      }
+    }
+  }
+}
+
+// <div class="news float_l" id="hnews">
+// <div class="tr mt-30 pt-5"><a href="#" class="jy-btn-txt btn-more">more ></a></div>
+// <div class="hd">
+//   <ul class="news-menu mt-20 clearfix">
+//     <li class="on"><a href="javascript:;">最新</a></li>
+//     <li><a href="javascript:;">公告</a></li>
+//     <li><a href="javascript:;">攻略</a></li>
+//     <li><a href="javascript:;">活动</a></li>
+//   </ul>
+// </div>
+// <div class="news-content bd">
+//   <ul class="news-body">
+//     <div class="recom"><i>推荐</i>【最新】《八阵图》赛季问题答疑</div>
+//     <li><a href="./detail.html"
+//         class="link"><span>【公告】</span>《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//   </ul>
+//   <ul class="news-body">
+//     <div class="recom"><i>推荐</i>【公告】《八阵图》赛季问题答疑</div>
+//     <li><a href="./detail.html"
+//         class="link"><span>【公告】</span>《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//   </ul>
+//   <ul class="news-body">
+//     <div class="recom"><i>推荐</i>【攻略】《八阵图》赛季问题答疑</div>
+//     <li><a href="./detail.html"
+//         class="link"><span>【公告】</span>《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//   </ul>
+//   <ul class="news-body">
+//     <div class="recom"><i>推荐</i>【活动】《八阵图》赛季问题答疑</div>
+//     <li><a href="./detail.html"
+//         class="link"><span>【公告】</span>《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//     <li><a href="./detail.html" class="link"><span>【公告】</span>《八阵图》赛季问题答疑</a><i>07-31</i></li>
+//   </ul>
+// </div>
+// </div>

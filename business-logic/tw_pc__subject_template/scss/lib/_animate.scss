@@ -1,6 +1,10 @@
 @charset "UTF-8";
 @import "./_animate_custom.scss";
 
+/**
+  animate.css style v4.1.0
+**/
+
 @-webkit-keyframes bounce {
   from,
   20%,
@@ -1896,14 +1900,15 @@
   from {
     -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
       rotate3d(0, 1, 0, -360deg);
-    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, -360deg);
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
   }
 
   40% {
-    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-      rotate3d(0, 1, 0, -190deg);
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1)
+      translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
     transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
       rotate3d(0, 1, 0, -190deg);
     -webkit-animation-timing-function: ease-out;
@@ -1911,8 +1916,8 @@
   }
 
   50% {
-    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-      rotate3d(0, 1, 0, -170deg);
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1)
+      translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
     transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
       rotate3d(0, 1, 0, -170deg);
     -webkit-animation-timing-function: ease-in;
@@ -1920,8 +1925,8 @@
   }
 
   80% {
-    -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
-      rotate3d(0, 1, 0, 0deg);
+    -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95)
+      translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
     transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
       rotate3d(0, 1, 0, 0deg);
     -webkit-animation-timing-function: ease-in;
@@ -1931,7 +1936,8 @@
   to {
     -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
       rotate3d(0, 1, 0, 0deg);
-    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
@@ -1941,14 +1947,15 @@
   from {
     -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
       rotate3d(0, 1, 0, -360deg);
-    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, -360deg);
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
   }
 
   40% {
-    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-      rotate3d(0, 1, 0, -190deg);
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1)
+      translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
     transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
       rotate3d(0, 1, 0, -190deg);
     -webkit-animation-timing-function: ease-out;
@@ -1956,8 +1963,8 @@
   }
 
   50% {
-    -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
-      rotate3d(0, 1, 0, -170deg);
+    -webkit-transform: perspective(400px) scale3d(1, 1, 1)
+      translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
     transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px)
       rotate3d(0, 1, 0, -170deg);
     -webkit-animation-timing-function: ease-in;
@@ -1965,8 +1972,8 @@
   }
 
   80% {
-    -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
-      rotate3d(0, 1, 0, 0deg);
+    -webkit-transform: perspective(400px) scale3d(0.95, 0.95, 0.95)
+      translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
     transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0)
       rotate3d(0, 1, 0, 0deg);
     -webkit-animation-timing-function: ease-in;
@@ -1976,7 +1983,8 @@
   to {
     -webkit-transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
       rotate3d(0, 1, 0, 0deg);
-    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
+    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
+      rotate3d(0, 1, 0, 0deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
@@ -3710,19 +3718,19 @@
   from {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 
   50% {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
     -moz-transform: scale3d(1.05, 1.05, 1.05);
-         transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
   }
 
   to {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
@@ -3730,29 +3738,29 @@
   from {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 
   50% {
     -webkit-transform: scale3d(1.05, 1.05, 1.05);
     -moz-transform: scale3d(1.05, 1.05, 1.05);
-         transform: scale3d(1.05, 1.05, 1.05);
+    transform: scale3d(1.05, 1.05, 1.05);
   }
 
   to {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
 .jy-animate-pulse {
   -webkit-animation: pulse 2s;
-     -moz-animation: pulse 2s;
-          animation: pulse 2s;
+  -moz-animation: pulse 2s;
+  animation: pulse 2s;
   -webkit-animation-fill-mode: both;
-     -moz-animation-fill-mode: both;
-          animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
 @-webkit-keyframes jello {
@@ -3805,49 +3813,49 @@
   to {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
-         transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 
   22.2% {
     -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
     -moz-transform: skewX(-12.5deg) skewY(-12.5deg);
-         transform: skewX(-12.5deg) skewY(-12.5deg);
+    transform: skewX(-12.5deg) skewY(-12.5deg);
   }
 
   33.3% {
     -webkit-transform: skewX(6.25deg) skewY(6.25deg);
     -moz-transform: skewX(6.25deg) skewY(6.25deg);
-         transform: skewX(6.25deg) skewY(6.25deg);
+    transform: skewX(6.25deg) skewY(6.25deg);
   }
 
   44.4% {
     -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
     -moz-transform: skewX(-3.125deg) skewY(-3.125deg);
-         transform: skewX(-3.125deg) skewY(-3.125deg);
+    transform: skewX(-3.125deg) skewY(-3.125deg);
   }
 
   55.5% {
     -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
     -moz-transform: skewX(1.5625deg) skewY(1.5625deg);
-         transform: skewX(1.5625deg) skewY(1.5625deg);
+    transform: skewX(1.5625deg) skewY(1.5625deg);
   }
 
   66.6% {
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     -moz-transform: skewX(-0.78125deg) skewY(-0.78125deg);
-         transform: skewX(-0.78125deg) skewY(-0.78125deg);
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
   }
 
   77.7% {
     -webkit-transform: skewX(0.390625deg) skewY(0.390625deg);
     -moz-transform: skewX(0.390625deg) skewY(0.390625deg);
-         transform: skewX(0.390625deg) skewY(0.390625deg);
+    transform: skewX(0.390625deg) skewY(0.390625deg);
   }
 
   88.8% {
     -webkit-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
     -moz-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
-         transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
   }
 }
 
@@ -3857,71 +3865,71 @@
   to {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
-         transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 
   22.2% {
     -webkit-transform: skewX(-12.5deg) skewY(-12.5deg);
     -moz-transform: skewX(-12.5deg) skewY(-12.5deg);
-      -o-transform: skewX(-12.5deg) skewY(-12.5deg);
-         transform: skewX(-12.5deg) skewY(-12.5deg);
+    -o-transform: skewX(-12.5deg) skewY(-12.5deg);
+    transform: skewX(-12.5deg) skewY(-12.5deg);
   }
 
   33.3% {
     -webkit-transform: skewX(6.25deg) skewY(6.25deg);
     -moz-transform: skewX(6.25deg) skewY(6.25deg);
-      -o-transform: skewX(6.25deg) skewY(6.25deg);
-         transform: skewX(6.25deg) skewY(6.25deg);
+    -o-transform: skewX(6.25deg) skewY(6.25deg);
+    transform: skewX(6.25deg) skewY(6.25deg);
   }
 
   44.4% {
     -webkit-transform: skewX(-3.125deg) skewY(-3.125deg);
     -moz-transform: skewX(-3.125deg) skewY(-3.125deg);
-      -o-transform: skewX(-3.125deg) skewY(-3.125deg);
-         transform: skewX(-3.125deg) skewY(-3.125deg);
+    -o-transform: skewX(-3.125deg) skewY(-3.125deg);
+    transform: skewX(-3.125deg) skewY(-3.125deg);
   }
 
   55.5% {
     -webkit-transform: skewX(1.5625deg) skewY(1.5625deg);
     -moz-transform: skewX(1.5625deg) skewY(1.5625deg);
-      -o-transform: skewX(1.5625deg) skewY(1.5625deg);
-         transform: skewX(1.5625deg) skewY(1.5625deg);
+    -o-transform: skewX(1.5625deg) skewY(1.5625deg);
+    transform: skewX(1.5625deg) skewY(1.5625deg);
   }
 
   66.6% {
     -webkit-transform: skewX(-0.78125deg) skewY(-0.78125deg);
     -moz-transform: skewX(-0.78125deg) skewY(-0.78125deg);
-      -o-transform: skewX(-0.78125deg) skewY(-0.78125deg);
-         transform: skewX(-0.78125deg) skewY(-0.78125deg);
+    -o-transform: skewX(-0.78125deg) skewY(-0.78125deg);
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
   }
 
   77.7% {
     -webkit-transform: skewX(0.390625deg) skewY(0.390625deg);
     -moz-transform: skewX(0.390625deg) skewY(0.390625deg);
-      -o-transform: skewX(0.390625deg) skewY(0.390625deg);
-         transform: skewX(0.390625deg) skewY(0.390625deg);
+    -o-transform: skewX(0.390625deg) skewY(0.390625deg);
+    transform: skewX(0.390625deg) skewY(0.390625deg);
   }
 
   88.8% {
     -webkit-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
     -moz-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
-      -o-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
-         transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+    -o-transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
   }
 }
 
 .jy-animate-jello {
   -webkit-animation: jello 1s;
-     -moz-animation: jello 1s;
-          animation: jello 1s;
+  -moz-animation: jello 1s;
+  animation: jello 1s;
   -webkit-animation-fill-mode: both;
-     -moz-animation-fill-mode: both;
-          animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
   -webkit-transform-origin: center;
   -moz-transform-origin: center;
-   -ms-transform-origin: center;
-    -o-transform-origin: center;
-       transform-origin: center;
+  -ms-transform-origin: center;
+  -o-transform-origin: center;
+  transform-origin: center;
 }
 
 @-webkit-keyframes tada {
@@ -3961,14 +3969,14 @@
   from {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 
   10%,
   20% {
     -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
     -moz-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-         transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
   }
 
   30%,
@@ -3977,7 +3985,7 @@
   90% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     -moz-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
   }
 
   40%,
@@ -3985,13 +3993,13 @@
   80% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     -moz-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
   }
 
   to {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
@@ -3999,14 +4007,14 @@
   from {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 
   10%,
   20% {
     -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
     -moz-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-         transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
   }
 
   30%,
@@ -4015,7 +4023,7 @@
   90% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
     -moz-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
   }
 
   40%,
@@ -4023,20 +4031,20 @@
   80% {
     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
     -moz-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-         transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
   }
 
   to {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
-         transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
   }
 }
 
 .tada {
   -webkit-animation: tada 1s;
-     -moz-animation: tada 1s;
-          animation: tada 1s;
+  -moz-animation: tada 1s;
+  animation: tada 1s;
 }
 
 @-webkit-keyframes bounceInDown {

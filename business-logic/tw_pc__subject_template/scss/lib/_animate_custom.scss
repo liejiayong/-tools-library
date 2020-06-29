@@ -147,6 +147,17 @@
     transform: translate(0, 0);
   }
 }
+@keyframes an-qr-scale-l {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 178px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 
 // 左右来回滚动
 @keyframes btn-bounce-rcy {
@@ -163,11 +174,30 @@
 
 // 蹦出效果
 /**
-&:hover {
-  &::before {
-    animation: btn-scale-opacity .6s ease-in-out;
+  .btn-gift {
+    display: block;
+    margin: 0 auto;
+    animation: btn-bounce-rcy ease-in-out 1s infinite;
+    overflow: initial;
+    background: url("../img/btn-gift-l.png") no-repeat center;
+    width: 200px;
+    height: 208px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      background: url("../img/btn-gift-l.png") no-repeat center;
+      width: 200px;
+      height: 208px;
+    }
+    &:hover {
+      &::before {
+        animation: btn-scale-opacity 0.6s ease-in-out;
+      }
+    }
   }
-}
 **/
 @keyframes btn-scale-opacity {
   0% {

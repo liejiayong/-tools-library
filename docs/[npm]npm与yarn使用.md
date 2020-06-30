@@ -199,6 +199,22 @@ npm config set registry https://registry.npmjs.org/
 yarn config set registry https://registry.npm.taobao.org/
 ```
 
+### 常用源地址
+
+npm --- https://registry.npmjs.org/
+
+cnpm --- https://r.cnpmjs.org/
+
+taobao --- https://registry.npm.taobao.org/
+
+nj --- https://registry.nodejitsu.com/
+
+rednpm --- https://registry.mirror.cqupt.edu.cn/
+
+npmMirror --- https://skimdb.npmjs.com/registry/
+
+deunpm --- http://registry.enpmjs.org/
+
 ### 使用淘宝源时或者尝试 cnpm
 
 安装 cnpm 包

@@ -19,6 +19,18 @@ app.use(async (ctx, next) => {
 
   console.log('section', ctx.session)
 })
+
+// for test github oauth  api
+app.use(async (ctx, next) => {
+  if (ctx.URL.pathname == '/index.html') {
+    // console.log(ctx.URL)
+    // ctx.redirect('/index.html');
+    ctx.type = 'text/html;charset=utf-8'
+    ctx.body = require('./view-temp/temp-oauth')
+
+  }
+  await next()
+});
 // app.use(function (ctx, next) {
 //   ctx.redirect('/404.html');
 // });

@@ -1,7 +1,7 @@
 {
   "name": "nodejs-koa2-sys",
   "version": "0.0.1",
-  "description": "koa2+vuejs2",
+  "description": "koa2+vuejs3",
   "main": "index.js",
   "scripts": {
     "server": "nodemon server/app.js",
@@ -20,7 +20,9 @@
     "koa-router": "^9.0.1",
     "koa-session2": "^2.2.10",
     "koa-static": "^5.0.0",
+    "moment": "^2.27.0",
     "mysql": "^2.18.1",
+    "node-fetch": "^2.6.0",
     "node-schedule": "^1.3.2",
     "nodemon": "^2.0.4"
   }

@@ -21,12 +21,12 @@ module.exports = {
   }
   , oAuth: {
     github: {
-      client_id: '6625cb27769b1bc52415',
-      client_secret: '5ead47391fd5b132957bc4bf84400d5cacd1e748'
+      client_id: 'f120f3a2d07f69c8188c',
+      client_secret: 'a47fc8f0612fe5ef59e6efa7be8d5bf8d212d057'
     }
   }
   , root: path.normalize(__dirname + '/..')
-  , appPath: 'client'
+  , appPath: 'static'
   , tempUploads: 'temUploads'
   , uploads: 'uploads'
   , port: 9000

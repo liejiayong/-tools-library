@@ -1,8 +1,8 @@
 <template>
 	<div class="home">
 		<img alt="Vue logo" src="../assets/logo.png" />
-		<HelloWorld msg="Welcome to Your Vue.js App" />
-		<!-- <button @click="increment">Count is: {{ state.count }}, double is: {{ state.double }}</button> -->
+		<hello-world msg="Welcome to Your Vue.js App" />
+		<button @click="increment">Count is: {{ state.count }}, double is: {{ state.double }}</button>
 	</div>
 </template>
 
@@ -10,12 +10,11 @@
 // @ is an alias to /src
 import { reactive, computed } from 'vue'
 import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-	// name: 'Home',
-	// components: {
-	//   HelloWorld
-	// }
+	name: 'Home',
+	components: {
+		HelloWorld
+	},
 	setup() {
 		const state = reactive({
 			count: 0,
@@ -26,8 +25,7 @@ export default {
 		}
 		return {
 			state,
-			increment,
-			HelloWorld
+			increment
 		}
 	}
 }

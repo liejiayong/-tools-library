@@ -1,6 +1,6 @@
 {
   // default start
-  "editor.tabSize": 2,
+  "editor.tabSize": 4,
   "editor.lineHeight": 20,
   "editor.renderLineHighlight": "none",
   "editor.renderWhitespace": "none",
@@ -45,7 +45,7 @@
     "**/yarn.lock": true,
     "**/tmp": true,
     "**/dist": true,
-    "**/build": true,
+    "**/build": true
   },
   // 断点调试时，遇到断点，自动显示调试视图。
   "debug.openDebug": "openOnDebugBreak",
@@ -137,15 +137,18 @@
   "vetur.format.defaultFormatterOptions": {
     "wrap_attributes": "auto",
     "prettier": {
-      "semi": true,
-      "jsxSingleQuote": false,
-      "singleQuote": false,
+      // "semi": true,
+      // "jsxSingleQuote": false,
+      // "singleQuote": false,
+      "semi": false,
+      "jsxSingleQuote": true,
+      "singleQuote": true,
       "proseWrap": "never",
       "printWidth": 888,
       "useTabs": true,
       "wrap_line_length": 120,
       "wrap_attributes": "auto",
-      "end_with_newline": false,
+      "end_with_newline": false
     }
   },
   // vetur end
@@ -154,7 +157,8 @@
   // // 单引号
   // "prettier.singleQuote": false,
   // // 结尾分号
-  "prettier.semi": true,
+  // "prettier.semi": true,
+  "prettier.semi": false,
   // "prettier.proseWrap": "never",
   // "prettier.printWidth": 1200,
   // "prettier.useTabs": true,
@@ -178,7 +182,7 @@
     // 所有注释的冒号默认为": "
     "colon": ": ",
     "colonObj": {
-      "js": ": ", // .js文件 去掉: 留一个空格
+      "js": ": " // .js文件 去掉: 留一个空格
     }
   },
   // 文件头部注释 快捷键：window：ctrl+alt+i,mac：ctrl+cmd+i
@@ -198,10 +202,7 @@
   },
   // fileheader end
   "autoprefixer.formatOnSave": true,
-  "autoprefixer.browsers": [
-    "last 8 versions",
-    "> 0.01%"
-  ],
+  "autoprefixer.browsers": ["last 8 versions", "> 0.01%"],
   // 设置autoprefixer 为zhi有.css 情况下才能保存生成兼容前缀
   "autoprefixer.ignoreFilesOnSave": [
     "**/src/**.scss",
@@ -243,7 +244,7 @@
       "format": "compact",
       "extensionName": ".css", // 指定编译完的文件后缀名，.css为普通代码，.min.css为压缩代码
       "savePath": "/css" // 指定编译完的css文件路径
-    },
+    }
     // You can add more
     // {
     //   "format": "compressed",
@@ -256,18 +257,13 @@
     ".vscode/**",
     "**/_*.scss"
   ], // 指定忽略的文件,支持正则
-  "liveSassCompile.settings.includeItems": [
-    "**/_index.scss",
-    "**/index.scss"
-  ],
-  "liveSassCompile.settings.autoprefix": [
-    "> 0.01%",
-    "last 12 versions"
-  ], // 添加浏览器兼容性前缀，ie5.5及以上
+  "liveSassCompile.settings.includeItems": ["**/_index.scss", "**/index.scss"],
+  "liveSassCompile.settings.autoprefix": ["> 0.01%", "last 12 versions"], // 添加浏览器兼容性前缀，ie5.5及以上
   // liveSassCompile end
   // python
   "python.jediEnabled": false,
   "python.linting.pylintEnabled": true,
-  "python.linting.enabled": true
+  "python.linting.enabled": true,
+  "python.languageServer": "Microsoft"
   // python end
 }

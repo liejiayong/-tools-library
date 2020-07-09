@@ -1,5 +1,7 @@
+var logic = null;
 var jyBus = {
   activeCls: "active",
+  disableCls: "disable",
   doc: document.documentElement.body || document.body,
   swiper: function (el) {
     var psw = new Swiper("el", {
@@ -81,14 +83,6 @@ var jyBus = {
         }
       }, false);
     }
-  },
-  winReset: function () {
-    document.querySelector("body").style.overflow = "";
-    document.querySelector("body").style.overflow = "";
-  },
-  winFixed: function () {
-    document.querySelector("body").style.overflow = "hidden";
-    document.querySelector("body").style.overflow = "hidden";
   },
   getRandom: function (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -186,18 +180,115 @@ var jyBus = {
     animate();
   },
   language: (navigator.browserLanguage || navigator.language).toLowerCase(),
+  pop: {
+    picker: function () {
+      var $picker = ""
+        + '<!-- pop selector  -->'
+        + '<div style="z-index:1001;" class="jy-pop " id="J_selectorPop">'
+        + '<div div class="jy-pop_mask jy-pop_mask--clickable" ></div>'
+        + '<div class="jy-pop_picker_main">'
+        + ' <div class="jy-pop_picker_hd">'
+        + '<a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--cancel">取消</a>'
+        + '<a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--confirm">确定</a>'
+        + '</div>'
+        + '<div class="jy-pop_picker__body">'
+        + '<ul id="jyPopPicker">'
+        + '<li class="active">xxx</li>'
+        + '<li>xxx</li>'
+        + '</ul>'
+        + '</div>'
+        + '</div>'
+        + '</div >';
+      $picker = $($picker);
+      $picker.insertBefore($('#J_tipPop'));
+
+      return {
+        $picker: $picker
+      }
+    }
+  },
+  showTip: function (html) {
+    var $tip = $('#J_tipPop')
+    $tip.find('.jy-pop-tiptxt').html(html)
+    $tip.fadeIn()
+  },
+  navTo: function (cls) {
+    $(cls)
+      .addClass(this.activeCls)
+      .siblings()
+      .removeClass(this.activeCls)
+  },
+  $window: {
+    fixed: function (cls) {
+      cls = cls || '.jy-content';
+      $(cls).css({ 'overflow-y': 'hidden' });
+    },
+    reset: function (cls) {
+      cls = cls || '.jy-content';
+      $(cls).css({ 'overflow-y': 'auto' });
+    },
+    winReset: function () {
+      document.querySelector("body").style.overflow = "";
+    },
+    winFixed: function () {
+      document.querySelector("body").style.overflow = "hidden";
+    },
+  },
+  preload: {
+    init: (function () {
+      var $loading = ""
+        + '<!-- preload -->'
+        + '<div class="ploading " id="pagePreload">'
+        + '<div class="progress">'
+        + '<p>loading...</p>'
+        + '<p id="ploadingPro">0%</p>'
+        + '</div>'
+        + '</div>';
+      $loading = $($loading);
+      $('body').append($loading);
+
+      return function (path, imgArr, cbSuccess, cbProcess) {
+        $loading.fadeIn();
+        $loading = null;
+        var loader = new ImagesLoader();
+        loader.loadImages(imgArr, path);
+        loader.complete(function () {
+          cbSuccess();
+        });
+        loader.process(function () {
+          cbProcess(this);
+        });
+        loader.start();
+      }
+    }()),
+    open: function () {
+      $('#pagePreload').fadeIn();
+    },
+    close: function () {
+      $('#pagePreload').fadeOut();
+    }
+  }
 };
-
+// preinstall the code
 $(function () {
-
+  // jyBus.preload.init('./img/', [], function () {
+  //   console.log('preload finish...')
+  //   jyBus.preload.close();
+  //   jyBus.navTo('.section-1');
+  // }, function (install) {
+  //   var prsnum = install.processNum;
+  //   $('#ploadingPro').html(prsnum + "%");
+  //   console.log('preload process...', prsnum)
+  // });
+  jyBus.tip.screen();
   jyBus.elementCopy();
   // jyBus.swiper('#psw');
-  jyBus.tip.screen();
+  // jyBus.pop.picker();
 
   // 只复位到顶部
-  $("input, textarea, select").on("blur", function () {
-    window.scroll(0, 0);
-  });
+  // $("input, textarea, select").on("blur", function () {
+  //   window.scroll(0, 0);
+  // });
   // // 复位到特定情景的顶部
   // (function () {
   //   var bfscrolltop = document.body.scrollTop;
@@ -215,15 +306,155 @@ $(function () {
   $(".jy-pop_btn_close,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel").on(
     "click",
     function () {
-      jyBus.winReset();
+      jyBus.$window.winReset();
       $(this).parents(".jy-pop").fadeOut();
     }
   );
+});
+
+// some business logic
+$(function () {
   // selector
   $("#jyPopPicker").on("click", "li", function () {
-    $(this).addClass(activeCls).siblings().removeClass(activeCls);
+    $(this).addClass(jyBus.activeCls).siblings().removeClass(jyBus.activeCls);
   });
   $("#jyCallPicker").on("click", function () {
     $("#J_selectorPop").fadeIn();
   });
+  $('.jy-pop_picker_btn--confirm').on('click', function () {
+    // 业务逻辑
+
+    $(this)
+      .parents('.jy-pop')
+      .fadeOut();
+    $('#J_gamePop').hide();
+  });
+  // 礼品查看
+  $('.btn-pop-check').on('click', function () {
+    $('#J_codePop').fadeIn();
+  });
+  // 礼品待领取
+  $('.btn-pop-code').on('click', function () {
+    $('#J_codePop').fadeIn();
+  });
+  // 填写信息
+  $('.btn-pop-address').on('click', function () {
+    $('#J_ownPop').fadeIn();
+  });
+  // 待领取
+  $('.btn-pop-get').on('click', function () {
+    $('#J_gamePop').fadeIn();
+  });
+  // 回到首页
+  $('.btn-pop-nav-home,.btn-nav-home').on('click', function () {
+    jyBus.navTo('.section-1');
+  });
+
+  // game logic
+  logic = {
+    isGaming: false,
+    timer: null,
+    time: { DEFAULT: 30, current: 30 },
+    duration: 800,
+    score: { total: 0, current: 0 },
+    // 游戏结束业务
+    gameResult: function () {
+      var self = this,
+        score = logic.score;
+      console.log('card result: ', score)
+
+      // game success
+      if (score.total <= score.current) {
+
+        showTip('恭喜xxx')
+
+      }
+      // game fail
+      else {
+
+        $('#J_tipPop').find('.jy-pop-tiptxt').text('！再来一次吧~');
+        $('#J_tipPop').fadeIn();
+
+      }
+    },
+    gameReset: function () {
+      var self = this;
+      self.isGaming = false;
+      self.score.current = 0;
+      self.time.current = self.time.DEFAULT;
+      self.setTime();
+      clearInterval(self.timer);
+    },
+    setTime: function () {
+      var self = this;
+      var $gTime = $('#gTime'), time = self.time.current;
+      $gTime.text(time);
+    },
+    gameTimer: function () {
+      var self = this;
+
+      this.timer = setInterval(function () {
+        if (self.time.current == -1 || self.score.current >= self.score.total) {
+          clearInterval(self.timer);
+          self.gameResult();
+          return;
+        }
+
+        self.setTime();
+        self.time.current--;
+      }, 1000);
+    },
+    run: function () {
+      var self = this;
+      if (self.isGaming) {
+        return;
+      }
+      self.gameReset();
+    },
+    loadGame: function () {
+      var self = this,
+        count = 3, $popReady = $('#J_gameReadyPop'), $count = $popReady.find('#gameReadyCount');
+      jyBus.navTo('.section-2');
+      $popReady.fadeIn();
+      $count.text(count);
+
+      self.run();
+
+      var time = setInterval(function () {
+        --count;
+        if (count == -1) {
+          clearInterval(time);
+          return;
+        } else if (count == 0) {
+          $count.text('GO!');
+          $popReady.fadeOut();
+          $('.card-cell').removeClass(activeCls).siblings().removeClass(activeCls);
+          self.delay(function () {
+            self.gameTimer();
+          }, 100);
+        } else {
+          $count.text(count);
+        }
+
+      }, 1000);
+    },
+    $readyPop: function () {
+      var $pop = ""
+        + '<!-- pop game ready count -->'
+        + '<div class="jy-pop " id="J_gameReadyPop">'
+        + '<div class="jy-pop_mask"></div>'
+        + '<div class="jy-pop_ready">'
+        + ' <span id="gameReadyCount">3</span>'
+        + '</div>'
+        + '</div>';
+      $pop = $($pop);
+      $('body').append($pop);
+
+    },
+    init: function () {
+      this.$readyPop();
+    }
+  }
+  // logic.init();
+
 });

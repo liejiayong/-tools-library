@@ -12,10 +12,11 @@ $fs-tit: 0.36rem;
 
 $width: 6.3rem;
 $max-height: 7rem;
-$main-border-radius: 0.18rem;
+$main-border-radius: 0rem;
 
 $input-select-height: 0.6rem;
 $input-select-cell-gutter: 0.16rem;
+$input-select-cell-radius: 0.12rem;
 
 // 外框
 .#{$prefix}-pop {
@@ -56,7 +57,7 @@ $input-select-cell-gutter: 0.16rem;
     width: $width;
     max-height: $max-height;
     // border: 0.03rem solid $bg-border;
-    // border-radius: $main-border-radius;
+    border-radius: $main-border-radius;
     font-size: $fs;
     color: $color;
     background: $bg;
@@ -69,10 +70,10 @@ $input-select-cell-gutter: 0.16rem;
   }
   // 主体标题
   &_main_header {
-    $height: 0.6rem;
+    $height: 0.7rem;
 
-    padding-top: 0;
-    margin-top: 0;
+    // padding-top: 0;
+    // margin-top: 0;
     margin-left: auto;
     margin-right: auto;
     // border-radius: $main-border-radius $main-border-radius 0 0;
@@ -80,16 +81,18 @@ $input-select-cell-gutter: 0.16rem;
     // @include lh($height);
     line-height: $height;
     text-align: center;
+    font-weight: bold;
     font-size: $fs-tit;
     color: $color-tit;
     background: $bg-tit;
     @include nowrap();
   }
   &_main_header__pad {
+    $width: 0.4rem;
+    $height: inherit;
+
     position: relative;
     display: inline-block;
-    $width: 0.4rem;
-    $height: 0.4rem;
     &::before {
       content: "★";
       display: block;
@@ -117,7 +120,7 @@ $input-select-cell-gutter: 0.16rem;
     margin-right: auto;
     width: ($width - 0.6rem);
     padding: 0.3rem 0 0.4rem;
-    // color: inherit;
+    color: inherit;
     // background: #fff0d6;
     // border-radius: 0 0 0.3rem 0.3rem;
     box-sizing: border-box;
@@ -126,7 +129,7 @@ $input-select-cell-gutter: 0.16rem;
     margin-left: auto;
     margin-right: auto;
     padding: 0.3rem 0 0.4rem;
-    // color: inherit;
+    color: inherit;
     // background: #fff0d6;
     // border-radius: 0 0 0.3rem 0.3rem;
     box-sizing: border-box;
@@ -134,20 +137,21 @@ $input-select-cell-gutter: 0.16rem;
   // 按钮
   &_btn_close {
     $width: 0.32rem;
+    $gutter: 0.1rem;
 
     display: block;
-    // padding: 0.1rem;
+    padding: $gutter;
     position: absolute;
-    top: 0.16rem;
-    right: 0.16rem;
+    top: (0.16rem - $gutter);
+    right: (0.16rem - $gutter);
     z-index: 30;
+    cursor: pointer;
     width: $width;
     height: $width;
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAAA9klEQVRIicXXUQ6DIAwG4N/dxRdvwtmnu4TeowtZNYwgtIXGJnuYYr+/Cy5hIiJwTQCuL451OS82FgArgNkZjv3f7AFEFKf/0K92Iprjr+Hwmbl/rC26JxJvHI4BUvg4++cLPAIU4Rz3CHALl/CRAarwHT4iQBOu4T0BRHALtwRI4eZ66SSSACpYiksCqGENXgtggrV4KUCwwhY8D0BW2IqDJ04rWPpYJ9+fmDzfXKHnn7AHTne7KUAvXNqEQ99z6XusDjAKNgUYCaufGw2rnveAxX28YFE/T7jZ1xuu9gefWDZHuBTg78Sy8AUvOA2wsofnTqkAvo4w0Hzsm9+kAAAAAElFTkSuQmCC")
       no-repeat center / $width auto;
     // border-radius: 50%;
     // border: 0.02rem solid #fff;
-    cursor: pointer;
   }
   &_btn-ok {
     $height: 0.62rem;
@@ -214,7 +218,7 @@ $input-select-cell-gutter: 0.16rem;
   &_select {
     $color: #333;
     $bg: rgba(0, 0, 0, 0.3);
-    $width: 80%;
+    $width: 100%;
     $radius: 0;
 
     display: block;
@@ -230,6 +234,7 @@ $input-select-cell-gutter: 0.16rem;
     // border: 0.02rem solid #3f94d4;
     border-radius: $radius;
     overflow: hidden;
+    box-sizing: border-box;
     cursor: pointer;
     &:not(:last-of-type) {
       margin-bottom: $input-select-cell-gutter;
@@ -244,14 +249,15 @@ $input-select-cell-gutter: 0.16rem;
   &_input_cell {
     $width: 100%;
 
+    position: relative;
     display: flex;
     align-items: center;
 
     margin-left: auto;
     margin-right: auto;
     width: $width;
-    // @include lh($input-select-height);
-    height: $input-select-height;
+    @include lh($input-select-height);
+    // height: $input-select-height;
     border-radius: 0.1rem;
     &:not(:last-of-type) {
       margin-bottom: 0.2rem;
@@ -260,6 +266,7 @@ $input-select-cell-gutter: 0.16rem;
   &_input_cell-label {
     $width: 1.5rem;
 
+    margin-right: 0.1rem;
     // flex: 0 0 #{$width};
     // width: $width;
     @include lh($input-select-height);
@@ -280,20 +287,33 @@ $input-select-cell-gutter: 0.16rem;
       $color: #fff;
       $bg: rgba(0, 0, 0, 0.3);
 
-      margin-left: 0.1rem;
-      padding: 0 0.2rem;
+      padding: 0 2em;
       width: 100%;
       height: 100%;
       outline: none;
       border: none;
       appearance: none;
       color: $color;
-      padding: 0 0.2rem;
       background: $bg;
       @include inputcolor($color);
       // border: 0.02rem solid $color;
-      border-radius: 0.12rem;
+      border-radius: $input-select-cell-radius;
       box-sizing: border-box;
+    }
+  }
+  &_input_cell-auth {
+    $width: 5em;
+
+    display: block;
+    margin-left: 0.02rem;
+    @include lh($input-select-height);
+    min-width: $width;
+    cursor: pointer;
+    border-radius: $input-select-cell-radius;
+    background: #0ed105;
+    color: #fff;
+    &.disable {
+      background: #939393;
     }
   }
 
@@ -337,7 +357,7 @@ $input-select-cell-gutter: 0.16rem;
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: #3f94d4;
+    background: rgba(0, 0, 0, 0.3);
     color: #fff;
     // &:nth-of-type(odd) {
     //   background: #3f94d4;
@@ -518,12 +538,28 @@ $input-select-cell-gutter: 0.16rem;
       }
     }
   }
+  // pop game ready count
+  &_ready {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #fff;
+  }
 }
 
 /**
   html template for above css style
 **/
-// <!-- 弹窗 -->
+// <!-- pop start -->
 // <!-- pop 概率公示  -->
 // <div class="jy-pop " id="J_adverPop">
 //   <div class="jy-pop_mask"></div>
@@ -675,7 +711,8 @@ $input-select-cell-gutter: 0.16rem;
 //               <div class="jy-pop_table_item">
 //                 <div class="jy-pop_table_cell">抱枕被*1</div>
 //                 <div class="jy-pop_table_cell ">
-//                   <a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-address">填写地址</a>
+//                   <a href="javascript:;"
+//                     class="jy-btn-txt jy-pop_btn-link btn-pop-address">填写地址</a>
 //                 </div>
 //               </div>
 //               <div class="jy-pop_table_item">
@@ -705,8 +742,8 @@ $input-select-cell-gutter: 0.16rem;
 
 //       <!-- 图片控制 -->
 //       <!-- <div class="jy-pop_body--sty">
-//         <div class="bg-pop-gift mauto"></div>
-//       </div> -->
+//           <div class="bg-pop-gift mauto"></div>
+//         </div> -->
 
 //       <!-- 代码控制 -->
 //       <div class="pt-10">
@@ -740,13 +777,13 @@ $input-select-cell-gutter: 0.16rem;
 //   </div>
 // </div>
 
-// <!-- pop 填写个人信息  -->
+// <!-- pop 个人信息  -->
 // <div class="jy-pop " id="J_ownPop">
 //   <div class="jy-pop_mask"></div>
 //   <div class="jy-pop_main ">
 //     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
 //     <div class="jy-pop_main_header">
-//       <div class="jy-pop_main_header__pad">填写个人信息</div>
+//       <div class="jy-pop_main_header__pad">个人信息</div>
 //     </div>
 //     <div class="jy-pop_body tc">
 
@@ -764,6 +801,7 @@ $input-select-cell-gutter: 0.16rem;
 //           <div class="jy-pop_input_cell-inp">
 //             <input placeholder="" type="text" class="ff-normal" />
 //           </div>
+//           <a href="javascript:;" class="jy-btn-txt jy-pop_input_cell-auth">验证码</a>
 //         </div>
 //         <div class="jy-pop_input_cell">
 //           <div class="jy-pop_input_cell-label tr">地址:</div>
@@ -779,25 +817,54 @@ $input-select-cell-gutter: 0.16rem;
 //   </div>
 // </div>
 
-// <!-- pop 填写游戏信息  -->
-// <div class="jy-pop " id="J_gamePop">
+// <!-- pop 游戏信息  -->
+// <div class="jy-pop active" id="J_gamePop">
 //   <div class="jy-pop_mask"></div>
 //   <div class="jy-pop_main ">
 //     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
 //     <div class="jy-pop_main_header">
-//       <div class="jy-pop_main_header__pad">填写游戏信息</div>
+//       <div class="jy-pop_main_header__pad">游戏信息</div>
 //     </div>
 //     <div class="jy-pop_body tc">
 
 //       <!-- 低版本兼容 -->
-//       <!-- <div class="mt-20 jy-pop_select ff-normal" id="jyCallPicker">请选择区服</div> -->
+//       <div class="jy-pop_input_cell mt-20">
+//         <!-- <div class="jy-pop_input_cell-label tr">区服:</div> -->
+//         <div class="jy-pop_input_cell-inp">
+//           <div class="jy-pop_select i-select-dr ff-normal" id="jyCallPicker">请选择区服</div>
+//         </div>
+//       </div>
 
 //       <!-- 现代浏览器 -->
-//       <select name="" id="" class="mt-20 jy-pop_select ff-normal">
-//         <option value="">请选择区服</option>
-//       </select>
+//       <div class="jy-pop_input_cell mt-20">
+//         <!-- <div class="jy-pop_input_cell-label tr">区服:</div> -->
+//         <div class="jy-pop_input_cell-inp">
+//           <select name="" id="" class="jy-pop_select ff-normal">
+//             <option value="">请选择区服</option>
+//           </select>
+//         </div>
+//       </div>
 
 //       <a href="javascript:;" class="jy-btn-txt jy-pop_btn-ok mt-30">确认</a>
+
+//     </div>
+//   </div>
+// </div>
+
+// <!-- pop 礼包码  -->
+// <div class="jy-pop " id="J_codePop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main ">
+//     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
+//     <div class="jy-pop_main_header">
+//       <div class="jy-pop_main_header__pad">礼包码</div>
+//     </div>
+//     <div class="jy-pop_body tc">
+
+//       <div class="jy-pop_cdkey " id="cptar">fgheuofbpghxwoag</div>
+
+//       <a href="javascript:;" data-clipboard-target="#cptar"
+//         class="jy-btn-txt jy-pop_btn-ok mt-30 btnpopcode">一键复制</a>
 
 //     </div>
 //   </div>
@@ -828,24 +895,6 @@ $input-select-cell-gutter: 0.16rem;
 //   </div>
 // </div>
 
-// <!-- pop 礼包码  -->
-// <div class="jy-pop " id="J_codePop">
-//   <div class="jy-pop_mask"></div>
-//   <div class="jy-pop_main ">
-//     <a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
-//     <div class="jy-pop_main_header">
-//       <div class="jy-pop_main_header__pad">礼包码</div>
-//     </div>
-//     <div class="jy-pop_body tc">
-
-//       <div class="jy-pop_cdkey " id="cptar">fgheuofbpghxwoag</div>
-
-//       <a href="javascript:;" data-clipboard-target="#cptar" class="jy-btn-txt jy-pop_btn-ok mt-30 btnpopcode">一键复制</a>
-
-//     </div>
-//   </div>
-// </div>
-
 // <!-- pop tip  -->
 // <div class="jy-pop " id="J_tipPop">
 //   <div class="jy-pop_mask"></div>
@@ -863,3 +912,13 @@ $input-select-cell-gutter: 0.16rem;
 //     </div>
 //   </div>
 // </div>
+// <!-- preload -->
+// <div class="ploading " id="pagePreload">
+//   <div class="progress lh-20 tc">
+//     <p>loading...</p>
+//     <p id="ploadingPro">0%</p>
+//   </div>
+// </div>
+// <!-- pop game ready count -->
+// <div class="jy-pop " id="J_gameReadyPop"><div class="jy-pop_mask"></div><div class="jy-pop_ready"> <span id="gameReadyCount">3</span></div></div>
+// <!-- pop end -->

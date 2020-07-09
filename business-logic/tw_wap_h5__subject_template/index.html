@@ -34,7 +34,10 @@
 	<!-- 主要内容 -->
 	<div class="jy-wrapper">
 
-		<div class="jy-section section-1 ">
+		<div class="jy-section section-1 active">
+
+			<!-- logo -->
+			<a href="#" class="jy-btn logo"></a>
 
 			<!-- auth status -->
 			<div class="jy-auth">
@@ -45,6 +48,7 @@
 					<div class="nickname">18820785794</div>
 					<i>|</i>
 					<a href="javascript:;" class="jy-btn-txt btn-logout">注销</a>
+					<a href="#" class="jy-btn-txt btn-mygift ml-10">我的奖励</a>
 				</div>
 			</div>
 
@@ -60,17 +64,38 @@
 
 		<!-- section-2 -->
 		<div class="jy-section section-2">
-			<div class="jy-sectionmain"></div>
+			<div class="jy-sectionmain">
+
+			</div>
 		</div>
 
 		<!-- section-3 -->
 		<div class="jy-section section-3">
-			<div class="jy-sectionmain"></div>
+			<div class="jy-sectionmain">
+
+			</div>
 		</div>
+
+		<!-- section-4 -->
+		<div class="jy-section section-4">
+			<div class="jy-sectionmain">
+
+			</div>
+		</div>
+
+		<!-- section-5 -->
+		<div class="jy-section section-5">
+			<div class="jy-sectionmain">
+
+			</div>
+		</div>
+
+		<!-- 返回首页 -->
+		<div class="jy-btn-txt btn-winfixed btn-nav-home ">返回首页</div>
 
 	</div>
 
-	<!-- 弹窗 -->
+	<!-- pop start -->
 	<!-- pop 概率公示  -->
 	<div class="jy-pop " id="J_adverPop">
 		<div class="jy-pop_mask"></div>
@@ -222,7 +247,8 @@
 								<div class="jy-pop_table_item">
 									<div class="jy-pop_table_cell">抱枕被*1</div>
 									<div class="jy-pop_table_cell ">
-										<a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-address">填写地址</a>
+										<a href="javascript:;"
+											class="jy-btn-txt jy-pop_btn-link btn-pop-address">填写地址</a>
 									</div>
 								</div>
 								<div class="jy-pop_table_item">
@@ -252,8 +278,8 @@
 
 				<!-- 图片控制 -->
 				<!-- <div class="jy-pop_body--sty">
-          <div class="bg-pop-gift mauto"></div>
-        </div> -->
+						<div class="bg-pop-gift mauto"></div>
+					</div> -->
 
 				<!-- 代码控制 -->
 				<div class="pt-10">
@@ -287,13 +313,13 @@
 		</div>
 	</div>
 
-	<!-- pop 填写个人信息  -->
+	<!-- pop 个人信息  -->
 	<div class="jy-pop " id="J_ownPop">
 		<div class="jy-pop_mask"></div>
 		<div class="jy-pop_main ">
 			<a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
 			<div class="jy-pop_main_header">
-				<div class="jy-pop_main_header__pad">填写个人信息</div>
+				<div class="jy-pop_main_header__pad">个人信息</div>
 			</div>
 			<div class="jy-pop_body tc">
 
@@ -311,6 +337,7 @@
 						<div class="jy-pop_input_cell-inp">
 							<input placeholder="" type="text" class="ff-normal" />
 						</div>
+						<a href="javascript:;" class="jy-btn-txt jy-pop_input_cell-auth">验证码</a>
 					</div>
 					<div class="jy-pop_input_cell">
 						<div class="jy-pop_input_cell-label tr">地址:</div>
@@ -326,51 +353,36 @@
 		</div>
 	</div>
 
-	<!-- pop 填写游戏信息  -->
+	<!-- pop 游戏信息  -->
 	<div class="jy-pop " id="J_gamePop">
 		<div class="jy-pop_mask"></div>
 		<div class="jy-pop_main ">
 			<a href="javascript:;" class="jy-btn jy-pop_btn_close i-pop-close">关闭</a>
 			<div class="jy-pop_main_header">
-				<div class="jy-pop_main_header__pad">填写游戏信息</div>
+				<div class="jy-pop_main_header__pad">游戏信息</div>
 			</div>
 			<div class="jy-pop_body tc">
 
 				<!-- 低版本兼容 -->
-				<!-- <div class="mt-20 jy-pop_select ff-normal" id="jyCallPicker">请选择区服</div> -->
+				<div class="jy-pop_input_cell mt-20">
+					<!-- <div class="jy-pop_input_cell-label tr">区服:</div> -->
+					<div class="jy-pop_input_cell-inp">
+						<div class="jy-pop_select i-select-dr ff-normal" id="jyCallPicker">请选择区服</div>
+					</div>
+				</div>
 
 				<!-- 现代浏览器 -->
-				<select name="" id="" class="mt-20 jy-pop_select ff-normal">
-					<option value="">请选择区服</option>
-				</select>
+				<div class="jy-pop_input_cell mt-20">
+					<!-- <div class="jy-pop_input_cell-label tr">区服:</div> -->
+					<div class="jy-pop_input_cell-inp">
+						<select name="" id="" class="jy-pop_select ff-normal">
+							<option value="">请选择区服</option>
+						</select>
+					</div>
+				</div>
 
 				<a href="javascript:;" class="jy-btn-txt jy-pop_btn-ok mt-30">确认</a>
 
-			</div>
-		</div>
-	</div>
-
-	<!-- pop selector  -->
-	<div style="z-index:1001;" class="jy-pop " id="J_selectorPop">
-		<div class="jy-pop_mask jy-pop_mask--clickable"></div>
-		<div class="jy-pop_picker_main">
-			<div class="jy-pop_picker_hd">
-				<a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--cancel">取消</a>
-				<a href="javascript:;" class="jy-pop_picker_btn jy-pop_picker_btn--confirm">确定</a>
-			</div>
-			<div class="jy-pop_picker__body">
-				<ul id="jyPopPicker">
-					<li class="active">xxx</li>
-					<li>123</li>
-					<li>xxx</li>
-					<li>123</li>
-					<li>xxx</li>
-					<li>123</li>
-					<li>xxx</li>
-					<li>123</li>
-					<li>xxx</li>
-					<li>123</li>
-				</ul>
 			</div>
 		</div>
 	</div>
@@ -387,7 +399,8 @@
 
 				<div class="jy-pop_cdkey " id="cptar">fgheuofbpghxwoag</div>
 
-				<a href="javascript:;" data-clipboard-target="#cptar" class="jy-btn-txt jy-pop_btn-ok mt-30 btnpopcode">一键复制</a>
+				<a href="javascript:;" data-clipboard-target="#cptar"
+					class="jy-btn-txt jy-pop_btn-ok mt-30 btnpopcode">一键复制</a>
 
 			</div>
 		</div>
@@ -410,6 +423,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- pop end -->
 
 	<!-- js -->
 	<script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
@@ -423,32 +437,8 @@
 	<script>
 		$(function () {
 			var activeCls = 'active',
-				disableCls = 'disable'
-			function showTip(html) {
-				var $tip = $('#J_tipPop')
-				$tip.find('.jy-pop-tiptxt').html(html)
-				$tip.fadeIn()
-			}
-			function navTo(cls) {
-				$(cls)
-					.addClass(activeCls)
-					.siblings()
-					.removeClass(activeCls)
-			}
-			function cardFixed() {
-				$('.jy-content').css({ 'overflow-y': 'hidden' })
-			}
-			function cardReset() {
-				$('.jy-content').css({ 'overflow-y': 'auto' })
-			}
-			$('.jy-pop_picker_btn--confirm').on('click', function () {
-				// 业务逻辑
+				disableCls = 'disable';
 
-				$(this)
-					.parents('.jy-pop')
-					.fadeOut()
-				$('#J_gamePop').hide()
-			})
 			// 概率公示
 			$('.btn-faqs').on('click', function () {
 				$('#J_adverPop').fadeIn()
@@ -460,26 +450,6 @@
 			// 我的奖励
 			$('.btn-mygift').on('click', function () {
 				$('#J_recordPop').fadeIn()
-			})
-			// 礼品查看
-			$('.btn-pop-check').on('click', function () {
-				$('#J_codePop').fadeIn()
-			})
-			// 礼品待领取
-			$('.btn-pop-code').on('click', function () {
-				$('#J_codePop').fadeIn()
-			})
-			// 填写信息
-			$('.btn-pop-address').on('click', function () {
-				$('#J_ownPop').fadeIn()
-			})
-			// 待领取
-			$('.btn-pop-get').on('click', function () {
-				$('#J_gamePop').fadeIn()
-			})
-			// 回到首页
-			$('.btn-nav-home,.btn-nav-home').on('click', function () {
-				navTo('.section-1')
 			})
 
 			// 开始游戏

@@ -9,8 +9,8 @@
 @import "./_reset.scss";
 @import "./_font.scss";
 @import "./_sprite.scss";
-@import "./_util.scss";
 @import "./_lib.scss";
+@import "./_util.scss";
 
 /**
 *  business css
@@ -20,6 +20,7 @@
   page preloading
 **/
 .ploading {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -34,7 +35,22 @@
     bottom: 20%;
     left: 0;
     right: 0;
+    line-height: 2;
+    text-align: center;
   }
+}
+
+// 固定底部 返回首页
+.btn-winfixed {
+  position: fixed;
+  display: inline-block;
+  padding: 0.1rem 0.25rem;
+  bottom: 0.12rem;
+  right: 0;
+  color: #ff6c88;
+  background: rgba(255, 255, 255, 0.8);
+  border: 0.02rem solid #ffabba;
+  border-radius: 0.3rem 0rem 0rem 0.3rem;
 }
 
 // logo
@@ -52,7 +68,8 @@
 
 // auth status
 .jy-auth {
-  position: fixed;
+  // position: fixed;
+  position: absolute;
   top: 0.3rem;
   right: 0.3rem;
   font-size: 0.24rem;
@@ -105,6 +122,9 @@
 .section-1 {
   // height: 7.365rem;
   background-image: url("../img/bg1.jpg");
+  .jy-sectionmain {
+    // padding-top: rem;
+  }
   .i-time {
     position: absolute;
     top: 6.72rem;
@@ -130,6 +150,7 @@
   // height: 7.365rem;
   background-image: url("../img/bg2.jpg");
   .jy-sectionmain {
+    // padding-top: rem;
   }
 }
 
@@ -138,5 +159,24 @@
   // height: 7.365rem;
   background-image: url("../img/bg3.jpg");
   .jy-sectionmain {
+    // padding-top: rem;
+  }
+}
+
+// section-4
+.section-4 {
+  // height: 7.365rem;
+  background-image: url("../img/bg4.jpg");
+  .jy-sectionmain {
+    // padding-top: rem;
+  }
+}
+
+// section-5
+.section-5 {
+  // height: 7.365rem;
+  background-image: url("../img/bg5.jpg");
+  .jy-sectionmain {
+    // padding-top: rem;
   }
 }

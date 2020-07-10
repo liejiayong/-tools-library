@@ -16,7 +16,7 @@ import pkg from './package.json';
 const config = [
 	// browser-friendly UMD build
 	{
-		input: 'src/index.js',
+		input: 'src/orient.js',
 		output: {
 			name: 'ScreenOrient', // 浏览器引用时插件名称
 			file: pkg.browser,
@@ -25,6 +25,10 @@ const config = [
 		},
 		plugins: [
 			resolve(), // 这样 Rollup 能找到 `ms`
+			babel({
+				exclude: 'node_modules/**', // 防止打包node_modules下的文件
+				runtimeHelpers: true, // 使plugin-transform-runtime生效
+			}),
 			commonjs(), // 这样 Rollup 能转换 `ms` 为一个ES模块
 			// eslint({
 			// 	throwOnError: true,
@@ -32,10 +36,6 @@ const config = [
 			// 	include: ['src/**'],
 			// 	exclude: ['node_modules/**']
 			// }),
-			babel({
-				exclude: 'node_modules/**', // 防止打包node_modules下的文件
-				runtimeHelpers: true, // 使plugin-transform-runtime生效
-			}),
 			uglify({
 				compress: {
 					pure_getters: true,
@@ -55,7 +55,7 @@ const config = [
 	// an array for the `output` option, where we can specify
 	// `file` and `format` for each target)
 	{
-		input: 'src/index.js',
+		input: 'src/orient.js',
 		external: [],
 		output: [
 			// { file: pkg.main, format: 'cjs' },

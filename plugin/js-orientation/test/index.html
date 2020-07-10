@@ -57,7 +57,7 @@
 		</div>
 	</div> -->
 
-	<div class="section" id="jyModalOrient">
+	<div class="section" id="orientPanel">
 		<div class="block active">
 			<div class="bg-home"></div>
 			<div id="p1">啦啦啦1</div>
@@ -86,10 +86,10 @@
 
 	<script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
 
-	<!-- <script src="../dist/h5-screen-oriention.umd.js"></script> -->
+	<script src="../dist/h5-screen-oriention.umd.js"></script>
 	<script type="module">
 		// import ScreenOrient from '../src/index.js'
-		import Orient from '../src/orient.js'
+		// import Orient from '../src/orient.js'
 		// const xScreen = new ScreenOrient()
 		// xScreen.lock({
 		// 	mode: 'portrait',
@@ -109,18 +109,18 @@
 
 		// console.log(xScreen)
 
-		var o = new Orient({
-			// mode: Orient.MODE.landscape,
-			mode: Orient.MODE.portrait,
+		var o = new ScreenOrient(document.querySelector('#orientPanel'), {
+			// mode: ScreenOrient.MODE.landscape,
+			mode: ScreenOrient.MODE.portrait,
 			modal: {
 				id: '#jyModalOrient'
 			}
 		})
 		// o.setMode(Orient.MODE.landscape)
-		o.orientChange(function (install) {
-			console.log('install', install)
+		o.onOrient(ScreenOrient.MODE.portrait, function (install) {
+			console.log('install', install, this)
 		})
-		console.log('Orient', o)
+		console.log('Orient install', o, ScreenOrient)
 
 	</script>
 	<script>

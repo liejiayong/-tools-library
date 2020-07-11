@@ -53,22 +53,23 @@
 			<div id="p1">啦啦啦1</div>
 			<div id="p2">啦啦啦2</div>
 			<div id="p3">啦啦啦3</div>
-			<div class="bg-home"></div>
-			<!-- <img src="./img/bg-home.png" alt="" class=""> -->
-			<div class="bg-tit1 animated"></div>
-			<div class="bg-tit2 animated"></div>
-			<div class="jybtn btn-rule"></div>
-			<div class="jybtn btn-ready animated animated-infinite"></div>
+		</div>
+		<div class="jy-section">
+			<div id="p1">啦啦啦4</div>
+			<div id="p2">啦啦啦5</div>
+			<div id="p3">啦啦啦6</div>
 		</div>
 	</div>
+	<div class="model" id="J_landscapeTips">model</div>
 	<style>
-		.jy-section{
+		.jy-section {
 			position: absolute;
-			top:0;
-			left:0;
+			top: 0;
+			left: 0;
 			width: 100%;
 			height: 100%;
 		}
+
 		#p1 {
 			position: absolute;
 			top: 0;
@@ -85,6 +86,22 @@
 			position: absolute;
 			bottom: 0;
 			right: 0;
+		}
+
+		.model {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1000;
+			background: #ccc;
+			color: #fff
+		}
+
+		.model.show {
+			display: block;
 		}
 	</style>
 	<!-- js -->
@@ -153,6 +170,14 @@
 			$wrapper: document.getElementById('print'),
 			zIndex: 302,
 		})
+		xScreen.inform({
+			mode: 'landscape',
+			id: 'J_landscapeTips',
+		})
+		xScreen.onOrientationChange(orientation => {
+			console.log('2', orientation, this)
+		}, this)
+		console.log('window', window, this)
 	</script>
 </body>
 

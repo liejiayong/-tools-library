@@ -46,7 +46,7 @@
   }, this)
  */
 export default class ScreenOrient {
-  constructor () {
+  constructor() {
     this.$wrappers = [] // 存储需要处理的dom
     this.$informs = [] // 需要提示的
     this.listeners = []
@@ -69,7 +69,7 @@ export default class ScreenOrient {
     }, this)
   }
 
-  static _detectOrient () {
+  static _detectOrient() {
     const screen = window.Screen
     const docEle = document.documentElement
     const clientWidth = docEle.clientWidth
@@ -85,7 +85,7 @@ export default class ScreenOrient {
     return ''
   }
 
-  static _getLockStyle (mode, zIndex) {
+  static _getLockStyle(mode, zIndex) {
     const docEle = document.documentElement
     const clientWidth = docEle.clientWidth
     const clientHeight = docEle.clientHeight
@@ -119,7 +119,7 @@ export default class ScreenOrient {
     }
 
     const cssText =
-    `
+      `
     position: fixed;
     top: 0;
     left: 0;
@@ -134,9 +134,9 @@ export default class ScreenOrient {
     return cssText
   }
 
-  static _createTipsStyle (id, zIndex) {
+  static _createTipsStyle(id, zIndex) {
     const cssText =
-    `
+      `
     #${id}.screentips {
       transition: opacity linear 0.3s;
       pointer-events: none;
@@ -189,7 +189,7 @@ export default class ScreenOrient {
     doc.head.appendChild(style)
   }
 
-  static _createTipsDOM ({ id, text, logo }) {
+  static _createTipsDOM({ id, text, logo }) {
     return new Promise((resolve, reject) => {
       const doc = document
       const body = doc.body
@@ -211,7 +211,7 @@ export default class ScreenOrient {
     })
   }
 
-  _lockOrientation ({ mode, $wrapper, zIndex }) {
+  _lockOrientation({ mode, $wrapper, zIndex }) {
     if (mode === this.orientation) {
       $wrapper.style = ScreenOrient._getLockStyle('normal')
       return
@@ -219,7 +219,7 @@ export default class ScreenOrient {
     $wrapper.style = ScreenOrient._getLockStyle(mode, zIndex)
   }
 
-  _showInform ({ id, mode }) {
+  _showInform({ id, mode }) {
     const $inform = document.getElementById(id)
     if (!$inform) return
     if (mode === this.orientation) {
@@ -236,7 +236,7 @@ export default class ScreenOrient {
    * $wrapper {HTMLElement} 被处理的DOM容器，必填
    * zIndex {number} 显示的层次，也就是z-index，默认是301，可选
    */
-  lock (config) {
+  lock(config) {
     config = Object.assign({
       mode: '',
       $wrapper: null,
@@ -258,7 +258,7 @@ export default class ScreenOrient {
    * text {string} 提示文案，默认“为了更好的体验，请保持竖屏/横屏显示”可选
    * zIndex {number} 显示的层次，也就是z-index，默认是310，可选
    */
-  inform ({ mode, id, logo, text, zIndex }) {
+  inform({ mode, id, logo, text, zIndex }) {
     if (!mode || !id) return
     logo = logo || (mode === 'landscape' ? this.logoLandscape : this.logoPortrait)
     text = text || `为了更好的体验，请保持${mode === 'landscape' ? '横屏' : '竖屏'}浏览`
@@ -291,7 +291,7 @@ export default class ScreenOrient {
    * @param {function} callback 回调函数
    * @param {variable} context 回调函数的上下文
    */
-  onOrientationChange (callback, context) {
+  onOrientationChange(callback, context) {
     if (typeof callback !== 'function') return
     this.listeners.push({
       callback,

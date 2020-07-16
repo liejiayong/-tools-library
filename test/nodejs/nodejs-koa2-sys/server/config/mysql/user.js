@@ -1,0 +1,67 @@
+// 用户
+// exports.user = `create table if not exists users(
+//     id INT NOT NULL AUTO_INCREMENT,
+//     name VARCHAR(100) NOT NULL COMMENT '用户名',
+//     pass VARCHAR(100) NOT NULL COMMENT '密码',
+//     avator VARCHAR(100) NOT NULL COMMENT '头像',
+//     moment VARCHAR(100) NOT NULL COMMENT '注册时间',
+//     PRIMARY KEY ( id )
+//    );`
+exports.user = `CREATE TABLE IF NOT EXISTS \`jy_blog_users\`(
+    \`id\` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+    \`register_type\` tinyint(4) NOT NULL DEFAULT 1 COMMENT '注册类型(1：手机号，2：微信，3：qq)',
+    \`username\` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户名',
+    \`nickname\` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '昵称',
+    \`password\` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '密码',
+    \`phone\` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '手机号',
+    \`email\` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '邮箱',
+    \`age\` tinyint(4) NOT NULL DEFAULT 0 COMMENT '年龄',
+    \`birthday\` date NOT NULL DEFAULT '1970-01-01' COMMENT '生日',
+    \`profile\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '个人简介',
+    \`open_id\` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '公众号openid',
+    \`app_open_id\` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '小程序openid',
+    \`union_id\` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '开放平台unionid',
+    \`avatar_url\` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '头像地址',
+    \`withdraw_pwd\` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '提现密码',
+    \`seller_certification\` tinyint(4) NOT NULL DEFAULT -1 COMMENT '卖家认证（-1：未认证，1：已认证）',
+    \`purchaser_certification\` tinyint(4) NOT NULL DEFAULT -1 COMMENT '买家认证（-1：未认证，1：已认证）',
+    \`is_binding_bank\` tinyint(4) UNSIGNED NOT NULL DEFAULT 0 COMMENT '虚拟银行是否已经绑定实体银行;1:已绑定;0:没绑定',
+    \`status\` tinyint(4) NOT NULL DEFAULT 1 COMMENT '状态(-1：禁用，1：正常)',
+    \`last_login_time\` int(11) NOT NULL DEFAULT 0 COMMENT '最后登录时间',
+    \`create_time\` int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+    \`create_date\` int(11) NULL DEFAULT NULL COMMENT '发表时间',
+    \`update_date\` int(11) NULL DEFAULT NULL COMMENT '更新时间',
+    PRIMARY KEY (\`id\`) USING BTREE,
+    INDEX normal_email(email) USING BTREE COMMENT '用户邮箱二级索引',
+    INDEX normal_phone(phone) USING BTREE COMMENT '用户手机号二级索引'
+    );`
+
+// 实名认证
+exports.certification = `create table if not exists certification(
+      id int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+      type tinyint(4) NOT NULL DEFAULT 2 COMMENT '认证类型（1：买家认证；2：卖家认证）',
+      uid int(11) NOT NULL DEFAULT 0 COMMENT '用户标识',
+      username varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户名',
+      idcard_name varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '姓名',
+      idcard_code varchar(18) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '身份证号',
+      idcard_startdate date NOT NULL DEFAULT '1970-01-01' COMMENT '有效期限（开始）',
+      idcard_enddate date NOT NULL DEFAULT '1970-01-01' COMMENT '有效期限(结束)',
+      idcard_front_img varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '身份证正面图片',
+      idcard_front_img_pid varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+      idcard_front_img_req_id varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+      idcard_back_img varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '身份证反面图片',
+      idcard_back_img_pid varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+      idcard_back_img_req_id varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+      idcard_reg_account_req_id varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+      status tinyint(4) NOT NULL DEFAULT 1 COMMENT '状态(-1，未通过，1：审核中，2：已通过)',
+      admin_id int(11) NOT NULL DEFAULT 0 COMMENT '管理员标识',
+      admin_username varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '管理员账号',
+      admin_nickname varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '管理员昵称',
+      remark text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '备注',
+      create_time int(11) NOT NULL DEFAULT 0 COMMENT '创建时间',
+      update_time int(11) NOT NULL DEFAULT 0 COMMENT '修改时间',
+      PRIMARY KEY (id) USING BTREE,
+      INDEX normal_uid(uid) USING BTREE COMMENT '用户标识二级索引',
+      INDEX normal_username(username) USING BTREE COMMENT '用户名二级索引',
+      INDEX normal_status(status) USING BTREE COMMENT '审核状态二级索引'
+    );`

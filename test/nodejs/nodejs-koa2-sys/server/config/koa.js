@@ -42,7 +42,6 @@ app.use(bodyParser({
    */
 }))
 app.use(koaJson())
-console.log(config.root, config.appPath, '111111')
 app.use(koaStatic(path.join(config.root, config.appPath), {
   maxage: 0 // Browser cache max-age in milliseconds. defaults to 0
   , hidden: false // Allow transfer of hidden files. defaults to false

@@ -1,13 +1,13 @@
 const { user, certification } = require('./user')
 const { articles, comment } = require('./articles')
 
-module.exports = function (createTable) {
+module.exports = async function (createTable) {
     // 用户中心
-    createTable(user)
+    await createTable(user)
     // 实名认证
-    createTable(certification)
+    await createTable(certification)
     // 文章
-    createTable(articles)
+    await createTable(articles)
     // 评论
-    createTable(comment)
+    await createTable(comment)
 }

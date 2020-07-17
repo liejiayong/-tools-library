@@ -3,7 +3,7 @@
  */
 exports.articles = `CREATE TABLE IF NOT EXISTS \`jy_blog_articles\`(
     \`id\` bigint(255) NOT NULL AUTO_INCREMENT COMMENT '博文ID',
-    \`user_id\` INT NOT NULL COMMENT '发表用户ID',
+    \`user_id\` int(11) UNSIGNED NOT NULL COMMENT '发表用户ID',
     \`title\` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '博文标题',
     \`content\` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '博文内容',
     \`views\` bigint(20) NOT NULL COMMENT '浏览量',
@@ -22,8 +22,8 @@ exports.articles = `CREATE TABLE IF NOT EXISTS \`jy_blog_articles\`(
  * 评论
  */
 exports.comment = `CREATE TABLE IF NOT EXISTS \`jy_blog_comments\`(
-    \`id\` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '评论ID',
-    \`user_id\` INT NOT NULL COMMENT '评论用户ID',
+    \`id\` bigint(255) NOT NULL AUTO_INCREMENT COMMENT '评论ID',
+    \`user_id\` int(11) UNSIGNED NOT NULL COMMENT '评论用户ID',
     \`article_id\` bigint(20) NOT NULL COMMENT '评论博文ID',
     \`avatar\` VARCHAR(100) NOT NULL COMMENT '评论用户头像',
     \`like_count\` bigint(20) NOT NULL COMMENT '点赞数',
@@ -36,5 +36,7 @@ exports.comment = `CREATE TABLE IF NOT EXISTS \`jy_blog_comments\`(
     PRIMARY KEY (\`id\`) USING BTREE,
     INDEX \`article_id\`(\`article_id\`) USING BTREE,
     INDEX \`date\`(\`date\`) USING BTREE,
-    INDEX \`parent_id\`(\`parent_id\`) USING BTREE
+    INDEX \`parent_id\`(\`parent_id\`) USING BTREE,
+    CONSTRAINT \`fk_user_id\` FOREIGN KEY (\`user_id\`) REFERENCES \`jy_blog_users\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    CONSTRAINT \`fk_article_id\` FOREIGN KEY (\`article_id\`) REFERENCES \`jy_blog_articles\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT
   );`

@@ -1,0 +1,98 @@
+.pshare-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    &.active {
+      display: block;
+      .body{
+          animation: slideInUp 0.3s ease-in;
+      }
+    }
+    .body {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+      background: #fff;
+      .title {
+        line-height: 50px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        box-shadow: 0 1px 5px #ccc;
+      }
+      .content {
+        padding: 20px 12px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        .btn-thrshare {
+          display: block;
+          margin: 10px auto;
+          text-align: center;
+          user-select: none;
+          cursor: pointer;
+          img {
+            margin: 0 auto;
+            display: block;
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            -webkit-touch-callout: none;
+          }
+          span {
+            font-size: 14px;
+            color: #666;
+          }
+          &:active {
+            filter: brightness(1.1);
+          }
+        }
+      }
+      .btn-thrshare-canel {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 16px;
+        color: #333;
+        background: linear-gradient(#f9f9f9, #fff, #f9f9f9);
+        &:active {
+          filter: brightness(1.1);
+        }
+      }
+    }
+    .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  // <div class="pshare-container active">
+  // <div class="mask"></div>
+  // <div class="body">
+  //     <div class="title">分享平台</div>
+  //     <ul class="content bdsharebuttonbox bd_selectShare" data-tag="share_1">
+  //         <a data-cmd="weixin" class="btn-thrshare bds_weixin"><img src="./img/icon-wechat.png"
+  //                 alt=""><span>微信</span></a>
+  //         <a data-cmd="sqq" class="btn-thrshare bds_sqq"><img src="./img/icon-qq.png" alt=""><span>QQ</span></a>
+  //         <a data-cmd="tsina" class="btn-thrshare bds_tsina"><img src="./img/icon-sina.png"
+  //                 alt=""><span>新浪</span></a>
+  //         <a data-cmd="qzone" class="btn-thrshare bds_qzone"><img src="./img/icon-qzone.png"
+  //                 alt=""><span>QQ空间</span></a>
+  //     </ul>
+  //     <a href="javascript:;" class="btn-thrshare-canel">取消分享</a>
+  // </div>
+  // </div>
+  

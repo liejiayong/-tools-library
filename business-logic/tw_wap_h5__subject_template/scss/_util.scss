@@ -5,6 +5,12 @@
 // 面向h5端style
 @import "./lib/_util_h5.scss";
 
+html,
+body {
+  height: 100%;
+  height: 100vh;
+  overflow: hidden auto;
+}
 body {
   margin-left: auto;
   margin-right: auto;

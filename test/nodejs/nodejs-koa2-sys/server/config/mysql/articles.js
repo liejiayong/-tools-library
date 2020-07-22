@@ -24,7 +24,7 @@ exports.articles = `CREATE TABLE IF NOT EXISTS \`jy_blog_articles\`(
 exports.comment = `CREATE TABLE IF NOT EXISTS \`jy_blog_comments\`(
     \`id\` bigint(255) NOT NULL AUTO_INCREMENT COMMENT '评论ID',
     \`user_id\` int(11) UNSIGNED NOT NULL COMMENT '评论用户ID',
-    \`article_id\` bigint(20) NOT NULL COMMENT '评论博文ID',
+    \`article_id\` bigint(255) NOT NULL COMMENT '评论博文ID',
     \`avatar\` VARCHAR(100) NOT NULL COMMENT '评论用户头像',
     \`like_count\` bigint(20) NOT NULL COMMENT '点赞数',
     \`collect_count\` bigint(20) NOT NULL COMMENT '收藏数',

@@ -17,6 +17,18 @@ body {
   font: #{$fs-primary}/ 1.15 "fcustom", "微软雅黑";
   color: #333;
 }
+.jy-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  height: 100%;
+  height: 100vh;
+  overflow: hidden auto;
+  color: $color-primary;
+  background: $color-theme-bg;
+}
 
 .lh-15 {
   line-height: 1.5;

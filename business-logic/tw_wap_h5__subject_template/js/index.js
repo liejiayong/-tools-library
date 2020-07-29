@@ -457,4 +457,6 @@ $(function () {
   }
   // logic.init();
 
+  var queryTest = window.location.href
+  if (queryTest.indexOf('debug=jylie') > -1) new VConsole()
 });

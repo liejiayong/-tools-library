@@ -2,3 +2,7 @@
 # yarn lockfile v1
 
 
+snabbdom@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/snabbdom/download/snabbdom-1.0.1.tgz#56de29b7499e6a9ee05e024ce3fc75d71761c08a"
+  integrity sha1-Vt4pt0meap7gXgJM4/x11xdhwIo=

@@ -228,10 +228,11 @@ $input-select-cell-radius: 0.12rem;
     padding: 0 0.2rem;
     width: $width;
     @include lh($input-select-height);
+    @include input-align(center);
     background-color: $bg;
     color: $color;
     outline: none;
-    // border: 0.02rem solid #3f94d4;
+    border: 0.02rem solid $color;
     border-radius: $radius;
     overflow: hidden;
     box-sizing: border-box;
@@ -240,7 +241,8 @@ $input-select-cell-radius: 0.12rem;
       margin-bottom: $input-select-cell-gutter;
     }
     option {
-      text-align: center;
+      // text-align: center;
+      @include input-align(center);
       color: #333;
     }
   }
@@ -287,7 +289,7 @@ $input-select-cell-radius: 0.12rem;
       $color: #fff;
       $bg: rgba(0, 0, 0, 0.3);
 
-      padding: 0 2em;
+      padding: 0 1em;
       width: 100%;
       height: 100%;
       outline: none;
@@ -296,7 +298,7 @@ $input-select-cell-radius: 0.12rem;
       color: $color;
       background: $bg;
       @include inputcolor($color);
-      // border: 0.02rem solid $color;
+      border: 0.02rem solid $color;
       border-radius: $input-select-cell-radius;
       box-sizing: border-box;
     }

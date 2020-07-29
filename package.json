@@ -3,5 +3,7 @@
     "deploy": "node deploy",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "postversion": "npm run deploy"
+  },
+  "dependencies": {
   }
 }

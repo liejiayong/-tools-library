@@ -16,6 +16,7 @@ body {
   overflow: hidden;
   font: #{$fs-primary}/ 1.15 "fcustom", "微软雅黑";
   color: #333;
+  @include scroll_init();
 }
 .jy-wrapper {
   margin-left: auto;
@@ -28,6 +29,7 @@ body {
   overflow: hidden auto;
   color: $color-primary;
   background: $color-theme-bg;
+  @include scroll_static();
 }
 
 .lh-15 {

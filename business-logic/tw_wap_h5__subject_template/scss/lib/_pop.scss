@@ -274,7 +274,7 @@ $input-select-cell-radius: 0.12rem;
     @include lh($input-select-height);
     // font-size: 0.27rem;
     font-weight: bold;
-    color: #3f94d4;
+    color: $color;
   }
   &_input_cell-inp {
     // $width: 2.9rem;
@@ -307,7 +307,7 @@ $input-select-cell-radius: 0.12rem;
     $width: 5em;
 
     display: block;
-    margin-left: 0.02rem;
+    // margin-left: 0.02rem;
     @include lh($input-select-height);
     min-width: $width;
     cursor: pointer;

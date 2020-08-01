@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="robots" content="follow" />
+    <meta name="author" content="liejy" />
+    <meta name="copyright" content="" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>danmu template</title>
+  </head>
+  <body>
+    <style>
+      .bg-p2 {
+        font-size: 0.14rem;
+        margin: 0.3rem auto 0;
+        width: 6.74rem;
+        height: 3.82rem;
+        overflow: hidden;
+        position: relative;
+        background-color: #ccc;
+      }
+      .jy-player {
+        position: absolute;
+        padding: 0.1rem;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      video {
+        z-index: -1;
+      }
+      .jy-danmu {
+        position: absolute;
+        padding: 0.1rem;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+      }
+      .btn-play {
+        position: absolute;
+        padding: 0.05rem;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 110;
+        background: url('data:image/png;base64,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')
+          no-repeat center / 1.28rem auto;
+      }
+      .btn-send{
+        display: block;
+        background-color: #ccc;
+        padding: .1rem .2rem;
+      }
+    </style>
+    <script src="./jquery-1.11.2.min.js"></script>
+    <script src="./jz.danmu.v1.0.0.js"></script>
+    <div class="bg-p2">
+      <div class="jy-player">
+        <canvas width="100%" height="100%" id="cvid"></canvas>   
+        <video poster="./img/v-poster.png" x5-playsinline playsinline webkit-playsinline x-webkit-airplay x5-video-player-type="h5" x5-video-player-fullscreen x5-video-orientation="portraint" width="100%" height="100%" class="player" id="player">
+          <source src="./media/v.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="jy-danmu" id="danmuStage"></div>
+      <div class="btn-play" id="btnPlayer"></div>
+    </div>
+    <input placeholder="请输入您想说的祝福..." type="text" class="danmu-input" />
+    <a href="javascript:;" class="jybtn btn-send">send</a>
+
+    <script>
+      // 弹幕
+      //初始的弹幕数据
+      var danmuData = ['玩家554****54收到来自天王的回礼：屠龙刀U盘！祝贺他吧！"', '弹幕来袭~'];
+
+      //实例化弹幕
+      var dm = new danMu({
+        device: 'pc', // m代表移动端弹幕,不设置或设为pc代表pc端弹幕
+        stage: $('#danmuStage'),
+        danMuClassName: 'danmu_item',
+        comments: danmuData,
+        danMuHtml: '<span>{comment}</span>',
+        colors: ['#f24b77', '#d900d1', '#bc2204', '#1ca900', '#ffba34', '#bc2204', '#e100c4'],
+        flyTime: 10000,
+        timeInterval: 500,
+        randomSort: true,
+        autoplay: true,
+        hSpacing: 0.2,
+        leastNum: 20,
+        mAnimation: 'transform',
+        myDanMuPrefix: ''
+      });
+      dm.play();
+
+      // 发送弹幕
+      $('.btn-send').on('click', function() {
+        var msg = $('.danmu-input').val();
+        // 发布的信息上传到服务器，上传成功后直接push到
+        danmuData.push(msg);
+        // 然后调用这个方法发布信息
+        dm.send(msg);
+        // 然后没发送完一条弹幕。需要重置
+        isSend = false;
+      });
+      // 弹幕end
+
+      // 定义初始化
+      var subject = {
+        initial: function() {
+          this.font();
+        },
+        // 字体适配
+        font: function() {
+          var docEl = document.documentElement;
+          var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+          var reCalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            window.baseFontSize = 100 * (clientWidth / 750);
+            docEl.style.fontSize = window.baseFontSize + 'px';
+            // 屏幕提示
+            var w = document.body.clientWidth;
+            var h = document.body.clientHeight;
+            if (h > w) {
+              $('.Screen-win').fadeOut();
+            } else {
+              $('.Screen-win').fadeIn();
+            }
+          };
+          if (!document.addEventListener) return;
+          reCalc();
+          window.addEventListener(resizeEvt, reCalc, false);
+          document.addEventListener('DOMContentLoaded', reCalc, false);
+        }
+      };
+      subject.initial();
+
+      var canVid = {
+        raf: null,
+        vid: null,
+        canvas: null,
+        ctx: null,
+        init: function () {
+          var canvas = document.querySelector('#cvid')
+          var ctx = canvas.getContext('2d')
+          var vid = document.createElement('video')
+          vid.controls = 'controls'
+          vid.src = './media/v.mp4'
+          // vid.width = canvas.width
+          // vid.height = canvas.height
+          canVid.canvas = canvas
+          canvas.width = '100%'
+          canvas.height = '100%'
+          canVid.ctx = ctx
+          canVid.vid = vid
+
+          console.log(canVid, canvas, ctx, vid)
+        },
+        play: function () {
+          var self = this, ctx = self.ctx, vid = self.vid, canvas = self.canvas
+          var width = canvas.width, height = canvas.height
+          console.log(vid)
+          vid.play()
+          function ant() {
+            this.raf = requestAnimationFrame(function () {
+              ctx.drawImage(vid, 0, 0, width, height)
+              console.log(vid, 0, 0, width, height)
+              ant()
+            })
+          }
+          ant()
+        },
+        stop: function () {
+          cancelAnimationFrame(this.raf)
+        }
+      }
+      canVid.init()
+
+      $('#btnPlayer').on('click', function () {
+        canVid.play()
+      })
+    </script>
+
+    <script>
+      /*
+        参数说明
+        
+        device
+        类型：string
+
+        默认值：'pc'
+
+        设备是pc端还是移动端，'pc'代表pc端弹幕，'m'代表移动端弹幕
+
+        stage
+        类型：object
+
+        默认值：$(".danmustage")
+
+        弹幕舞台/容器
+
+        comments
+        类型：array
+
+        默认值：[]
+
+        弹幕初始数据
+
+        colors
+        类型：array
+
+        默认值：['#fff']
+
+        弹幕随机颜色数组
+
+        danMuHtml
+        类型：string
+
+        默认值：''
+
+        普通弹幕html模板;{userId}代表弹幕所属用户唯一标识属性值；{comment}代表弹幕内容；该html模板中支持出现多个{userId}和{comment}
+
+        alwaysDanMuHtml
+        类型：string | array
+
+        默认值：''
+
+        一直在舞台垂直居中位置出现的弹幕html模板（例如上面第二个demo的“TGideas弹幕来袭”）;不设置或设置为''代表没有
+
+        danMuClassName
+        类型：string
+
+        默认值：'danmu'
+
+        普通弹幕className
+
+        myDanMuClassName
+        类型：string
+
+        默认值：'mydanmu'
+
+        我发送的普通弹幕className
+
+        alwaysDanMuClassName
+        类型：string
+
+        默认值：'alwaysdanmu'
+
+        一直在舞台垂直居中位置出现的弹幕className
+
+        mAnimation
+        类型：string
+
+        默认值：'transform'
+
+        移动端弹幕动画类型；'transform'：代表采用css3的transform:translate3d(x,y,z);页面性能好，动画效果十分流畅；'left'：代表采用css3的transition:left;来过渡，性能差，动画效果有卡顿
+
+        hSpacing
+        类型：number
+
+        默认值：0.2
+
+        普通弹幕间最小高度间距是弹幕本身高度的几倍
+
+        flyTime
+        类型：number
+
+        默认值：10000
+
+        弹幕飞行时间，越大速度越慢
+
+        timeInterval
+        类型：number
+
+        默认值：3000
+
+        播放下一条普通弹幕的时间间隔
+
+        alwaysLoopTime
+        类型：number
+
+        默认值：10000
+
+        播放下一个舞台垂直居中弹幕的时间间隔
+
+        randomSort
+        类型：boolean
+
+        默认值：false
+
+        是否随机打乱初始弹幕数据
+
+        loop
+        类型：boolean
+
+        默认值：true
+
+        是否循环播放弹幕
+
+        autoplay
+        类型：boolean
+
+        默认值：true
+
+        是否自动播放弹幕
+
+        mouseoverpause
+        类型：boolean
+
+        默认值：true
+
+        是否鼠标上移悬停普通弹幕（只在pc端弹幕有效）
+
+        awmouseoverpause
+        类型：boolean
+
+        默认值：false
+
+        是否鼠标上移悬停舞台垂直居中弹幕（只在pc端弹幕有效）
+
+        danMuOverAlwaysLoop
+        类型：boolean
+
+        默认值：true
+
+        弹幕不循环播放的情况下，普通弹幕播放完毕，舞台垂直居中弹幕是否继续循环播放
+
+        cookieName
+        类型：string
+
+        默认值：'TGideasDanMu'
+
+        静态数据弹幕下，用户发布的弹幕存入本地cookie的cookie名称；设为''代表不存入cookie，也不从cookie中读取用户以前发布的弹幕数据
+
+        cookieExp
+        类型：number
+
+        默认值：3650
+
+        cookie过期时间（单位：天），仅在静态数据弹幕下，用户发布弹幕存于cookie时有效
+
+        localDanMuRandomInsert
+        类型：boolean
+
+        默认值：true
+
+        初始化弹幕时，存于本地cookie的弹幕数据是否随机插入到弹幕中
+
+        localDanMuNotRandomIndex
+        类型：number
+
+        默认值：3
+
+        表示从第几条开始播放本地cookie中的弹幕，仅在上一个参数设置为false时有效
+
+        localDanMuHasMyStyle
+        类型：boolean
+
+        默认值：false
+
+        本地cookie中的弹幕是否拥有'我发布的弹幕'样式，即mydanmu样式
+
+        appendRepeat
+        类型：boolean
+
+        默认值：false
+
+        静态弹幕追加弹幕数据，弹幕内容是否可重复
+
+        myDanMuPrefix
+        类型：string
+
+        默认值：'我：'
+
+        我发送弹幕时，显示在弹幕内容前面的前缀
+
+        uniqueTagName
+        类型：string
+
+        默认值：''
+
+        每条弹幕数据用户的唯一标识属性名称。仅在动态弹幕下，且需要区分每条弹幕的用户（如显示用户id、展示用户头像等），才需设置
+
+        userId
+        类型：string | number
+
+        默认值：''
+
+        代表当前用户的唯一标识属性值。仅在上一个参数有设置的情况下，才需设置
+
+        showMyStyle
+        类型：boolean
+
+        默认值：false
+
+        在动态弹幕下，除了用户当前发送的弹幕外的其他弹幕，如果用户标识也是当前用户，是否要显示'我的弹幕'样式，即mydanmu样式
+
+        submitSuccessCallback
+        类型：boolean
+
+        默认值：false
+
+        在动态弹幕下，该参数用于在发布弹幕时的成功回调方法里面，代表是否等到ajax提交弹幕数据到后台成功之后才置sendStatus为true
+
+        aDanMuCreated
+        类型：function
+
+        默认值：function(){}
+
+        每一条弹幕创建完毕的回调方法，该方法在弹幕进入舞台之前执行的。例如：function(index, el, className){...}index：弹幕索引el：弹幕domclassName：弹幕className
+
+        distanceToStage
+        类型：number
+
+        默认值：50
+
+        每个弹幕初始位置在弹幕舞台的右侧加上多少像素，50代表50px
+
+        sendIfStopTips
+        类型：string
+
+        默认值：'弹幕已经暂停或关闭，不能发布！'
+
+        如果当前弹幕已经暂停或关闭的话，发布弹幕会失败，且会有这个提醒
+
+        sendIfFastTips
+        类型：string
+
+        默认值：'您发布弹幕的速度太快了，请歇一会！'
+
+        如果用户发送弹幕的速度太快的话，发布弹幕会失败，且会有这个提醒
+
+        direction
+        类型：string
+
+        默认值：'h'
+
+        设置水平弹幕或垂直弹幕。'h'代表水平弹幕；'v'代表垂直弹幕
+
+        preventingXSS
+        类型：boolean
+
+        默认值：true
+
+        是否在用户使用send()方法发送弹幕时防御DomXSS，默认为true
+
+        hSpacingFixed
+        类型：boolean
+
+        默认值：false
+
+        上下两条弹幕的高度间距是否固定。默认为false，代表高度间距是随机不固定的
+
+        方法说明
+        send(data,callback)
+        用户发送弹幕方法。
+
+        data：【必选】一条弹幕的内容，类型string
+
+        callback(cval)：【可选】发送弹幕成功的回调方法，类型function。其中参数cval为防御DomXSS后弹幕的最终文本
+
+        triggerSend(params,callback)
+        前端开发同学模拟用户发送普通弹幕方法。
+
+        params：【必选】API调用的参数，类型object，含有3个属性，分别为data、sendid、insert；
+
+        params.data：【必选】一条弹幕的内容，类型string（当uniqueTagName为空时）或object（当uniqueTagName不为空时，data格式为{'comment':'',uniqueTagName:''}）
+
+        params.sendid：【可选】模拟用户发送普通弹幕时，每条弹幕添加的标识号(不同弹幕的标识号可以相同)，在aDanMuCreated参数方法中会抛出每条弹幕的el，我们通过$(el).data('sendid')即可获得我们模拟弹幕设置的sendid，类型string或number
+
+        params.insert：【可选】代表模拟用户发送的普通弹幕是否存入普通弹幕集合的数组中，用于loop为true的弹幕下次循环时播放显示，默认不存入数组，类型boolean
+
+        callback()：【可选】发送弹幕成功的回调方法，类型function
+
+        注：在send方法中，如果用户发送弹幕过快会给予提示；在triggerSend方法中则不会提示发送弹幕过快。
+
+        append(data,callback)
+        追加弹幕方法。
+
+        data：【必选】弹幕数组，类型array
+
+        callback()：【可选】追加弹幕成功的回调方法，类型function
+
+        pause(callback)
+        暂停弹幕方法。
+
+        callback()：【可选】暂停弹幕成功的回调方法，类型function
+
+        play(callback)
+        播放弹幕方法。
+
+        callback()：【可选】播放弹幕成功的回调方法，类型function
+
+        
+        */
+    </script>
+  </body>
+</html>

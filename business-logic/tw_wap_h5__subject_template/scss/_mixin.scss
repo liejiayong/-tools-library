@@ -77,15 +77,18 @@
 }
 
 // 滚动卡顿
-@mixin scroll {
+@mixin scroll_init {
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 @mixin scroll_static {
   position: static;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 @mixin scroll_chaining {
   -ms-scroll-chaining: none;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }

@@ -5,7 +5,7 @@ body {
   // box-sizing: border-box;
   // -ms-scroll-chaining: none;
   // overscroll-behavior: contain;
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 // *:before,
 // *:after {
@@ -40,8 +40,8 @@ body {
   font: 50px / 1.15 -apple-system, system-ui, BlinkMacSystemFont, Helvetica,
     Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑",
     Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-overflow-scrolling: touch;
 }
 
 /**
@@ -292,7 +292,8 @@ textarea {
   box-sizing: border-box;
 }
 
-select,.i-select-dr {
+select,
+.i-select-dr {
   text-align: center;
   -moz-text-align-last: center;
   text-align-last: center;

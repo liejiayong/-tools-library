@@ -5,14 +5,12 @@
   * @author: liejiayong(809206619@qq.com)
   * @data: 2018-12-18
 */
-html, body { scroll-behavior: smooth; }
-
 /* Document ========================================================================== */
 /** 1. Correct the line height in all browsers. 2. Prevent adjustments of font size after orientation changes in iOS. */
 html { line-height: 1.15; /* 1 */ -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-size-adjust: 100%; /* 2 */ -ms-touch-action: manipulation; touch-action: manipulation; }
 
 /* Sections ========================================================================== */
-body { margin-left: auto; margin-right: auto; font: 50px / 1.15 -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑", Arial, sans-serif; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-overflow-scrolling: touch; }
+body { margin-left: auto; margin-right: auto; font: 50px / 1.15 -apple-system, system-ui, BlinkMacSystemFont, Helvetica, Helvetica Neue, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "微软雅黑", Arial, sans-serif; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 /** Remove the margin in all browsers. */
 html, body, iframe, canvas, form, blockquote, fieldset, code, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, table, thead, tbody, td, tr section, menu, nav, header, footer, aside, article, figure, figcaption, hgroup, legend, summary, details, command, progress, dialog { margin: 0; padding: 0; }
@@ -3368,25 +3366,25 @@ template { display: none; }
 
 .jy-pop_btn-link:active { -webkit-filter: brightness(1.1); filter: brightness(1.1); }
 
-.jy-pop_scrollbar { position: static; margin-left: auto; margin-right: auto; max-height: 3.2rem; overflow-x: hidden; overflow-y: auto; -ms-scroll-chaining: none; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+.jy-pop_scrollbar { position: static; margin-left: auto; margin-right: auto; max-height: 3.2rem; overflow-x: hidden; overflow-y: auto; -ms-scroll-chaining: none; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
 
 .jy-pop_cdkey { margin-left: auto; margin-right: auto; padding: 0.1rem 0.2rem; text-align: center; height: 1.5em; line-height: 1.5em; white-space: nowrap; -o-text-overflow: ellipsis; text-overflow: ellipsis; overflow: hidden; overflow-x: auto; color: #fff; background: rgba(0, 0, 0, 0.3); }
 
-.jy-pop_select { display: block; position: relative; margin-left: auto; margin-right: auto; padding: 0 0.2rem; width: 100%; height: 0.6rem; line-height: 0.6rem; background-color: rgba(0, 0, 0, 0.3); color: #333; outline: none; -webkit-border-radius: 0; border-radius: 0; overflow: hidden; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; cursor: pointer; }
+.jy-pop_select { display: block; position: relative; margin-left: auto; margin-right: auto; padding: 0 0.2rem; width: 100%; height: 0.6rem; line-height: 0.6rem; text-align: center; -moz-text-align-last: center; text-align-last: center; background-color: rgba(0, 0, 0, 0.3); color: #333; outline: none; border: 0.02rem solid #333; -webkit-border-radius: 0; border-radius: 0; overflow: hidden; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; cursor: pointer; }
 
 .jy-pop_select:not(:last-of-type) { margin-bottom: 0.16rem; }
 
-.jy-pop_select option { text-align: center; color: #333; }
+.jy-pop_select option { text-align: center; -moz-text-align-last: center; text-align-last: center; color: #333; }
 
 .jy-pop_input_cell { position: relative; display: -webkit-box; display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -moz-box-align: center; -ms-flex-align: center; align-items: center; margin-left: auto; margin-right: auto; width: 100%; height: 0.6rem; line-height: 0.6rem; -webkit-border-radius: 0.1rem; border-radius: 0.1rem; }
 
 .jy-pop_input_cell:not(:last-of-type) { margin-bottom: 0.2rem; }
 
-.jy-pop_input_cell-label { margin-right: 0.1rem; height: 0.6rem; line-height: 0.6rem; font-weight: bold; color: #3f94d4; }
+.jy-pop_input_cell-label { margin-right: 0.1rem; height: 0.6rem; line-height: 0.6rem; font-weight: bold; color: #22619c; }
 
 .jy-pop_input_cell-inp { position: relative; -webkit-box-flex: 1; -webkit-flex: 1; -moz-box-flex: 1; -ms-flex: 1; flex: 1; height: 0.6rem; line-height: 0.6rem; }
 
-.jy-pop_input_cell-inp input { padding: 0 2em; width: 100%; height: 100%; outline: none; border: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; color: #fff; background: rgba(0, 0, 0, 0.3); color: #fff; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.jy-pop_input_cell-inp input { padding: 0 1em; width: 100%; height: 100%; outline: none; border: none; -webkit-appearance: none; -moz-appearance: none; appearance: none; color: #fff; background: rgba(0, 0, 0, 0.3); color: #fff; border: 0.02rem solid #fff; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .jy-pop_input_cell-inp input::-webkit-input-placeholder { color: #fff; }
 
@@ -3396,7 +3394,7 @@ template { display: none; }
 
 .jy-pop_input_cell-inp input::-moz-placeholder { color: #fff; }
 
-.jy-pop_input_cell-auth { display: block; margin-left: 0.02rem; height: 0.6rem; line-height: 0.6rem; min-width: 5em; cursor: pointer; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; background: #0ed105; color: #fff; }
+.jy-pop_input_cell-auth { display: block; height: 0.6rem; line-height: 0.6rem; min-width: 5em; cursor: pointer; -webkit-border-radius: 0.12rem; border-radius: 0.12rem; background: #0ed105; color: #fff; }
 
 .jy-pop_input_cell-auth.disable { background: #939393; }
 
@@ -3478,11 +3476,7 @@ template { display: none; }
 /**
   html template for above css style
 **/
-html, body { height: 100%; height: 100vh; }
-
-.jy-wrapper { margin: 0 auto; position: relative; width: 100%; height: 100%; height: 100vh; max-width: 750px; overflow: hidden; color: #ffecd9; background: #9a3116 url(""); }
-
-.jy-content { margin: 0 auto; position: relative; width: 100%; height: 100%; height: 100vh; overflow-y: auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.jy-content { margin-left: auto; margin-right: auto; position: relative; width: 100%; height: 100%; height: 100vh; overflow-y: auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .jy-section { display: none; position: relative; width: 100%; height: 100%; min-height: 16rem; overflow: hidden; background: no-repeat top center/7.5rem auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
@@ -3492,7 +3486,11 @@ html, body { height: 100%; height: 100vh; }
 
 .jy-sectionmain-auto { position: relative; margin-left: auto; margin-right: auto; width: 6.9rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-body { margin-left: auto; margin-right: auto; font: 0.24rem/ 1.15 "fcustom", "微软雅黑"; color: #333; }
+html, body { height: 100%; height: 100vh; }
+
+body { margin-left: auto; margin-right: auto; overflow: hidden; font: 0.24rem/ 1.15 "fcustom", "微软雅黑"; color: #333; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+
+.jy-wrapper { margin-left: auto; margin-right: auto; position: relative; width: 100%; max-width: 750px; height: 100%; height: 100vh; overflow: hidden auto; color: #ffecd9; background: #9a3116; position: static; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
 
 .lh-15 { line-height: 1.5; }
 
@@ -3752,6 +3750,10 @@ body { margin-left: auto; margin-right: auto; font: 0.24rem/ 1.15 "fcustom", "�
 
 .jy-tit { overflow: hidden; text-indent: -9999px; font-size: 0; }
 
+.jy-qrcode-gen { position: relative; margin-left: auto; margin-right: auto; display: block; width: 2.9rem; height: 2.9rem; }
+
+.jy-qrcode-gen img, .jy-qrcode-gen canvas { display: block; width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
+
 .jy-orient_layer { display: none; position: fixed; height: 100%; width: 100%; left: 0; top: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); z-index: 1000; }
 
 .jy-orient_layer.active { display: block; -webkit-animation: nones 2s linear; -moz-animation: nones 2s linear; animation: nones 2s linear; }
@@ -3800,7 +3802,7 @@ body { margin-left: auto; margin-right: auto; font: 0.24rem/ 1.15 "fcustom", "�
 /**
   page preloading
 **/
-.ploading { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; background: #c5d5e5 url("../img/bg.jpg") no-repeat top center/auto 100%; color: #fff8de; z-index: 1000; }
+.ploading { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; color: #fff8de; z-index: 1000; }
 
 .ploading .progress { position: absolute; bottom: 20%; left: 0; right: 0; line-height: 2; text-align: center; }
 

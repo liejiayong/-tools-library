@@ -1,10 +1,20 @@
+/*
+ * @Description: 工具函数
+ * @version: 0.1.0
+ * @Author: liejiayong(809206619@qq.com)
+ * @Date: 2020-06-15 11:27:17
+ * @LastEditors: liejiayong(809206619@qq.com)
+ * @LastEditTime: 2020-08-01 16:50:36
+ * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
+ */
+
 var logic = null;
 var jyBus = {
   activeCls: "active",
   disableCls: "disable",
   doc: document.documentElement.body || document.body,
   swiper: function (el) {
-    var psw = new Swiper("el", {
+    var psw = new Swiper(el, {
       initialSlide: 0,
       direction: "vertical",
       autoHeight: true,
@@ -80,6 +90,8 @@ var jyBus = {
               $tip.removeClass('active');
             }, 5000);
           }
+        } else {
+          $tip.removeClass('active');
         }
       }, false);
     }
@@ -205,6 +217,34 @@ var jyBus = {
       return {
         $picker: $picker
       }
+    },
+    authTime: { current: 60, default: 60 },
+    authDisable: false,
+    authTimer: null,
+    btnAuth: function (cls) {
+      var self = this;
+      $(cls).on('click', function () {
+        if (self.authDisable) return;
+        self.authDisable = true;
+        clearTimeout(self.authTimer);
+        self.authTime.current = self.authTime.default;
+        $btn = $(this);
+        function count() {
+          $btn.text('倒计时' + self.authTime.current + 's').addClass('disable');
+          self.authTimer = setTimeout(function () {
+            if (self.authTime.current == 1) {
+              clearTimeout(self.timer);
+              self.authDisable = false;
+              $btn.text('验证码').removeClass('disable');
+              return;
+            }
+            --self.authTime.current;
+            $btn.text('倒计时' + self.authTime.current + 's');
+            count();
+          }, 1000)
+        }
+        count();
+      })
     }
   },
   showTip: function (html) {
@@ -267,6 +307,58 @@ var jyBus = {
     close: function () {
       $('#pagePreload').fadeOut();
     }
+  },
+  touchMove: {
+    $doms: [],
+    addListener: function (cls) {
+      var dom = document.querySelector(cls);
+      this.$doms.push({
+        cls: cls,
+        dom: dom,
+        stat: false // 不阻止
+      });
+    },
+    has: function (cls) {
+      var ret = null
+      this.$doms.forEach(function (dom, index) {
+        if (dom.cls == cls) {
+          ret = {
+            stat: dom.stat,
+            cls: dom.cls,
+            dom: dom.dom,
+            index: index
+          }
+        } else {
+          ret = false
+        }
+      });
+      return ret
+    },
+    preventFn: function (e) {
+      e.preventDefault();
+    },
+    prevent: function (cls) {
+      var self = this, clsStat = this.has(cls);
+      if (!clsStat) return;
+      if (clsStat && clsStat.stat) return;
+      self.$doms[clsStat.index].stat = true;
+      // console.log('prevent', this.has(cls), clsStat.dom, self.preventFn)
+      // clsStat.dom.addEventListener('touchmove', function (e) { self.preventFn(e, callback) }, {
+      clsStat.dom.addEventListener('touchmove', self.preventFn, {
+      passive: false
+      })
+    },
+    reset: function (cls) {
+      var self = this, clsStat = this.has(cls);
+      if (!clsStat) return;
+      if (clsStat && !clsStat.stat) return;
+      self.$doms[clsStat.index].stat = false;
+      // console.log('reset', this.has(cls), clsStat.dom, self.preventFn)
+      // clsStat.dom.removeEventListener('touchmove', function (e) { self.preventFn(e, callback) }, {
+      clsStat.dom.removeEventListener('touchmove', self.preventFn, {
+        passive: false
+      })
+    }
   }
 };
 // preinstall the code
@@ -280,11 +372,13 @@ $(function () {
   //   $('#ploadingPro').html(prsnum + "%");
   //   console.log('preload process...', prsnum)
   // });
+  // jyBus.swiper('#psw');
   jyBus.tip.screen();
   jyBus.elementCopy();
-  // jyBus.swiper('#psw');
-  // jyBus.pop.picker();
-
+  jyBus.pop.picker();
+  jyBus.pop.btnAuth('.jy-pop_input_cell-auth');
+  var queryTest = window.location.href
+  if (queryTest.indexOf('debug=jylie') > -1) new VConsole()
   // 只复位到顶部
   // $("input, textarea, select").on("blur", function () {
   //   window.scroll(0, 0);
@@ -457,6 +551,21 @@ $(function () {
   }
   // logic.init();
 
-  var queryTest = window.location.href
-  if (queryTest.indexOf('debug=jylie') > -1) new VConsole()
+
 });
+
+// $(function () {
+//   // test touchMove
+//   jyBus.touchMove.addListener('.section-1')
+//   // jyBus.touchMove.addListener('.section-2')
+//   setTimeout(() => {
+//     jyBus.touchMove.prevent('.section-1', function (e) {
+//       console.log('0000000000', e)
+//     })
+//   }, 3000);
+//   setTimeout(() => {
+//     jyBus.touchMove.reset('.section-1', function (e) {
+//       console.log('111111111', e)
+//     })
+//   }, 6000);
+// })

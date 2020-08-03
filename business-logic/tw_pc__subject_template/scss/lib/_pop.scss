@@ -5,26 +5,26 @@
 // bg
 $width-pop: 600px;
 $fs-body: 20px;
-$color-bg: #46291b linear-gradient(#382016, #46291b, #3a2117);
+$color-bg: #46291b linear-gradient(45deg, #6f2204, #753111, #6f2204);
 $color-border: #46291b;
-$color-txt: #ae905d;
+$color-txt: #bd9172;
 
 // btn-ok
 $color-btn-txt: #fff;
-$color-btn-bg: #b11519 linear-gradient(45deg, #b11519, #b11519, #da3623);
+$color-btn-bg: #c70000 linear-gradient(45deg, #be0000, #c60000, #e30000);
 
 // input
 $input-width: 350px;
 $input-width-label: 90px;
 $input-height: 35px;
 $input-color-bg: rgba(0, 0, 0, 0.4);
-$input-color-txt: #ae905d;
-$input-color-label: #ae905d;
+$input-color-txt: #bd9172;
+$input-color-label: #bd9172;
 $input-fs-txt: 14px;
 $input-fs-label: 16px;
 
 // table
-$table-color-border: rgba(0, 0, 0, 0.3);
+$table-color-border: transparent;
 $table-color-txt: inherit;
 $table-height-overflow: 200px;
 
@@ -109,6 +109,17 @@ $table-height-overflow: 200px;
       filter: brightness(1.1);
     }
   }
+  &_btn-link {
+    // padding: 4px 12px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
   // 主体：主要设置背景
   &_main {
     margin: 100px 0px 0px (-$width-pop/2);
@@ -127,7 +138,7 @@ $table-height-overflow: 200px;
   }
   // 主体标题
   &_head {
-    padding-top: 40px;
+    padding-top: 30px;
     font-size: 28px;
     font-weight: bold;
     text-align: center;
@@ -299,6 +310,14 @@ $table-height-overflow: 200px;
     overflow-x: hidden;
     overflow-y: auto;
     max-height: $table-height-overflow;
+    &::-webkit-scrollbar {
+      width: 4px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgb(189, 145, 114);
+      border-radius: 4px;
+    }
   }
   // 表格
   &__table {
@@ -316,18 +335,21 @@ $table-height-overflow: 200px;
       &:not(:last-of-type) {
         border-bottom: 1px dashed $table-color-border;
       }
+      // &:first-child td {
+      // border-top: none;
+      // }
     }
-    // tr:first-child td {
-    //   border-top: none;
-    // }
     td {
       // border-top: 1px solid $table-color-border;
       // border-left: 1px solid $table-color-border;
       font-size: 20px;
       color: $table-color-txt;
-      // line-height: 30px;
+      line-height: 30px;
       // text-align: left;
       text-indent: 15px;
+      &:first-child {
+        text-align: left;
+      }
     }
   }
 }
@@ -432,4 +454,45 @@ $table-height-overflow: 200px;
 //     </div>
 //   </div>
 // </div>
+// </div>
+// <!-- 我的奖励 -->
+// <div class="jy-pop " id="J_mygiftPop">
+//   <div class="jy-pop_mask"></div>
+//   <div class="jy-pop_main">
+//     <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//     <div class="jy-pop_head">我的奖励</div>
+//     <div class="jy-pop_body">
+//       <div class="jy-pop__scrollbar mt-10">
+//         <table class="jy-pop__table tc lh15">
+//           <tbody>
+//             <tr>
+//               <td>神秘代言人游戏礼包*1</td>
+//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">查看</a></td>
+//             </tr>
+//             <tr>
+//               <td>终极竞猜礼包1*1</td>
+//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">待领取</a></td>
+//             </tr>
+//             <tr>
+//               <td>抱枕被*1</td>
+//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">查看</a></td>
+//             </tr>
+//             <tr>
+//               <td>神秘代言人游戏礼包*1</td>
+//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">查看</a></td>
+//             </tr>
+//             <tr>
+//               <td>终极竞猜礼包1*1</td>
+//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">待领取</a></td>
+//             </tr>
+//             <tr>
+//               <td>抱枕被*1</td>
+//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">查看</a></td>
+//             </tr>
+
+//           </tbody>
+//         </table>
+//       </div>
+//     </div>
+//   </div>
 // </div>

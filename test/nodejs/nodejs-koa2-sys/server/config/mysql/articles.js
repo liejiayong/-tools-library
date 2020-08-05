@@ -15,11 +15,17 @@ exports.articles = `CREATE TABLE IF NOT EXISTS \`jy_blog_articles\`(
     \`update_date\` int(11) NULL DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (\`id\`) USING BTREE,
     INDEX \`user_id\`(\`user_id\`) USING BTREE,
-    CONSTRAINT \`fk_user_id\` FOREIGN KEY (\`user_id\`) REFERENCES \`jy_blog_users\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT
-    );`
+    CONSTRAINT \`fk_user_id_articles\` FOREIGN KEY (\`user_id\`) REFERENCES \`jy_blog_users\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT
+);`
 
 /**
  * 评论
+ 
+    下面写法会报错，原因待查究： 809206619@qq.com 20200801 10：00
+    // CONSTRAINT \`fk_user_id\` FOREIGN KEY (\`user_id\`) REFERENCES \`jy_blog_users\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    // CONSTRAINT \`fk_article_id\` FOREIGN KEY (\`article_id\`) REFERENCES \`jy_blog_articles\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT
+    解析： fk_user_id 存在于users表，外键符号不能重复。
+    
  */
 exports.comment = `CREATE TABLE IF NOT EXISTS \`jy_blog_comments\`(
     \`id\` bigint(255) NOT NULL AUTO_INCREMENT COMMENT '评论ID',
@@ -37,6 +43,6 @@ exports.comment = `CREATE TABLE IF NOT EXISTS \`jy_blog_comments\`(
     INDEX \`article_id\`(\`article_id\`) USING BTREE,
     INDEX \`date\`(\`date\`) USING BTREE,
     INDEX \`parent_id\`(\`parent_id\`) USING BTREE,
-    CONSTRAINT \`fk_user_id\` FOREIGN KEY (\`user_id\`) REFERENCES \`jy_blog_users\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-    CONSTRAINT \`fk_article_id\` FOREIGN KEY (\`article_id\`) REFERENCES \`jy_blog_articles\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT
-  );`
+    CONSTRAINT \`fk_user_id_comment\` FOREIGN KEY (\`user_id\`) REFERENCES \`jy_blog_users\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    CONSTRAINT \`fk_article_id_comment\` FOREIGN KEY (\`article_id\`) REFERENCES \`jy_blog_articles\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT
+);`

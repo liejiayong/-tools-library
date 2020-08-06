@@ -250,7 +250,7 @@ npm adduser
 
 ```bash
 # npm
-npm publish
+npm publish --registry=https://registry.npmjs.org/
 ```
 
 ### 创建文件

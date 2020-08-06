@@ -3,16 +3,18 @@
   For wap terminal
 
 **/
+@import "../_const.scss";
+@import "../_mixin.scss";
 
-// .jy-wrapper {
-//   margin-left: auto;
-//   margin-right: auto;
-//   position: relative;
-//   width: 100%;
-//   max-width: 750px;
-//   color: $color-primary;
-//   background: $color-theme-bg;
-// }
+.jy-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  color: $color-primary;
+  background: $color-theme-bg;
+}
 
 .jy-content {
   padding: 0;

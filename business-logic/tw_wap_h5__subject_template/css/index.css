@@ -3476,6 +3476,10 @@ template { display: none; }
 /**
   html template for above css style
 **/
+html, body { height: 100%; height: 100vh; }
+
+.jy-wrapper { margin-left: auto; margin-right: auto; position: relative; width: 100%; max-width: 750px; height: 100%; color: #ffecd9; background: #9a3116 -webkit-gradient(linear, left top, left bottom, from(red), color-stop(orange), color-stop(yellow), color-stop(green), color-stop(blue), color-stop(pink), to(purple)); background: #9a3116 -webkit-linear-gradient(red, orange, yellow, green, blue, pink, purple); background: #9a3116 -moz-linear-gradient(red, orange, yellow, green, blue, pink, purple); background: #9a3116 -o-linear-gradient(red, orange, yellow, green, blue, pink, purple); background: #9a3116 linear-gradient(red, orange, yellow, green, blue, pink, purple); overflow: hidden auto; position: static; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+
 .jy-content { margin-left: auto; margin-right: auto; position: relative; width: 100%; height: 100%; height: 100vh; overflow-y: auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .jy-section { display: none; position: relative; width: 100%; height: 100%; min-height: 16rem; overflow: hidden; background: no-repeat top center/7.5rem auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
@@ -3486,11 +3490,7 @@ template { display: none; }
 
 .jy-sectionmain-auto { position: relative; margin-left: auto; margin-right: auto; width: 6.9rem; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-html, body { height: 100%; height: 100vh; }
-
-body { margin-left: auto; margin-right: auto; overflow: hidden; font: 0.24rem/ 1.15 "fcustom", "微软雅黑"; color: #333; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
-
-.jy-wrapper { margin-left: auto; margin-right: auto; position: relative; width: 100%; max-width: 750px; height: 100%; height: 100vh; overflow: hidden auto; color: #ffecd9; background: #9a3116; position: static; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+body { margin-left: auto; margin-right: auto; font: 0.24rem/ 1.15 "fcustom", "微软雅黑"; color: #333; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
 
 .lh-15 { line-height: 1.5; }
 

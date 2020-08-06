@@ -1,20 +1,33 @@
-// html,
-// body {
-//   height: 100%;
-//   height: 100vh;
-// }
+@import "../_const.scss";
+@import "../_mixin.scss";
+html,
+body {
+  height: 100%;
+  height: 100vh;
+}
 
-// .jy-wrapper {
-//   margin: 0 auto;
-//   position: relative;
-//   width: 100%;
-//   height: 100%;
-//   height: 100vh;
-//   max-width: 750px;
-//   overflow: hidden;
-//   color: $color-primary;
-//   background: $color-theme-bg;
-// }
+.jy-wrapper {
+  // margin-left: auto;
+  // margin-right: auto;
+  // position: relative;
+  // width: 100%;
+  // height: 100%;
+  // height: 100vh;
+  // max-width: 750px;
+  // overflow: hidden;
+  // color: $color-primary;
+  // background: $color-theme-bg;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  height: 100%;
+  color: $color-primary;
+  background: $color-theme-bg;
+  overflow: hidden auto;
+  @include scroll_static();
+}
 
 .jy-content {
   margin-left: auto;
@@ -35,6 +48,7 @@
   height: 100%;
   min-height: 16rem;
   // min-height: 100vh;
+  // min-height: calc(100vh + 2px);
   overflow: hidden;
   background: no-repeat top center / $bg-width auto;
   box-sizing: border-box;

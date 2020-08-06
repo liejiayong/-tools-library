@@ -5,3 +5,4 @@ git clone https://gitee.com/liejiayong/vue-ts-template.git
 git clone https://gitee.com/liejiayong/vue-admin-awesome-pc.git
 git clone https://gitee.com/liejiayong/timer.git
 git clone https://gitee.com/liejiayong/virtual-dom.git
+git clone https://gitee.com/liejiayong/vue-fas-icon.git

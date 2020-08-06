@@ -11,7 +11,7 @@
   "editor.formatOnPaste": false,
   "editor.snippetSuggestions": "top",
   // 使用vscode的自动格式化时，有时会把一行过长的代码折行。200表示200个字符处折行
-  "editor.wordWrapColumn": 20000000,
+  "editor.wordWrapColumn": 100,
   "editor.wordWrap": "off",
   "editor.quickSuggestions": {
     "other": true,
@@ -144,7 +144,7 @@
       "jsxSingleQuote": true,
       "singleQuote": true,
       "proseWrap": "never",
-      "printWidth": 888,
+      "printWidth": 100,
       "useTabs": true,
       "wrap_line_length": 120,
       "wrap_attributes": "auto",

@@ -2,6 +2,7 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 const session = require('koa-session2')
+const chalk = require('chalk')
 const app = require('./config/koa')
 const config = require('./config/environment')
 const mysqlQuery = require('./utils/mysql')
@@ -48,5 +49,7 @@ fs.readdirSync(path.join(__dirname, 'routes')).forEach(function (file) {
 });
 
 const server = http.createServer(app.callback()).listen(config.port).on('listening', function () {
-  console.log(`server listening on: ${config.port}`)
+  console.log(chalk.cyan.underline(`server listening on: ${config.port}`))
 })
+
+module.exports = server

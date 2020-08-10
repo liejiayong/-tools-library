@@ -6,6 +6,7 @@ const chalk = require('chalk')
 const app = require('./config/koa')
 const config = require('./config/environment')
 const mysqlQuery = require('./utils/mysql')
+const { getIPAddress } = require('./utils/index')
 
 app.use(session({
   store: new session.Store(config.db.redis)
@@ -49,7 +50,8 @@ fs.readdirSync(path.join(__dirname, 'routes')).forEach(function (file) {
 });
 
 const server = http.createServer(app.callback()).listen(config.port).on('listening', function () {
-  console.log(chalk.cyan.underline(`server listening on: ${config.port}`))
+  console.log(chalk.cyan(`server listening on:`))
+  console.log(chalk.cyan(`the local api IP:`), chalk.cyan.underline(`http://${getIPAddress()}:${config.port}`))
 })
 
 module.exports = server

@@ -29,7 +29,7 @@ module.exports = {
   appPath: 'src',
   tempUploads: 'tempUploads',
   uploads: 'uploads',
-  port: 9000,
+  port: 9001,
   tokenSecret: 'test',
   isUpdateAdmin: true,
   accessControlAllowOrigin: 'http://localhost:3000',

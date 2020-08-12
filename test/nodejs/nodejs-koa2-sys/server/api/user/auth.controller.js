@@ -4,7 +4,7 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-08-10 11:12:38
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2020-08-10 14:19:55
+ * @LastEditTime: 2020-08-12 22:32:56
  * @FilePath: \tool-library\test\nodejs\nodejs-koa2-sys\server\api\user\auth.controller.js
  * @可以输入预定的版权声明、个性签名、空行等
  */

@@ -1,16 +1,29 @@
 /**
  * 文章
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (1,'test11', 'test11 content', 1, 0,0,0,0);
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (1,'test12', 'test12 content', 1, 0,0,0,0);
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (2,'test13', 'test13 content', 1, 0,0,0,0);
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (2,'test14', 'test14 content', 1, 0,0,0,0);
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (3,'test15', 'test15 content', 1, 0,0,0,0);
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (3,'test16', 'test16 content', 1, 0,0,0,0);
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (1,'test17', 'test17 content', 1, 0,0,0,0);
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (1,'test18', 'test18 content', 1, 0,0,0,0);
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (1,'test19', 'test19 content', 1, 0,0,0,0);
+insert into `jy_blog_articles`(`user_id`,`title`, `content`, `stat`, `views`, `comment_count`, `like_count`, `collect_count`) values (1,'test20', 'test20 content', 1, 0,0,0,0);
+
  */
 exports.articles = `CREATE TABLE IF NOT EXISTS \`jy_blog_articles\`(
     \`id\` bigint(255) NOT NULL AUTO_INCREMENT COMMENT '博文ID',
     \`user_id\` int(11) UNSIGNED NOT NULL COMMENT '发表用户ID',
     \`title\` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '博文标题',
     \`content\` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '博文内容',
-    \`views\` bigint(20) NOT NULL COMMENT '浏览量',
-    \`comment_count\` bigint(20) NOT NULL COMMENT '评论总数',
-    \`like_count\` bigint(20) NOT NULL COMMENT '点赞数',
-    \`collect_count\` bigint(20) NOT NULL COMMENT '收藏数',
-    \`stat\` int(2) NOT NULL COMMENT '文章状态。0：删除；1：正常默认',
+    \`views\` bigint(20) NOT NULL DEFAULT 0 COMMENT '浏览量',
+    \`comment_count\` bigint(20) NOT NULL DEFAULT 0 COMMENT '评论总数',
+    \`like_count\` bigint(20) NOT NULL DEFAULT 0 COMMENT '点赞数',
+    \`collect_count\` bigint(20) NOT NULL DEFAULT 0 COMMENT '收藏数',
+    \`tags\` varchar(255) NOT NULL DEFAULT '' COMMENT '标签',
+    \`category\` varchar(255) NOT NULL DEFAULT '' COMMENT '分类',
+    \`stat\` int(2) NOT NULL DEFAULT 1 COMMENT '文章状态。0：删除；1：发布状态；2：审核状态',
     \`create_date\` int(11) NULL DEFAULT NULL COMMENT '发表时间',
     \`update_date\` int(11) NULL DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (\`id\`) USING BTREE,

@@ -452,6 +452,35 @@ export const isIDCardNew = value => /^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d
 export const isIDCard = value => /(^\d{8}(0\d|10|11|12)([0-2]\d|30|31)\d{3}$)|(^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}(\d|X|x)$)/g.test(value);
 
 /**
+ * @description: 获取身份证性别
+ *  性别（1：男，2：女）
+ *  奇数为男，偶数为女
+ *  一代身份证，15位身份证号码：第7、8位为出生年份(两位数)，第9、10位为出生月份，第11、12位代表出生日期，第15位代表性别。
+    二代身份证，18位身份证号码：第7、8、9、10位为出生年份(四位数)，第11、第12位为出生月份，第13、14位代表出生日期，第17位代表性别。
+ * @param {type} 
+ * @return {type} 
+ * @author: liejiayong(809206619@qq.com)
+ * @Date: 2020-08-15 10:46:05
+ */
+export const getIDGender = idCard => {
+  let id = idCard.trim()
+  if (id.length === 18) {
+    if (Number.parseInt(id.substring(16, 17)) % 2 == 0) {
+      return 2
+    } else {
+      return 1
+    }
+  } else if (id.length === 15) {
+    if (Number.parseInt(id.substring(14, 15)) % 2 == 0) {
+      return 2
+    } else {
+      return 1
+    }
+  }
+  return 0
+}
+
+/**
  *  验证护照（包含香港、澳门）
  * @param { string } value
  */

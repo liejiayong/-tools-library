@@ -24,8 +24,8 @@ exports.articles = `CREATE TABLE IF NOT EXISTS \`jy_blog_articles\`(
     \`tags\` varchar(255) NOT NULL DEFAULT '' COMMENT '标签',
     \`category\` varchar(255) NOT NULL DEFAULT '' COMMENT '分类',
     \`stat\` int(2) NOT NULL DEFAULT 1 COMMENT '文章状态。0：删除；1：发布状态；2：审核状态',
-    \`create_date\` int(11) NULL DEFAULT NULL COMMENT '发表时间',
-    \`update_date\` int(11) NULL DEFAULT NULL COMMENT '更新时间',
+    \`create_date\` DATETIME NULL DEFAULT NULL COMMENT '发表时间',
+    \`update_date\` DATETIME NULL DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (\`id\`) USING BTREE,
     INDEX \`user_id\`(\`user_id\`) USING BTREE,
     CONSTRAINT \`fk_user_id_articles\` FOREIGN KEY (\`user_id\`) REFERENCES \`jy_blog_users\` (\`id\`) ON DELETE RESTRICT ON UPDATE RESTRICT

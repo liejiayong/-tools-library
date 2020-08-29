@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const util = require('util')
-const config = require('../config/environment')
 const verify = util.promisify(jwt.verify)
+const config = require('../config/environment')
 
 /**
  * 判断token是否可用
@@ -11,6 +11,7 @@ module.exports = function () {
     try {
       // 获取jwt
       const token = ctx.header.authorization
+      console.log(ctx, token)
       if (token) {
         try {
           // 解密payload，获取用户名和ID

@@ -2,9 +2,9 @@ const jwt = require('jsonwebtoken');
 const helper = require('../../util/helper');
 const config = require('../../config/environment');
 
-exports.login = async(ctx) => {
+exports.login = async (ctx) => {
   let userName = ctx.request.body.userName || '',
-      password = ctx.request.body.password || '';
+    password = ctx.request.body.password || '';
   if (!userName || !password) {
     ctx.body = {
       success: 0,
@@ -17,8 +17,8 @@ exports.login = async(ctx) => {
     let results = await ctx.execSql(`SELECT id, hashedPassword, salt FROM user WHERE role='ADMIN' and userName = ?`, userName);
     if (results.length > 0) {
       let hashedPassword = results[0].hashedPassword,
-          salt = results[0].salt,
-          hashPassword = helper.encryptPassword(password, salt);
+        salt = results[0].salt,
+        hashPassword = helper.encryptPassword(password, salt);
       if (hashedPassword === hashPassword) {
         ctx.session.user = userName;
         // 用户token
@@ -38,7 +38,7 @@ exports.login = async(ctx) => {
           success: 0,
           message: '用户名或密码错误'
         };
-      }      
+      }
     } else {
       ctx.body = {
         success: 0,
@@ -54,7 +54,7 @@ exports.login = async(ctx) => {
   }
 }
 
-exports.signOut = async(ctx) => {
+exports.signOut = async (ctx) => {
   ctx.session.user = null;
   ctx.body = {
     success: 1,

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>imitate</title>
+</head>
+
+<body>
+    正常实现一个input输入框包含可输入内容，以及占位文本
+    <input type="text" value="默认值" placeholder="占位文本">
+    <!-- 
+
+        可使用contenteditable属性与content样式模仿input功能。
+
+        css:content 属性遵循一个原则：CSS 仅仅改变样式。
+        因此，所加入的内容不会在 HTML 代码中直接展现：事实上，
+        打开 F12 调试会发现浏览器把 before 作为一个特殊的节点嵌入到目标元素中。
+
+     -->
+    <style>
+        p:empty:before {
+            color: #CCC;
+            content: "请输入...";
+        }
+    </style>
+    <p contenteditable="plaintext-only">默认值</p>
+</body>
+
+</html>

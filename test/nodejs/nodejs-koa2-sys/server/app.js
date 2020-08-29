@@ -19,7 +19,6 @@ app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', config.accessControlAllowOrigin)
   await next()
 
-  console.log('section', ctx.session)
 })
 
 // for test github oauth  api
@@ -37,10 +36,10 @@ app.use(async (ctx, next) => {
 //   ctx.redirect('/404.html');
 // });
 
-// app.on('error', (error, ctx) => {
-//   console.log('something error ' + JSON.stringify(ctx.onerror));
-//   ctx.redirect('/500.httml');
-// })
+app.on('error', (error, ctx) => {
+  console.log('something error ' + JSON.stringify(ctx.onerror));
+  ctx.redirect('/500.html');
+})
 
 // routes
 fs.readdirSync(path.join(__dirname, 'routes')).forEach(function (file) {

@@ -16,7 +16,7 @@ const tokenError = require('../middleware/tokenError')
 
 const app = new Koa()
 
-// app.use(tokenError())
+app.use(tokenError())
 app.use(bodyParser({
   enableTypes: ['json', 'form'] // parser will only parse when request type hits enableTypes, support json/form/text/xml, default is ['json', 'form']
   , encoding: 'utf-8' // requested encoding. Default is utf-8 by co-body.
@@ -33,13 +33,13 @@ app.use(bodyParser({
     ctx.throw(err, 'body parse error test', 422);
   } // support custom error handle,
   /**
-    disableBodyParser: you can dynamic disable body parser by set ctx.disableBodyParser = true.
-    app.use(async (ctx, next) => {
-      if (ctx.path === '/disable') ctx.disableBodyParser = true;
-      await next();
+   disableBodyParser: you can dynamic disable body parser by set ctx.disableBodyParser = true.
+   app.use(async (ctx, next) => {
+     if (ctx.path === '/disable') ctx.disableBodyParser = true;
+     await next();
     });
     app.use(bodyparser());
-   */
+    */
 }))
 app.use(koaJson())
 app.use(koaStatic(path.join(config.root, config.appPath), {
@@ -52,10 +52,10 @@ app.use(koaStatic(path.join(config.root, config.appPath), {
   , setHeaders: null // Function to set custom headers on response.
   , extensions: false // Try to match extensions from passed array to search for file when no extension is sufficed in URL. First found is served. (defaults to false)
 }))
-// app.use(jwt({
-//   secret: config.tokenSecret
-// }).unless({
-//   path: [/^\/backapi\/admin\/login/, /^\/blogapi\//, /^\/blogapi\/oauth\//]
-// }))
+app.use(jwt({
+  secret: config.tokenSecret
+}).unless({
+  path: [/^\/blogapi\/user\/auth\/login/, /^\/blogapi\/user\/auth\/registry/]
+}))
 
 module.exports = app

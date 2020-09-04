@@ -31,6 +31,7 @@ module.exports = {
   , uploads: 'uploads'
   , port: 9000
   , tokenSecret: 'test'
+  , tokenUnless: [/^\/blogapi\/user\/auth\/login/, /^\/blogapi\/user\/auth\/registry/]
   , isUpdateAdmin: true
   , accessControlAllowOrigin: 'http://localhost:3000'
   , adminName: 'admin'

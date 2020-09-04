@@ -55,7 +55,7 @@ app.use(koaStatic(path.join(config.root, config.appPath), {
 app.use(jwt({
   secret: config.tokenSecret
 }).unless({
-  path: [/^\/blogapi\/user\/auth\/login/, /^\/blogapi\/user\/auth\/registry/]
+  path: config.tokenUnless
 }))
 
 module.exports = app

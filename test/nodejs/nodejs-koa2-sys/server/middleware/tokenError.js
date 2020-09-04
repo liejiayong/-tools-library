@@ -10,8 +10,17 @@ module.exports = function () {
   return async function (ctx, next) {
     try {
       // 获取jwt
+      let unless = false
+      config.tokenUnless.forEach(url => {
+        const reg = new RegExp(url, 'g')
+        unless = unless || reg.test(ctx.request.url)
+      })
+      if (unless) {
+        await next()
+        return
+      }
       const token = ctx.header.authorization
-      console.log(ctx, token)
+      // console.log(token, unless)
       if (token) {
         try {
           // 解密payload，获取用户名和ID

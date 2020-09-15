@@ -14,12 +14,12 @@
         <vab-quill v-model="form.content" :min-height="400"></vab-quill>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="handleSee">预览效果 </el-button>
+        <el-button type="primary" @click="handleSee">预览效果</el-button>
         <el-button type="primary" @click="handleSave">保存</el-button>
       </el-form-item>
     </el-form>
     <el-dialog title="预览效果" :visible.sync="dialogTableVisible">
-      <div style="min-height: 60vh;">
+      <div style="min-height: 60vh">
         <h1 class="news-title">{{ form.title }}</h1>
         <div class="news-content" v-html="form.content"></div>
       </div>
@@ -28,104 +28,101 @@
 </template>
 
 <script>
-import "quill/dist/quill.core.css";
-import "quill/dist/quill.snow.css";
-import "quill/dist/quill.bubble.css";
-import vabQuill from "@/plugins/vabQuill";
-export default {
-  name: "Editor",
-  components: { vabQuill },
-  data() {
-    return {
-      borderColor: "#dcdfe6",
-      dialogTableVisible: false,
-      form: {
-        title: "",
-        module: "",
-        content: "",
-      },
-      rules: {
-        title: [
-          {
-            required: true,
-            message: "请输入标题",
-            trigger: "blur",
-          },
-        ],
-        module: [
-          {
-            required: true,
-            message: "请选择模块",
-            trigger: "change",
-          },
-        ],
-        content: [
-          {
-            required: true,
-            message: "请输入内容",
-            trigger: "blur",
-          },
-        ],
-      },
-    };
-  },
-  methods: {
-    handleSee() {
-      this.$refs["form"].validate((valid) => {
-        this.$refs.form.validateField("content", (errorMsg) => {});
-        if (valid) {
-          this.dialogTableVisible = true;
-        } else {
-          return false;
-        }
-      });
+  import vabQuill from "@/plugins/vabQuill";
+  export default {
+    name: "Editor",
+    components: { vabQuill },
+    data() {
+      return {
+        borderColor: "#dcdfe6",
+        dialogTableVisible: false,
+        form: {
+          title: "",
+          module: "",
+          content: "",
+        },
+        rules: {
+          title: [
+            {
+              required: true,
+              message: "请输入标题",
+              trigger: "blur",
+            },
+          ],
+          module: [
+            {
+              required: true,
+              message: "请选择模块",
+              trigger: "change",
+            },
+          ],
+          content: [
+            {
+              required: true,
+              message: "请输入内容",
+              trigger: "blur",
+            },
+          ],
+        },
+      };
     },
-    handleSave() {
-      this.$refs["form"].validate((valid) => {
-        this.$refs.form.validateField("content", (errorMsg) => {
-          this.borderColor = "#dcdfe6";
-          if (errorMsg) {
-            this.borderColor = "#F56C6C";
+    methods: {
+      handleSee() {
+        this.$refs["form"].validate((valid) => {
+          this.$refs.form.validateField("content", (errorMsg) => {});
+          if (valid) {
+            this.dialogTableVisible = true;
+          } else {
+            return false;
           }
         });
-        if (valid) {
-          this.$baseMessage("submit!", "success");
-        } else {
-          return false;
-        }
-      });
+      },
+      handleSave() {
+        this.$refs["form"].validate((valid) => {
+          this.$refs.form.validateField("content", (errorMsg) => {
+            this.borderColor = "#dcdfe6";
+            if (errorMsg) {
+              this.borderColor = "#F56C6C";
+            }
+          });
+          if (valid) {
+            this.$baseMessage("submit!", "success");
+          } else {
+            return false;
+          }
+        });
+      },
     },
-  },
-};
+  };
 </script>
 <style lang="scss" scoped>
-.editor-container {
-  .news {
-    &-title {
-      text-align: center;
-    }
+  .editor-container {
+    .news {
+      &-title {
+        text-align: center;
+      }
 
-    &-content {
-      ::v-deep {
-        p {
-          line-height: 30px;
+      &-content {
+        ::v-deep {
+          p {
+            line-height: 30px;
 
-          img {
-            display: block;
-            margin-right: auto;
-            margin-left: auto;
+            img {
+              display: block;
+              margin-right: auto;
+              margin-left: auto;
+            }
           }
         }
       }
     }
-  }
 
-  .vab-quill-content {
-    ::v-deep {
-      .el-form-item__content {
-        line-height: normal;
+    .vab-quill-content {
+      ::v-deep {
+        .el-form-item__content {
+          line-height: normal;
+        }
       }
     }
   }
-}
 </style>

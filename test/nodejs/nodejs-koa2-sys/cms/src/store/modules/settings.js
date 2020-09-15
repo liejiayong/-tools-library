@@ -6,11 +6,12 @@
 import defaultSettings from "@/config/settings";
 
 const { tagsBar, logo, layout, header, themeBar, skeleton } = defaultSettings;
-const theme = JSON.parse(localStorage.getItem("BYUI-VUE-THEME")) || "";
+const theme =
+  JSON.parse(localStorage.getItem("vue-admin-beautiful-theme")) || "";
 const state = {
   tagsBar: theme.tagsBar || tagsBar,
   logo,
-  collapse: true,
+  collapse: false,
   layout: theme.layout || layout,
   header: theme.header || header,
   skeleton,

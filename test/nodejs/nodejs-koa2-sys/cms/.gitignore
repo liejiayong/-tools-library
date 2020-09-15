@@ -15,3 +15,5 @@ yarn-error.log*
 public/video
 *.zip
 *.7z
+/src/layouts/components/zx-layouts
+/zx-templates

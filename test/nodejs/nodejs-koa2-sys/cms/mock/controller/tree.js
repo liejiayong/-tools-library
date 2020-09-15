@@ -43,11 +43,11 @@ const data = [
     ],
   },
 ];
-export default [
+module.exports = [
   {
     url: "/tree/list",
     type: "post",
-    response: () => {
+    response() {
       return { code: 200, msg: "success", data };
     },
   },

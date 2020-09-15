@@ -13,14 +13,13 @@ const privateKey =
 export async function encryptedData(data) {
   let publicKey = "";
   const res = await getPublicKey();
-  publicKey = res.data;
-  if (publicKey.mockServer) {
+  publicKey = res.data.publicKey;
+  if (res.data.mockServer) {
     publicKey = "";
   }
   if (publicKey == "") {
     return data;
   }
-
   const encrypt = new JSEncrypt();
   encrypt.setPublicKey(
     `-----BEGIN PUBLIC KEY-----${publicKey}-----END PUBLIC KEY-----`
@@ -45,4 +44,3 @@ export function decryptedData(data) {
   data = decrypt.decrypt(JSON.stringify(data));
   return data;
 }
-``;

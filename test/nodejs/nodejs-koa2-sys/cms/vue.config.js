@@ -10,31 +10,40 @@ const {
   devPort,
   providePlugin,
   build7z,
+  donation,
 } = require("./src/config/settings");
+const {
+  webpackBarName,
+  webpackBanner,
+  donationConsole,
+} = require("zx-layouts");
+
+if (donation) donationConsole();
 const { version, author } = require("./package.json");
 const Webpack = require("webpack");
 const WebpackBar = require("webpackbar");
 const FileManagerPlugin = require("filemanager-webpack-plugin");
-const date = require("dayjs")().format("YYYY_M_D");
-const time = require("dayjs")().format("YYYY-M-D HH:mm:ss");
+const dayjs = require("dayjs");
+const date = dayjs().format("YYYY_M_D");
+const time = dayjs().format("YYYY-M-D HH:mm:ss");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
 const productionGzipExtensions = ["html", "js", "css", "svg"];
 process.env.VUE_APP_TITLE = title || "vue-admin-beautiful";
 process.env.VUE_APP_AUTHOR = author || "chuzhixin";
 process.env.VUE_APP_UPDATE_TIME = time;
 process.env.VUE_APP_VERSION = version;
-function resolve(dir) {
-  return path.join(__dirname, dir);
-}
 
-function mockServer() {
+const resolve = (dir) => {
+  return path.join(__dirname, dir);
+};
+
+const mockServer = () => {
   if (process.env.NODE_ENV === "development") {
-    const mockServer = require("./mock/mockServer.js");
-    return mockServer;
+    return require("./mock/mockServer.js");
   } else {
     return "";
   }
-}
+};
 
 module.exports = {
   publicPath,
@@ -58,13 +67,12 @@ module.exports = {
       resolve: {
         alias: {
           "@": resolve("src"),
-          "^": resolve("src/components"),
         },
       },
       plugins: [
         new Webpack.ProvidePlugin(providePlugin),
         new WebpackBar({
-          name: `\u0076\u0075\u0065\u002d\u0061\u0064\u006d\u0069\u006e\u002d\u0062\u0065\u0061\u0075\u0074\u0069\u0066\u0075\u006c`,
+          name: webpackBarName,
         }),
       ],
     };
@@ -77,6 +85,7 @@ module.exports = {
       .exclude.add(resolve("src/remixIcon"))
       .add(resolve("src/colorfulIcon"))
       .end();
+
     config.module
       .rule("remixIcon")
       .test(/\.svg$/)
@@ -86,6 +95,7 @@ module.exports = {
       .loader("svg-sprite-loader")
       .options({ symbolId: "remix-icon-[name]" })
       .end();
+
     config.module
       .rule("colorfulIcon")
       .test(/\.svg$/)
@@ -95,8 +105,9 @@ module.exports = {
       .loader("svg-sprite-loader")
       .options({ symbolId: "colorful-icon-[name]" })
       .end();
+
     config.when(process.env.NODE_ENV === "development", (config) => {
-      config.devtool("cheap-source-map");
+      config.devtool("source-map");
     });
     config.when(process.env.NODE_ENV !== "development", (config) => {
       config.performance.set("hints", false);
@@ -131,9 +142,7 @@ module.exports = {
       });
       config
         .plugin("banner")
-        .use(Webpack.BannerPlugin, [
-          ` \u57fa\u4e8e\u0076\u0075\u0065\u002d\u0061\u0064\u006d\u0069\u006e\u002d\u0062\u0065\u0061\u0075\u0074\u0069\u0066\u0075\u006c\u6784\u5efa \n \u0063\u006f\u0070\u0079\u0072\u0069\u0067\u0068\u0074\u003a\u0020\u0063\u0068\u0075\u007a\u0068\u0069\u0078\u0069\u006e\u0020\u0031\u0032\u0030\u0034\u0035\u0030\u0035\u0030\u0035\u0036\u0040\u0071\u0071\u002e\u0063\u006f\u006d \n \u0074\u0069\u006d\u0065\u003a ${time}`,
-        ])
+        .use(Webpack.BannerPlugin, [`${webpackBanner}${time}`])
         .end();
       config
         .plugin("compression")
@@ -187,7 +196,20 @@ module.exports = {
     sourceMap: true,
     loaderOptions: {
       scss: {
-        prependData: '@import "~@/styles/variables.scss";',
+        /*sass-loader 8.0语法 */
+        //prependData: '@import "~@/styles/variables.scss";',
+
+        /*sass-loader 9.0写法，感谢github用户 shaonialife*/
+        additionalData(content, loaderContext) {
+          const { resourcePath, rootContext } = loaderContext;
+          const relativePath = path.relative(rootContext, resourcePath);
+          if (
+            relativePath.replace(/\\/g, "/") !== "src/styles/variables.scss"
+          ) {
+            return '@import "~@/styles/variables.scss";' + content;
+          }
+          return content;
+        },
       },
     },
   },

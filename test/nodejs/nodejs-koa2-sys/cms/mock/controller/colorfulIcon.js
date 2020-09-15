@@ -303,11 +303,11 @@ const data = [
   "add_database",
   "add_row",
 ];
-export default [
+module.exports = [
   {
     url: "/colorfulIcon/getList",
     type: "post",
-    response: (config) => {
+    response(config) {
       const { title, pageNo = 1, pageSize = 72 } = config.body;
       let mockList = data.filter((item) => {
         if (title && item.indexOf(title) < 0) return false;

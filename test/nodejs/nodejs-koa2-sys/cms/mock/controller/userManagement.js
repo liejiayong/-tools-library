@@ -2,7 +2,7 @@ const totalCount = 3;
 const List = [
   {
     id: "@id",
-    userName: "admin",
+    username: "admin",
     password: "admin",
     email: "@email",
     permissions: ["admin"],
@@ -10,7 +10,7 @@ const List = [
   },
   {
     id: "@id",
-    userName: "editor",
+    username: "editor",
     password: "editor",
     email: "@email",
     permissions: ["editor"],
@@ -18,18 +18,18 @@ const List = [
   },
   {
     id: "@id",
-    userName: "test",
+    username: "test",
     password: "test",
     email: "@email",
     permissions: ["admin", "editor"],
     datatime: "@datetime",
   },
 ];
-export default [
+module.exports = [
   {
     url: "/userManagement/getList",
     type: "post",
-    response: (config) => {
+    response(config) {
       const { title = "", pageNo = 1, pageSize = 20 } = config.body;
       let mockList = List.filter((item) => {
         if (title && item.title.indexOf(title) < 0) return false;
@@ -50,7 +50,7 @@ export default [
   {
     url: "/userManagement/doEdit",
     type: "post",
-    response: () => {
+    response() {
       return {
         code: 200,
         msg: "模拟保存成功",
@@ -60,7 +60,7 @@ export default [
   {
     url: "/userManagement/doDelete",
     type: "post",
-    response: () => {
+    response() {
       return {
         code: 200,
         msg: "模拟删除成功",

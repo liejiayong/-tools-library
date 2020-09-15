@@ -133,13 +133,54 @@ const data = [
     content: "彻底重构了SideBar与TopBar 大幅精简dom渲染逻辑 全球首发",
     timestamp: "2020-06-25",
   },
+  {
+    content: "添加菜单管理",
+    timestamp: "2020-07-7",
+  },
+  {
+    content: "首次采用sass-loader 9.0写法，感谢github用户 shaonialife",
+    timestamp: "2020-07-7",
+  },
+  {
+    content: "添加vue-amap组件",
+    timestamp: "2020-07-11",
+  },
+  {
+    content: "修改zx-layouts引入方式",
+    timestamp: "2020-07-15",
+  },
+  {
+    content:
+      "记录这一天vue-admin-beautiful在插件市场、百度已花费超过1万元广告费用，希望一切都值得",
+    timestamp: "2020-07-18",
+  },
+  {
+    content: "主题配置添加海洋之心、绿荫草场、荣耀典藏、暗黑之子模式",
+    timestamp: "2020-07-18",
+  },
+  {
+    content: "全局axios请求全面支持Status Code拦截处理",
+    timestamp: "2020-07-29",
+  },
+  {
+    content: "重构全局loadding加载代码",
+    timestamp: "2020-07-31",
+  },
+  {
+    content: "升级stylelint自动排序功能",
+    timestamp: "2020-08-25",
+  },
+  {
+    content: "修复视频播放器组件重载路由失效的bug",
+    timestamp: "2020-09-03",
+  },
 ];
 
-export default [
+module.exports = [
   {
     url: "/changeLog/getList",
     type: "post",
-    response: (config) => {
+    response() {
       return {
         code: 200,
         msg: "success",

@@ -1,4 +1,4 @@
-import { mock } from "mockjs";
+const { mock } = require("mockjs");
 
 const List = [];
 const count = 999;
@@ -18,11 +18,11 @@ for (let i = 0; i < count; i++) {
   );
 }
 
-export default [
+module.exports = [
   {
     url: "/goodsList/getList",
     type: "post",
-    response: (config) => {
+    response(config) {
       const { title = "", pageNo = 1, pageSize = 20 } = config.body;
       let mockList = List.filter((item) => {
         if (title && item.title.indexOf(title) < 0) return false;

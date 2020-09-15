@@ -1,9 +1,9 @@
 const data = [];
-export default [
+module.exports = [
   {
     url: "/upload",
     type: "post",
-    response: (config) => {
+    response(config) {
       return {
         code: 200,
         msg: "success",

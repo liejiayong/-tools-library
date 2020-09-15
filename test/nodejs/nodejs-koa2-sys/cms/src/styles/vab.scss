@@ -5,9 +5,13 @@
 
 @charset "utf-8";
 
+@import "./normalize.scss";
 @import "./transition.scss";
 @import "./loading.scss";
-
+@import "./themes/ocean.scss";
+@import "./themes/green.scss";
+@import "./themes/glory.scss";
+@import "./themes/dark.scss";
 $base: ".vab";
 
 @mixin scrollbar {
@@ -57,13 +61,6 @@ $base: ".vab";
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  outline: none;
-}
-
 img {
   object-fit: cover;
 }
@@ -80,9 +77,12 @@ html {
     height: 100vh;
     padding: 0;
     margin: 0;
-    font-family: "PingFang SC", Arial, "Microsoft YaHei", sans-serif;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: $base-font-size-default;
+    color: #2c3e50;
     background: #f6f8f9;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     @include base-scrollbar;
 
@@ -96,6 +96,13 @@ html {
         opacity: 0.8;
       }
     }
+
+    /* el-tag开始 */
+    .el-tag + .el-tag {
+      margin-left: 10px;
+    }
+
+    /* el-tag结束 */
 
     /* markdown编辑器开始 */
     .editor-toolbar {
@@ -146,6 +153,9 @@ html {
 
     /* 进度条开始 */
     #nprogress {
+      position: fixed;
+      z-index: $base-z-index;
+
       .bar {
         background: $base-color-blue !important;
       }
@@ -175,12 +185,9 @@ html {
         padding: 7.5px 0;
 
         .cell {
-          overflow: hidden;
           font-size: $base-font-size-default;
           font-weight: normal;
           color: #606266;
-          text-overflow: ellipsis;
-          white-space: nowrap;
 
           .el-image {
             width: 50px;

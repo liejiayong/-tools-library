@@ -14,17 +14,15 @@
       </el-form-item>
 
       <el-form-item>
-        <el-button type="primary" @click="handleChangePermission"
-          >切换权限
+        <el-button type="primary" @click="handleChangePermission">
+          切换权限
         </el-button>
       </el-form-item>
       <el-form-item label="当前账号拥有的权限">
         {{ JSON.stringify(permissions) }}
       </el-form-item>
     </el-form>
-    <el-divider content-position="left">
-      按钮级权限演示
-    </el-divider>
+    <el-divider content-position="left">按钮级权限演示</el-divider>
     <el-button v-permissions="['admin']" type="primary">
       我是拥有["admin"]权限的按钮
     </el-button>
@@ -53,12 +51,32 @@
           default-expand-all
           :tree-props="{ children: 'children', hasChildren: 'hasChildren' }"
         >
-          <el-table-column prop="name" label="name"></el-table-column>
-          <el-table-column prop="path" label="path"></el-table-column>
-          <el-table-column prop="component" label="component"></el-table-column>
-          <el-table-column prop="redirect" label="redirect"></el-table-column>
-          <el-table-column prop="meta.title" label="标题"></el-table-column>
-          <el-table-column label="图标">
+          <el-table-column
+            show-overflow-tooltip
+            prop="name"
+            label="name"
+          ></el-table-column>
+          <el-table-column
+            show-overflow-tooltip
+            prop="path"
+            label="path"
+          ></el-table-column>
+          <el-table-column
+            show-overflow-tooltip
+            prop="component"
+            label="component"
+          ></el-table-column>
+          <el-table-column
+            show-overflow-tooltip
+            prop="redirect"
+            label="redirect"
+          ></el-table-column>
+          <el-table-column
+            show-overflow-tooltip
+            prop="meta.title"
+            label="标题"
+          ></el-table-column>
+          <el-table-column show-overflow-tooltip label="图标">
             <template slot-scope="scope">
               <span v-if="scope.row.meta">
                 <vab-icon
@@ -68,21 +86,21 @@
               </span>
             </template>
           </el-table-column>
-          <el-table-column label="是否固定">
+          <el-table-column show-overflow-tooltip label="是否固定">
             <template slot-scope="scope">
               <span v-if="scope.row.meta">
                 {{ scope.row.meta.affix }}
               </span>
             </template>
           </el-table-column>
-          <el-table-column label="是否无缓存">
+          <el-table-column show-overflow-tooltip label="是否无缓存">
             <template slot-scope="scope">
               <span v-if="scope.row.meta">
                 {{ scope.row.meta.noKeepAlive }}
               </span>
             </template>
           </el-table-column>
-          <el-table-column label="badge">
+          <el-table-column show-overflow-tooltip label="badge">
             <template slot-scope="scope">
               <span v-if="scope.row.meta">
                 {{ scope.row.meta.badge }}
@@ -99,47 +117,50 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { tokenTableName } from "@/config/settings";
-import { getRouterList } from "@/api/router";
-import JsonEditor from "@/components/JsonEditor";
+  import { mapGetters } from "vuex";
+  import { tokenTableName } from "@/config/settings";
+  import { getRouterList } from "@/api/router";
+  import JsonEditor from "@/components/JsonEditor";
 
-export default {
-  name: "Permissions",
-  components: {
-    JsonEditor,
-  },
-  data() {
-    return {
-      form: {
-        account: "",
+  export default {
+    name: "Permissions",
+    components: {
+      JsonEditor,
+    },
+    data() {
+      return {
+        form: {
+          account: "",
+        },
+        tableData: [],
+        res: [],
+      };
+    },
+    computed: {
+      ...mapGetters({
+        username: "user/username",
+        permissions: "user/permissions",
+      }),
+    },
+    created() {
+      this.fetchData();
+    },
+    mounted() {
+      this.form.account = this.username;
+    },
+    methods: {
+      handleChangePermission() {
+        localStorage.setItem(
+          tokenTableName,
+          `${this.form.account}-accessToken`
+        );
+        location.reload();
       },
-      tableData: [],
-      res: [],
-    };
-  },
-  computed: {
-    ...mapGetters({
-      userName: "user/userName",
-      permissions: "user/permissions",
-    }),
-  },
-  created() {
-    this.fetchData();
-  },
-  mounted() {
-    this.form.account = this.userName;
-  },
-  methods: {
-    handleChangePermission() {
-      localStorage.setItem(tokenTableName, `${this.form.account}-accessToken`);
-      location.reload();
+      async fetchData() {
+        const res = await getRouterList();
+        this.tableData = res.data;
+        this.res = res;
+      },
     },
-    async fetchData() {
-      const res = await getRouterList();
-      this.tableData = res.data;
-      this.res = res;
-    },
-  },
-};
+  };
 </script>

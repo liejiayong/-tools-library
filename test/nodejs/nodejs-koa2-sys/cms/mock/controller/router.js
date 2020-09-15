@@ -51,6 +51,12 @@ const data = [
         component: "views/personnelManagement/roleManagement/index",
         meta: { title: "角色管理" },
       },
+      {
+        path: "menuManagement",
+        name: "MenuManagement",
+        component: "views/personnelManagement/menuManagement/index",
+        meta: { title: "菜单管理", badge: "New" },
+      },
     ],
   },
   {
@@ -292,42 +298,6 @@ const data = [
         meta: { title: "上传", permissions: ["admin"] },
       },
       {
-        path: "excel",
-        component: "EmptyLayout",
-        redirect: "noRedirect",
-        name: "Excel",
-        meta: {
-          title: "Excel",
-          permissions: ["admin"],
-        },
-        children: [
-          {
-            path: "exportExcel",
-            component: "views/vab/excel/exportExcel",
-            name: "ExportExcel",
-            meta: { title: "导出Excel" },
-          },
-          {
-            path: "exportSelectedExcel",
-            component: "views/vab/excel/exportSelectExcel",
-            name: "ExportSelectedExcel",
-            meta: { title: "导出选中行" },
-          },
-          {
-            path: "exportMergeHeaderExcel",
-            component: "views/vab/excel/exportMergeHeaderExcel",
-            name: "ExportMergeHeaderExcel",
-            meta: { title: "导出合并" },
-          },
-          {
-            path: "uploadExcel",
-            component: "views/vab/excel/uploadExcel",
-            name: "UploadExcel",
-            meta: { title: "上传Excel" },
-          },
-        ],
-      },
-      {
         path: "sticky",
         name: "Sticky",
         component: "views/vab/sticky/index",
@@ -409,11 +379,11 @@ const data = [
     ],
   },
 ];
-export default [
+module.exports = [
   {
     url: "/menu/navigate",
     type: "post",
-    response: () => {
+    response() {
       return { code: 200, msg: "success", data: data };
     },
   },

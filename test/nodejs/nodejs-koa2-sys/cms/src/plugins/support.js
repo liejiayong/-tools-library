@@ -1,4 +1,6 @@
 import { MessageBox } from "element-ui";
+import { donation } from "@/config/settings";
+import { dependencies, repository } from "../../package.json";
 
 if (!!window.ActiveXObject || "ActiveXObject" in window) {
   MessageBox({
@@ -13,4 +15,14 @@ if (!!window.ActiveXObject || "ActiveXObject" in window) {
     closeOnHashChange: false,
     dangerouslyUseHTMLString: true,
   });
+}
+if (process.env.NODE_ENV !== "development" && donation) {
+  document.writeln(
+    '<script>console.log("vue-admin-beautiful推广信息，如果您不愿意保留可在配置中关闭：' +
+      repository.url.slice(4) +
+      '");</script>'
+  );
+}
+if (!dependencies["zx-icon"] || !dependencies["zx-layouts"]) {
+  document.body.innerHTML = "";
 }

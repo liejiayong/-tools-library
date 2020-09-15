@@ -2,8 +2,8 @@
   <div class="element-container">
     <el-row :gutter="20">
       <el-col :xs="24" :sm="24" :md="18" :lg="18" :xl="16">
-        <el-button type="primary" @click="dialogVisible = !dialogVisible"
-          >element全部文档点这里
+        <el-button type="primary" @click="dialogVisible = !dialogVisible">
+          element全部文档点这里
         </el-button>
         <el-dialog
           :fullscreen="true"
@@ -12,15 +12,15 @@
         >
           <iframe
             class="element-iframe"
-            src="https://chu1204505056.gitee.io/element/#/zh-CN/component/installation"
+            src="https://element.eleme.cn/#/zh-CN/component/installation"
             frameborder="0"
           ></iframe>
         </el-dialog>
-        <el-divider content-position="left"
-          >Tag 标签
+        <el-divider content-position="left">
+          Tag 标签
           <a
             target="_blank"
-            href="https://chu1204505056.gitee.io/element/#/zh-CN/component/tag"
+            href="https://element.eleme.cn/#/zh-CN/component/tag"
           >
             文档
           </a>
@@ -36,11 +36,11 @@
         <el-tag effect="dark" type="warning">标签四</el-tag>
         <el-tag effect="dark" type="danger">标签五</el-tag>
 
-        <el-divider content-position="left"
-          >进度条
+        <el-divider content-position="left">
+          进度条
           <a
             target="_blank"
-            href="https://chu1204505056.gitee.io/element/#/zh-CN/component/progress"
+            href="https://element.eleme.cn/#/zh-CN/component/progress"
           >
             文档
           </a>
@@ -90,11 +90,11 @@
           status="exception"
         ></el-progress>
 
-        <el-divider content-position="left"
-          >按钮
+        <el-divider content-position="left">
+          按钮
           <a
             target="_blank"
-            href="https://chu1204505056.gitee.io/element/#/zh-CN/component/button"
+            href="https://element.eleme.cn/#/zh-CN/component/button"
           >
             文档
           </a>
@@ -133,22 +133,23 @@
         <el-button type="primary" icon="el-icon-share"></el-button>
         <el-button type="primary" icon="el-icon-delete"></el-button>
         <el-button type="primary" icon="el-icon-search">搜索</el-button>
-        <el-button type="primary"
-          >上传<i class="el-icon-upload el-icon--right"></i
-        ></el-button>
+        <el-button type="primary">
+          上传
+          <i class="el-icon-upload el-icon--right"></i>
+        </el-button>
         <el-button type="primary" :loading="true">加载中</el-button>
 
-        <el-divider content-position="left"
-          >文字链接
+        <el-divider content-position="left">
+          文字链接
           <a
             target="_blank"
-            href="https://chu1204505056.gitee.io/element/#/zh-CN/component/link"
+            href="https://element.eleme.cn/#/zh-CN/component/link"
           >
             文档
           </a>
         </el-divider>
-        <el-link href="https://element.eleme.io" target="_blank"
-          >默认链接
+        <el-link href="https://element.eleme.io" target="_blank">
+          默认链接
         </el-link>
         <el-link type="primary">主要链接</el-link>
         <el-link type="success">成功链接</el-link>
@@ -163,31 +164,31 @@
         <el-link type="info" disabled>信息链接</el-link>
         <el-link :underline="false">无下划线</el-link>
         <el-link>有下划线</el-link>
-        <el-divider content-position="left"
-          >头像
+        <el-divider content-position="left">
+          头像
           <a
             target="_blank"
-            href="https://chu1204505056.gitee.io/element/#/zh-CN/component/avatar"
+            href="https://element.eleme.cn/#/zh-CN/component/avatar"
           >
             文档
           </a>
         </el-divider>
         <el-avatar icon="el-icon-user-solid"></el-avatar>
-        <el-divider content-position="left"
-          >页头
+        <el-divider content-position="left">
+          页头
           <a
             target="_blank"
-            href="https://chu1204505056.gitee.io/element/#/zh-CN/component/page-header"
+            href="https://element.eleme.cn/#/zh-CN/component/page-header"
           >
             文档
           </a>
         </el-divider>
         <el-page-header content="详情页面"></el-page-header>
-        <el-divider content-position="left"
-          >面包屑
+        <el-divider content-position="left">
+          面包屑
           <a
             target="_blank"
-            href="https://chu1204505056.gitee.io/element/#/zh-CN/component/breadcrumb"
+            href="https://element.eleme.cn/#/zh-CN/component/breadcrumb"
           >
             文档
           </a>
@@ -204,50 +205,50 @@
 </template>
 
 <script>
-export default {
-  name: "Element",
-  components: {},
-  data() {
-    return {
-      dialogVisible: false,
-    };
-  },
-  created() {},
-  mounted() {},
-  methods: {},
-};
+  export default {
+    name: "Element",
+    components: {},
+    data() {
+      return {
+        dialogVisible: false,
+      };
+    },
+    created() {},
+    mounted() {},
+    methods: {},
+  };
 </script>
 
 <style lang="scss" scoped>
-.element-container {
-  ::v-deep {
-    .el-dialog__wrapper {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      bottom: 20px;
-      left: 20px;
+  .element-container {
+    ::v-deep {
+      .el-dialog__wrapper {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        bottom: 20px;
+        left: 20px;
+      }
+
+      .el-tag,
+      .el-button,
+      .el-link {
+        margin: 5px;
+      }
+
+      .el-progress {
+        margin: 20px;
+      }
     }
 
-    .el-tag,
-    .el-button,
-    .el-link {
-      margin: 5px;
-    }
-
-    .el-progress {
-      margin: 20px;
+    .element-iframe {
+      position: absolute;
+      top: 55px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 89vh;
     }
   }
-
-  .element-iframe {
-    position: absolute;
-    top: 55px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 89vh;
-  }
-}
 </style>

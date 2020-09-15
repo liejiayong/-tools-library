@@ -7,7 +7,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "@/layouts";
 import EmptyLayout from "@/layouts/EmptyLayout";
-import { routerMode } from "@/config/settings";
+import { publicPath, routerMode } from "@/config/settings";
 
 Vue.use(VueRouter);
 export const constantRoutes = [
@@ -91,7 +91,7 @@ export const asyncRoutes = [
     component: Layout,
     redirect: "noRedirect",
     name: "PersonnelManagement",
-    meta: { title: "人员", icon: "users-cog", permissions: ["admin"] },
+    meta: { title: "配置", icon: "users-cog", permissions: ["admin"] },
     children: [
       {
         path: "userManagement",
@@ -107,6 +107,13 @@ export const asyncRoutes = [
           import("@/views/personnelManagement/roleManagement/index"),
         meta: { title: "角色管理" },
       },
+      {
+        path: "menuManagement",
+        name: "MenuManagement",
+        component: () =>
+          import("@/views/personnelManagement/menuManagement/index"),
+        meta: { title: "菜单管理", badge: "New" },
+      },
     ],
   },
   {
@@ -115,8 +122,19 @@ export const asyncRoutes = [
     redirect: "noRedirect",
     name: "Vab",
     alwaysShow: true,
-    meta: { title: "组件", icon: "cloud" },
+    meta: { title: "组件", icon: "box-open" },
     children: [
+      {
+        path:
+          "https://github.com/chuzhixin/vue-admin-beautiful?utm_source=gold_browser_extension",
+        name: "ExternalLink",
+        meta: {
+          title: "外链",
+          target: "_blank",
+          permissions: ["admin", "editor"],
+          badge: "New",
+        },
+      },
       {
         path: "permissions",
         name: "Permission",
@@ -124,7 +142,6 @@ export const asyncRoutes = [
         meta: {
           title: "权限控制",
           permissions: ["admin", "editor"],
-          badge: "New",
         },
       },
       {
@@ -183,10 +200,14 @@ export const asyncRoutes = [
       },
       {
         path: "map",
-        name: "Map",
         component: () => import("@/views/vab/map/index"),
-        meta: { title: "地图", permissions: ["admin"], badge: "Pro" },
+        name: "Map",
+        meta: {
+          title: "地图",
+          permissions: ["admin"],
+        },
       },
+
       {
         path: "webSocket",
         name: "WebSocket",
@@ -297,7 +318,11 @@ export const asyncRoutes = [
         path: "editor",
         name: "Editor",
         component: () => import("@/views/vab/editor/index"),
-        meta: { title: "富文本编辑器", permissions: ["admin"], badge: "New" },
+        meta: {
+          title: "富文本编辑器",
+          permissions: ["admin"],
+          badge: "New",
+        },
       },
       {
         path: "qrCode",
@@ -349,42 +374,6 @@ export const asyncRoutes = [
         meta: { title: "上传", permissions: ["admin"] },
       },
       {
-        path: "excel",
-        component: EmptyLayout,
-        redirect: "noRedirect",
-        name: "Excel",
-        meta: {
-          title: "Excel",
-          permissions: ["admin"],
-        },
-        children: [
-          {
-            path: "exportExcel",
-            component: () => import("@/views/vab/excel/exportExcel"),
-            name: "ExportExcel",
-            meta: { title: "导出Excel" },
-          },
-          {
-            path: "exportSelectedExcel",
-            component: () => import("@/views/vab/excel/exportSelectExcel"),
-            name: "ExportSelectedExcel",
-            meta: { title: "导出选中行" },
-          },
-          {
-            path: "exportMergeHeaderExcel",
-            component: () => import("@/views/vab/excel/exportMergeHeaderExcel"),
-            name: "ExportMergeHeaderExcel",
-            meta: { title: "导出合并" },
-          },
-          {
-            path: "uploadExcel",
-            component: () => import("@/views/vab/excel/uploadExcel"),
-            name: "UploadExcel",
-            meta: { title: "上传Excel" },
-          },
-        ],
-      },
-      {
         path: "sticky",
         name: "Sticky",
         component: () => import("@/views/vab/sticky/index"),
@@ -401,6 +390,12 @@ export const asyncRoutes = [
         name: "More",
         component: () => import("@/views/vab/more/index"),
         meta: { title: "更多组件", permissions: ["admin"] },
+      },
+      {
+        path: "blacklist",
+        name: "Blacklist",
+        component: () => import("@/views/vab/blacklist/index"),
+        meta: { title: "黑名单", permissions: ["admin"] },
       },
     ],
   },
@@ -454,7 +449,7 @@ export const asyncRoutes = [
       {
         path: "401",
         name: "Error401",
-        component: () => import("@/views//401"),
+        component: () => import("@/views/401"),
         meta: { title: "401" },
       },
       {
@@ -473,6 +468,7 @@ export const asyncRoutes = [
 ];
 
 const router = new VueRouter({
+  base: publicPath,
   mode: routerMode,
   scrollBehavior: () => ({
     y: 0,
@@ -480,13 +476,16 @@ const router = new VueRouter({
   routes: constantRoutes,
 });
 //注释的地方是允许路由重复点击，如果你觉得框架路由跳转规范太过严格可选择放开
-/*const originalPush = VueRouter.prototype.push;
-VueRouter.prototype.push = function push(location) {
+/* const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject)
+    return originalPush.call(this, location, onResolve, onReject);
   return originalPush.call(this, location).catch((err) => err);
-};*/
+}; */
 
 export function resetRouter() {
   router.matcher = new VueRouter({
+    base: publicPath,
     mode: routerMode,
     scrollBehavior: () => ({
       y: 0,

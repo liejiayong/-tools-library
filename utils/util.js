@@ -212,7 +212,7 @@ var mobileBrowser = {
       gecko: ~u.indexOf('Gecko') && ~u.indexOf('KHTML') ? true : false,
       Symbian: ~u.indexOf('Symbian') ? true : false,
       ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? true : false,
-      android: !u.indexOf('Android') || !u.indexOf('Linux') ? true : false,
+      android: ~window.navigator.userAgent.toLocaleLowerCase().indexOf('android') || ~window.navigator.userAgent.toLocaleLowerCase().indexOf('linux') ? true : false,
       mobile: !!u.match(/AppleWebKit.*Mobile.*/) ? true : false,
       iPhone: ~u.indexOf('iPhone') ? true : false,
       iPad: ~u.indexOf('iPad') ? true : false,

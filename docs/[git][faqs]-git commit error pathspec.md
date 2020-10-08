@@ -51,7 +51,7 @@ git commit -m "xxx"
 在 bash 中，常用的 quoting 有如下三种方法：
 
 - hard quote：' ' (单引号)，也叫硬转义。在 hard quote 中所有 shell 字符的**meta**和**通配符**均被关闭。
-- soft quote： " " (双引号)，也叫软转义。在 soft quote 中允许出现特定的 meta，大部份 meta 都会被关闭，但\$(用于参数替换`用于命令替代)则保留。
+- soft quote： " " (双引号)，也叫软转义。在 soft quote 中允许出现特定的 meta，大部分 meta 都会被关闭，但\$(用于参数替换`用于命令替代)则保留。
 - escape ：\ (反斜杆)，也叫转义符。紧接在 escape 之后的**单一 meta**和**通配符** 会被关闭。\后跟的是非元字符，与没有加\的效果一样。
 
 ```

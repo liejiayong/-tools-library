@@ -7,7 +7,7 @@
  * @param {*} sURL window.location
  * @param {*} title 标题
  */
-function addFavorite(sURL, title) {
+export function addFavorite(sURL, title) {
 	sURL = sURL || window.location
 	title = title || document.title
 
@@ -27,7 +27,7 @@ function addFavorite(sURL, title) {
  * @param {*} brower 浏览器对象
  * @param {*} url 被设置为首页的url
  */
-function setHome(brower, url) {
+export function setHome(brower, url) {
 	//debugger;
 	//谷歌下url为数组对象非字符串
 	url = url || window.location.url
@@ -150,7 +150,7 @@ export const winFulllScreen = {
 	 * 开启全屏
 	 * @param {*} element
 	 */
-	request: function(element) {
+	request: function (element) {
 		if (element.requestFullscreen) {
 			element.requestFullscreen()
 		} else if (element.mozRequestFullScreen) {
@@ -164,7 +164,7 @@ export const winFulllScreen = {
 	/**
 	 *  关闭全屏
 	 */
-	cancel: function() {
+	cancel: function () {
 		if (document.exitFullscreen) {
 			document.exitFullscreen()
 		} else if (document.msExitFullscreen) {
@@ -203,8 +203,8 @@ export const getExplorerName = () => {
  * 禁止鼠标右键、选择、复制
  */
 export const contextmenuBan = () => {
-	;['contextmenu', 'selectstart', 'copy'].forEach(function(ev) {
-		document.addEventListener(ev, function(event) {
+	;['contextmenu', 'selectstart', 'copy'].forEach(function (ev) {
+		document.addEventListener(ev, function (event) {
 			return (event.returnValue = false)
 		})
 	})
@@ -218,95 +218,37 @@ export const contextmenuBan = () => {
  * @param { number } height
  */
 export function openWindow(url, windowName, width, height) {
-	var x = parseInt(screen.width / 2.0) - width / 2.0
-	var y = parseInt(screen.height / 2.0) - height / 2.0
-	var isMSIE = navigator.appName == 'Microsoft Internet Explorer'
+	var x = parseInt(screen.width / 2.0) - width / 2.0;
+	var y = parseInt(screen.height / 2.0) - height / 2.0;
+	var isMSIE = navigator.appName == "Microsoft Internet Explorer";
 	if (isMSIE) {
-		var p = 'resizable=1,location=no,scrollbars=no,width='
-		p = p + width
-		p = p + ',height='
-		p = p + height
-		p = p + ',left='
-		p = p + x
-		p = p + ',top='
-		p = p + y
-		window.open(url, windowName, p)
+		var p = "resizable=1,location=no,scrollbars=no,width=";
+		p = p + width;
+		p = p + ",height=";
+		p = p + height;
+		p = p + ",left=";
+		p = p + x;
+		p = p + ",top=";
+		p = p + y;
+		window.open(url, windowName, p);
 	} else {
-		var win = window.open(url, 'ZyiisPopup', 'top=' + y + ',left=' + x + ',scrollbars=' + scrollbars + ',dialog=yes,modal=yes,width=' + width + ',height=' + height + ',resizable=no')
-		eval('try { win.resizeTo(width, height); } catch(e) { }')
-		win.focus()
-	}
-}
-
-/**
- * 检查页面底部是否可见
- */
-export const bottomVisible = () => {
-	return document.documentElement.clientHeight + window.scrollY >= (document.documentElement.scrollHeight || document.documentElement.clientHeight)
-}
-
-/**
- * 返回当前滚动条位置
- */
-export const getScrollPosition = (el = window) => ({
-	x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
-	y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
-})
-
-/**
- * 获取窗口尺寸
- */
-export function getViewportOffset() {
-	if (window.innerWidth) {
-		return {
-			width: window.innerWidth,
-			height: window.innerHeight
-		}
-	} else {
-		// ie8及其以下
-		if (document.compatMode === 'BackCompat') {
-			// 怪异模式
-			return {
-				width: document.body.clientWidth,
-				height: document.body.clientHeight
-			}
-		} else {
-			// 标准模式
-			return {
-				width: document.documentElement.clientWidth,
-				height: document.documentElement.clientHeight
-			}
-		}
-	}
-}
-
-/**
- * 获取文档尺寸
- */
-export function getDocBoundingRect() {
-	var doc = document,
-		width,
-		height,
-		scrollTop,
-		scrollLeft
-
-	if (document.compatMode === 'BackCompat') {
-		width = doc.body.clientWidth
-		height = doc.body.clientHeight
-		scrollTop = doc.body.scrollTop
-		scrollLeft = doc.body.scrollLeft
-	} else {
-		width = doc.documentElement.clientWidth
-		height = doc.documentElement.clientHeight
-		scrollTop = doc.documentElement.scrollTop
-		scrollLeft = doc.documentElement.scrollLeft
-	}
-
-	return {
-		documentWidth: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth, document.documentElement.clientWidth),
-		width: width,
-		height: height,
-		scrollTop: scrollTop,
-		scrollLeft: scrollLeft
+		var win = window.open(
+			url,
+			windowName,
+			"top=" +
+			y +
+			",left=" +
+			x +
+			",scrollbars=" +
+			scrollbars +
+			",dialog=yes,modal=yes,width=" +
+			width +
+			",height=" +
+			height +
+			",resizable=no"
+		);
+		eval("try { win.resizeTo(width, height); } catch(e) { }");
+		win.focus();
+		win.opener = null;
 	}
 }

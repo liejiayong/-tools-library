@@ -4,7 +4,7 @@ title: 深入浅出Object.create(proto[, propertiesObject])
 
 ## 前言
 
-日常开发中经常会碰到创建对象、继承对象的情况，期间需要比较频繁的使用到**Object.create()**、**Object.assign()**等内置函数。“工欲善其事,必先利其器”，熟练的掌握工具势在必行。接下来会围绕着一下几个知识点来展开：
+日常开发中经常会碰到创建对象、继承对象的情况，期间需要比较频繁的使用到**Object.create()**、**Object.assign()**等内置函数。“工欲善其事,必先利其器”，熟练的掌握工具势在必行。接下来会围绕着以下几个知识点来展开：
 
 - Object.create()的使用
 - 区分 new Object() 和 Object.create()

@@ -4,7 +4,7 @@
  * Author: liejiayong(809206619@qq.com)
  * Date: 2020-06-29 16:25:09
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2020-08-03 18:10:22
+ * @LastEditTime: 2020-10-19 17:19:59
  */
 var jyBus = {
   showTip: function (html, cls) {
@@ -22,21 +22,33 @@ $(function () {
   $('.btnpopcop').on('click', function () {
     copysFn('.btnpopcoptxt')
   });
-  // 礼包码
-  $('.btn-pop-code').on('click', function () {
-    $('#J_codePop').fadeIn();
-  });
-  // 填写信息
-  $('.btn-pop-address').on('click', function () {
-    $('#J_addressPop').fadeIn();
-  });
-  // 待领取
-  $('.btn-pop-get').on('click', function () {
-    $('#J_regPop').fadeIn();
-  });
-  //  home page
-  jQuery("#hnews").slide({
-    triggerTime: 0, effect: "fold"
-  });
-  jQuery("#hbans").slide({ titCell: '.hd', mainCell: ".bd", autoPage: true, effect: "fade", autoPlay: true });
+  // // 礼包码
+  // $('.btn-pop-code').on('click', function () {
+  //   $('#J_codePop').fadeIn();
+  // });
+  // // 填写信息
+  // $('.btn-pop-address').on('click', function () {
+  //   $('#J_addressPop').fadeIn();
+  // });
+  // // 待领取
+  // $('.btn-pop-get').on('click', function () {
+  //   $('#J_regPop').fadeIn();
+  // });
+  // 区服搜索
+  // $('.jy-pop_select_seek-label').on('click', function () {
+  //   var $content = $('.jy-pop_select_seek-content');
+  //   if ($content.hasClass('active')) {
+  //     $content.fadeOut().removeClass('active');
+  //   } else {
+  //     $content.fadeIn().addClass('active');
+  //   }
+  // })
+  // $('.jy-pop_select_seek-val').on('click', function () {
+  //   $('.jy-pop_select_seek-content').fadeOut().removeClass('active')
+  // })
+  // //  home page
+  // jQuery("#hnews").slide({
+  //   triggerTime: 0, effect: "fold"
+  // });
+  // jQuery("#hbans").slide({ titCell: '.hd', mainCell: ".bd", autoPage: true, effect: "fade", autoPlay: true });
 })

@@ -7,7 +7,7 @@
   "editor.fontSize": 16,
   "editor.cursorBlinking": "smooth",
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "editor.snippetSuggestions": "top",
   // 使用vscode的自动格式化时，有时会把一行过长的代码折行。200表示200个字符处折行
@@ -84,6 +84,7 @@
   "emmet.showSuggestionsAsSnippets": true,
   // 配置emmet对哪种文件类型支持
   "emmet.syntaxProfiles": {
+    "javascript": "jsx",
     "vue-html": "html",
     "vue": "html",
     "xml": {
@@ -119,9 +120,7 @@
     {
       "language": "vue",
       "autoFix": true
-    },
-    "typescript",
-    "typescriptreact"
+    }
   ],
   // eslint end
   // vetur start
@@ -131,21 +130,22 @@
     "i18n": "json"
   },
   "vetur.format.options.tabSize": 4,
-  "vetur.format.options.useTabs": true,
+  "vetur.format.options.useTabs": false,
   "vetur.format.defaultFormatter.html": "prettier",
   "vetur.format.defaultFormatter.js": "prettier",
   "vetur.format.defaultFormatterOptions": {
     "wrap_attributes": "auto",
     "prettier": {
-      // "semi": true,
+      "semi": true,
       // "jsxSingleQuote": false,
       // "singleQuote": false,
-      "semi": false,
+      // "semi": false,
       "jsxSingleQuote": true,
       "singleQuote": true,
       "proseWrap": "never",
       "printWidth": 100,
-      "useTabs": true,
+      "useTabs": false,
+      "tabWidth": 2,
       "wrap_line_length": 120,
       "wrap_attributes": "auto",
       "end_with_newline": false
@@ -158,10 +158,10 @@
   // "prettier.singleQuote": false,
   // // 结尾分号
   // "prettier.semi": true,
-  "prettier.semi": false,
+  "prettier.semi": true,
   // "prettier.proseWrap": "never",
   // "prettier.printWidth": 1200,
-  // "prettier.useTabs": true,
+  // "prettier.useTabs": false,
   // "prettier.jsxSingleQuote": false,
   // prettier end
   // stylus start
@@ -322,6 +322,9 @@
   "python.jediEnabled": false,
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
-  "python.languageServer": "Microsoft"
+  "python.languageServer": "Microsoft",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
   // python end
 }

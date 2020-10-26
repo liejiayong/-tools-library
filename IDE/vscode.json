@@ -147,35 +147,53 @@
     "wrap_attributes": "auto",
     "prettier": {
       "semi": true,
-      // "jsxSingleQuote": false,
-      // "singleQuote": false,
-      // "semi": false,
       "jsxSingleQuote": true,
       "singleQuote": true,
       "proseWrap": "never",
-      "printWidth": 100,
+      "printWidth": 200,
       "useTabs": false,
       "tabWidth": 2,
-      "wrap_line_length": 200,
-      // "wrap_attributes": "auto",
+      "endOfLine": "lf",
+      "quoteProps": "as-needed",
+      "trailingComma": "es5",
+      "bracketSpacing": true,
+      "jsxBracketSameLine": false,
+      "wrap_attribuarrowParenstes": "avoid",
+      "htmlWhitespaceSensitivity": "ignore",
+      "embeddedLanguageFormatting": "auto",
       "wrap_attributes": "force-aligned",
-      "end_with_newline": true,
-      "endOfLine": "lf"
+      "end_with_newline": true
     }
   },
   // vetur end
-  // // 由于使用了vetur插件，因此在上述配置中设置prettier选项即可，下面prettier配置可注释
   // prettier start
+  // // 结尾分号
+  "prettier.semi": true,
   // // 单引号
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
-  // // 结尾分号
-  "prettier.semi": true,
+  // By default, Prettier will wrap markdown text as-is since some services use a linebreak-sensitive renderer, e.g. GitHub comment and BitBucket. In some cases you may want to rely on editor/viewer soft wrapping instead, so this option allows you to opt out with "never".
+  //  "always" - Wrap prose if it exceeds the print width.
+  // "never" - Do not wrap prose.
+  // "preserve" - Wrap prose as-is. First available in v1.9.0
   "prettier.proseWrap": "never",
   "prettier.printWidth": 200,
   "prettier.useTabs": false,
+  "prettier.tabWidth": 2,
   "prettier.endOfLine": "lf",
-  "prettier.end_with_newline": true,
+  //  "as-needed" - Only add quotes around object properties where required.
+  // "consistent" - If at least one property in an object requires quotes, quote all properties.
+  // "preserve" - Respect the input use of quotes in object properties.
+  "prettier.quoteProps": "as-needed",
+  "prettier.trailingComma": "es5",
+  "prettier.bracketSpacing": true, // true - Example: { foo: bar }.false - Example: {foo: bar}.
+  //  Put the > of a multi-line JSX element at the end of the last line instead of being alone on the next line (does not apply to self closing elements).
+  "prettier.jsxBracketSameLine": false,
+  // "always" - Always include parens. Example: (x) => x
+  // "avoid" - Omit parens when possible. Example: x => x
+  "prettier.arrowParens": "avoid",
+  "prettier.htmlWhitespaceSensitivity": "ignore", // "<css|strict|ignore>"
+  "prettier.embeddedLanguageFormatting": "auto",
   // prettier end
   // stylus start
   "stylusSupremacy.insertColons": false, // 是否插入冒号

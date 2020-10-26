@@ -1,105 +1,129 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="robots" content="all">
-    <meta name="author" content="JyLie">
-    <meta name="copyright" content="JyLie">
+    <meta name="robots" content="all" />
+    <meta name="author" content="JyLie" />
+    <meta name="copyright" content="JyLie" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit" />
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
     <title></title>
     <link href="./css/style.css" rel="stylesheet" type="text/css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="wrapper">
-        <a href="https://github.com/liejiayong" target="_blank" class="jy-logo logo">贪玩手游</a>
-        <div class="app-container">
-            <div class="phone-container">
-                <div class="qrcode-content">
-                    <p class="qrcode"><img src="./images/qrcode.png" /></p>
-                    <p>下载APP<br />聊天吐槽领福利</p>
-                </div>
-                <div class="phone icon-phone-s">
-                    <div class="iframe-hub-s">
-                        <iframe id="mainFrame" src="" width="100%" height="100%" scrolling="no"></iframe>
-                    </div>
-                </div>
-                <div class="qrcode-content">
-                    <p class="qrcode"><img src="./images/qrcode.png" /></p>
-                    <p>扫码关注不迷路<br />手游送福利</p>
-                </div>
+      <a
+        href="https://github.com/liejiayong"
+        target="_blank"
+        class="jy-logo logo"
+        >贪玩手游</a
+      >
+      <div class="app-container">
+        <div class="phone-container">
+          <div class="qrcode-content">
+            <p class="qrcode"><img src="./images/qrcode.png" /></p>
+            <p>下载APP<br />聊天吐槽领福利</p>
+          </div>
+          <div class="phone icon-phone-s">
+            <div class="iframe-hub-s">
+              <iframe
+                id="mainFrame"
+                src=""
+                width="100%"
+                height="100%"
+                scrolling="no"
+              ></iframe>
             </div>
+          </div>
+          <div class="qrcode-content">
+            <p class="qrcode"><img src="./images/qrcode.png" /></p>
+            <p>扫码关注不迷路<br />手游送福利</p>
+          </div>
         </div>
+      </div>
     </div>
 
     <script>
-        (function () {
-            if (document.documentElement.clientHeight >= 976) document.querySelector('.phone-container').style.height = '100vh';
-            function IsPC() {
-                var userAgentInfo = navigator.userAgent;
-                var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
-                var flag = true;
-                for (var v = 0; v < Agents.length; v++) {
-                    if (userAgentInfo.indexOf(Agents[v]) > 0) {
-                        flag = false;
-                        break;
-                    }
-                }
-                return flag;
+      (function () {
+        if (document.documentElement.clientHeight >= 976)
+          document.querySelector(".phone-container").style.height = "100vh";
+        function IsPC() {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = [
+            "Android",
+            "iPhone",
+            "SymbianOS",
+            "Windows Phone",
+            "iPad",
+            "iPod",
+          ];
+          var flag = true;
+          for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+              flag = false;
+              break;
+            }
+          }
+          return flag;
+        }
+
+        if (typeof eval(getParamUrl) != "function") {
+          function getParamUrl(param, string) {
+            try {
+              var re = new RegExp("" + param + "=([^&?]*)", "ig");
+              return string.match(re)
+                ? decodeURIComponent(
+                    string.match(re)[0].substr(param.length + 1)
+                  )
+                : "";
+            } catch (_e) {
+              return "";
+            }
+          }
+        }
+
+        var pcHub = {
+          url: getParamUrl("url", window.location.href),
+          default_url:
+            "http://127.0.0.1:5504/business-logic/tw_wap_h5__subject_template/",
+          init: function () {
+            var _this = this;
+
+            //判断是不是tanwan域名
+            var allowList = "";
+
+            var reg = new RegExp(
+              "^((http://)|(https://))?(([a-zA-Z0-9]+\\.)(tanwan)?\\.)+[a-zA-Z]{2,6}",
+              ""
+            );
+            if (String(_this.url).search(reg) < 0) {
+              _this.url = _this.default_url;
             }
 
-            if (typeof (eval(getParamUrl)) != "function") {
-                function getParamUrl(param, string) {
-                    try {
-                        var re = new RegExp("" + param + "=([^&?]*)", "ig");
-                        return ((string.match(re)) ? (decodeURIComponent(string.match(re)[0].substr(param.length + 1))) : '');
-                    } catch (_e) {
-                        return '';
-                    }
-                }
+            var _mainFrame = document.getElementById("mainFrame");
+
+            if (_this.url == "") {
+              _this.url = _this.default_url;
             }
-
-            var pcHub = {
-                url: getParamUrl('url', window.location.href),
-                default_url: 'http://127.0.0.1:5504/business-logic/tw_wap_h5__subject_template/',
-                init: function () {
-                    var _this = this;
-
-                    //判断是不是tanwan域名
-                    var allowList = '';
-
-                    var reg = new RegExp('^((http://)|(https://))?(([a-zA-Z0-9]+\\.)(tanwan)?\\.)+[a-zA-Z]{2,6}', '');
-                    if (String(_this.url).search(reg) < 0) {
-                        _this.url = _this.default_url;
-                    }
-
-                    var _mainFrame = document.getElementById('mainFrame');
-
-                    if (_this.url == '') {
-                        _this.url = _this.default_url;
-                    }
-                    if (!IsPC()) window.location.href = _this.url; //移动设备跳转到相应页面
-                    _mainFrame.src = decodeURI(_this.url);
-                    //获取title
-                    if (_mainFrame.attachEvent) {
-                        _mainFrame.attachEvent('onload', function () {
-                            document.title = _mainFrame.contentWindow.document.title;
-                        });
-                    } else {
-                        _mainFrame.onload = function () {
-                            document.title = _mainFrame.contentWindow.document.title;
-                        }
-                    }
-                }
-            };
-            pcHub.init();
-
-        }())
+            if (!IsPC()) window.location.href = _this.url; //移动设备跳转到相应页面
+            _mainFrame.src = decodeURI(_this.url);
+            //获取title
+            if (_mainFrame.attachEvent) {
+              _mainFrame.attachEvent("onload", function () {
+                document.title = _mainFrame.contentWindow.document.title;
+              });
+            } else {
+              _mainFrame.onload = function () {
+                document.title = _mainFrame.contentWindow.document.title;
+              };
+            }
+          },
+        };
+        pcHub.init();
+      })();
     </script>
-</body>
-
+  </body>
 </html>

@@ -1,25 +1,6 @@
 {
-  // default start
-  "editor.tabSize": 4,
-  "editor.lineHeight": 20,
-  "editor.renderLineHighlight": "none",
-  "editor.renderWhitespace": "none",
-  "editor.fontSize": 16,
-  "editor.cursorBlinking": "smooth",
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": false,
-  "editor.snippetSuggestions": "top",
-  // 使用vscode的自动格式化时，有时会把一行过长的代码折行。200表示200个字符处折行
-  "editor.wordWrapColumn": 100,
-  "editor.wordWrap": "off",
-  "editor.quickSuggestions": {
-    "other": true,
-    "comments": true,
-    "strings": false
-  },
-  "editor.suggestSelection": "first",
   "window.zoomLevel": 0,
+  // icon
   "workbench.iconTheme": "vscode-icons",
   "files.eol": "\n",
   "files.autoSave": "onFocusChange",
@@ -50,10 +31,13 @@
   // 断点调试时，遇到断点，自动显示调试视图。
   "debug.openDebug": "openOnDebugBreak",
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -64,20 +48,72 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[vue]": {
     "editor.defaultFormatter": "octref.vetur"
   },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "sync.gist": "d6f93d4248267f8875353551c3acef8c",
+  // default start
+  "editor.tabSize": 4,
+  "editor.lineHeight": 20,
+  "editor.renderLineHighlight": "none",
+  "editor.renderWhitespace": "none",
+  "editor.fontSize": 16,
+  "editor.cursorBlinking": "smooth",
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.snippetSuggestions": "top",
+  // 使用vscode的自动格式化时，有时会把一行过长的代码折行。200表示200个字符处折行
+  "editor.wordWrapColumn": 200,
+  "editor.wordWrap": "off",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": true,
+    "strings": false
+  },
+  "editor.suggestSelection": "first",
+  "editor.formatOnPaste": true,
+  // 开启后可能与eslint冲突引起点击ctrl+s不保存
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   // default end
+  // eslint start
+  // 格式化快捷键 shirt+alt+F，有时可能需要多按几次
+  // 因为使用 shirt+alt+F进行格式化时，先执行编辑器的格式化规则，然后才会按照eslint和tslit这样的其他插件去格式化。
+  // 是否启用根据eslint配置文件。文件保存时，根据配置文件进行格式化
+  "eslint.format.enable": true,
+  // eslint配置文件 ,修改为你自己电脑上的文件位置，或者直接删除
+  "eslint.options": {
+    "configFile": "E:/tanwan-file/tool-library/IDE/.eslintrc.js",
+    "plugins": ["html"]
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown"
+  ],
+  "eslint.alwaysShowStatus": true,
+  "eslint.packageManager": "yarn",
+  // eslint end
   // emmet start
   // 这一设置最大作用是：当输入的文本不属于Emmet定义的缩写规则时，依然允许使用Tab键进行缩进。此时会提示我自定义的缩写语句，以及各插件自定义的缩写语句.
   "emmet.triggerExpansionOnTab": true,
@@ -96,32 +132,6 @@
     "wxml": "html"
   },
   // emmet end
-  // eslint start
-  // 格式化快捷键 shirt+alt+F，有时可能需要多按几次
-  // 因为使用 shirt+alt+F进行格式化时，先执行编辑器的格式化规则，然后才会按照eslint和tslit这样的其他插件去格式化。
-  // 是否开启eslint检测
-  "eslint.enable": true,
-  // 是否启用根据eslint配置文件。文件保存时，根据配置文件进行格式化
-  "eslint.autoFixOnSave": true,
-  // eslint配置文件 ,修改为你自己电脑上的文件位置，或者直接删除
-  // "eslint.options": {
-  //   "configFile": "D:/worksapce/youxiang-mobile-master/.eslintrc.js",
-  //   "plugins": [
-  //     "html"
-  //   ]
-  // },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    {
-      "language": "html",
-      "autoFix": true
-    },
-    {
-      "language": "vue",
-      "autoFix": true
-    }
-  ],
   // eslint end
   // vetur start
   // 自定义高亮
@@ -146,23 +156,26 @@
       "printWidth": 100,
       "useTabs": false,
       "tabWidth": 2,
-      "wrap_line_length": 120,
-      "wrap_attributes": "auto",
-      "end_with_newline": false
+      "wrap_line_length": 200,
+      // "wrap_attributes": "auto",
+      "wrap_attributes": "force-aligned",
+      "end_with_newline": true,
+      "endOfLine": "lf"
     }
   },
   // vetur end
-  // prettier start
   // // 由于使用了vetur插件，因此在上述配置中设置prettier选项即可，下面prettier配置可注释
+  // prettier start
   // // 单引号
-  // "prettier.singleQuote": false,
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
   // // 结尾分号
-  // "prettier.semi": true,
   "prettier.semi": true,
-  // "prettier.proseWrap": "never",
-  // "prettier.printWidth": 1200,
-  // "prettier.useTabs": false,
-  // "prettier.jsxSingleQuote": false,
+  "prettier.proseWrap": "never",
+  "prettier.printWidth": 200,
+  "prettier.useTabs": false,
+  "prettier.endOfLine": "lf",
+  "prettier.end_with_newline": true,
   // prettier end
   // stylus start
   "stylusSupremacy.insertColons": false, // 是否插入冒号
@@ -322,9 +335,6 @@
   "python.jediEnabled": false,
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
-  "python.languageServer": "Microsoft",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "python.languageServer": "Microsoft"
   // python end
 }

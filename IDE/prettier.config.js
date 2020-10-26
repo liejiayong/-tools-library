@@ -1,4 +1,20 @@
-const INLINE_ELEMENTS = ['span'];
+const INLINE_ELEMENTS = [
+  'img',
+  'span',
+  'small',
+  'select',
+  'strong',
+  'sub',
+  'sup',
+  'textarea',
+  'var',
+  'b',
+  'a',
+  'code',
+  'abbr',
+  'big',
+  'dfn',
+];
 module.exports = {
   printWidth: 80,
   tabWidth: 2,

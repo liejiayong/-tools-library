@@ -121,7 +121,10 @@
         <div class="jy-progressbord"></div>
         <div class="jy-progressbg"></div>
         <div class="progressing active" id="progressing"></div>
-        <div class="progress-rate"><span id="percentTxt">0</span>%</div>
+        <div class="progress-rate">
+          <span id="percentTxt">0</span>
+          %
+        </div>
       </div>
 
       <style>
@@ -229,7 +232,10 @@
         <div class="jy-progressbord"></div>
         <div class="jy-progressbg"></div>
         <div class="progressing active" id="progressing"></div>
-        <div class="progress-rate"><span id="percentTxt">0</span>%</div>
+        <div class="progress-rate">
+          <span id="percentTxt">0</span>
+          %
+        </div>
       </div>
     </div>
 
@@ -239,7 +245,7 @@
         if (deviceWidth > 750) deviceWidth = 750;
         document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
       }
-      ['DOMContentLoaded', 'resize'].forEach(function(event) {
+      ['DOMContentLoaded', 'resize'].forEach(function (event) {
         window.addEventListener(event, refreshRem);
       });
     </script>

@@ -61,17 +61,17 @@
           ann = winning.children().clone();
         winning.append(ann).width(gw * 2);
         function leftScroll() {
-          timer = setInterval(function() {
+          timer = setInterval(function () {
             num <= -gw ? (num = 0) : (num -= 2);
             winning.css({ left: num });
           }, 30);
         }
         leftScroll();
         winning.hover(
-          function() {
+          function () {
             clearInterval(timer);
           },
-          function() {
+          function () {
             leftScroll();
           }
         );

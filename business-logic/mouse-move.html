@@ -18,7 +18,7 @@
     <div id="floating">move</div>
     <script src="./jquery-1.11.2.min.js"></script>
     <script>
-      mouseFlow('#floating')
+      mouseFlow('#floating');
 
       function mouseFlow(el) {
         // 动画
@@ -26,14 +26,14 @@
           preX: 0,
           preY: 0,
           nextX: 0,
-          nextY: 0
+          nextY: 0,
         };
         var currX = 0,
           currY = 0;
         // 闪电移动动画
         var translate = preStyle('translate');
         $('body,html').mousemove(
-          throttle(function(e) {
+          throttle(function (e) {
             mouseInfo.nextX = e.clientX;
             mouseInfo.nextY = e.clientY;
             currX = mouseInfo.nextX - mouseInfo.preX;
@@ -53,7 +53,7 @@
         function throttle(fn, threshhold) {
           var timer = null;
           var start = Date.now();
-          return function() {
+          return function () {
             var context = this,
               arg = arguments,
               curr = Date.now();
@@ -62,7 +62,7 @@
               fn.apply(context, arg);
               start = curr;
             } else {
-              timer = setTimeout(function() {
+              timer = setTimeout(function () {
                 fn.apply(context, arg);
               }, threshhold);
             }
@@ -71,13 +71,13 @@
         function preStyle(style) {
           var el = document.createElement('div');
 
-          var vendor = (function() {
+          var vendor = (function () {
             var transformName = {
               webkit: 'webkitTransform',
               Moz: 'MozTransform',
               O: 'OTransform',
               ms: 'msTransform',
-              standard: 'transform'
+              standard: 'transform',
             };
             for (var key in transformName) {
               if (el[key] !== 'undefined') {

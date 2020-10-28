@@ -1,419 +1,452 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui,viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="applicable-device" content="mobile" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="browsermode" content="application" />
+    <meta name="x5-page-mode" content="app" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="author" content="f_liejy,d_,b_" />
+    <meta name="copyright" content="tanwan" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title></title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script>
+      var docEl = document.documentElement || document.body;
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+      var reCalc = function () {
+        var clientWidth = docEl.clientWidth,
+          PIX = 750;
+        clientWidth = clientWidth > PIX ? PIX : clientWidth;
+        var fontSize = 100 * (clientWidth / PIX);
+        window.baseFontSize = fontSize;
+        docEl.style.fontSize = fontSize + 'px';
+      };
+      reCalc();
+      window.addEventListener(resizeEvt, reCalc, false);
+      document.addEventListener('DOMContentLoaded', reCalc, false);
+    </script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui,viewport-fit=cover" />
-  <meta name="format-detection" content="telephone=no, email=no" />
-  <meta name="format-detection" content="address=no" />
-  <meta name="applicable-device" content="mobile" />
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="renderer" content="webkit" />
-  <meta name="HandheldFriendly" content="true" />
-  <meta name="MobileOptimized" content="320" />
-  <meta name="full-screen" content="yes" />
-  <meta name="x5-fullscreen" content="true" />
-  <meta name="browsermode" content="application" />
-  <meta name="x5-page-mode" content="app" />
-  <meta name="msapplication-tap-highlight" content="no" />
-  <meta name="author" content="f_liejy,d_,b_" />
-  <meta name="copyright" content="tanwan" />
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <title></title>
-  <link rel="stylesheet" href="./css/index.css">
-  <script>
-    var docEl = document.documentElement || document.body;
-    var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
-    var reCalc = function () {
-      var clientWidth = docEl.clientWidth, PIX = 750;
-      clientWidth = clientWidth > PIX ? PIX : clientWidth;
-      var fontSize = 100 * (clientWidth / PIX);
-      window.baseFontSize = fontSize;
-      docEl.style.fontSize = fontSize + 'px';
-    };
-    reCalc();
-    window.addEventListener(resizeEvt, reCalc, false);
-    document.addEventListener('DOMContentLoaded', reCalc, false);
-  </script>
-</head>
-
-<body ontouchstart>
-  <!-- 主要内容 -->
-  <div class="jy-wrapper">
-    <div class="swiper-container slide-container" id="psw">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="jy-section section-1">
-            <div class="jy-sectionmain tc">
-              <div class="logo mauto"></div>
-              <div class="btn-vid">
-                <i class="i-player-bg animated-infinite jy-animate-rotate"></i>
-                <i class="i-player-btn"></i>
-              </div>
-              <div class="mt-10 ">
-                <a class="btn-like fb-like  vf_hide" data-href="https://www.facebook.com/Wow-Samkok-112335613516301/"
-                  data-layout="button_count" data-action="like" data-size="large" data-show-faces="false"
-                  data-share="false"></a>
-              </div>
-              <div class="mauto mt-30 i-tel">
-                <div class="jy-tel">
-                  <select name="" id="">
-                    <option value="">xxx</option>
-                  </select>
-                  <input type="text">
+  <body ontouchstart>
+    <!-- 主要内容 -->
+    <div class="jy-wrapper">
+      <div class="swiper-container slide-container" id="psw">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="jy-section section-1">
+              <div class="jy-sectionmain tc">
+                <div class="logo mauto"></div>
+                <div class="btn-vid">
+                  <i class="i-player-bg animated-infinite jy-animate-rotate"></i>
+                  <i class="i-player-btn"></i>
                 </div>
-              </div>
-              <a href="javascript:;" class="jy-btn btn-login mt-50"></a>
-              <div class="jy-txt jy-txt-sty mt-30">事前登錄可在遊戲上架當天獲得超值大禮 </div>
-              <div class="mt-20 bg-1-gift"></div>
-              <div class="jy-btn-sd animated animated-infinite jy-animate-floating"><i class="mauto btn-sd"></i></div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="jy-section section-2 bg2">
-            <div class="jy-sectionmain tc">
-              <div class="tc jy-txt-tit bg-2-tit"></div>
-              <div class="tc mt-40">事前登錄人數：<span class="color-red fs-36">99999</span></div>
-              <div class="jy-gift mt-50">
-                <div class="jy-gift-box">
-                  <div class="jy-gift-item">
-                    <div class="pernum">20000</div>
-                    <div class="i-gift "></div>
-                  </div>
-                  <div class="jy-gift-item">
-                    <div class="pernum">40000</div>
-                    <div class="i-gift "></div>
-                  </div>
-                  <div class="jy-gift-item">
-                    <div class="pernum">60000</div>
-                    <div class="i-gift "></div>
+                <div class="mt-10">
+                  <a
+                    class="btn-like fb-like vf_hide"
+                    data-href="https://www.facebook.com/Wow-Samkok-112335613516301/"
+                    data-layout="button_count"
+                    data-action="like"
+                    data-size="large"
+                    data-show-faces="false"
+                    data-share="false"
+                  ></a>
+                </div>
+                <div class="mauto mt-30 i-tel">
+                  <div class="jy-tel">
+                    <select name="" id="">
+                      <option value="">xxx</option>
+                    </select>
+                    <input type="text" />
                   </div>
                 </div>
-                <div class="jy-progress">
-                  <i style="width: 60%" class="i-progress " id="progress"></i>
-                </div>
-              </div>
-
-              <div class="bg-2-gift">
-              </div>
-              <a href="javascript:;" class="jy-btn btn-appoint"></a>
-              <div class="jy-btn-sd animated animated-infinite jy-animate-floating mt-50"><i class="mauto btn-sd  "></i>
+                <a href="javascript:;" class="jy-btn btn-login mt-50"></a>
+                <div class="jy-txt jy-txt-sty mt-30">事前登錄可在遊戲上架當天獲得超值大禮</div>
+                <div class="mt-20 bg-1-gift"></div>
+                <div class="jy-btn-sd animated animated-infinite jy-animate-floating"><i class="mauto btn-sd"></i></div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="jy-section section-3 bg2">
-            <div class="jy-sectionmain">
-              <div class="tc jy-txt-tit bg-3-tit"></div>
-              <div class="swiper-container feture-container" id="pfeture">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt=""
-                      class="swiper-lazy feture-image"></div>
-                  <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt=""
-                      class="swiper-lazy feture-image"></div>
-                  <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt=""
-                      class="swiper-lazy feture-image"></div>
+          <div class="swiper-slide">
+            <div class="jy-section section-2 bg2">
+              <div class="jy-sectionmain tc">
+                <div class="tc jy-txt-tit bg-2-tit"></div>
+                <div class="tc mt-40">
+                  事前登錄人數：
+                  <span class="color-red fs-36">99999</span>
                 </div>
-                <div class="btn-arrow-pre"></div>
-                <div class="btn-arrow-next"></div>
+                <div class="jy-gift mt-50">
+                  <div class="jy-gift-box">
+                    <div class="jy-gift-item">
+                      <div class="pernum">20000</div>
+                      <div class="i-gift"></div>
+                    </div>
+                    <div class="jy-gift-item">
+                      <div class="pernum">40000</div>
+                      <div class="i-gift"></div>
+                    </div>
+                    <div class="jy-gift-item">
+                      <div class="pernum">60000</div>
+                      <div class="i-gift"></div>
+                    </div>
+                  </div>
+                  <div class="jy-progress">
+                    <i style="width: 60%" class="i-progress" id="progress"></i>
+                  </div>
+                </div>
+
+                <div class="bg-2-gift"></div>
+                <a href="javascript:;" class="jy-btn btn-appoint"></a>
+                <div class="jy-btn-sd animated animated-infinite jy-animate-floating mt-50"><i class="mauto btn-sd"></i></div>
               </div>
-              <div class="jy-footer">
-                <div class="jy-footer-wrapper jy-flex jy-flex-c">
-                  <div class="i-footer-logo"></div>
-                  <div class="lh-15">
-                    <p>本遊戲內容涉及暴力、角色穿著凸顯胸、臀之服飾</p>
-                    <p>本遊戲部分內容需另行支付費用 </p>
-                    <p>請避免沉迷遊戲</p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="jy-section section-3 bg2">
+              <div class="jy-sectionmain">
+                <div class="tc jy-txt-tit bg-3-tit"></div>
+                <div class="swiper-container feture-container" id="pfeture">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt="" class="swiper-lazy feture-image" /></div>
+                    <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt="" class="swiper-lazy feture-image" /></div>
+                    <div class="swiper-slide feture-silde"><img data-src="./img/bb1.jpg" alt="" class="swiper-lazy feture-image" /></div>
+                  </div>
+                  <div class="btn-arrow-pre"></div>
+                  <div class="btn-arrow-next"></div>
+                </div>
+                <div class="jy-footer">
+                  <div class="jy-footer-wrapper jy-flex jy-flex-c">
+                    <div class="i-footer-logo"></div>
+                    <div class="lh-15">
+                      <p>本遊戲內容涉及暴力、角色穿著凸顯胸、臀之服飾</p>
+                      <p>本遊戲部分內容需另行支付費用</p>
+                      <p>請避免沉迷遊戲</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </div>
 
-  </div>
-
-  <!-- 弹窗 -->
-  <!-- 视频 -->
-  <div class="jy-pop " id="J_vidPop">
-    <div class="jy-pop_mask--clickable"></div>
-    <div class="pop_video">
-      <video src="./media/vm.mp4" controls preload="auto" x5-playsinline playsinline webkit-playsinline
-        x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen x5-video-orientation="portraint"
-        controlsList="nodownload" id="vid"></video>
-    </div>
-  </div>
-
-  <!-- pop 填写个人信息  -->
-  <div class="jy-pop " id="J_ownPop">
-    <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main bg-pop bg-pop-2">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
-      <div class="jy-pop_body">
-        <div class="jy-pop_header">填寫手機門號領超值大禮 </div>
-        <div class="jy-select-label">手機門號</div>
-        <div class="jy-selecte mt-30">
-          <select name="" id="">
-            <option value="台湾">台湾</option>
-          </select>
-          <input placeholder="輸入手機門號" type="number">
-        </div>
-        <div class="mt-50 tc">
-          <a href="javascript:;" class="jy-btn btn-submit"></a>
-        </div>
-
-        <div class="list_panel tl mt-30 pt-30">
-          <div class="list_tit ">注意事項</div>
-          <ol class="list_body ">
-            <li><i>① </i>獎勵會在遊戲上線後通過手機簡訊的方式發放</li>
-            <li><i>② </i>請輸入正確的手機門號，如輸入有誤，將不會獲得預約獎勵 </li>
-            <li><i>③ </i>活動期間如果發生不可抗力因素，我方有保留更改或終止活動的權利。如有出現以上情況，我們將會在Facebook上宣布。 </li>
-          </ol>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- pop 预约成功  -->
-  <div class="jy-pop " id="J_sucPop">
-    <div class="jy-pop_mask"></div>
-    <div class="jy-pop_main bg-pop bg-pop-1">
-      <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
-      <div class="color-red tc">
-        <div class="tit">預約成功</div>
-        <div class="subtit">集結預約還可獲得全服獎勵</div>
-        <a href="javascript:;" class="jy-btn btn-share mt-50"></a>
-        <div class="tip tc">前往商店預約，下載遊戲快人一步</div>
-        <div class="btnlist tc">
-          <a href="javascript:;" class="jy-btn btn-ios"></a>
-          <a href="javascript:;" class="jy-btn btn-google ml-30"></a>
-        </div>
+    <!-- 弹窗 -->
+    <!-- 视频 -->
+    <div class="jy-pop" id="J_vidPop">
+      <div class="jy-pop_mask--clickable"></div>
+      <div class="pop_video">
+        <video
+          src="./media/vm.mp4"
+          controls
+          preload="auto"
+          x5-playsinline
+          playsinline
+          webkit-playsinline
+          x-webkit-airplay="allow"
+          x5-video-player-type="h5"
+          x5-video-player-fullscreen
+          x5-video-orientation="portraint"
+          controlsList="nodownload"
+          id="vid"
+        ></video>
       </div>
     </div>
-  </div>
 
-  <!-- pop 礼包一览  -->
-  <!-- <div class="jy-pop " id="J_awardPop">
+    <!-- pop 填写个人信息  -->
+    <div class="jy-pop" id="J_ownPop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main bg-pop bg-pop-2">
+        <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
+        <div class="jy-pop_body">
+          <div class="jy-pop_header">填寫手機門號領超值大禮</div>
+          <div class="jy-select-label">手機門號</div>
+          <div class="jy-selecte mt-30">
+            <select name="" id="">
+              <option value="台湾">台湾</option>
+            </select>
+            <input placeholder="輸入手機門號" type="number" />
+          </div>
+          <div class="mt-50 tc">
+            <a href="javascript:;" class="jy-btn btn-submit"></a>
+          </div>
+
+          <div class="list_panel tl mt-30 pt-30">
+            <div class="list_tit">注意事項</div>
+            <ol class="list_body">
+              <li>
+                <i>①</i>
+                獎勵會在遊戲上線後通過手機簡訊的方式發放
+              </li>
+              <li>
+                <i>②</i>
+                請輸入正確的手機門號，如輸入有誤，將不會獲得預約獎勵
+              </li>
+              <li>
+                <i>③</i>
+                活動期間如果發生不可抗力因素，我方有保留更改或終止活動的權利。如有出現以上情況，我們將會在Facebook上宣布。
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- pop 预约成功  -->
+    <div class="jy-pop" id="J_sucPop">
+      <div class="jy-pop_mask"></div>
+      <div class="jy-pop_main bg-pop bg-pop-1">
+        <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
+        <div class="color-red tc">
+          <div class="tit">預約成功</div>
+          <div class="subtit">集結預約還可獲得全服獎勵</div>
+          <a href="javascript:;" class="jy-btn btn-share mt-50"></a>
+          <div class="tip tc">前往商店預約，下載遊戲快人一步</div>
+          <div class="btnlist tc">
+            <a href="javascript:;" class="jy-btn btn-ios"></a>
+            <a href="javascript:;" class="jy-btn btn-google ml-30"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- pop 礼包一览  -->
+    <!-- <div class="jy-pop " id="J_awardPop">
     <div class="jy-pop_mask"></div>
     <div class="jy-pop_main bg-pop-3">
       <a href="javascript:;" class="jy-btn jy-btn_pop_close btn-close btn-pop-close"></a>
     </div>
   </div> -->
 
-  <!-- js -->
-  <script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
-  <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
-  <script type="text/javascript" src="./js/swiper.min.js?v=5.2.0"></script>
-  <script>
-    $(function () {
-
-      var activeCls = 'active';
-      function showTip(str) {
-        var $tip = $('#J_tipPop');
-        $tip.find('.jy-pop-tiptxt').text(str);
-        $tip.fadeIn();
-      }
-      // 弹窗
-      // 关闭弹窗
-      $('.jy-btn_pop_close,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel').on('click', function () {
-        $(this).parents('.jy-pop').fadeOut();
-      });
-      $('.jy-btn-sd').on('click', function () {
-        logic.psw.slideNext();
-      });
-      // 预约
-      $('.btn-appoint').on('click', function () {
-        logic.psw.slideTo(0);
-        $('#J_ownPop').fadeIn();
-      });
-      // 登录
-      $('.btn-login').on('click', function () {
-        $('#J_ownPop').fadeIn();
-      });
-      $('.btn-submit').on('click', function () {
-        $('#J_sucPop').fadeIn();
-
-      });
-      // 视频
-      $('.btn-vid').on('click', function () {
-        $('#J_vidPop').fadeIn();
-      });
-
-      var logic = {
-        psw: null,
-        swiper: function () {
-          var psw = new Swiper('#psw', {
-            initialSlide: 0,
-            direction: 'vertical',
-            height: $(window).height(),
-            autoHeight: true
-          })
-          this.psw = psw;
-          var startScroll, touchStart, touchCurrent;
-          psw.slides.on('touchstart', function (e) {
-            startScroll = Math.ceil(this.scrollTop);
-            touchStart = e.targetTouches[0].pageY;
-          }, true);
-          psw.slides.on('touchmove', function (e) {
-            touchCurrent = e.targetTouches[0].pageY;
-            var touchesDiff = touchCurrent - touchStart;
-            var slide = this;
-            var onlyScrolling =
-              (slide.scrollHeight > slide.offsetHeight) && //allow only when slide is scrollable
-              (
-                (touchesDiff < 0 && startScroll === 0) || //start from top edge to scroll bottom
-                (touchesDiff > 0 && startScroll === (slide.scrollHeight - slide.offsetHeight)) || //start from bottom edge to scroll top
-                (startScroll > 0 && startScroll < (slide.scrollHeight - slide.offsetHeight)) //start from the middle
-              );
-            if (onlyScrolling) {
-              e.stopPropagation();
-            }
-          }, true);
-        },
-        feture: function () {
-          var psw = new Swiper('#pfeture', {
-            initialSlide: 0,
-            loop: true,
-            direction: 'vertical',
-            navigation: {
-              nextEl: '.btn-arrow-next',
-              prevEl: '.btn-arrow-pre',
-            },
-            lazy: {
-              loadPrevNext: true,
-              loadPrevNextAmount: 3,
-              loadOnTransitionStart: true
-            },
-          })
-        },
-        initial: function () {
-          this.swiper();
-          this.feture();
+    <!-- js -->
+    <script type="text/javascript" src="http://image.tanwan.com/jsCommon/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="./js/clipboard.min.js?v=2.0.4"></script>
+    <script type="text/javascript" src="./js/swiper.min.js?v=5.2.0"></script>
+    <script>
+      $(function () {
+        var activeCls = 'active';
+        function showTip(str) {
+          var $tip = $('#J_tipPop');
+          $tip.find('.jy-pop-tiptxt').text(str);
+          $tip.fadeIn();
         }
-      }
-      logic.initial();
-
-
-      // 加载FB JavaScript SDK
-      (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-          return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=2371171216532112&autoLogAppEvents=1";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-      //fb 分享點贊
-      window.fbAsyncInit = function () {
-
-        FB.init({
-          appId: 2371171216532112,
-          version: 'v3.0',
-          autoLogAppEvents: true,
-          xfbml: true,
-          status: true,
-          cookie: true    // enable cookies to allow the
+        // 弹窗
+        // 关闭弹窗
+        $('.jy-btn_pop_close,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel').on('click', function () {
+          $(this).parents('.jy-pop').fadeOut();
         });
-        FB.AppEvents.logPageView();
-        //isLikes = localStorage.isLikes;
+        $('.jy-btn-sd').on('click', function () {
+          logic.psw.slideNext();
+        });
+        // 预约
+        $('.btn-appoint').on('click', function () {
+          logic.psw.slideTo(0);
+          $('#J_ownPop').fadeIn();
+        });
+        // 登录
+        $('.btn-login').on('click', function () {
+          $('#J_ownPop').fadeIn();
+        });
+        $('.btn-submit').on('click', function () {
+          $('#J_sucPop').fadeIn();
+        });
+        // 视频
+        $('.btn-vid').on('click', function () {
+          $('#J_vidPop').fadeIn();
+        });
 
-        fb_share = function () {
-          FB.ui(
-            {
-              method: 'share',
-              href: 'https://www.tplay.com/prereg/msth/index.php?agent_id=share',
-              quote: 'Wow!Samkok เกมกลยุทธ์RPGแนวใหม่เป็นเกมบนมือถือที่ผสมผสานรูปแบบการเล่นระหว่างเกมกระดาน Card Battleกับเกมวางแผนกลยุทธ์  โดยผู้เล่นจะต้องจัดทีมตัวละครฮีโร่ เพื่อออกเดินทางผจญภัยและต่อสู้กับมอนสเตอร์ ซึ่งแต่ละตัวจะมีค่าความสามารถและสกิลที่แตกต่างกัน ทำให้ผู้เล่นต้องวางแผนเพื่อจัดทีมที่เหมาะสมกับศัตรูในแต่ละด่าน'
-            },
-            function (response) {
-              if (response && !response.error_message) {
-                fbq('track', 'ViewContent');
-                //popup_show('แชร์สำเร็จ','')
-                //  alert('Posting completed.');
-              } else {
-                //popup_show('แชร์ล้มเหลว โปรดลองใหม่',' ')
-                // alert('Error while posting.');
+        var logic = {
+          psw: null,
+          swiper: function () {
+            var psw = new Swiper('#psw', {
+              initialSlide: 0,
+              direction: 'vertical',
+              height: $(window).height(),
+              autoHeight: true,
+            });
+            this.psw = psw;
+            var startScroll, touchStart, touchCurrent;
+            psw.slides.on(
+              'touchstart',
+              function (e) {
+                startScroll = Math.ceil(this.scrollTop);
+                touchStart = e.targetTouches[0].pageY;
+              },
+              true
+            );
+            psw.slides.on(
+              'touchmove',
+              function (e) {
+                touchCurrent = e.targetTouches[0].pageY;
+                var touchesDiff = touchCurrent - touchStart;
+                var slide = this;
+                var onlyScrolling =
+                  slide.scrollHeight > slide.offsetHeight && //allow only when slide is scrollable
+                  ((touchesDiff < 0 && startScroll === 0) || //start from top edge to scroll bottom
+                    (touchesDiff > 0 && startScroll === slide.scrollHeight - slide.offsetHeight) || //start from bottom edge to scroll top
+                    (startScroll > 0 && startScroll < slide.scrollHeight - slide.offsetHeight)); //start from the middle
+                if (onlyScrolling) {
+                  e.stopPropagation();
+                }
+              },
+              true
+            );
+          },
+          feture: function () {
+            var psw = new Swiper('#pfeture', {
+              initialSlide: 0,
+              loop: true,
+              direction: 'vertical',
+              navigation: {
+                nextEl: '.btn-arrow-next',
+                prevEl: '.btn-arrow-pre',
+              },
+              lazy: {
+                loadPrevNext: true,
+                loadPrevNextAmount: 3,
+                loadOnTransitionStart: true,
+              },
+            });
+          },
+          initial: function () {
+            this.swiper();
+            this.feture();
+          },
+        };
+        logic.initial();
+
+        // 加载FB JavaScript SDK
+        (function (d, s, id) {
+          var js,
+            fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {
+            return;
+          }
+          js = d.createElement(s);
+          js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12&appId=2371171216532112&autoLogAppEvents=1';
+          fjs.parentNode.insertBefore(js, fjs);
+        })(document, 'script', 'facebook-jssdk');
+        //fb 分享點贊
+        window.fbAsyncInit = function () {
+          FB.init({
+            appId: 2371171216532112,
+            version: 'v3.0',
+            autoLogAppEvents: true,
+            xfbml: true,
+            status: true,
+            cookie: true, // enable cookies to allow the
+          });
+          FB.AppEvents.logPageView();
+          //isLikes = localStorage.isLikes;
+
+          fb_share = function () {
+            FB.ui(
+              {
+                method: 'share',
+                href: 'https://www.tplay.com/prereg/msth/index.php?agent_id=share',
+                quote:
+                  'Wow!Samkok เกมกลยุทธ์RPGแนวใหม่เป็นเกมบนมือถือที่ผสมผสานรูปแบบการเล่นระหว่างเกมกระดาน Card Battleกับเกมวางแผนกลยุทธ์  โดยผู้เล่นจะต้องจัดทีมตัวละครฮีโร่ เพื่อออกเดินทางผจญภัยและต่อสู้กับมอนสเตอร์ ซึ่งแต่ละตัวจะมีค่าความสามารถและสกิลที่แตกต่างกัน ทำให้ผู้เล่นต้องวางแผนเพื่อจัดทีมที่เหมาะสมกับศัตรูในแต่ละด่าน',
+              },
+              function (response) {
+                if (response && !response.error_message) {
+                  fbq('track', 'ViewContent');
+                  //popup_show('แชร์สำเร็จ','')
+                  //  alert('Posting completed.');
+                } else {
+                  //popup_show('แชร์ล้มเหลว โปรดลองใหม่',' ')
+                  // alert('Error while posting.');
+                }
               }
-            }
-          );
-        }
-      };
+            );
+          };
+        };
 
-      $('.fb-share-btn').click(function () {
-        fb_share();
+        $('.fb-share-btn').click(function () {
+          fb_share();
+        });
       });
-    });
 
-    function popup_show(tit, txt) {
-      // $('').show();
-      // $('.popup-tit').html(tit);
-      // $('.popup-txt').html(txt);
-    }
+      function popup_show(tit, txt) {
+        // $('').show();
+        // $('.popup-tit').html(tit);
+        // $('.popup-txt').html(txt);
+      }
 
-    $('.btn-reg1').click(function () {
+      $('.btn-reg1').click(function () {
+        // var agent_id = '<?php echo $agent_id;?>';
+        // var os = '<?php echo $os;?>';
 
-      // var agent_id = '<?php echo $agent_id;?>';
-      // var os = '<?php echo $os;?>';
+        var areaId = 7,
+          phone = $('.phone').val(),
+          email = '';
+        var gameId = '46',
+          mark = '',
+          fb_account = '';
 
-      var areaId = 7, phone = $('.phone').val(), email = '';
-      var gameId = '46', mark = '', fb_account = '';
+        if (!chkParam(phone)) return popup_show('ลงทะเบียนล้มเหลว', 'หมายเลขโทรศัพท์มือถือไม่สามารถว่างได้');
+        if (!chkParam(email)) email = '';
+        if (!chkParam(mark)) mark = '';
+        if (!chkParam(fb_account)) fb_account = '';
 
-      if (!chkParam(phone)) return popup_show('ลงทะเบียนล้มเหลว', 'หมายเลขโทรศัพท์มือถือไม่สามารถว่างได้');
-      if (!chkParam(email)) email = '';
-      if (!chkParam(mark)) mark = '';
-      if (!chkParam(fb_account)) fb_account = '';
+        var submitPhone = $.post(
+          'https://www.tplay.com/api/prereg.php',
+          {
+            do: 'submitPhone',
+            game_id: gameId,
+            area_id: areaId,
+            phone: phone,
+            mark: mark,
+            fb_account: fb_account,
+            email: email,
+            agent_id: agent_id,
+            os: os,
+          },
+          '',
+          'json'
+        );
+        submitPhone
+          .done(function (response) {
+            console.log(response);
 
-      var submitPhone = $.post('https://www.tplay.com/api/prereg.php', {
-        'do': 'submitPhone',
-        'game_id': gameId,
-        'area_id': areaId,
-        'phone': phone,
-        'mark': mark,
-        'fb_account': fb_account,
-        'email': email,
-        'agent_id': agent_id,
-        'os': os,
-      }, '', 'json');
-      submitPhone.done(function (response) {
-        console.log(response);
+            if (response.code == 401) {
+              return popup_show('ลงทะเบียนล้มเหลว', 'หมายเลขโทรศัพท์ถูกลงทะเบียนแล้ว');
+            }
 
-        if (response.code == 401) {
-          return popup_show('ลงทะเบียนล้มเหลว', 'หมายเลขโทรศัพท์ถูกลงทะเบียนแล้ว');
-        }
+            if (response.code == 402) {
+              return popup_show('ลงทะเบียนล้มเหลว', 'หมายเลขโทรศัพท์ผิด');
+            }
 
-        if (response.code == 402) {
-          return popup_show('ลงทะเบียนล้มเหลว', 'หมายเลขโทรศัพท์ผิด');
-        }
+            if (response.code == 403) {
+              return popup_show('ลงทะเบียนล้มเหลว', 'รูปแบบEmailไม่ถูกต้อง');
+            }
 
-        if (response.code == 403) {
-          return popup_show('ลงทะเบียนล้มเหลว', 'รูปแบบEmailไม่ถูกต้อง');
-        }
+            if (response.code == 500) {
+              return popup_show('ลงทะเบียนล้มเหลว', 'เครือข่ายผิดปกติ');
+            }
+            //fb像素追蹤
+            fbq('track', 'CompleteRegistration');
 
-        if (response.code == 500) {
-          return popup_show('ลงทะเบียนล้มเหลว', 'เครือข่ายผิดปกติ');
-        }
-        //fb像素追蹤
-        fbq('track', 'CompleteRegistration');
-
-        return popup_show('ลงทะเบียนสำเร็จ', ' code รางวัลจะส่งทางโทรศัพท์มือถือ ในวันที่ 5 กันยายน  ');
-      }).fail(function (error) {
-        console.log(error);
-        return popup_show('ลงทะเบียนล้มเหลว', 'ลงทะเบียนล้มเหลว');
-      })
-    });
-  </script>
-</body>
-
+            return popup_show('ลงทะเบียนสำเร็จ', ' code รางวัลจะส่งทางโทรศัพท์มือถือ ในวันที่ 5 กันยายน  ');
+          })
+          .fail(function (error) {
+            console.log(error);
+            return popup_show('ลงทะเบียนล้มเหลว', 'ลงทะเบียนล้มเหลว');
+          });
+      });
+    </script>
+  </body>
 </html>

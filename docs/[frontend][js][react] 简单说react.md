@@ -15,9 +15,7 @@
 
 根目录下创建.babelrc
 
-{
-"presets": ["react-native-stage-0/decorator-support"]
-}
+{ "presets": ["react-native-stage-0/decorator-support"] }
 
 ## 核心概念
 

@@ -1,10 +1,10 @@
-import StepperComponent from './index.vue'
+import StepperComponent from './index.vue';
 
-const Stepper = {}
+const Stepper = {};
 
 // 注册Dialog
 Stepper.install = function (Vue) {
-  Vue.component('jy-stepper', StepperComponent)
-}
+  Vue.component('jy-stepper', StepperComponent);
+};
 
-export default Stepper
+export default Stepper;

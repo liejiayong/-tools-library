@@ -1,0 +1,23 @@
+{
+  "name": "vue-svg",
+  "author": "liejiayong <809206619@qq.com>",
+  "version": "0.0.1",
+  "homepage": "https://github.com/liejiayong/vue-svg",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liejiayong/vue-svg"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "svg-sprite-loader": "^5.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "bugs": {
+    "url": "https://github.com/liejiayong/vue-svg"
+  }
+}

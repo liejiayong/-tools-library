@@ -1,12 +1,12 @@
 {
-  "name": "vue-svg",
-  "author": "liejiayong <809206619@qq.com>",
+  "name": "vue-svgx",
+  "author": "JyLie <809206619@qq.com>",
   "version": "0.0.1",
   "homepage": "https://github.com/liejiayong/vue-svg",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/liejiayong/vue-svg"
+    "url": "git+https://github.com/liejiayong/vue-svg.git"
   },
   "scripts": {},
   "dependencies": {},
@@ -19,5 +19,8 @@
   ],
   "bugs": {
     "url": "https://github.com/liejiayong/vue-svg"
-  }
+  },
+  "description": "## Usage",
+  "keywords": [],
+  "license": "ISC"
 }

@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>demo for all util</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>demo for all util</title>
-</head>
+  <body>
+    <iframe id="ifr" src="http://www.baidu.com" frameborder="0"></iframe>
+    <script src="../iframe.js"></script>
+    <!-- <script type="module" src="../localstorage.js"></script> -->
+    <script type="module">
+      import cookie from '../cookie/index.js';
+      document.cookie = 'someCookieName=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/';
+      console.log(document.cookie);
+      console.log(cookie);
+      cookie.set('asds', '232', { expires: 0.001 });
 
-<body>
+      IframeOnClick.track(document.getElementById('ifr'), function () {
+        console.log('a click');
+      });
 
-  <!-- <script type="module" src="../localstorage.js"></script> -->
-  <script type="module">
-    import cookie from '../cookie/index.js'
-    document.cookie = "someCookieName=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
-    console.log(document.cookie)
-    console.log(cookie)
-    cookie.set('asds', '232', { expires: 0.001 })
-  </script>
-</body>
-
+      setInterval(() => {
+        IframeOnClick.checkClick();
+      }, 500);
+    </script>
+  </body>
 </html>

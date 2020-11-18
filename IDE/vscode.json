@@ -55,6 +55,7 @@
     "editor.defaultFormatter": "octref.vetur"
   },
   "sync.gist": "d6f93d4248267f8875353551c3acef8c",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   // default start
   "editor.tabSize": 4,
   "editor.lineHeight": 20,
@@ -77,7 +78,12 @@
   // 开启后可能与eslint冲突引起点击ctrl+s不保存
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    // For ESLint
+    "source.fixAll.eslint": true,
+    // For TSLint
+    "source.fixAll.tslint": true,
+    // For Stylelint
+    "source.fixAll.stylelint": true
   },
   // default end
   // eslint start

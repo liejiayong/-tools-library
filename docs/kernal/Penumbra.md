@@ -89,7 +89,7 @@
 - Proxy
   - Object.defineProperty
 - Reflect
-  - 为什么需要它?
+  - 为什么需要它? 从 Reflect 对象上可以拿到语言内部的方法.
 - map set
   - weakMap weakSet
 

@@ -108,15 +108,7 @@
       "autoFix": true
     }
   ],
-  "eslint.probe": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "html",
-    "vue",
-    "markdown"
-  ],
+  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue", "markdown"],
   "eslint.alwaysShowStatus": true,
   "eslint.packageManager": "yarn",
   // eslint end
@@ -235,9 +227,7 @@
     "autoAlready": true, // 只添加插件支持的语言以及用户通过`language`选项自定义的注释
     // 自动添加头部注释黑名单
     "prohibitAutoAdd": ["json"],
-    "prohibitItemAutoAdd": [
-      "项目的全称禁止项目自动添加头部注释, 使用快捷键自行添加"
-    ],
+    "prohibitItemAutoAdd": ["项目的全称禁止项目自动添加头部注释, 使用快捷键自行添加"],
     "wideSame": false, // 头部注释等宽设置
     "wideNum": 13, // 头部注释字段长度 默认为13
     // 头部注释第几行插入
@@ -347,11 +337,7 @@
     //   "savePath": "/css"
     // }
   ], //指定编译css的样式类型，有这四种 expanded（默认）, compact, compressed or nested
-  "liveSassCompile.settings.excludeList": [
-    "**/node_modules/**",
-    ".vscode/**",
-    "**/_*.scss"
-  ], // 指定忽略的文件,支持正则
+  "liveSassCompile.settings.excludeList": ["**/node_modules/**", ".vscode/**", "**/_*.scss"], // 指定忽略的文件,支持正则
   "liveSassCompile.settings.includeItems": ["**/_index.scss", "**/index.scss"],
   "liveSassCompile.settings.autoprefix": ["> 0.01%", "last 12 versions"], // 添加浏览器兼容性前缀，ie5.5及以上
   // liveSassCompile end

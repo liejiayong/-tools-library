@@ -6,7 +6,7 @@ SvgIcon.name = iconSymbol;
 // use object to export
 const JYSvgIconPlug = {
   install: function (Vue, opts = { name: iconSymbol, svgRequire: '' }) {
-    SvgIcon.name = opts.name;
+    // SvgIcon.name = opts.name;
     Vue.component(opts.name, SvgIcon);
   },
 };

@@ -10,11 +10,11 @@ const argv = minimist(process.argv.slice(2));
 const config = {
   input: 'index.js',
   output: {
-    name: 'VueCountup',
+    name: 'VueSVGIcon',
     exports: 'named',
     globals: {
       vue: 'Vue',
-      countup: 'countup',
+      VueSVGIcon: 'VueSVGIcon',
     },
   },
   plugins: [
@@ -30,7 +30,7 @@ const config = {
     }),
     buble(),
   ],
-  external: ['vue', 'countup'],
+  external: ['vue', 'VueSVGIcon'],
 };
 
 // Only minify browser (iife) version

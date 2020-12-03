@@ -69,8 +69,8 @@
 
 Ajax 技术诞生，改变了一切。
 
-- 2004年：Gmail
-- 2005年：Google 地图
+- 2004 年：Gmail
+- 2005 年：Google 地图
 
 前端不再是后端的模板，可以独立得到各种数据。
 
@@ -95,7 +95,7 @@ Ajax 技术促成了 Web 2.0 的诞生。
 
 前端代码变得也需要保存数据、处理数据、生成视图，这导致了前端 MVC 框架的诞生。
 
-- 2010年，Backbone.js
+- 2010 年，Backbone.js
 
 ![](./images/backbone.png)
 
@@ -122,14 +122,14 @@ Backbone 只有 M 和 V，没有 C。因为，前端 Controller 与后端不同�
 所以，前端 Controller 相对比较简单。Backbone 没有 C，只用事件来处理 UI 逻辑。
 
 ```javascript
-  var AppView = Backbone.View.extend({
-    // ...
-    events: {
-      "keypress #new-todo":  "createOnEnter",
-      "click #clear-completed": "clearCompleted",
-      "click #toggle-all": "toggleAllComplete"
-    },
-  });
+var AppView = Backbone.View.extend({
+  // ...
+  events: {
+    'keypress #new-todo': 'createOnEnter',
+    'click #clear-completed': 'clearCompleted',
+    'click #toggle-all': 'toggleAllComplete',
+  },
+});
 ```
 
 ---
@@ -148,16 +148,17 @@ Backbone 只有 M 和 V，没有 C。因为，前端 Controller 与后端不同�
 App.Router = Backbone.Router.extend({
   routes: {
     '': 'index',
-    'show': 'show'
-    },
+    show: 'show',
+  },
   index: function () {
-    $(document.body).append("调用了 Index 路由");
+    $(document.body).append('调用了 Index 路由');
   },
   show: function () {
-    $(document.body).append("调用了 Show 路由");
+    $(document.body).append('调用了 Show 路由');
   },
 });
 ```
+
 ---
 
 ## 示例：Backbone Router
@@ -194,7 +195,7 @@ App.Router = Backbone.Router.extend({
 
 > SPA = Single-page application
 
-2010年后，前端工程师从开发页面，变成了开发“前端应用”（跑在浏览器里面的应用程序）。
+2010 年后，前端工程师从开发页面，变成了开发“前端应用”（跑在浏览器里面的应用程序）。
 
 ---
 
@@ -268,7 +269,7 @@ HTML 代码
 
 ```html
 <div id="journal">
-  <input type="text" v-model="message">
+  <input type="text" v-model="message" />
   <div>{{message}}</div>
 </div>
 ```
@@ -279,8 +280,8 @@ JS 代码
 var journal = new Vue({
   el: '#journal',
   data: {
-    message: 'Your first entry'
-  }
+    message: 'Your first entry',
+  },
 });
 ```
 
@@ -309,7 +310,7 @@ var journal = new Vue({
 
 ## Node
 
-2009年，Node 项目诞生，它是服务器上的 JavaScript 运行环境。
+2009 年，Node 项目诞生，它是服务器上的 JavaScript 运行环境。
 
 Node = JavaScript + 操作系统 API
 
@@ -373,7 +374,7 @@ Node = JavaScript + 操作系统 API
 
 - 开发速度快：Native 需要重新编译才能看到结果，H5 是即时输出
 - 开发成本低：Native 需要两个开发团队，H5 只要一个
-- 快速发布：安卓 Native 新版本需要24小时，iOS 需要 3 ～ 4 天，H5 可以随时更新
+- 快速发布：安卓 Native 新版本需要 24 小时，iOS 需要 3 ～ 4 天，H5 可以随时更新
 
 ---
 

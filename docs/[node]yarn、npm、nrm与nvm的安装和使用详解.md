@@ -4,6 +4,15 @@ title: [node]yarn、npm、nrm与nvm的安装和使用详解
 
 > 持续整理中...
 
+- feat：增加一个新功能
+- fix：修复 bug
+- docs：只修改了文档
+- style：做了不影响代码含义的修改，空格、格式化、缺少分号等等
+- refactor：代码重构，既不是修复 bug，也不是新功能的修改
+- perf：改进性能的代码
+- test：增加测试或更新已有的测试
+- chore：构建或辅助工具或依赖库的更新
+
 #### 注释
 
 下面所讲的包（package），即代码模块
@@ -336,8 +345,7 @@ yarn add --save-dev <packageName>
 yarn add --save <packageName>
 ```
 
-如果出现以下错误：
-npm err! Error: connect ECONNREFUSED 127.0.0.1:8087
+如果出现以下错误： npm err! Error: connect ECONNREFUSED 127.0.0.1:8087
 
 解决办法为：npm config set proxy null
 
@@ -410,8 +418,7 @@ npm config delete https-proxy
 
 在开发过程中，随着时间的推移，开发者可能会按照了很多全局包。因为全部包的默认目录一般在系统盘，因此可以跳转默认目录，也方便以后的管理。
 
-缓存文件默认地址：C:\Users\Administrator\AppData\Roaming\npm-cache
-全局包文件默认地址：C:\Users\Administrator\AppData\Roaming\npm\node_modules
+缓存文件默认地址：C:\Users\Administrator\AppData\Roaming\npm-cache 全局包文件默认地址：C:\Users\Administrator\AppData\Roaming\npm\node_modules
 
 npm config 允许使用 set\get 来设置或查看信息。如下：
 

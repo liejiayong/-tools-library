@@ -1,6 +1,9 @@
+```
+
 http://www.qdfuns.com/notes/24610/01b6dcaafaf78da4a2b79ebcbca9e4b6.html
 
 http://www.cnblogs.com/my--sunshine/p/6872224.html
+
 第一阶段
 1、doctype 的作用。
 指出浏览器或者其他阅读程序（W3C 所发布的一个文档类型定义即 DTD）集去解释文档中的标记
@@ -439,3 +442,4 @@ d)销毁这个链表
 16.vue 的生命周期
 17.vue1 和 vue2 的区别
 18.vue2.0 作者不在更新 resource 了，你怎么看 19.了解 vuex 么？vuex 如何使用 20.了解 es6 么，简单举例几个新增的方法
+```

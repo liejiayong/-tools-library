@@ -1,11 +1,11 @@
-@import "./_const.scss";
-@import "./_mixin.scss";
+@import './_const.scss';
+@import './_mixin.scss';
 
 body {
   margin-left: auto;
   margin-right: auto;
   min-width: 1150px;
-  font: #{$fs-primary}/ 1 "fcustom", "微软雅黑";
+  font: #{$fs-primary}/ 1 'fcustom', '微软雅黑';
   color: $color-primary;
   background: $color-theme-bg;
 }
@@ -34,7 +34,7 @@ body {
   zoom: 1;
 }
 .clearfix::after {
-  content: "\0020";
+  content: '\0020';
   clear: both;
   display: block;
   height: 0;
@@ -466,9 +466,10 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 1150px;
+  width: 1200px;
   height: 100%;
   zoom: 1;
+  background: no-repeat top center;
   box-sizing: border-box;
 }
 .jy-section {
@@ -484,7 +485,7 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  width: 1150px;
+  width: 1200px;
   height: 100%;
   zoom: 1;
   background: no-repeat top center;

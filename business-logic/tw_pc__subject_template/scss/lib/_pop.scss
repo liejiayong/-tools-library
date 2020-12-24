@@ -1,17 +1,17 @@
-@import "../_const.scss";
-@import "../_mixin.scss";
+@import '../_const.scss';
+@import '../_mixin.scss';
 
 /* jy-pop */
 // bg
-$width-pop: 600px;
-$fs-body: 20px;
-$color-bg: #46291b linear-gradient(45deg, #6f2204, #753111, #6f2204);
-$color-border: #46291b;
-$color-txt: #bd9172;
+$width-pop: 560px;
+$fs-body: 16px;
+$color-bg: #390f00 linear-gradient(45deg, #390f00, #381006, #381006);
+$color-border: #390f00;
+$color-txt: #b8925d;
 
 // btn-ok
 $color-btn-txt: #fff;
-$color-btn-bg: #c70000 linear-gradient(45deg, #be0000, #c60000, #e30000);
+$color-btn-bg: #7d2818 linear-gradient(0deg, #b53f20, #7b2717, #692014);
 
 // input
 $input-width: 350px;
@@ -19,8 +19,8 @@ $input-width-label: 90px;
 $input-height: 35px;
 $input-color-bg: rgba(0, 0, 0, 0.4);
 $input-color-bg-deep: rgba(0, 0, 0, 0.6);
-$input-color-txt: #7d98ab;
-$input-color-label: #7d98ab;
+$input-color-txt: #b8925d;
+$input-color-label: #b8925d;
 $input-fs-txt: 14px;
 $input-fs-label: 16px;
 $width_btn_input_auth: 100px;
@@ -72,7 +72,7 @@ $table-height-overflow: 200px;
     top: 18px;
     width: 28px;
     height: 28px;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAABM0lEQVRIibXWS0oEMRCA4d8ecSUexXOIg65E29mK4Mq9MILXEJcOCraPEcGLeA4vICNKQRpCyKOqJ127JE2+FJWu7o2/+d4lcAZcAZ+MEy1wC7w1wAWwKwPgYATuFFgAO8BUwGvgF9gCniujgt0DE+AHOBfwBZiNgIaYjJeNW3xyE7XQGPYqC433UFcJTWIhWAPNYjFwHbSIpcAhqArLgRZUjZVADWrCJDYLYI9KPHroEbBtxbRgCp1YMQsYQ3FY6/qwKko11BxwZdnAAoYXZFBz0IIh1rq5lRXV1DCG+TV7CG7vR26zUoYlrHOfNj/Tw6FgCUuhXQ5NgVrMjMZAK2ZCQ3AopkZ9cF1MhfZgLayICnhSGcuh+/Liyx9xbcxHJfrmcCMZvgPfLtOamI8eA1/A3T+1rJJSqo6dygAAAABJRU5ErkJggg==")
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAABM0lEQVRIibXWS0oEMRCA4d8ecSUexXOIg65E29mK4Mq9MILXEJcOCraPEcGLeA4vICNKQRpCyKOqJ127JE2+FJWu7o2/+d4lcAZcAZ+MEy1wC7w1wAWwKwPgYATuFFgAO8BUwGvgF9gCniujgt0DE+AHOBfwBZiNgIaYjJeNW3xyE7XQGPYqC433UFcJTWIhWAPNYjFwHbSIpcAhqArLgRZUjZVADWrCJDYLYI9KPHroEbBtxbRgCp1YMQsYQ3FY6/qwKko11BxwZdnAAoYXZFBz0IIh1rq5lRXV1DCG+TV7CG7vR26zUoYlrHOfNj/Tw6FgCUuhXQ5NgVrMjMZAK2ZCQ3AopkZ9cF1MhfZgLayICnhSGcuh+/Liyx9xbcxHJfrmcCMZvgPfLtOamI8eA1/A3T+1rJJSqo6dygAAAABJRU5ErkJggg==')
       no-repeat center / 28px 28px;
     text-indent: -9999px;
     overflow: hidden;
@@ -150,7 +150,7 @@ $table-height-overflow: 200px;
   }
   // 内容体
   &_body {
-    padding: 40px 40px;
+    padding: 30px 40px 40px;
     text-align: center;
     // 内容体标题
     &__tit {
@@ -210,7 +210,7 @@ $table-height-overflow: 200px;
     color: $input-color-label;
     zoom: 1;
     &::after {
-      content: "\0020";
+      content: '\0020';
       clear: both;
       display: block;
       height: 0;
@@ -312,7 +312,7 @@ $table-height-overflow: 200px;
     width: ($input-width - $input-width-label);
     @include lh($input-height);
     background: $input-color-bg
-      url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC")
+      url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC')
       no-repeat center right 10px;
     color: $input-color-txt;
     // border: 1px solid #000;
@@ -343,7 +343,9 @@ $table-height-overflow: 200px;
       width: 100%;
       height: 100%;
       box-sizing: border-box;
-      background-color: $input-color-bg;
+      background: $input-color-bg
+        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAJCAYAAAALpr0TAAAAXUlEQVQYlWNkYGAQYGBg0GfADy6CZA8wMDD8J4D3gxR+IELhB2YGBgYOBgYGBwJWd8IYG/CYBpKDA5CHLmBRBBIDyaEABTT3gtggMazAAKoAhEFsvABkFap1DAwMADh8KMmMsuJnAAAAAElFTkSuQmCC')
+        no-repeat center right 10px;
       cursor: pointer;
     }
     &-content {
@@ -398,7 +400,7 @@ $table-height-overflow: 200px;
       background: rgba(0, 0, 0, 0.3);
     }
     &::-webkit-scrollbar-thumb {
-      background: #7d98ab;
+      background: #4f2d25;
       border-radius: 4px;
     }
   }
@@ -414,10 +416,17 @@ $table-height-overflow: 200px;
       // border-top: 1px solid $table-color-border;
       // border-bottom: 1px solid $table-color-border;
     }
-    tr {
-      &:not(:last-of-type) {
-        border-bottom: 1px dashed $table-color-border;
+    tbody {
+      tr {
+        // &:not(:last-of-type) {
+        //   border-bottom: 1px dashed $table-color-border;
+        // }
+        // &:first-child td {
+        // border-top: none;
+        // }
       }
+    }
+    tr {
       // &:first-child td {
       // border-top: none;
       // }
@@ -425,14 +434,14 @@ $table-height-overflow: 200px;
     td {
       // border-top: 1px solid $table-color-border;
       // border-left: 1px solid $table-color-border;
-      font-size: 20px;
+      // font-size: 14px;
       color: $table-color-txt;
       line-height: 30px;
       // text-align: left;
-      text-indent: 15px;
-      &:first-child {
-        text-align: left;
-      }
+      // text-indent: 15px;
+      // &:first-child {
+      //   text-align: left;
+      // }
     }
   }
 }
@@ -490,6 +499,7 @@ $table-height-overflow: 200px;
 //     </div>
 //   </div>
 // </div>
+
 // </li>
 //       <li class="jy-pop_inp__cell">
 //         <div class="jy-pop_inp__label">用户ID</div>

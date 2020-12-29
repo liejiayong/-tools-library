@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>text feture</title>
+  </head>
+  <body>
+    <div class="block txt-fill">文字填充效果</div>
+
+    <div class="block txt-stroke">文字描边效果</div>
+
+    <div class="block txt-shadow">文字阴影效果</div>
+
+    <div class="block txt-light">文字发光效果</div>
+
+    <div class="block txt-perspective">文字透视效果</div>
+
+    <div class="block txt-inverted">文字倒影效果</div>
+
+    <style>
+      .block {
+        display: block;
+        margin: 20px;
+        overflow: hide;
+        font-size: 28px;
+      }
+
+      .txt-fill {
+        background: linear-gradient(red, yellow, orange, black) repeat;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .txt-stroke {
+        color: #fff;
+        -webkit-text-stroke: 1px red;
+      }
+      .txt-shadow {
+        color: orange;
+        text-shadow: purple 1px 2px 3px;
+      }
+      .txt-light {
+        color: pink;
+        text-shadow: purple 0 0 8px;
+      }
+      .txt-perspective {
+        position: relative;
+        color: green;
+      }
+      .txt-perspective::before {
+        content: '文字透视效果';
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: skew(40deg, 0deg) scaleY(0.5);
+        filter: blur(1px);
+        transform-origin: 10.469px 31.8711px;
+      }
+      .txt-inverted {
+        position: relative;
+        color: rgb(237, 125, 49);
+        -webkit-box-reflect: below -13.8438px linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.13) 40%, rgb(255, 255, 255));
+      }
+    </style>
+  </body>
+</html>

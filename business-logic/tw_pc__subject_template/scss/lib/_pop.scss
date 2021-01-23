@@ -5,13 +5,13 @@
 // bg
 $width-pop: 560px;
 $fs-body: 16px;
-$color-bg: #390f00 linear-gradient(45deg, #390f00, #381006, #381006);
-$color-border: #390f00;
-$color-txt: #b8925d;
+$color-bg: #61060d linear-gradient(45deg, #61060d, #61060d, #61060d);
+$color-border: #fff8cc;
+$color-txt: #fff8cc;
 
 // btn-ok
-$color-btn-txt: #fff;
-$color-btn-bg: #7d2818 linear-gradient(0deg, #b53f20, #7b2717, #692014);
+$color-btn-txt: #66060c;
+$color-btn-bg: #ffc472 linear-gradient(0deg, #ffd89e, #ffbf6b, #ffae51);
 
 // input
 $input-width: 350px;
@@ -19,13 +19,13 @@ $input-width-label: 90px;
 $input-height: 35px;
 $input-color-bg: rgba(0, 0, 0, 0.4);
 $input-color-bg-deep: rgba(0, 0, 0, 0.6);
-$input-color-txt: #b8925d;
-$input-color-label: #b8925d;
+$input-color-txt: #fff8cc;
+$input-color-label: #fff8cc;
 $input-fs-txt: 14px;
 $input-fs-label: 16px;
 $width_btn_input_auth: 100px;
 $btn_input_auth-color-default: #adadad;
-$btn_input_auth-color-active: #27ab13;
+$btn_input_auth-color-active: #07c160;
 $input-seek-border: rgb(34, 34, 34);
 
 // table
@@ -99,16 +99,20 @@ $table-height-overflow: 200px;
   }
   // 确认按钮
   &_ok {
-    display: inline-block;
     position: relative;
-    padding: 10px 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 1em;
+    width: 120px;
     // margin-top: 18px;
-    background: $color-btn-bg;
-    color: $color-btn-txt;
     border-radius: 6px;
     // border: 1px solid #eec468;
-    vertical-align: middle;
+    text-align: center;
+    background: $color-btn-bg;
+    color: $color-btn-txt;
     font-size: 16px;
+    box-sizing: border-box;
     &:hover {
       -webkit-filter: brightness(1.1);
       filter: brightness(1.1);
@@ -151,7 +155,7 @@ $table-height-overflow: 200px;
   // 内容体
   &_body {
     padding: 30px 40px 40px;
-    text-align: center;
+    // text-align: center;
     // 内容体标题
     &__tit {
       font-size: 28px;
@@ -195,10 +199,11 @@ $table-height-overflow: 200px;
       }
       &-body {
         display: block;
-        padding: 0 5px;
+        padding: 0 1em;
+        text-align: center;
         width: 358px;
         height: $input-height;
-        font-size: 24px;
+        font-size: 20px;
         color: inherit;
         background: transparent;
       }
@@ -292,6 +297,7 @@ $table-height-overflow: 200px;
       color: $btn_input_auth-color-active;
       // border: 1px solid #8088b0;
       @include lh(inherit);
+      text-align: center;
       font-size: 14px;
       box-sizing: border-box;
       -webkit-appearance: none;
@@ -435,6 +441,7 @@ $table-height-overflow: 200px;
       // border-top: 1px solid $table-color-border;
       // border-left: 1px solid $table-color-border;
       // font-size: 14px;
+      padding: 0 1em;
       color: $table-color-txt;
       line-height: 30px;
       // text-align: left;
@@ -446,170 +453,254 @@ $table-height-overflow: 200px;
   }
 }
 
-// 完整模板
-// <div class="jy-pop active" id="J_Pop">
-// <div class="jy-pop_mask"></div>
-// <div class="jy-pop_main">
-//   <a href="javascript:;" class="jy-pop_close">关闭</a>
-//   <div class="jy-pop_head">礼包领取记录</div>
-//   <div class="jy-pop_body">
-//     <div class="jy-pop_body__tit">内容体标题</div>
-//     <div class="lh-20">
-//       <p>兑换xxx成功</p>
-//     </div>
-//     <div class="jy-pop_body__code">sdfasxpswwwww111112sadsa</div>
-//     <div class="clearfix jy-pop_body__codetie mt-10">
-//       <div class="jy-pop_body__codetie-label float_l">验证码</div>
-//       <div class="jy-pop_body__codetie-body float_l">sdfasxpswwwww111112sadsa</div>
-//     </div>
-//     <p class="lh-20">您已获得的奖品</p>
-//     <ul class="mt-20 jy-pop_inp">
-//       <li class="jy-pop_inp__cell">
-//         <div class="jy-pop_inp__label">区服类型</div>
-//         <select class="jy-pop_select">
-//           <option value="">--请选择游戏--</option>
-//         </select>
-//       </li>
-// <li class="jy-pop_inp__cell jy-pop_inp__cell-auto">
-// <div class="jy-pop_inp__label">区服类型</div>
-// <!-- <select class="jy-pop_select">
-//   <option value="">--请选择区服--</option>
-// </select> -->
-// <div class="jy-pop_select_seek tl">
-//   <div class="jy-pop_select_seek-label">--请选择区服--</div>
-//   <div class="jy-pop_select_seek-content">
-//     <div class="jy-pop_select_seek-inp clearfix">
-//       <input placeholder="请输入区服" type="text" class="float_l">
-//       <a href="javascript:;" class="jy-btn-txt jy-pop_select_seek-inp--btn float_l">搜索</a>
-//     </div>
-//     <div class="jy-pop__scrollbar jy-pop_select_seek-valbox">
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//       <div class="jy-pop_select_seek-val">区服一</div>
-//     </div>
-//   </div>
-// </div>
-
-// </li>
-//       <li class="jy-pop_inp__cell">
-//         <div class="jy-pop_inp__label">用户ID</div>
-//         <input placeholder="请输入用户ID" type="tel" class="jy-pop_inp__body">
-//       </li>
-//       <li class="jy-pop_inp__cell">
-//         <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码：</div>
-//         <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth">
-//         <a href="javascript:;" class="jy-btn jy-pop_inp__btnauth disable">获取验证码</a>
-//       </li>
-//     </ul>
-//     <div class="jy-pop__scrollbar mt-10">
-//       <table class="jy-pop__table tc">
-//         <thead>
-//           <tr>
-//             <td>奖品名称</td>
-//             <td>奖品内容</td>
-//             <td>获奖时间</td>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           <tr>
-//             <td>一代宗师称号</td>
-//             <td>贪玩SVIP</td>
-//             <td>2019.04.25</td>
-//           </tr>
-//           <tr>
-//             <td>一代宗师称号</td>
-//             <td>贪玩SVIP</td>
-//             <td>2019.04.25</td>
-//           </tr>
-//           <tr>
-//             <td>一代宗师称号</td>
-//             <td>贪玩SVIP</td>
-//             <td>2019.04.25</td>
-//           </tr>
-//           <tr>
-//             <td>一代宗师称号</td>
-//             <td>贪玩SVIP</td>
-//             <td>2019.04.25</td>
-//           </tr>
-//           <tr>
-//             <td>一代宗师称号</td>
-//             <td>贪玩SVIP</td>
-//             <td>2019.04.25</td>
-//           </tr>
-//           <tr>
-//             <td>一代宗师称号</td>
-//             <td>贪玩SVIP</td>
-//             <td>2019.04.25</td>
-//           </tr>
-//           <tr>
-//             <td>一代宗师称号</td>
-//             <td>贪玩SVIP</td>
-//             <td>2019.04.25</td>
-//           </tr>
-//           <tr>
-//             <td>一代宗师称号</td>
-//             <td>贪玩SVIP</td>
-//             <td>2019.04.25</td>
-//           </tr>
-//           <tr>
-//             <td>一代宗师称号</td>
-//             <td>贪玩SVIP</td>
-//             <td>2019.04.25</td>
-//           </tr>
-//         </tbody>
-//       </table>
-//     </div>
-//   </div>
-// </div>
-// </div>
-// <!-- 我的奖励 -->
-// <div class="jy-pop " id="J_mygiftPop">
-//   <div class="jy-pop_mask"></div>
-//   <div class="jy-pop_main">
-//     <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
-//     <div class="jy-pop_head">我的奖励</div>
-//     <div class="jy-pop_body">
-//       <div class="jy-pop__scrollbar mt-10">
-//         <table class="jy-pop__table tc lh15">
-//           <tbody>
-//             <tr>
-//               <td>神秘代言人游戏礼包*1</td>
-//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">查看</a></td>
-//             </tr>
-//             <tr>
-//               <td>终极竞猜礼包1*1</td>
-//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">待领取</a></td>
-//             </tr>
-//             <tr>
-//               <td>抱枕被*1</td>
-//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">查看</a></td>
-//             </tr>
-//             <tr>
-//               <td>神秘代言人游戏礼包*1</td>
-//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">查看</a></td>
-//             </tr>
-//             <tr>
-//               <td>终极竞猜礼包1*1</td>
-//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">待领取</a></td>
-//             </tr>
-//             <tr>
-//               <td>抱枕被*1</td>
-//               <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link">查看</a></td>
-//             </tr>
-
-//           </tbody>
-//         </table>
+//  <!-- 弹窗 -->
+//   <!-- tip -->
+//   <div class="jy-pop " id="J_tipPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main ">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">提示</div>
+//       <div class="jy-pop_body">
+//         <div class="lh-20 tc">
+//           <p>兑换xxx成功</p>
+//         </div>
 //       </div>
 //     </div>
 //   </div>
-// </div>
+
+//   <!-- 奖品查询 -->
+//   <div class="jy-pop " id="J_recordPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">礼包领取记录</div>
+//       <div class="jy-pop_body">
+//         <div class="jy-pop__scrollbar mt-10">
+//           <table class="jy-pop__table tc lh15">
+//             <thead>
+//               <tr>
+//                 <td>奖品名称</td>
+//                 <td>奖品内容</td>
+//                 <td>获奖时间</td>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//               <tr>
+//                 <td>一代宗师称号</td>
+//                 <td>贪玩SVIP</td>
+//                 <td>2019.04.25</td>
+//               </tr>
+//             </tbody>
+//           </table>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 我的奖励 -->
+//   <div class="jy-pop " id="J_mygiftPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">我的奖励</div>
+//       <div class="jy-pop_body">
+//         <div class="jy-pop__scrollbar">
+//           <table class="jy-pop__table lh15">
+//             <tbody>
+
+//               <tr>
+//                 <td>神秘代言人游戏礼包*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-code">查看</a></td>
+//               </tr>
+//               <tr>
+//                 <td>终极竞猜礼包1*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link  btn-pop-get">待领取</a></td>
+//               </tr>
+//               <tr>
+//                 <td>抱枕被*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link  btn-pop-address">填写地址</a></td>
+//               </tr>
+//               <tr>
+//                 <td>神秘代言人游戏礼包*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link btn-pop-code">查看</a></td>
+//               </tr>
+//               <tr>
+//                 <td>终极竞猜礼包1*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link  btn-pop-get">待领取</a></td>
+//               </tr>
+//               <tr>
+//                 <td>抱枕被*1</td>
+//                 <td><a href="javascript:;" class="jy-btn-txt jy-pop_btn-link  btn-pop-address">填写地址</a></td>
+//               </tr>
+
+//             </tbody>
+//           </table>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 兑换成功 -->
+//   <div class="jy-pop " id="J_codePop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main ">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">激活码</div>
+//       <div class="jy-pop_body">
+//         <input class="jy-pop_body__codetie-body btnpopcoptxt mauto" value="sdfasxpswwwww111112sadsa"></input>
+//         <a href="javascript:;" class="jy-btn-txt jy-pop_ok btnpopcop mt-30">一键复制</a>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 手机验证 -->
+//   <div class="jy-pop " id="J_authTelPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">预约首服</div>
+//       <div class="jy-pop_body">
+//         <ul class="jy-pop_inp">
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">手机号码</div>
+//             <input placeholder="请输入手机号码" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码</div>
+//             <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">验&nbsp;&nbsp;证&nbsp;&nbsp;码</div>
+//             <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth">
+//             <a href="javascript:;" class="jy-btn-txt jy-pop_inp__btnauth disable">获取验证码</a>
+//           </li>
+//         </ul>
+//         <a href="javascript:;" class="jy-btn-txt jy-pop_ok mt-30">确认提交</a>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 收获地址 -->
+//   <div class="jy-pop " id="J_addressPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">收货地址</div>
+//       <div class="jy-pop_body">
+//         <ul class="jy-pop_inp">
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">区服类型</div>
+//             <select class="jy-pop_select">
+//               <option value="">--请选择区服类型--</option>
+//             </select>
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">用户名称</div>
+//             <input placeholder="请输入用户名称" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">联系手机</div>
+//             <input placeholder="请输入联系手机" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">收货地址</div>
+//             <input placeholder="请输入收货地址" type="tel" class="jy-pop_inp__body">
+//           </li>
+//         </ul>
+//         <a href="javascript:;" class="jy-btn-txt jy-pop_ok mt-30">确认提交</a>
+//       </div>
+//     </div>
+//   </div>
+
+//   <!-- 登记信息 -->
+//   <div class="jy-pop " id="J_regPop">
+//     <div class="jy-pop_mask"></div>
+//     <div class="jy-pop_main">
+//       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
+//       <div class="jy-pop_head">信息登记</div>
+//       <div class="jy-pop_body">
+//         <ul class="jy-pop_inp">
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">游戏</div>
+//             <select class="jy-pop_select">
+//               <option value="">--请选择游戏--</option>
+//             </select>
+//           </li>
+//           <li class="jy-pop_inp__cell jy-pop_inp__cell-auto">
+//             <div class="jy-pop_inp__label">区服类型</div>
+//             <div class="jy-pop_select_seek tl">
+//               <div class="jy-pop_select_seek-label">--请选择区服--</div>
+//               <div class="jy-pop_select_seek-content">
+//                 <div class="jy-pop_select_seek-inp clearfix">
+//                   <input placeholder="请输入区服" type="text" class="float_l">
+//                   <a href="javascript:;" class="jy-btn-txt jy-pop_select_seek-inp--btn float_l">搜索</a>
+//                 </div>
+//                 <div class="jy-pop__scrollbar jy-pop_select_seek-valbox">
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                   <div class="jy-pop_select_seek-val">区服一</div>
+//                 </div>
+//               </div>
+//             </div>
+//           </li>
+
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">用户ID</div>
+//             <input placeholder="请输入用户ID" type="tel" class="jy-pop_inp__body">
+//           </li>
+//           <li class="jy-pop_inp__cell">
+//             <div class="jy-pop_inp__label">&nbsp;&nbsp;</div>
+//             <input placeholder="请输入验证码" type="tel" class="jy-pop_inp__bodyauth">
+//             <a href="javascript:;" class="jy-btn-txt jy-pop_inp__btnauth disable">获取角色</a>
+//           </li>
+//         </ul>
+//         <a href="javascript:;" class="jy-btn-txt jy-pop_ok mt-30">确认提交</a>
+//       </div>
+//     </div>
+//   </div>
+//   <!-- 弹窗end -->

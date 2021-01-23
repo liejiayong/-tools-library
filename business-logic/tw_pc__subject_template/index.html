@@ -35,25 +35,20 @@
         <!-- section- header -->
         <div class="navbar clearfix">
           <div class="navbar-body">
-            <ul class="nav-content jy-flex jy-flex-c tc float_l">
-              <li class="g-flex-5"><a href="#" class="btn-home">进入官网</a></li>
-              <li class="g-flex-5"><a href="#" class="btn-dl">下载游戏</a></li>
+            <ul class="nav-content jy-flex jy-flex-c tc ">
+              <li class="g-flex-5"><a href="#" class="btn-home jy-btn-brightness">游戏官网</a></li>
+              <li class="g-flex-5"><a href="#" class="btn-dl jy-btn-brightness">微端下载</a></li>
             </ul>
             <div class="float_l  ml-5">分享到：</div>
-            <div class="bdsharebuttonbox bdshare-button-style-20" style="width:100%" data-bd-bind="1531362208930"
-              class="float_l">
-              <a href="javascript:void(0);" target="_self" data-cmd="weixin" title="微信好友分享" class="jy-flex jy-flex-c">
-              </a>
-              <a href="javascript:void(0);" target="_self" data-cmd="tsina" title="新浪微博分享" class="jy-flex jy-flex-c">
-              </a>
-              <a href="javascript:void(0);" target="_self" data-cmd="qzone" title="QQ空间分享" class="jy-flex jy-flex-c">
-              </a>
-              <a href="javascript:void(0);" target="_self" data-cmd="sqq" title="QQ好友分享" class="jy-flex jy-flex-c">
-              </a>
-              <a href="javascript:void(0);" target="_self" data-cmd="weixin" title="朋友圈分享" class="jy-flex jy-flex-c">
-              </a>
+            <div class="bdsharebuttonbox bdshare-button-style-20" data-tag="share_1">
+              <a class="bds_weixin" data-cmd="weixin" href="#" title="微信好友分享" class=""></a>
+              <a class="bds_tsina" data-cmd="tsina" href="#" title="新浪微博分享" class=""></a>
+              <a class="bds_qzone" data-cmd="qzone" href="#" title="QQ空间分享" class=""></a>
+              <a class="bds_sqq" data-cmd="sqq" href="#" title="QQ好友分享" class=""></a>
+              <a class="bds_more" data-cmd="more">更多</a>
+              <a class="bds_count" data-cmd="count"></a>
             </div>
-            <style>
+            <!-- <style>
               .bdsharebuttonbox a,
               .bdsharebuttonbox .bds_more {
                 position: relative;
@@ -63,10 +58,10 @@
                 width: 20px;
                 height: 20px;
                 line-height: 20px;
-                background: #371200;
+                /* background: #371200; */
                 border-radius: 50%;
               }
-            </style>
+            </style> -->
           </div>
           <!-- 登录前 -->
           <div class="auth-stat">
@@ -79,10 +74,10 @@
             <a href="javascript:;" class="jy-btn-txt btn-logout">退出</a>
             <a href="javascript:;" class="jy-btn-txt btn-mygift">我的奖励</a>
           </div>
-          <div class="navbar-btn-stat"></div>
+
         </div>
 
-        <div class="logo"></div>
+        <a href="#" class="c-logo"><img src="" alt="logo"></a>
 
         <div class="time tc">活动时间：9月13日-9月17日</div>
 
@@ -129,9 +124,14 @@
       </div>
     </div>
 
+    <div class="jdot-content">
+      <i class="ico-jlottery"><a href="javascript:;" class="jy-btn btn-dot-i i-dot-6"></a></i>
+      <a href="javascript:;" class="jy-btn-txt btn-jdot active"><i></i>点击摇骰子</a>
+    </div>
+
   </div>
 
-  <!-- 弹窗 -->
+ <!-- 弹窗 -->
   <!-- tip -->
   <div class="jy-pop " id="J_tipPop">
     <div class="jy-pop_mask"></div>
@@ -139,7 +139,7 @@
       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
       <div class="jy-pop_head">提示</div>
       <div class="jy-pop_body">
-        <div class="lh-20">
+        <div class="lh-20 tc">
           <p>兑换xxx成功</p>
         </div>
       </div>
@@ -222,8 +222,8 @@
       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
       <div class="jy-pop_head">我的奖励</div>
       <div class="jy-pop_body">
-        <div class="jy-pop__scrollbar mt-10">
-          <table class="jy-pop__table tc lh15">
+        <div class="jy-pop__scrollbar">
+          <table class="jy-pop__table lh15">
             <tbody>
 
               <tr>
@@ -263,7 +263,7 @@
     <div class="jy-pop_mask"></div>
     <div class="jy-pop_main ">
       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
-      <div class="jy-pop_head">温馨提示</div>
+      <div class="jy-pop_head">激活码</div>
       <div class="jy-pop_body">
         <input class="jy-pop_body__codetie-body btnpopcoptxt mauto" value="sdfasxpswwwww111112sadsa"></input>
         <a href="javascript:;" class="jy-btn-txt jy-pop_ok btnpopcop mt-30">一键复制</a>
@@ -303,7 +303,7 @@
     <div class="jy-pop_mask"></div>
     <div class="jy-pop_main">
       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
-      <div class="jy-pop_head">收获地址</div>
+      <div class="jy-pop_head">收货地址</div>
       <div class="jy-pop_body">
         <ul class="jy-pop_inp">
           <li class="jy-pop_inp__cell">
@@ -362,11 +362,6 @@
                   <div class="jy-pop_select_seek-val">区服一</div>
                   <div class="jy-pop_select_seek-val">区服一</div>
                   <div class="jy-pop_select_seek-val">区服一</div>
-                  <div class="jy-pop_select_seek-val">区服一</div>
-                  <div class="jy-pop_select_seek-val">区服一</div>
-                  <div class="jy-pop_select_seek-val">区服一</div>
-                  <div class="jy-pop_select_seek-val">区服一</div>
-                  <div class="jy-pop_select_seek-val">区服一</div>
                 </div>
               </div>
             </div>
@@ -396,16 +391,6 @@
   <!-- <script type="text/javascript" src="./js/jquery.SuperSlide.js?v=2.1.1"></script> -->
   <!-- <script type="text/javascript" src="./js/danmu.js"></script> -->
   <script type="text/javascript" src="./js/index.js"></script>
-  <script type="text/javascript">
-    ; $(function () {
-      var activeCls = 'active';
-
-      // 领取礼包
-      $('.btn-get').on('click', function () {
-        $('#J_recharge').fadeIn();
-      });
-    });
-  </script>
 
   <!-- footer css -->
   <style>
@@ -446,7 +431,7 @@
       height: 76px;
     }
   </style>
-  <script>window._bd_share_config={common:{bdText:'蓝月传奇',bdDesc:'蓝月传奇',bdUrl:'',bdPic:'',bdSign:'',bdMini:1,bdMiniList:['weixin','tsina','qzone','sqq'],onBeforeClick:function(cmd,config){},onAfterClick:function(cmd){},bdPopupOffsetLeft:1,bdPopupOffsetTop:1,},share:[{tag:'share_1',bdSize:32,bdCustomStyle:'',},],image:[{tag:'share_1',viewType:'list',viewPos:'top',viewColor:'black',viewSize:'16',viewList:['weixin','tsina','qzone','sqq'],},],selectShare:[{bdSelectMiniList:['weixin','tsina','qzone','sqq'],bdContainerClass:'bd_selectShare',},],};with(document)(0)[((getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5))];</script>
+  <script>window._bd_share_config={common:{bdText:'',bdDesc:'',bdUrl:'',bdPic:'',bdSign:'',bdMini:1,bdMiniList:['weixin','tsina','qzone','sqq'],onBeforeClick:function(cmd,config){},onAfterClick:function(cmd){},bdPopupOffsetLeft:1,bdPopupOffsetTop:1,},share:[{tag:'share_1',bdSize:16,bdCustomStyle:'',},],image:[{tag:'share_1',viewType:'list',viewPos:'top',viewColor:'black',viewSize:'16',viewList:['weixin','tsina','qzone','sqq'],},],selectShare:[{bdSelectMiniList:['weixin','tsina','qzone','sqq'],bdContainerClass:'bd_selectShare',},],};with(document)(0)[((getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5))];</script>
 </body>
 
 </html>

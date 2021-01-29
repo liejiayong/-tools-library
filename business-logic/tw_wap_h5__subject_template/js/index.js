@@ -4,12 +4,12 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-01-27 17:26:08
+ * @LastEditTime: 2021-01-28 16:40:53
  * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
  */
 
 var logic = null;
-var jyBus = {
+var jtool = {
   imgPath: './img/', // 图片地址
   audioPath: './media/', // 音乐地址
   activeCls: 'active',
@@ -284,12 +284,15 @@ var jyBus = {
           cbProcess(this);
         });
         loader.start();
+        jtool.$window.winFixed();
       };
     })(),
     open: function () {
+      jtool.$window.winFixed();
       $('#pagePreload').fadeIn();
     },
     close: function () {
+      jtool.$window.winReset();
       $('#pagePreload').fadeOut();
     },
   },
@@ -364,12 +367,12 @@ var jyBus = {
       if (audio.paused) {
         audio.play();
         console.log(label, audio.paused);
-        if (!audio.paused) btnAudio.addClass(jyBus.activeCls);
+        if (!audio.paused) btnAudio.addClass(jtool.activeCls);
         else {
-          btnAudio.addClass(jyBus.activeCls);
+          btnAudio.addClass(jtool.activeCls);
         }
       } else {
-        btnAudio.addClass(jyBus.activeCls);
+        btnAudio.addClass(jtool.activeCls);
       }
     }
     play('initial');
@@ -396,19 +399,19 @@ var jyBus = {
       //     audio.play().catch(function () {
       //       audio.play();
       //       console.log('promise', audio.paused);
-      //       if (!audio.paused) btnAudio.addClass(jyBus.activeCls);
+      //       if (!audio.paused) btnAudio.addClass(jtool.activeCls);
       //       else {
-      //         btnAudio.addClass(jyBus.activeCls);
+      //         btnAudio.addClass(jtool.activeCls);
       //       }
       //     });
       //   }
       btnAudio.on('click', function () {
-        if ($(this).hasClass(jyBus.activeCls)) {
+        if ($(this).hasClass(jtool.activeCls)) {
           audio.pause();
-          $(this).removeClass(jyBus.activeCls);
+          $(this).removeClass(jtool.activeCls);
         } else {
           audio.play();
-          $(this).addClass(jyBus.activeCls);
+          $(this).addClass(jtool.activeCls);
         }
       });
     }, 20);
@@ -469,20 +472,20 @@ var jyBus = {
 // }
 // preinstall the code
 $(function () {
-  // jyBus.preload.init('./img/', [], function () {
+  // jtool.preload.init('./img/', [], function () {
   //   console.log('preload finish...')
-  //   jyBus.preload.close();
-  //   jyBus.navTo('.section-1');
+  //   jtool.preload.close();
+  //   // jtool.navTo('.section-1');
   // }, function (install) {
   //   var prsnum = install.processNum;
   //   $('#ploadingPro').html(prsnum + "%");
   //   console.log('preload process...', prsnum)
   // });
-  // jyBus.swiper('#psw');
-  jyBus.tip.screen();
-  jyBus.elementCopy();
-  jyBus.pop.picker();
-  jyBus.pop.btnAuth('.jy-pop_input_cell-auth');
+  // jtool.swiper('#psw');
+  jtool.tip.screen();
+  jtool.elementCopy();
+  jtool.pop.picker();
+  jtool.pop.btnAuth('.jy-pop_input_cell-auth');
   var queryTest = window.location.href;
   if (queryTest.indexOf('debug=jylie') > -1) new VConsole();
   // 只复位到顶部
@@ -504,7 +507,7 @@ $(function () {
   // 弹窗
   // 关闭弹窗
   $('.jy-pop_btn_close,.jy-pop_mask--clickable,.jy-pop_picker_btn--cancel').on('click', function () {
-    jyBus.$window.winReset();
+    jtool.$window.winReset();
     $(this).parents('.jy-pop').fadeOut();
   });
 });
@@ -513,7 +516,7 @@ $(function () {
 $(function () {
   // selector
   $('#jyPopPicker').on('click', 'li', function () {
-    $(this).addClass(jyBus.activeCls).siblings().removeClass(jyBus.activeCls);
+    $(this).addClass(jtool.activeCls).siblings().removeClass(jtool.activeCls);
   });
   $('#jyCallPicker').on('click', function () {
     $('#J_selectorPop').fadeIn();
@@ -542,7 +545,7 @@ $(function () {
   });
   // 回到首页
   $('.btn-pop-nav-home,.btn-nav-home').on('click', function () {
-    jyBus.navTo('.section-1');
+    jtool.navTo('.section-1');
   });
 
   // game logic
@@ -608,7 +611,7 @@ $(function () {
         count = 3,
         $popReady = $('#J_gameReadyPop'),
         $count = $popReady.find('#gameReadyCount');
-      jyBus.navTo('.section-2');
+      jtool.navTo('.section-2');
       $popReady.fadeIn();
       $count.text(count);
 
@@ -653,15 +656,15 @@ $(function () {
 
 // $(function () {
 //   // test touchMove
-//   jyBus.touchMove.addListener('.section-1')
-//   // jyBus.touchMove.addListener('.section-2')
+//   jtool.touchMove.addListener('.section-1')
+//   // jtool.touchMove.addListener('.section-2')
 //   setTimeout(() => {
-//     jyBus.touchMove.prevent('.section-1', function (e) {
+//     jtool.touchMove.prevent('.section-1', function (e) {
 //       console.log('0000000000', e)
 //     })
 //   }, 3000);
 //   setTimeout(() => {
-//     jyBus.touchMove.reset('.section-1', function (e) {
+//     jtool.touchMove.reset('.section-1', function (e) {
 //       console.log('111111111', e)
 //     })
 //   }, 6000);

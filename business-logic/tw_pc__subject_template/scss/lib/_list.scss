@@ -1,5 +1,5 @@
-@import "../_const.scss";
-@import "../_mixin.scss";
+@import '../_const.scss';
+@import '../_mixin.scss';
 
 $width-padding: 33px;
 $width-label: 20px;
@@ -11,12 +11,16 @@ $width-label: 20px;
   // width: 740px;
   .tit {
     display: inline-block;
-    font-size: 18px;
-    padding: 0 15px;
-    border: 1px solid #b3905d;
-    border-radius: 30px;
-    @include lh(30px);
-    background: #25272a;
+    padding: 0 0 0 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffcf97;
+    // font-size: 18px;
+    // padding: 0 15px;
+    // border: 1px solid #b3905d;
+    // border-radius: 30px;
+    // @include lh(30px);
+    // background: #25272a;
     // padding-bottom: 10px;
   }
   .msg-content {
@@ -51,14 +55,14 @@ $width-label: 20px;
       i {
         position: absolute;
         left: 0;
-        top: 5px;
+        top: 4px;
         text-align: center;
         width: $width-label;
         height: $width-label;
         line-height: $width-label;
         font-size: 14px;
-        color: #8997af;
-        background:#3a414e;
+        color: #ffcf97;
+        background: #831c16;
         border-radius: 50%;
       }
       span {

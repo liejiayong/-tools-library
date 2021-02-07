@@ -5,13 +5,13 @@
 // bg
 $width-pop: 560px;
 $fs-body: 16px;
-$color-bg: #61060d linear-gradient(45deg, #61060d, #61060d, #61060d);
-$color-border: #fff8cc;
+$color-bg: #831c15 linear-gradient(0, #831c15, #61060d);
+$color-border: #600700;
 $color-txt: #fff8cc;
 
 // btn-ok
-$color-btn-txt: #66060c;
-$color-btn-bg: #ffc472 linear-gradient(0deg, #ffd89e, #ffbf6b, #ffae51);
+$color-btn-txt: #ffde9e;
+$color-btn-bg: #ab231f linear-gradient(0deg, #ab231f, #ab120e, #9d0f0b);
 
 // input
 $input-width: 350px;
@@ -140,10 +140,10 @@ $table-height-overflow: 200px;
     background: $color-bg;
     color: $color-txt;
     font-size: $fs-body;
-    // border: 1px solid $color-border;
+    border: 2px solid $color-border;
     -webkit-animation: zoom 0.6s ease;
     animation: zoom 0.6s ease;
-    border-radius: 20px;
+    border-radius: 12px;
   }
   // 主体标题
   &_head {
@@ -461,7 +461,7 @@ $table-height-overflow: 200px;
 //       <a href="javascript:;" class="jy-btn jy-pop_close btn-pop-close">关闭</a>
 //       <div class="jy-pop_head">提示</div>
 //       <div class="jy-pop_body">
-//         <div class="lh-20 tc">
+//         <div class="lh-20 tc" id="popTipNorm">
 //           <p>兑换xxx成功</p>
 //         </div>
 //       </div>

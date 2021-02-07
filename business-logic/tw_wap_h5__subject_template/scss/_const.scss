@@ -1,5 +1,5 @@
 // 样式归属前缀
-$prefix: "jy";
+$prefix: '.jy';
 
 // font-size
 $fs-primary: 0.24rem;
@@ -12,8 +12,7 @@ $main-width: 6.9rem;
 
 // color
 // 主题色定义
-$color-theme-bg: #9a3116
-  linear-gradient(red, orange, yellow, green, blue, pink, purple); // 默认主题背景颜色
+$color-theme-bg: #9a3116 linear-gradient(red, orange, yellow, green, blue, pink, purple, red); // 默认主题背景颜色
 $color-theme-txt: #ffecd9; // 默认主题字体颜色,与$color-primary一样
 
 // 默认颜色定义

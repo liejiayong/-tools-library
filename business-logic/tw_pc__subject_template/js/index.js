@@ -10,7 +10,7 @@ var jtool = {
   disableCls: 'disable',
   activeCls: 'active',
   showTip: function (html, cls) {
-    cls = cls || '#popTips';
+    cls = cls || '#popTipNorm';
     var $tip = $('#J_tipPop');
     $tip.find(cls).html(html);
     $tip.fadeIn();
@@ -216,6 +216,9 @@ $(function () {
   });
   $('.btn-mygift').on('click', function () {
     $('#J_mygiftPop').fadeIn();
+  });
+  $('.btn-info').on('click', function () {
+    $('#J_regPop').fadeIn();
   });
 
   // // 摇骰子

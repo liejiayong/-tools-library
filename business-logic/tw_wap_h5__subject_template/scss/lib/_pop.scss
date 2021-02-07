@@ -1,25 +1,29 @@
 @import '../_const.scss';
 @import '../_mixin.scss';
 
-$bg: #a3e0ff;
-$bg-tit: linear-gradient(#656a9b, #747aae);
+$prefixPop: #{$prefix}-pop;
+$bg: #df3d38;
+$bg-tit: #df3d38 linear-gradient(#f02822, #df3d38);
+$bg-norm: rgba(0, 0, 0, 0.2);
 
-$color: #22619c;
-$color-tit: #d0eefd;
+$color: #fdf1ae;
+$color-tit: #fdf1ae;
 
 $fs: 0.24rem;
 $fs-tit: 0.36rem;
 
 $width: 6.3rem;
-$max-height: 7rem;
-$main-border-radius: 0rem;
+$min-height: 2rem;
+$max-height: 8rem;
+$line-height-norm: 1.28;
+$main-border-radius: 0.12rem;
 
 $input-select-height: 0.6rem;
 $input-select-cell-gutter: 0.16rem;
 $input-select-cell-radius: 0.12rem;
 
 // 外框
-.#{$prefix}-pop {
+#{$prefixPop} {
   display: none;
   position: fixed;
   top: 0;
@@ -55,7 +59,7 @@ $input-select-cell-radius: 0.12rem;
     top: 20%;
     z-index: 20;
     width: $width;
-    max-height: $max-height;
+    min-height: $min-height;
     // border: 0.03rem solid $bg-border;
     border-radius: $main-border-radius;
     font-size: $fs;
@@ -72,20 +76,22 @@ $input-select-cell-radius: 0.12rem;
   &_main_header {
     $height: 0.7rem;
 
-    // padding-top: 0;
+    position: relative;
+    padding: 0.2rem 0;
     // margin-top: 0;
     margin-left: auto;
     margin-right: auto;
-    // border-radius: $main-border-radius $main-border-radius 0 0;
-    width: inherit;
+    // width: inherit;
     // @include lh($height);
-    line-height: $height;
+    // @include nowrap();
+    line-height: $line-height-norm;
     text-align: center;
+    // border-radius: $main-border-radius $main-border-radius 0 0;
     font-weight: bold;
     font-size: $fs-tit;
     color: $color-tit;
     background: $bg-tit;
-    @include nowrap();
+    pointer-events: none;
   }
   &_main_header__pad {
     $width: 0.4rem;
@@ -93,43 +99,46 @@ $input-select-cell-radius: 0.12rem;
 
     position: relative;
     display: inline-block;
-    &::before {
-      content: '★';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: -($width + 0.06rem);
-      width: $width;
-      height: $height;
-      z-index: 1;
-    }
-    &::after {
-      content: '★';
-      display: block;
-      position: absolute;
-      top: 0;
-      right: -($width + 0.06rem);
-      width: $width;
-      height: $height;
-      z-index: 1;
-    }
+    // &::before {
+    //   content: '★';
+    //   display: block;
+    //   position: absolute;
+    //   top: 0;
+    //   left: -($width + 0.06rem);
+    //   width: $width;
+    //   height: $height;
+    //   z-index: 1;
+    // }
+    // &::after {
+    //   content: '★';
+    //   display: block;
+    //   position: absolute;
+    //   top: 0;
+    //   right: -($width + 0.06rem);
+    //   width: $width;
+    //   height: $height;
+    //   z-index: 1;
+    // }
   }
   // 内容体
   &_body {
+    position: relative;
     margin-left: auto;
     margin-right: auto;
     width: ($width - 0.6rem);
-    padding: 0.3rem 0 0.4rem;
-    color: inherit;
+    padding: 0 0 0.5rem;
+    // color: inherit;
     // background: #fff0d6;
     // border-radius: 0 0 0.3rem 0.3rem;
     box-sizing: border-box;
   }
   &_body-auto {
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    padding: 0.3rem 0 0.4rem;
-    color: inherit;
+    width: ($width - 0.6rem);
+    padding: 0 0 0.5rem;
+    // color: inherit;
     // background: #fff0d6;
     // border-radius: 0 0 0.3rem 0.3rem;
     box-sizing: border-box;
@@ -159,17 +168,18 @@ $input-select-cell-radius: 0.12rem;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 0.24rem;
+    padding: 0.12rem 0.24rem;
     width: 2.2rem;
-    @include lh($height);
+    // @include lh($height);
     text-align: center;
     font-size: 0.28rem;
-    font-weight: bold;
+    // font-weight: bold;
     color: #fff;
     background: #d67029;
     border: 0.02rem solid #d67029;
     border-radius: $height;
     cursor: pointer;
+    box-sizing: border-box;
   }
   &_btn-link {
     $width: 1.3rem;
@@ -178,6 +188,7 @@ $input-select-cell-radius: 0.12rem;
     display: inline-block;
     padding: 0 0.1rem;
     min-width: $width;
+    text-align: center;
     // border: 0.02rem solid #fff;
     // border-radius: $height;
     // @include lh($height);
@@ -195,7 +206,7 @@ $input-select-cell-radius: 0.12rem;
     position: static;
     margin-left: auto;
     margin-right: auto;
-    max-height: 3.2rem;
+    max-height: $max-height;
     overflow-x: hidden;
     overflow-y: auto;
     @include scroll_chaining();
@@ -205,19 +216,26 @@ $input-select-cell-radius: 0.12rem;
   &_cdkey {
     margin-left: auto;
     margin-right: auto;
-    padding: 0.1rem 0.2rem;
+    padding: 0.1rem 1em;
     text-align: center;
-    @include lh(1.5em);
-    @include nowrap();
+    line-height: $line-height-norm;
+    // @include lh(1.5em);
+    // @include nowrap();
     overflow-x: auto;
     color: #fff;
-    background: rgba(0, 0, 0, 0.3);
+    background: $bg-norm;
   }
-
+  // 提示文本
+  &_tips {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
   // select
   &_select {
     $color: #333;
-    $bg: rgba(0, 0, 0, 0.3);
+    $bg: $bg-norm;
     $width: 100%;
     $radius: 0;
 
@@ -231,9 +249,9 @@ $input-select-cell-radius: 0.12rem;
     @include input-align(center);
     background-color: $bg;
     color: $color;
-    outline: none;
-    border: 0.02rem solid $color;
+    // border: 0.02rem solid $color;
     border-radius: $radius;
+    outline: none;
     overflow: hidden;
     box-sizing: border-box;
     cursor: pointer;
@@ -260,7 +278,7 @@ $input-select-cell-radius: 0.12rem;
     width: $width;
     @include lh($input-select-height);
     // height: $input-select-height;
-    border-radius: 0.1rem;
+    // border-radius: 0.1rem;
     &:not(:last-of-type) {
       margin-bottom: 0.2rem;
     }
@@ -287,7 +305,7 @@ $input-select-cell-radius: 0.12rem;
     @include lh($input-select-height);
     input {
       $color: #fff;
-      $bg: rgba(0, 0, 0, 0.3);
+      $bg: rgba(0, 0, 0, 0.2);
 
       padding: 0 1em;
       width: 100%;
@@ -320,17 +338,29 @@ $input-select-cell-radius: 0.12rem;
   }
 
   // table
-  $table-border: #a3e0ff;
+  $table-border: #ffa3a3;
   $tabel-cell-height: 0.6rem;
   &_table {
+    position: relative;
     margin-left: auto;
     margin-right: auto;
     // width: 5rem;
     border: 0.02rem solid $table-border;
+    border-bottom: 0;
     overflow: hidden;
+    background: $bg-norm;
+    &--center {
+      #{$prefixPop}_table_head,
+      #{$prefixPop}_table_item,
+      #{$prefixPop}_table_cell {
+        justify-content: center;
+        text-align: center;
+      }
+    }
   }
   &_table_head {
-    .jy-pop_table_cell {
+    font-weight: bold;
+    #{$prefixPop}_table_cell {
       &:not(:last-of-type) {
         border-bottom: 0.02rem solid $table-border;
         border-right: 0.02rem solid $table-border;
@@ -342,13 +372,13 @@ $input-select-cell-radius: 0.12rem;
   }
   &_table_body {
     // border-radius: 0.1rem;
-    .jy-pop_table_cell {
+    #{$prefixPop}_table_cell {
       &:not(:last-of-type) {
         border-bottom: 0.02rem solid $table-border;
         border-right: 0.02rem solid $table-border;
       }
     }
-    .jy-pop_table_cell:last-of-type {
+    #{$prefixPop}_table_cell:last-of-type {
       &:last-of-type {
         border-bottom: 0.02rem solid $table-border;
       }
@@ -357,9 +387,8 @@ $input-select-cell-radius: 0.12rem;
   &_table_head,
   &_table_item {
     display: flex;
-    align-items: center;
+    // align-items: center; // 设置center倘若两个子元素的height不同时会出现元素错乱
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.3);
     color: #fff;
     // &:nth-of-type(odd) {
     //   background: #3f94d4;
@@ -371,10 +400,13 @@ $input-select-cell-radius: 0.12rem;
     // }
   }
   &_table_cell {
-    height: $tabel-cell-height;
-    line-height: $tabel-cell-height;
-    padding: 0 0.04rem;
+    // height: $tabel-cell-height;
+    // line-height: $tabel-cell-height;
+    display: flex;
+    align-items: center;
     box-sizing: border-box;
+    line-height: $line-height-norm;
+    padding: 0.1rem 0.04rem;
     text-align: center;
     overflow-x: auto;
     overflow-y: hidden;
@@ -420,7 +452,7 @@ $input-select-cell-radius: 0.12rem;
   }
 
   // muti grid
-  $mgrid-border: 0.02rem solid #666;
+  $mgrid-border: 0.02rem solid #ffa3a3;
   &_mgrid {
     position: relative;
     margin-left: auto;
@@ -428,6 +460,7 @@ $input-select-cell-radius: 0.12rem;
     // width: 5.2rem;
     border-right: $mgrid-border;
     border-bottom: $mgrid-border;
+    background: $bg-norm;
   }
   &_mgrid-cell {
     position: relative;

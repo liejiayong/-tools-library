@@ -4,14 +4,20 @@
 body {
   margin-left: auto;
   margin-right: auto;
-  min-width: 1150px;
+  min-width: 1200px;
   font: #{$fs-primary}/ 1 'fcustom', 'Microsoft YaHei', '微软雅黑';
   color: $color-primary;
   background: $color-theme-bg;
 }
 
+.lh-13 {
+  line-height: 1.3;
+}
 .lh-15 {
   line-height: 1.5;
+}
+.lh-18 {
+  line-height: 1.8;
 }
 .lh-20 {
   line-height: 2;

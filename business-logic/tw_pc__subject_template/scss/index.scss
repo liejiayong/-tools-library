@@ -24,6 +24,11 @@
   z-index: 100;
   text-align: right;
   color: #e7a13b;
+  transition: right 0.3s linear;
+  @media screen and (max-width: 1400px) {
+    right: 5px;
+    transition: right 0.3s linear;
+  }
   .navbar-body {
     margin-left: auto;
     overflow: hidden;
@@ -33,6 +38,10 @@
   .nav-content {
     position: relative;
     padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     margin-left: auto;
     border: 1px solid #c8ac8c;
     width: 180px;
@@ -141,13 +150,37 @@
     background: url('../img/bghm.jpg') no-repeat center top;
 
     .time {
+      position: absolute;
+      top: 300px;
+      left: 300px;
       // margin: 276px 0 0 515px;
       // width: 523px;
       // @include lh(50px);
+      // line-height: 50px;
       text-align: center;
       color: #ff0000;
       font-size: 16px;
       // @include bgimgc('../img/bg-time.png');
+      z-index: 1;
+      span {
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -30px;
+          display: block;
+          width: 24px;
+        }
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: -30px;
+          display: block;
+          width: 24px;
+        }
+      }
     }
     .btn-rule {
       display: block;

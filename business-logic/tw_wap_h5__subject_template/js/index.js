@@ -4,8 +4,8 @@
  * @Author: liejiayong(809206619@qq.com)
  * @Date: 2020-06-15 11:27:17
  * @LastEditors: liejiayong(809206619@qq.com)
- * @LastEditTime: 2021-01-28 16:40:53
- * @FilePath: \tool-library\business-logic\tw_wap_h5__subject_template\js\index.js
+ * @LastEditTime: 2021-02-05 19:21:28
+ * @FilePath: \tw_wap_h5__subject_template\js\index.js
  */
 
 var logic = null;
@@ -244,7 +244,7 @@ var jtool = {
   },
   showTip: function (html) {
     var $tip = $('#J_tipPop');
-    $tip.find('.jy-pop-tiptxt').html(html);
+    $tip.find('#popTipNorm').html(html);
     $tip.fadeIn();
   },
   navTo: function (cls) {
@@ -472,7 +472,7 @@ var jtool = {
 // }
 // preinstall the code
 $(function () {
-  // jtool.preload.init('./img/', [], function () {
+  // jtool.preload.init(jtool.imgPath, [], function () {
   //   console.log('preload finish...')
   //   jtool.preload.close();
   //   // jtool.navTo('.section-1');
@@ -543,10 +543,28 @@ $(function () {
   $('.btn-pop-get').on('click', function () {
     $('#J_gamePop').fadeIn();
   });
-  // 回到首页
-  $('.btn-pop-nav-home,.btn-nav-home').on('click', function () {
-    jtool.navTo('.section-1');
-  });
+  // // 回到首页
+  // $('.btn-pop-nav-home,.btn-nav-home').on('click', function () {
+  //   jtool.navTo('.section-1');
+  // });
+  // // 概率公示
+  // $('.btn-faqs').on('click', function () {
+  //   $('#J_adverPop').fadeIn();
+  // });
+  // // 锦囊
+  // $('.btn-kit').on('click', function () {
+  //   $('#J_rulePop').fadeIn();
+  // });
+  // // 我的奖励
+  // $('.btn-mygift').on('click', function () {
+  //   $('#J_recordPop').fadeIn();
+  // });
+
+  // // 开始游戏
+  // $('.btn-start').on('click', function () {
+  //   navTo('.section-2');
+  //   $('#J_rulePop').fadeIn();
+  // });
 
   // game logic
   logic = {
@@ -557,7 +575,7 @@ $(function () {
     score: { total: 0, current: 0 },
     // 游戏结束业务
     gameResult: function () {
-      var self = this,
+      var t = this,
         score = logic.score;
       console.log('card result: ', score);
 
@@ -567,47 +585,47 @@ $(function () {
       }
       // game fail
       else {
-        $('#J_tipPop').find('.jy-pop-tiptxt').text('！再来一次吧~');
+        $('#J_tipPop').find('#popTipNorm').text('！再来一次吧~');
         $('#J_tipPop').fadeIn();
       }
     },
     gameReset: function () {
-      var self = this;
-      self.isGaming = false;
-      self.score.current = 0;
-      self.time.current = self.time.DEFAULT;
-      self.setTime();
-      clearInterval(self.timer);
+      var t = this;
+      t.isGaming = false;
+      t.score.current = 0;
+      t.time.current = t.time.DEFAULT;
+      t.setTime();
+      clearInterval(t.timer);
     },
     setTime: function () {
-      var self = this;
+      var t = this;
       var $gTime = $('#gTime'),
-        time = self.time.current;
+        time = t.time.current;
       $gTime.text(time);
     },
     gameTimer: function () {
-      var self = this;
+      var t = this;
 
       this.timer = setInterval(function () {
-        if (self.time.current == -1 || self.score.current >= self.score.total) {
-          clearInterval(self.timer);
-          self.gameResult();
+        if (t.time.current == -1 || t.score.current >= t.score.total) {
+          clearInterval(t.timer);
+          t.gameResult();
           return;
         }
 
-        self.setTime();
-        self.time.current--;
+        t.setTime();
+        t.time.current--;
       }, 1000);
     },
     run: function () {
-      var self = this;
-      if (self.isGaming) {
+      var t = this;
+      if (t.isGaming) {
         return;
       }
-      self.gameReset();
+      t.gameReset();
     },
     loadGame: function () {
-      var self = this,
+      var t = this,
         count = 3,
         $popReady = $('#J_gameReadyPop'),
         $count = $popReady.find('#gameReadyCount');
@@ -615,7 +633,7 @@ $(function () {
       $popReady.fadeIn();
       $count.text(count);
 
-      self.run();
+      t.run();
 
       var time = setInterval(function () {
         --count;
@@ -626,8 +644,8 @@ $(function () {
           $count.text('GO!');
           $popReady.fadeOut();
           $('.card-cell').removeClass(activeCls).siblings().removeClass(activeCls);
-          self.delay(function () {
-            self.gameTimer();
+          t.delay(function () {
+            t.gameTimer();
           }, 100);
         } else {
           $count.text(count);

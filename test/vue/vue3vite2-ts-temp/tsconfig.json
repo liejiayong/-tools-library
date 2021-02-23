@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": true,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "lib": ["esnext", "dom"],
+        "types": ["vite/client", "node"],
+        "baseUrl": "./",
+        "paths": {
+            "/@/*": ["src/*"]
+            //  "/@src/*": ["src/*"]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "src/types/images.d.ts",
+        "tests/**/*.ts",
+        "tests/**/*.tsx"
+    ],
+    "files": ["./src/shims-vue.d.ts", "./src/images.d.ts"]
+}
